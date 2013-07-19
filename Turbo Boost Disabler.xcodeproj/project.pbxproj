@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
+		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
+		458EDABA1799499D00940503 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 458EDAB91799499D00940503 /* main.m */; };
+		458EDABE1799499D00940503 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 458EDABC1799499D00940503 /* Credits.rtf */; };
+		458EDAC11799499D00940503 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 458EDAC01799499D00940503 /* AppDelegate.m */; };
+		458EDAC41799499E00940503 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAC21799499E00940503 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		458EDAAA1799499D00940503 /* Turbo Boost Disabler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Disabler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		458EDAAD1799499D00940503 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		458EDAB01799499D00940503 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		458EDAB11799499D00940503 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		458EDAB21799499D00940503 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		458EDAB51799499D00940503 /* Turbo Boost Disabler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Turbo Boost Disabler-Info.plist"; sourceTree = "<group>"; };
+		458EDAB71799499D00940503 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		458EDAB91799499D00940503 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		458EDABB1799499D00940503 /* Turbo Boost Disabler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Turbo Boost Disabler-Prefix.pch"; sourceTree = "<group>"; };
+		458EDABD1799499D00940503 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		458EDABF1799499D00940503 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		458EDAC01799499D00940503 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		458EDAC31799499E00940503 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		458EDAA71799499D00940503 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		458EDAA11799499D00940503 = {
+			isa = PBXGroup;
+			children = (
+				458EDAB31799499D00940503 /* Turbo Boost Disabler */,
+				458EDAAC1799499D00940503 /* Frameworks */,
+				458EDAAB1799499D00940503 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		458EDAAB1799499D00940503 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				458EDAAA1799499D00940503 /* Turbo Boost Disabler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		458EDAAC1799499D00940503 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				458EDAAD1799499D00940503 /* Cocoa.framework */,
+				458EDAAF1799499D00940503 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		458EDAAF1799499D00940503 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				458EDAB01799499D00940503 /* AppKit.framework */,
+				458EDAB11799499D00940503 /* CoreData.framework */,
+				458EDAB21799499D00940503 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
+			isa = PBXGroup;
+			children = (
+				458EDABF1799499D00940503 /* AppDelegate.h */,
+				458EDAC01799499D00940503 /* AppDelegate.m */,
+				458EDAC21799499E00940503 /* MainMenu.xib */,
+				458EDAB41799499D00940503 /* Supporting Files */,
+			);
+			path = "Turbo Boost Disabler";
+			sourceTree = "<group>";
+		};
+		458EDAB41799499D00940503 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				458EDAB51799499D00940503 /* Turbo Boost Disabler-Info.plist */,
+				458EDAB61799499D00940503 /* InfoPlist.strings */,
+				458EDAB91799499D00940503 /* main.m */,
+				458EDABB1799499D00940503 /* Turbo Boost Disabler-Prefix.pch */,
+				458EDABC1799499D00940503 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		458EDAA91799499D00940503 /* Turbo Boost Disabler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 458EDAC71799499E00940503 /* Build configuration list for PBXNativeTarget "Turbo Boost Disabler" */;
+			buildPhases = (
+				458EDAA61799499D00940503 /* Sources */,
+				458EDAA71799499D00940503 /* Frameworks */,
+				458EDAA81799499D00940503 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Turbo Boost Disabler";
+			productName = "Turbo Boost Disabler";
+			productReference = 458EDAAA1799499D00940503 /* Turbo Boost Disabler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		458EDAA21799499D00940503 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Rubén García Pérez";
+			};
+			buildConfigurationList = 458EDAA51799499D00940503 /* Build configuration list for PBXProject "Turbo Boost Disabler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 458EDAA11799499D00940503;
+			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				458EDAA91799499D00940503 /* Turbo Boost Disabler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		458EDAA81799499D00940503 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
+				458EDABE1799499D00940503 /* Credits.rtf in Resources */,
+				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		458EDAA61799499D00940503 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458EDABA1799499D00940503 /* main.m in Sources */,
+				458EDAC11799499D00940503 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		458EDAB61799499D00940503 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				458EDAB71799499D00940503 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		458EDABC1799499D00940503 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				458EDABD1799499D00940503 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		458EDAC21799499E00940503 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				458EDAC31799499E00940503 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		458EDAC51799499E00940503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		458EDAC61799499E00940503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		458EDAC81799499E00940503 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Disabler-Prefix.pch";
+				INFOPLIST_FILE = "Turbo Boost Disabler/Turbo Boost Disabler-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		458EDAC91799499E00940503 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Disabler-Prefix.pch";
+				INFOPLIST_FILE = "Turbo Boost Disabler/Turbo Boost Disabler-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		458EDAA51799499D00940503 /* Build configuration list for PBXProject "Turbo Boost Disabler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				458EDAC51799499E00940503 /* Debug */,
+				458EDAC61799499E00940503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		458EDAC71799499E00940503 /* Build configuration list for PBXNativeTarget "Turbo Boost Disabler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				458EDAC81799499E00940503 /* Debug */,
+				458EDAC91799499E00940503 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 458EDAA21799499D00940503 /* Project object */;
+}

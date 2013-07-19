@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Turbo Boost Disabler' target in the 'Turbo Boost Disabler' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
