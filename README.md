@@ -21,3 +21,12 @@ It’s installed on your Mac status bar and allows you to:
 - Enable / Disable Turbo Boost.
 - Check your CPU temp and fan speed.
 - Set it to open at login.
+
+How to install:
+====================
+
+You can download the binary application or the source code to compile it with XCode.
+
+Once downloaded/compiled, just unzip and double click on your “Turbo Boost Switcher.app”.
+
+If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
