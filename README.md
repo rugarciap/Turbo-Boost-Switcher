@@ -53,14 +53,14 @@ How to know if Turbo Boost is enabled (or not):
 
 To see the differences between having Turbo Boost enabled or not, you can do the following tasks:
 
-Install smcFanControl, a cool app that will help you to set your fan speeds to desired values.
-The simplest one, do some high demanding gaming with Turbo Boost enabled and disabled, checking the CPU temperature values and see the differences.
-You can also launch some long time high demanding tasks, like the Geekbench benchmarks app. You’ll get a lower value since Turbo Boost will not be triggered. On my Macbook Air I go from 7500 to 4000 points aprox. with Turbo Boost disabled.
-Check the MSR register for yourself (0x1a0), but that could be tricky and we’re not going to go deeper here.
+- Install smcFanControl, a cool app that will help you to set your fan speeds to desired values.
+- The simplest one, do some high demanding gaming with Turbo Boost enabled and disabled, checking the CPU temperature values and see the differences.
+- You can also launch some long time high demanding tasks, like the Geekbench benchmarks app. You’ll get a lower value since Turbo Boost will not be triggered. On my Macbook Air I go from 7500 to 4000 points aprox. with Turbo Boost disabled.
+- Check the MSR register for yourself (0x1a0), but that could be tricky and we’re not going to go deeper here.
  
 
 Thanks to:
 ===========
 
-lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
-nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
+- lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
+- nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
