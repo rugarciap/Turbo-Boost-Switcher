@@ -1,8 +1,8 @@
 //
-//  main.m
-//  Turbo Boost Disabler
+//  AboutWindowController.h
+//  Turbo Boost Switcher
 //
-//  Created by Rubén García Pérez on 19/07/13.
+//  Created by Rubén García Pérez on 22/07/13.
 //  Copyright (c) 2013 Rubén García Pérez.
 //  rugarciap.com
 //
@@ -24,7 +24,16 @@
 
 #import <Cocoa/Cocoa.h>
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
+@interface AboutWindowController : NSWindowController {
+
+    IBOutlet NSTextView *txtLicense;
+    
+    IBOutlet NSTextField *appName;
+    IBOutlet NSTextField *appCopyRight;
+    IBOutlet NSTextField *authorLink;
+    IBOutlet NSTextField *donateText;
 }
+
+- (IBAction) donateClicked:(id)sender;
+
+@end

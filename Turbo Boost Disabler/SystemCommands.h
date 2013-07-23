@@ -1,8 +1,8 @@
 //
-//  main.m
-//  Turbo Boost Disabler
+//  SystemCommands.h
+//  Turbo Boost Switcher
 //
-//  Created by Rubén García Pérez on 19/07/13.
+//  Created by Rubén García Pérez on 20/07/13.
 //  Copyright (c) 2013 Rubén García Pérez.
 //  rugarciap.com
 //
@@ -22,9 +22,30 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
+#import "smc.h"
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
+@interface SystemCommands : NSObject {
+    
 }
+
+- (BOOL) runProcess:(NSString*)scriptPath
+      withArguments:(NSArray *)arguments
+             output:(NSString **)output
+   errorDescription:(NSString **)errorDescription
+    asAdministrator:(BOOL) isAdministrator;
+
+- (BOOL) loadModule;
+
+- (BOOL) unLoadModule;
+
+- (BOOL) isModuleLoaded;
+
+- (BOOL) is32bits;
+
+- (float) readCurrentCpuTemp;
+
+- (int) readCurrentFanSpeed;
+ 
+
+@end

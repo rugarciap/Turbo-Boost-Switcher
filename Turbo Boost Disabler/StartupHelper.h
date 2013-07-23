@@ -1,8 +1,8 @@
 //
-//  main.m
-//  Turbo Boost Disabler
+//  StartupHelper.h
+//  Turbo Boost Switcher
 //
-//  Created by Rubén García Pérez on 19/07/13.
+//  Created by Rubén García Pérez on 21/07/13.
 //  Copyright (c) 2013 Rubén García Pérez.
 //  rugarciap.com
 //
@@ -22,9 +22,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
-int main(int argc, char *argv[])
-{
-    return NSApplicationMain(argc, (const char **)argv);
+@interface StartupHelper : NSObject {
+    
 }
+
++ (BOOL) isOpenAtLogin;
+
++ (void) setOpenAtLogin:(BOOL) isOpenAtLogin;
+
+
+@end
