@@ -16,6 +16,17 @@
 "about" = "Acerca de...";
 "about_title" = "Acerca de";
 "quit" = "Salir";
+"updates" = "Comprobar Actualizaciones...";
+"updates_title" = "Actualizaciones";
+
+"updates_progress" = "Comprobando si hay nuevas actualizaciones";
+"updates_available" = "Existe una nueva versión disponible!";
+"updates_not_available" = "La versión actual es la última disponible";
+"updates_error" = "Error comprobando actualizaciones";
+
+"btn_cancel" = "Cancelar";
+"btn_download" = "Descargar";
+"btn_close" = "Cerrar";
 
 "author" = "por Copyright (c) 2013 Rubén García Pérez";
 "web" = "rugarciap.com";

@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4516CCF7192C12B4008A29A3 /* CheckUpdatesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4516CCF5192C12B4008A29A3 /* CheckUpdatesWindowController.m */; };
+		4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */; };
+		452252CA192D6801002BACF4 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C8192D6801002BACF4 /* icon_cancel.png */; };
+		452252CB192D6801002BACF4 /* icon_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C9192D6801002BACF4 /* icon_ok.png */; };
 		4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560CC51179D2397003F3D19 /* AboutWindowController.m */; };
 		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
+		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
+		4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0718F208EE00117CD8 /* ServiceManagement.framework */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
 		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
 		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
@@ -28,9 +34,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4516CCF4192C12B4008A29A3 /* CheckUpdatesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckUpdatesWindowController.h; sourceTree = "<group>"; };
+		4516CCF5192C12B4008A29A3 /* CheckUpdatesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckUpdatesWindowController.m; sourceTree = "<group>"; };
+		4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckUpdatesWindowController.xib; sourceTree = "<group>"; };
+		452252C8192D6801002BACF4 /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
+		452252C9192D6801002BACF4 /* icon_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ok.png; sourceTree = "<group>"; };
 		4560CC50179D2397003F3D19 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4560CC51179D2397003F3D19 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
+		4562AE0518F1A54600117CD8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4562AE0718F208EE00117CD8 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
 		458EDAAA1799499D00940503 /* Turbo Boost Switcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Switcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,8 +65,8 @@
 		45A5718E179D533900D91EEE /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
 		45A57192179DC58500D91EEE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		45A5719A179DDF0F00D91EEE /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
-		45A571A5179DE90D00D91EEE /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		45A571AB179DEB3B00D91EEE /* es */ = {isa = PBXFileReference; lastKnownFileType = file; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45A571A5179DE90D00D91EEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45A571AB179DEB3B00D91EEE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.32bits.kext; sourceTree = "<group>"; };
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
@@ -65,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */,
+				4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */,
 				45A51DAE179B4E7000EEF333 /* IOKit.framework in Frameworks */,
 				458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */,
 			);
@@ -93,6 +108,8 @@
 		458EDAAC1799499D00940503 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4562AE0718F208EE00117CD8 /* ServiceManagement.framework */,
+				4562AE0518F1A54600117CD8 /* Security.framework */,
 				45A51DAD179B4E7000EEF333 /* IOKit.framework */,
 				458EDAAD1799499D00940503 /* Cocoa.framework */,
 				458EDAAF1799499D00940503 /* Other Frameworks */,
@@ -128,6 +145,9 @@
 				4560CC52179D2397003F3D19 /* AboutWindowController.xib */,
 				45A571A6179DE90D00D91EEE /* Localizable.strings */,
 				45A5719A179DDF0F00D91EEE /* License.rtf */,
+				4516CCF4192C12B4008A29A3 /* CheckUpdatesWindowController.h */,
+				4516CCF5192C12B4008A29A3 /* CheckUpdatesWindowController.m */,
+				4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */,
 			);
 			path = "Turbo Boost Disabler";
 			sourceTree = "<group>";
@@ -146,6 +166,8 @@
 		45FC71C8179ACAC300A16AEC /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				452252C8192D6801002BACF4 /* icon_cancel.png */,
+				452252C9192D6801002BACF4 /* icon_ok.png */,
 				45A57192179DC58500D91EEE /* icon.png */,
 				45A5718E179D533900D91EEE /* paypal.gif */,
 				45A5718C179D511F00D91EEE /* icon_256x256.png */,
@@ -210,7 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
+				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
 				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
+				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
+				452252CB192D6801002BACF4 /* icon_ok.png in Resources */,
 				45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */,
 				45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */,
 				4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */,
@@ -233,6 +258,7 @@
 				458EDABA1799499D00940503 /* main.m in Sources */,
 				458EDAC11799499D00940503 /* AppDelegate.m in Sources */,
 				45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */,
+				4516CCF7192C12B4008A29A3 /* CheckUpdatesWindowController.m in Sources */,
 				457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */,
 				4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */,
 			);

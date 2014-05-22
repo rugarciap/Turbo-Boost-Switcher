@@ -42,7 +42,9 @@
 }
 
 - (IBAction) donateClicked:(id)sender {
+    
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WGDEE4ZZ27Y68"]];
+
 }
 
 - (void)windowDidLoad

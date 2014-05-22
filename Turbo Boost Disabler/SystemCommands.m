@@ -32,7 +32,22 @@
 
 #include "smc.h"
 
+#import <ServiceManagement/ServiceManagement.h>
+#import <Security/Authorization.h>
+
 static io_connect_t conn;
+#define KEY_INFO_CACHE_SIZE 100
+struct {
+    UInt32 key;
+    SMCKeyData_keyInfo_t keyInfo;
+} g_keyInfoCache[KEY_INFO_CACHE_SIZE];
+
+int g_keyInfoCacheCount = 0;
+OSSpinLock g_keyInfoSpinLock = 0;
+static NSArray *allSensors = nil;
+
+kern_return_t SMCCall2(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure, io_connect_t conn);
+
 
 UInt32 _strtoul(char *str, int size, int base)
 {
@@ -44,7 +59,7 @@ UInt32 _strtoul(char *str, int size, int base)
         if (base == 16)
             total += str[i] << (size - 1 - i) * 8;
         else
-            total += (unsigned char) (str[i] << (size - 1 - i) * 8);
+            total += ((unsigned char) (str[i]) << (size - 1 - i) * 8);
     }
     return total;
 }
@@ -59,14 +74,14 @@ void _ultostr(char *str, UInt32 val)
             (unsigned int) val);
 }
 
-kern_return_t SMCOpen(void)
+kern_return_t SMCOpen(io_connect_t *conn)
 {
     kern_return_t result;
     mach_port_t   masterPort;
     io_iterator_t iterator;
     io_object_t   device;
     
-    result = IOMasterPort(MACH_PORT_NULL, &masterPort);
+	IOMasterPort(MACH_PORT_NULL, &masterPort);
     
     CFMutableDictionaryRef matchingDictionary = IOServiceMatching("AppleSMC");
     result = IOServiceGetMatchingServices(masterPort, matchingDictionary, &iterator);
@@ -84,7 +99,7 @@ kern_return_t SMCOpen(void)
         return 1;
     }
     
-    result = IOServiceOpen(device, mach_task_self(), 0, &conn);
+    result = IOServiceOpen(device, mach_task_self(), 0, conn);
     IOObjectRelease(device);
     if (result != kIOReturnSuccess)
     {
@@ -95,37 +110,68 @@ kern_return_t SMCOpen(void)
     return kIOReturnSuccess;
 }
 
-kern_return_t SMCClose()
+kern_return_t SMCClose(io_connect_t conn)
 {
     return IOServiceClose(conn);
 }
 
-
-kern_return_t SMCCall(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure)
+kern_return_t SMCCall2(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure,io_connect_t conn)
 {
     size_t   structureInputSize;
     size_t   structureOutputSize;
-    
     structureInputSize = sizeof(SMCKeyData_t);
     structureOutputSize = sizeof(SMCKeyData_t);
     
-#if MAC_OS_X_VERSION_10_5
-    return IOConnectCallStructMethod( conn, index,
-                                     // inputStructure
-                                     inputStructure, structureInputSize,
-                                     // ouputStructure
-                                     outputStructure, &structureOutputSize );
-#else
-    return IOConnectMethodStructureIStructureO( conn, index,
-                                               structureInputSize, /* structureInputSize */
-                                               &structureOutputSize,   /* structureOutputSize */
-                                               inputStructure,        /* inputStructure */
-                                               outputStructure);       /* ouputStructure */
-#endif
-    
+    return IOConnectCallStructMethod(conn, index, inputStructure, structureInputSize, outputStructure, &structureOutputSize);
 }
 
-kern_return_t SMCReadKey(UInt32Char_t key, SMCVal_t *val)
+// Provides key info, using a cache to dramatically improve the energy impact of smcFanControl
+kern_return_t SMCGetKeyInfo(UInt32 key, SMCKeyData_keyInfo_t* keyInfo, io_connect_t conn)
+{
+    SMCKeyData_t inputStructure;
+    SMCKeyData_t outputStructure;
+    kern_return_t result = kIOReturnSuccess;
+    int i = 0;
+    
+    OSSpinLockLock(&g_keyInfoSpinLock);
+    
+    for (; i < g_keyInfoCacheCount; ++i)
+    {
+        if (key == g_keyInfoCache[i].key)
+        {
+            *keyInfo = g_keyInfoCache[i].keyInfo;
+            break;
+        }
+    }
+    
+    if (i == g_keyInfoCacheCount)
+    {
+        // Not in cache, must look it up.
+        memset(&inputStructure, 0, sizeof(inputStructure));
+        memset(&outputStructure, 0, sizeof(outputStructure));
+        
+        inputStructure.key = key;
+        inputStructure.data8 = SMC_CMD_READ_KEYINFO;
+        
+        result = SMCCall2(KERNEL_INDEX_SMC, &inputStructure, &outputStructure, conn);
+        if (result == kIOReturnSuccess)
+        {
+            *keyInfo = outputStructure.keyInfo;
+            if (g_keyInfoCacheCount < KEY_INFO_CACHE_SIZE)
+            {
+                g_keyInfoCache[g_keyInfoCacheCount].key = key;
+                g_keyInfoCache[g_keyInfoCacheCount].keyInfo = outputStructure.keyInfo;
+                ++g_keyInfoCacheCount;
+            }
+        }
+    }
+    
+    OSSpinLockUnlock(&g_keyInfoSpinLock);
+    
+    return result;
+}
+
+kern_return_t SMCReadKey2(UInt32Char_t key, SMCVal_t *val,io_connect_t conn)
 {
     kern_return_t result;
     SMCKeyData_t  inputStructure;
@@ -136,44 +182,62 @@ kern_return_t SMCReadKey(UInt32Char_t key, SMCVal_t *val)
     memset(val, 0, sizeof(SMCVal_t));
     
     inputStructure.key = _strtoul(key, 4, 16);
-    inputStructure.data8 = SMC_CMD_READ_KEYINFO;
+    sprintf(val->key, key);
     
-    result = SMCCall(KERNEL_INDEX_SMC, &inputStructure, &outputStructure);
+    result = SMCGetKeyInfo(inputStructure.key, &outputStructure.keyInfo, conn);
     if (result != kIOReturnSuccess)
+    {
         return result;
+    }
     
     val->dataSize = outputStructure.keyInfo.dataSize;
     _ultostr(val->dataType, outputStructure.keyInfo.dataType);
     inputStructure.keyInfo.dataSize = val->dataSize;
     inputStructure.data8 = SMC_CMD_READ_BYTES;
     
-    result = SMCCall(KERNEL_INDEX_SMC, &inputStructure, &outputStructure);
+    result = SMCCall2(KERNEL_INDEX_SMC, &inputStructure, &outputStructure,conn);
     if (result != kIOReturnSuccess)
+    {
         return result;
+    }
     
     memcpy(val->bytes, outputStructure.bytes, sizeof(outputStructure.bytes));
     
     return kIOReturnSuccess;
 }
 
-double SMCGetTemperature(char *key)
+
+double SMCGetTemperature()
 {
-    SMCVal_t val;
-    kern_return_t result;
+    float c_temp;
+    if (allSensors == nil) {
+        allSensors = [[NSArray alloc] initWithObjects:@"TC0D",@"TCAH",@"TC0F",@"TC0H",@"TCBH",@"TC0P",nil];
+    }
+   
+    SMCVal_t      val;
+    NSString *sensor = [[NSUserDefaults standardUserDefaults] objectForKey:@"TSensor"];
     
-    result = SMCReadKey(key, &val);
-    if (result == kIOReturnSuccess) {
-        // read succeeded - check returned value
-        if (val.dataSize > 0) {
-            if (strcmp(val.dataType, DATATYPE_SP78) == 0) {
-                // convert fp78 value to temperature
-                int intValue = (val.bytes[0] * 256 + val.bytes[1]) >> 2;
-                return intValue / 64.0;
+    c_temp = 0.0;
+    
+    if (sensor != nil) {
+        SMCReadKey2((char*)[sensor UTF8String], &val,conn);
+        c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
+    }
+    
+    if (c_temp<=0) {
+        for (NSString *sensor in allSensors) {
+            SMCReadKey2((char*)[sensor UTF8String], &val,conn);
+            c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
+            if (c_temp>0) {
+                [[NSUserDefaults standardUserDefaults] setObject:sensor forKey:@"TSensor"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                break;
             }
         }
     }
-    // read failed
-    return 0.0;
+    
+    
+	return c_temp;
 }
 
 int SMCGetFanSpeed(char *key)
@@ -181,7 +245,7 @@ int SMCGetFanSpeed(char *key)
     SMCVal_t val;
     kern_return_t result;
     
-    result = SMCReadKey(key, &val);
+    result = SMCReadKey2(key, &val, conn);
     if (result == kIOReturnSuccess) {
         // read succeeded - check returned value
         if (val.dataSize > 0) {
@@ -199,12 +263,38 @@ int SMCGetFanSpeed(char *key)
 
 @implementation SystemCommands
 
+// New method to run task as root. Authref stored on appdelegate, created once and reused each time this
+// method is called
++ (BOOL) runTaskAsAdmin:(NSString *) path withAuthRef:(AuthorizationRef) authRef andArgs:(NSArray *) args {
+    
+    FILE *myCommunicationsPipe = NULL;
+    
+    int count = (int)[args count];
+    
+    char *myArguments[count+1];
+    
+    for (int i=0; i<[args count]; i++) {
+        myArguments[i] = (char *)[(NSString *)[args objectAtIndex:i] UTF8String];
+    }
+    myArguments[count] = NULL;
+    
+    OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
+                                                   [path UTF8String], kAuthorizationFlagDefaults, myArguments,
+                                                   &myCommunicationsPipe);
+    if (resultStatus != errAuthorizationSuccess)
+        NSLog(@"Error: %d", resultStatus);
+    
+    return YES;
+}
 
+
+// Deprecated. TODO: To be removed on next version.
 + (BOOL) runProcess:(NSString*)scriptPath
                      withArguments:(NSArray *)arguments
                             output:(NSString **)output
                   errorDescription:(NSString **)errorDescription
                    asAdministrator:(BOOL) isAdministrator{
+    
     
     NSString * allArgs = [arguments componentsJoinedByString:@" "];
     NSString * fullScript = [NSString stringWithFormat:@"%@ %@", scriptPath, allArgs];
@@ -249,6 +339,7 @@ int SMCGetFanSpeed(char *key)
     }
 }
 
+// Check if is 32 bits or not
 + (BOOL) is32bits {
 
     NSString * output = nil;
@@ -269,6 +360,7 @@ int SMCGetFanSpeed(char *key)
     
 }
 
+// Check if the module is loaded (TBS disabled) or not (TBS Enabled)
 + (BOOL) isModuleLoaded  {
     
     NSString * output = nil;
@@ -301,95 +393,73 @@ int SMCGetFanSpeed(char *key)
     } else {
         modulePath = [[NSBundle mainBundle] pathForResource:@"DisableTurboBoost.64bits" ofType:@"kext"];
     }
-    
-    return [modulePath stringByReplacingOccurrencesOfString:@" " withString:@"\\\\ "];
+    return modulePath;
+    //return [modulePath stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
 }
 
-+ (BOOL) loadModule {
++ (BOOL) loadModuleWithAuthRef:(AuthorizationRef) authRef {
     
     BOOL is32bits = [self is32bits];
  
     NSString *modulePath = [self getModulePath:is32bits];
     
-    return [self loadModuleWithPath:modulePath];
+    return [self loadModuleWithPath:modulePath andAuthRef:authRef];
 }
 
 
-+ (BOOL) unLoadModule {
++ (BOOL) unLoadModuleWithAuthRef:(AuthorizationRef) authRef {
+    
     BOOL is32bits = [self is32bits];
     
     NSString *modulePath = [self getModulePath:is32bits];
     
-    return [self unloadModuleWithPath:modulePath];
+    return [self unloadModuleWithPath:modulePath andAuthRef:authRef];
 }
 
-+ (BOOL) loadModuleWithPath:(NSString *) pathToModule {
++ (BOOL) loadModuleWithPath:(NSString *) pathToModule andAuthRef:(AuthorizationRef) authRef {
    
-    NSString * output = nil;
     NSString * processErrorDescription = nil;
     
     // sudo chown -R root:wheel %pathToModule; sudo kextutil -v %pathToModule
-    NSString *loadCommand = [NSString stringWithFormat:@"chown -R root:wheel %@;kextutil -v", pathToModule] ;
+    [self runTaskAsAdmin:@"/usr/sbin/chown" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-R", @"root:wheel", [NSString stringWithFormat:@"%@", pathToModule], nil]];
     
+    [self runTaskAsAdmin:@"/usr/bin/kextutil" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-v", [NSString stringWithFormat:@"%@", pathToModule], nil]];
     
-    BOOL success = [self runProcess:loadCommand
-                                     withArguments:[NSArray arrayWithObjects:pathToModule, nil]
-                                            output:&output
-                                  errorDescription:&processErrorDescription asAdministrator:YES];
-    NSLog(@"Loading module output: %@", output);
     if (processErrorDescription != nil) {
         NSLog(@"Error loading module: %@", processErrorDescription);
     }
-    return success;
+    return YES;
 
 }
 
-+ (BOOL) unloadModuleWithPath:(NSString *) pathToModule {
++ (BOOL) unloadModuleWithPath:(NSString *) pathToModule andAuthRef:(AuthorizationRef) authRef {
     
-    NSString * output = nil;
     NSString * processErrorDescription = nil;
     
-    // sudo kextunload -v path    
-    BOOL success = [self runProcess:@"kextunload -v"
-                                     withArguments:[NSArray arrayWithObjects:pathToModule, nil]
-                                            output:&output
-                                  errorDescription:&processErrorDescription asAdministrator:YES];
-    NSLog(@"Unloading module output: %@", output);
+    // sudo kextunload -v path
+    [self runTaskAsAdmin:@"/sbin/kextunload" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-v",[NSString stringWithFormat:@"%@", pathToModule], nil]];
+    
     if (processErrorDescription != nil) {
         NSLog(@"Error unloading module: %@", processErrorDescription);
     }
     
-    return success;
+    return YES;
 }
 
 + (float) readCurrentCpuTemp {
-    SMCOpen();
+    SMCOpen(&conn);
     
     float temp = 0;
 
-    temp = SMCGetTemperature(SMC_KEY_CPU_TEMP_1);
-    if (temp < 1) {
-        temp = SMCGetTemperature(SMC_KEY_CPU_TEMP_1);
-    }
-    if (temp < 1) {
-        temp = SMCGetTemperature(SMC_KEY_CPU_TEMP_2);
-    }
-
-    if (temp < 1) {
-        temp = SMCGetTemperature(SMC_KEY_CPU_TEMP_3);
-    }
+    temp = SMCGetTemperature();
     
-    if (temp < 1) {
-        temp = -1;
-    }
-
-    SMCClose();
+    SMCClose(conn);
     
     return temp;
 }
 
 + (int) readCurrentFanSpeed {
-    SMCOpen();
+    SMCOpen(&conn);
     
     int fanSpeed = SMCGetFanSpeed(SMC_KEY_FAN0_RPM_CUR);
     
@@ -401,7 +471,7 @@ int SMCGetFanSpeed(char *key)
         fanSpeed = -1;
     }
     
-    SMCClose();
+    SMCClose(conn);
     return fanSpeed;
 }
 

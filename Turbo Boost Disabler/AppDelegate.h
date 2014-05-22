@@ -25,6 +25,7 @@
 #import <Cocoa/Cocoa.h>
 #import "SystemCommands.h"
 #import "AboutWindowController.h"
+#import "CheckUpdatesWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     
@@ -33,12 +34,16 @@
 
     NSImage *statusImage;
     AboutWindowController *aboutWindow;
+    CheckUpdatesWindowController *checkUpdatesWindow;
     
     NSTimer *refreshTimer;
+    
+    AuthorizationRef authorizationRef;
         
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;
+@property(nonatomic, strong) CheckUpdatesWindowController *checkUpdatesWindow;
 @property(nonatomic, strong) NSTimer *refreshTimer;
 
 - (IBAction) enableTurboBoost:(id)sender;
@@ -46,6 +51,7 @@
 - (IBAction) donate:(id)sender;
 - (IBAction) about:(id)sender;
 - (IBAction) openAtLogin:(id)sender;
+- (IBAction) checkForUpdates:(id)sender;
 
 @property (assign) IBOutlet NSWindow *window;
 

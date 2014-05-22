@@ -26,12 +26,59 @@
 #import "SystemCommands.h"
 #import "AboutWindowController.h"
 #import "StartupHelper.h"
+#import "CheckUpdatesWindowController.h"
 
 @implementation AppDelegate
 
 @synthesize aboutWindow, refreshTimer;
 
+
+// On wake up reinstall the module if needed
+- (void) receiveWakeNote: (NSNotification*) note
+{
+    
+    // Reload the module if the current status is on, since OSX enables turbo boost after an
+    // undetermined time on sleep / hibernation
+    
+    if ([SystemCommands isModuleLoaded]) {
+        
+        if (authorizationRef == NULL) {
+            OSStatus status = AuthorizationCreate(NULL,
+                                                  kAuthorizationEmptyEnvironment,
+                                                  kAuthorizationFlagDefaults,
+                                                  &authorizationRef);
+            
+            AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+            AuthorizationRights rights = {1, &right};
+            AuthorizationFlags flags = kAuthorizationFlagDefaults |
+            kAuthorizationFlagInteractionAllowed |
+            kAuthorizationFlagPreAuthorize |
+            kAuthorizationFlagExtendRights;
+            
+            status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+            if (status != errAuthorizationSuccess)
+                NSLog(@"Copy Rights Unsuccessful: %d", status);
+            
+        }
+        
+        [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
+        [SystemCommands loadModuleWithAuthRef:authorizationRef];
+    }
+    
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
+   
+}
+
+// Suscribe to wake up notifications
+- (void) fileNotifications
+{
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(receiveWakeNote:)
+                                                               name: NSWorkspaceDidWakeNotification object: NULL];
+}
+
 - (void) awakeFromNib {
+    
     
     // Item to show up on the status bar
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -58,17 +105,22 @@
     [openLoginItem setTitle:NSLocalizedString(@"open_login", nil)];
     
     // Update translations
-    [[statusMenu itemAtIndex:6] setTitle:NSLocalizedString(@"donate", nil)];
-    [[statusMenu itemAtIndex:7] setTitle:NSLocalizedString(@"about", nil)];
-    [[statusMenu itemAtIndex:8] setTitle:NSLocalizedString(@"quit", nil)];
+    [[statusMenu itemAtIndex:6] setTitle:NSLocalizedString(@"updates", nil)];
+    [[statusMenu itemAtIndex:7] setTitle:NSLocalizedString(@"donate", nil)];
+    [[statusMenu itemAtIndex:8] setTitle:NSLocalizedString(@"about", nil)];
+    [[statusMenu itemAtIndex:9] setTitle:NSLocalizedString(@"quit", nil)];
     
     // Refresh the status
     [self updateStatus];
     
-    // Timer to update the sensor readings (cpu & fan rpm) each 2 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
+    self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
+    
+    // Suscribe to sleep and wake up notifications
+    [self fileNotifications];
+    
 
 }
 
@@ -131,15 +183,46 @@
 // Method to switch between enabled and disables states
 - (IBAction) enableTurboBoost:(id)sender {
 
+    if (authorizationRef == NULL) {
+        
+        OSStatus status = AuthorizationCreate(NULL,
+                                                kAuthorizationEmptyEnvironment,
+                                                kAuthorizationFlagDefaults,
+                                                &authorizationRef);
+        
+        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+        AuthorizationRights rights = {1, &right};
+        AuthorizationFlags flags = kAuthorizationFlagDefaults |
+                            kAuthorizationFlagInteractionAllowed |
+                            kAuthorizationFlagPreAuthorize |
+                            kAuthorizationFlagExtendRights;
+        
+        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+        if (status != errAuthorizationSuccess)
+            NSLog(@"Copy Rights Unsuccessful: %d", status);
+
+    }
+    
     BOOL isOn = ![SystemCommands isModuleLoaded];
     
     if (isOn) {
-        [SystemCommands loadModule];
+        [SystemCommands loadModuleWithAuthRef:authorizationRef];
     } else {
-        [SystemCommands unLoadModule];
+        [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
     }
-        
-    [self updateStatus];
+    
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
+}
+
+// Method to check for updates
+- (IBAction) checkForUpdates:(id)sender {
+    
+    // Download the update opening the CheckUpdates Window Controller
+    if (self.checkUpdatesWindow == nil) {
+        self.checkUpdatesWindow = [[CheckUpdatesWindowController alloc] initWithWindowNibName:@"CheckUpdatesWindowController"];
+    }
+    [self.checkUpdatesWindow showWindow:nil];
+    [self.checkUpdatesWindow checkVersion];
     
 }
 

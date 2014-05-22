@@ -103,6 +103,6 @@ typedef struct {
 
 
 // prototypes
-double SMCGetTemperature(char *key);
+double SMCGetTemperature();
 kern_return_t SMCSetFanRpm(char *key, int rpm);
 int SMCGetFanRpm(char *key);
