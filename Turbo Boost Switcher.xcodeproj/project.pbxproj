@@ -71,6 +71,9 @@
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
 		45FC71CE179ACD7000A16AEC /* SystemCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCommands.m; sourceTree = "<group>"; };
+		E9340F9A1951931F005D8142 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = fr; path = fr.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E9340F9B1951931F005D8142 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9340F9C1951931F005D8142 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +218,7 @@
 				en,
 				es,
 				"es-ES",
+				fr,
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -271,6 +275,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAB71799499D00940503 /* en */,
+				E9340F9B1951931F005D8142 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAC31799499E00940503 /* en */,
+				E9340F9A1951931F005D8142 /* fr */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			children = (
 				45A571A5179DE90D00D91EEE /* en */,
 				45A571AB179DEB3B00D91EEE /* es */,
+				E9340F9C1951931F005D8142 /* fr */,
 			);
 			name = Localizable.strings;
 			path = ..;

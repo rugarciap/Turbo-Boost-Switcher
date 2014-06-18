@@ -1,0 +1,34 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2013 Rubén García Pérez. 
+*/
+"cpu_temp" = "Temp CPU:";
+"fan_speed" = "Vit. ventilateur:";
+"cpu_temp_na" = "Temp CPU: Non disponible";
+"fan_speed_na" = "Vit. ventilateur: Non disponible";
+"enable_menu" = "Activer le Turbo Boost";
+"disable_menu" = "Désactiver le Turbo Boost";
+"open_login" = "Ouvrir au démarrage";
+"donate" = "Donation...";
+"about" = "À propos...";
+"about_title" = "À propos";
+"quit" = "Quitter";
+"updates" = "Vérifier les mises à jour...";
+"updates_title" = "Mises à jour";
+
+"updates_progress" = "Vérification des mises à jour...";
+"updates_available" = "Une nouvelle version est disponible !";
+"updates_not_available" = "Vous avez déjà la derniere version.";
+"updates_error" = "Erreur de vérification des mises à jour.";
+
+"btn_cancel" = "Annuler";
+"btn_download" = "Télécharger";
+"btn_close" = "Fermer";
+
+"author" = "by Copyright (c) 2013 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "Si vous aimez ce programme, envisagez un don. Merci!";
+"license" = "License:";
