@@ -71,6 +71,9 @@
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
 		45FC71CE179ACD7000A16AEC /* SystemCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCommands.m; sourceTree = "<group>"; };
+		71AE313719947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		71AE313819947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		71AE313919947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +207,7 @@
 		458EDAA21799499D00940503 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Rubén García Pérez";
 			};
 			buildConfigurationList = 458EDAA51799499D00940503 /* Build configuration list for PBXProject "Turbo Boost Switcher" */;
@@ -215,6 +218,7 @@
 				en,
 				es,
 				"es-ES",
+				"zh-Hans",
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -271,6 +275,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAB71799499D00940503 /* en */,
+				71AE313819947EB20045D53D /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAC31799499E00940503 /* en */,
+				71AE313719947EB20045D53D /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -288,6 +294,7 @@
 			children = (
 				45A571A5179DE90D00D91EEE /* en */,
 				45A571AB179DEB3B00D91EEE /* es */,
+				71AE313919947EB20045D53D /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			path = ..;
@@ -300,7 +307,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -333,7 +339,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
