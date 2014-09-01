@@ -3,7 +3,7 @@ Turbo Boost Switcher
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v1.1.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+You can [download the binary v1.2.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
@@ -19,6 +19,8 @@ It’s installed on your Mac status bar and allows you to:
 
 - Visually know if Turbo Boost is enabled or disabled at any time.
 - Enable / Disable Turbo Boost.
+- Auto Disable on launch
+- Restore Turbo Boost on Exit
 - Check your CPU temp and fan speed.
 - Set it to open at login.
 
