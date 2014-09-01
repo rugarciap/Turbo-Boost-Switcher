@@ -18,7 +18,6 @@
 		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
 		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
 		4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0718F208EE00117CD8 /* ServiceManagement.framework */; };
-		456C01B319B2849900A197A5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 456C01B219B2849900A197A5 /* icon@2x.png */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
 		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
 		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
@@ -49,7 +48,6 @@
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		4562AE0518F1A54600117CD8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4562AE0718F208EE00117CD8 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		456C01B219B2849900A197A5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
 		458EDAAA1799499D00940503 /* Turbo Boost Switcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Switcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +173,6 @@
 				4529C41A19A7F0D800A48A85 /* icon_256x256.png */,
 				452252C8192D6801002BACF4 /* icon_cancel.png */,
 				452252C9192D6801002BACF4 /* icon_ok.png */,
-				456C01B219B2849900A197A5 /* icon@2x.png */,
 				45A57192179DC58500D91EEE /* icon.png */,
 				45A5718E179D533900D91EEE /* paypal.gif */,
 				45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */,
@@ -238,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
-				456C01B319B2849900A197A5 /* icon@2x.png in Resources */,
 				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
 				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
 				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
