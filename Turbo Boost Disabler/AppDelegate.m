@@ -30,7 +30,7 @@
 
 @implementation AppDelegate
 
-@synthesize aboutWindow, refreshTimer;
+@synthesize aboutWindow, refreshTimer, checkUpdatesWindow;
 
 
 // On wake up reinstall the module if needed
@@ -93,25 +93,39 @@
     [statusItem setImage:statusImage];
 
     // Set separators
-    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:2];
-    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:5];
+    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:[statusMenu indexOfItem:enableDisableItem]];
+    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:([statusMenu indexOfItem:checkUpdatesItem] + 1)];
+    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:[statusMenu indexOfItem:aboutItem]];
     
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
     
     // Update open at login status
-    NSMenuItem *openLoginItem = [statusMenu itemAtIndex:4];
-    [openLoginItem setState:[StartupHelper isOpenAtLogin]];
-    [openLoginItem setTitle:NSLocalizedString(@"open_login", nil)];
+    [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
+    [checkOpenAtLogin setTitle:NSLocalizedString(@"open_login", nil)];
+    
+    // Update disable at login status
+    [checkDisableAtLaunch setState:[StartupHelper isDisableAtLaunch]];
+    [checkDisableAtLaunch setTitle:NSLocalizedString(@"disable_login", nil)];
     
     // Update translations
-    [[statusMenu itemAtIndex:6] setTitle:NSLocalizedString(@"updates", nil)];
-    [[statusMenu itemAtIndex:7] setTitle:NSLocalizedString(@"donate", nil)];
-    [[statusMenu itemAtIndex:8] setTitle:NSLocalizedString(@"about", nil)];
-    [[statusMenu itemAtIndex:9] setTitle:NSLocalizedString(@"quit", nil)];
+    [settingsLabel setTitleWithMnemonic:NSLocalizedString(@"settings", nil)];
+    [checkUpdatesItem setTitle:NSLocalizedString(@"updates", nil)];
+    [aboutItem setTitle:NSLocalizedString(@"about", nil)];
+    [exitItem setTitle:NSLocalizedString(@"quit", nil)];
+    
+    // Update fonts
+    [settingsLabel setFont:[statusMenu font]];
+    [checkDisableAtLaunch setFont:[statusMenu font]];
+    [checkOpenAtLogin setFont:[statusMenu font]];
+    
+    // Disable at launch if enabled
+    if (([StartupHelper isDisableAtLaunch]) && (![SystemCommands isModuleLoaded])) {
+        [self disableTurboBoost];
+    }
     
     // Refresh the status
-    [self updateStatus];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
     self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
@@ -121,7 +135,6 @@
     // Suscribe to sleep and wake up notifications
     [self fileNotifications];
     
-
 }
 
 // Invoked when the user clicks on the satus menu
@@ -145,12 +158,12 @@
         titleString = [[NSAttributedString alloc] initWithString:@"On " attributes:@{
             NSFontAttributeName : labelFont,
             }];
-        [[statusMenu itemAtIndex:3] setTitle:NSLocalizedString(@"disable_menu", nil)];
+        [enableDisableItem setTitle:NSLocalizedString(@"disable_menu", nil)];
     } else {
         titleString = [[NSAttributedString alloc] initWithString:@"Off " attributes:@{
                                             NSFontAttributeName : labelFont,
                        }];
-        [[statusMenu itemAtIndex:3] setTitle:NSLocalizedString(@"enable_menu", nil)];
+        [enableDisableItem setTitle:NSLocalizedString(@"enable_menu", nil)];
     }
     
     // Refresh the title
@@ -182,36 +195,82 @@
 
 // Method to switch between enabled and disables states
 - (IBAction) enableTurboBoost:(id)sender {
-
-    if (authorizationRef == NULL) {
-        
-        OSStatus status = AuthorizationCreate(NULL,
-                                                kAuthorizationEmptyEnvironment,
-                                                kAuthorizationFlagDefaults,
-                                                &authorizationRef);
-        
-        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-        AuthorizationRights rights = {1, &right};
-        AuthorizationFlags flags = kAuthorizationFlagDefaults |
-                            kAuthorizationFlagInteractionAllowed |
-                            kAuthorizationFlagPreAuthorize |
-                            kAuthorizationFlagExtendRights;
-        
-        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
-        if (status != errAuthorizationSuccess)
-            NSLog(@"Copy Rights Unsuccessful: %d", status);
-
-    }
     
     BOOL isOn = ![SystemCommands isModuleLoaded];
     
     if (isOn) {
-        [SystemCommands loadModuleWithAuthRef:authorizationRef];
+        [self disableTurboBoost];
     } else {
-        [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
+        [self enableTurboBoost];
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
+    
+}
+
+- (IBAction) exitItemEvent:(id)sender {
+    
+    // Re-enable Turbo Boost before exit app
+    if ([SystemCommands isModuleLoaded]) {
+        [self enableTurboBoost];
+    }
+    [[NSApplication sharedApplication] terminate:self];
+    
+}
+
+
+// Loads the kernel module disabling turbo boost feature
+- (void) disableTurboBoost {
+    
+    if (authorizationRef == NULL) {
+        
+        OSStatus status = AuthorizationCreate(NULL,
+                                              kAuthorizationEmptyEnvironment,
+                                              kAuthorizationFlagDefaults,
+                                              &authorizationRef);
+        
+        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+        AuthorizationRights rights = {1, &right};
+        AuthorizationFlags flags = kAuthorizationFlagDefaults |
+        kAuthorizationFlagInteractionAllowed |
+        kAuthorizationFlagPreAuthorize |
+        kAuthorizationFlagExtendRights;
+        
+        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+        if (status != errAuthorizationSuccess)
+            NSLog(@"Copy Rights Unsuccessful: %d", status);
+        
+    }
+    
+    [SystemCommands loadModuleWithAuthRef:authorizationRef];
+    
+}
+
+// Unloads the kernel module enabling turbo boost feature
+- (void) enableTurboBoost {
+    
+    if (authorizationRef == NULL) {
+        
+        OSStatus status = AuthorizationCreate(NULL,
+                                              kAuthorizationEmptyEnvironment,
+                                              kAuthorizationFlagDefaults,
+                                              &authorizationRef);
+        
+        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+        AuthorizationRights rights = {1, &right};
+        AuthorizationFlags flags = kAuthorizationFlagDefaults |
+        kAuthorizationFlagInteractionAllowed |
+        kAuthorizationFlagPreAuthorize |
+        kAuthorizationFlagExtendRights;
+        
+        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+        if (status != errAuthorizationSuccess)
+            NSLog(@"Copy Rights Unsuccessful: %d", status);
+        
+    }
+    
+    [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
+    
 }
 
 // Method to check for updates
@@ -221,15 +280,11 @@
     if (self.checkUpdatesWindow == nil) {
         self.checkUpdatesWindow = [[CheckUpdatesWindowController alloc] initWithWindowNibName:@"CheckUpdatesWindowController"];
     }
+    
+    [self.checkUpdatesWindow.window center];
     [self.checkUpdatesWindow showWindow:nil];
     [self.checkUpdatesWindow checkVersion];
     
-}
-
-// Method to call for donations
-- (IBAction) donate:(id)sender {
-
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WGDEE4ZZ27Y68"]];
 }
 
 // Open about window
@@ -238,19 +293,24 @@
         // Init the about window
         self.aboutWindow = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindowController"];
     }
+    
+    [self.aboutWindow.window center];
     [self.aboutWindow showWindow:nil];
 }
 
 // Enables/disables the open at login status
 - (IBAction) openAtLogin:(id)sender {
-    
-    NSMenuItem *openLoginItem = [statusMenu itemAtIndex:4];
+   
     [StartupHelper setOpenAtLogin:![StartupHelper isOpenAtLogin]];
     
     // Refresh open at login item status
-    [openLoginItem setState:[StartupHelper isOpenAtLogin]];
+    [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
 }
 
+- (IBAction) disableAtLogin:(id)sender {
+    
+    [StartupHelper setDisableAtLaunch:[checkDisableAtLaunch state]];
+}
 
 
 @end

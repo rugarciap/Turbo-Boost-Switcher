@@ -93,4 +93,20 @@
 	CFRelease(loginItems);
 }
 
+// Stores disable at launch configuration
++ (void) setDisableAtLaunch:(BOOL) disableAtLaunch {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:disableAtLaunch forKey:@"disableAtLaunch"];
+    [userDefaults synchronize];
+    
+}
+
+// Check if it should disable at launch
++ (BOOL) isDisableAtLaunch {
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"disableAtLaunch"];
+}
+
 @end
