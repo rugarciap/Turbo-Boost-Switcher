@@ -213,29 +213,16 @@ double SMCGetTemperature()
     if (allSensors == nil) {
         allSensors = [[NSArray alloc] initWithObjects:@"TC0D",@"TCAH",@"TC0F",@"TC0H",@"TCBH",@"TC0P",nil];
     }
-   
+    
     SMCVal_t      val;
-    NSString *sensor = [[NSUserDefaults standardUserDefaults] objectForKey:@"TSensor"];
     
-    c_temp = 0.0;
-    
-    if (sensor != nil) {
+    for (NSString *sensor in allSensors) {
         SMCReadKey2((char*)[sensor UTF8String], &val,conn);
         c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
-    }
-    
-    if (c_temp<=0) {
-        for (NSString *sensor in allSensors) {
-            SMCReadKey2((char*)[sensor UTF8String], &val,conn);
-            c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
-            if (c_temp>0) {
-                [[NSUserDefaults standardUserDefaults] setObject:sensor forKey:@"TSensor"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                break;
-            }
+        if (c_temp>0) {
+            break;
         }
     }
-    
     
 	return c_temp;
 }

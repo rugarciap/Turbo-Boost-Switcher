@@ -41,11 +41,6 @@
     return self;
 }
 
-- (IBAction) donateClicked:(id)sender {
-    
-    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WGDEE4ZZ27Y68"]];
-
-}
 
 - (void)windowDidLoad
 {
@@ -55,7 +50,6 @@
 
     [appCopyRight setStringValue:NSLocalizedString(@"author", nil)];
     [authorLink setStringValue:NSLocalizedString(@"web", nil)];
-    [donateText setStringValue:NSLocalizedString(@"donate_msg", nil)];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"License" ofType:@"rtf"]];

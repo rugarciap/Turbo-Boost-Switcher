@@ -32,5 +32,9 @@
 
 + (void) setOpenAtLogin:(BOOL) isOpenAtLogin;
 
++ (void) setDisableAtLaunch:(BOOL) disableAtLaunch;
+
++ (BOOL) isDisableAtLaunch;
+
 
 @end

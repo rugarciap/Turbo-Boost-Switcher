@@ -31,9 +31,7 @@
     IBOutlet NSTextField *appName;
     IBOutlet NSTextField *appCopyRight;
     IBOutlet NSTextField *authorLink;
-    IBOutlet NSTextField *donateText;
 }
 
-- (IBAction) donateClicked:(id)sender;
 
 @end

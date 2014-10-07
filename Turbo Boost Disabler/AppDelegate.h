@@ -29,17 +29,32 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     
+    // The status menu
     IBOutlet NSMenu *statusMenu;
+    
+    // The status item to display on bar
     NSStatusItem *statusItem;
-
     NSImage *statusImage;
+    
+    // About and check for updates window
     AboutWindowController *aboutWindow;
     CheckUpdatesWindowController *checkUpdatesWindow;
     
     NSTimer *refreshTimer;
     
+    // Current auth ref
     AuthorizationRef authorizationRef;
-        
+    
+    // Menú outlets
+    IBOutlet NSMenuItem *enableDisableItem;
+    IBOutlet NSMenuItem *checkUpdatesItem;
+    IBOutlet NSMenuItem *aboutItem;
+    IBOutlet NSMenuItem *exitItem;
+    
+    // Settings Window outlets
+    IBOutlet NSTextField *settingsLabel;
+    IBOutlet NSButton *checkOpenAtLogin;
+    IBOutlet NSButton *checkDisableAtLaunch;
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;
@@ -48,10 +63,11 @@
 
 - (IBAction) enableTurboBoost:(id)sender;
 
-- (IBAction) donate:(id)sender;
 - (IBAction) about:(id)sender;
 - (IBAction) openAtLogin:(id)sender;
+- (IBAction) disableAtLogin:(id)sender;
 - (IBAction) checkForUpdates:(id)sender;
+- (IBAction) exitItemEvent:(id)sender;
 
 @property (assign) IBOutlet NSWindow *window;
 
