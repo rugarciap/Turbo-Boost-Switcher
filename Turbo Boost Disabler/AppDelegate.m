@@ -85,7 +85,8 @@
     
     NSBundle *bundle = [NSBundle mainBundle];
     statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
-    
+    [statusImage setTemplate:YES];
+  
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
