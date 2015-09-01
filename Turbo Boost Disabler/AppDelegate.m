@@ -86,6 +86,9 @@
     NSBundle *bundle = [NSBundle mainBundle];
     statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
     
+    // Change to keep status icon visible in Dark mode.
+    [statusImage setTemplate:YES];
+    
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
