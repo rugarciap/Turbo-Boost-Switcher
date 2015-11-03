@@ -7,6 +7,8 @@ You can [download the binary v1.2.0 version] (http://www.rugarciap.com/turbo-boo
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
+OSX El Capitan Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/)
+
 
 Features:
 ====================
