@@ -11,11 +11,7 @@
 		4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */; };
 		452252CA192D6801002BACF4 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C8192D6801002BACF4 /* icon_cancel.png */; };
 		452252CB192D6801002BACF4 /* icon_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C9192D6801002BACF4 /* icon_ok.png */; };
-		4529C41B19A7F0D800A48A85 /* icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */; };
-		4529C41C19A7F0D800A48A85 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41A19A7F0D800A48A85 /* icon_256x256.png */; };
-		4529C41E19A7F14300A48A85 /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */; };
 		4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560CC51179D2397003F3D19 /* AboutWindowController.m */; };
-		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
 		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
 		4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0718F208EE00117CD8 /* ServiceManagement.framework */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
@@ -25,6 +21,8 @@
 		458EDAC11799499D00940503 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 458EDAC01799499D00940503 /* AppDelegate.m */; };
 		458EDAC41799499E00940503 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAC21799499E00940503 /* MainMenu.xib */; };
 		45A51DAE179B4E7000EEF333 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A51DAD179B4E7000EEF333 /* IOKit.framework */; };
+		45A5718B179D4E4F00D91EEE /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718A179D4E4F00D91EEE /* TurboBoostSwitcher.icns */; };
+		45A5718D179D511F00D91EEE /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718C179D511F00D91EEE /* icon_256x256.png */; };
 		45A5718F179D533900D91EEE /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718E179D533900D91EEE /* paypal.gif */; };
 		45A57193179DC58500D91EEE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A57192179DC58500D91EEE /* icon.png */; };
 		45A5719B179DDF0F00D91EEE /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 45A5719A179DDF0F00D91EEE /* License.rtf */; };
@@ -32,6 +30,7 @@
 		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
 		45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */; };
 		45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC71CE179ACD7000A16AEC /* SystemCommands.m */; };
+		71AE313E1994853E0045D53D /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AE31401994853E0045D53D /* AboutWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +39,8 @@
 		4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckUpdatesWindowController.xib; sourceTree = "<group>"; };
 		452252C8192D6801002BACF4 /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
 		452252C9192D6801002BACF4 /* icon_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ok.png; sourceTree = "<group>"; };
-		4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_256x256@2x.png"; sourceTree = "<group>"; };
-		4529C41A19A7F0D800A48A85 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
-		4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
 		4560CC50179D2397003F3D19 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4560CC51179D2397003F3D19 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
-		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		4562AE0518F1A54600117CD8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4562AE0718F208EE00117CD8 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
@@ -64,6 +59,8 @@
 		458EDAC31799499E00940503 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		45A51DAC179B4E0600EEF333 /* smc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smc.h; sourceTree = "<group>"; };
 		45A51DAD179B4E7000EEF333 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		45A5718A179D4E4F00D91EEE /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
+		45A5718C179D511F00D91EEE /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
 		45A5718E179D533900D91EEE /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
 		45A57192179DC58500D91EEE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		45A5719A179DDF0F00D91EEE /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
@@ -73,6 +70,11 @@
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
 		45FC71CE179ACD7000A16AEC /* SystemCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCommands.m; sourceTree = "<group>"; };
+		71AE313719947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		71AE313819947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		71AE313919947EB20045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		71AE313F1994853E0045D53D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AboutWindowController.xib; sourceTree = "<group>"; };
+		71AE3141199485440045D53D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/AboutWindowController.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +146,7 @@
 				457FF241179C31EA0029AA66 /* StartupHelper.m */,
 				4560CC50179D2397003F3D19 /* AboutWindowController.h */,
 				4560CC51179D2397003F3D19 /* AboutWindowController.m */,
-				4560CC52179D2397003F3D19 /* AboutWindowController.xib */,
+				71AE31401994853E0045D53D /* AboutWindowController.xib */,
 				45A571A6179DE90D00D91EEE /* Localizable.strings */,
 				45A5719A179DDF0F00D91EEE /* License.rtf */,
 				4516CCF4192C12B4008A29A3 /* CheckUpdatesWindowController.h */,
@@ -168,13 +170,12 @@
 		45FC71C8179ACAC300A16AEC /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */,
-				4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */,
-				4529C41A19A7F0D800A48A85 /* icon_256x256.png */,
 				452252C8192D6801002BACF4 /* icon_cancel.png */,
 				452252C9192D6801002BACF4 /* icon_ok.png */,
 				45A57192179DC58500D91EEE /* icon.png */,
 				45A5718E179D533900D91EEE /* paypal.gif */,
+				45A5718C179D511F00D91EEE /* icon_256x256.png */,
+				45A5718A179D4E4F00D91EEE /* TurboBoostSwitcher.icns */,
 				45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */,
 				45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */,
 			);
@@ -207,7 +208,7 @@
 		458EDAA21799499D00940503 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Rubén García Pérez";
 			};
 			buildConfigurationList = 458EDAA51799499D00940503 /* Build configuration list for PBXProject "Turbo Boost Switcher" */;
@@ -218,6 +219,7 @@
 				en,
 				es,
 				"es-ES",
+				"zh-Hans",
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -240,11 +242,10 @@
 				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
 				452252CB192D6801002BACF4 /* icon_ok.png in Resources */,
 				45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */,
-				4529C41B19A7F0D800A48A85 /* icon_256x256@2x.png in Resources */,
 				45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */,
-				4529C41C19A7F0D800A48A85 /* icon_256x256.png in Resources */,
-				4529C41E19A7F14300A48A85 /* TurboBoostSwitcher.icns in Resources */,
-				4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */,
+				71AE313E1994853E0045D53D /* AboutWindowController.xib in Resources */,
+				45A5718B179D4E4F00D91EEE /* TurboBoostSwitcher.icns in Resources */,
+				45A5718D179D511F00D91EEE /* icon_256x256.png in Resources */,
 				45A5718F179D533900D91EEE /* paypal.gif in Resources */,
 				45A57193179DC58500D91EEE /* icon.png in Resources */,
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
@@ -275,6 +276,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAB71799499D00940503 /* en */,
+				71AE313819947EB20045D53D /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -283,6 +285,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				458EDAC31799499E00940503 /* en */,
+				71AE313719947EB20045D53D /* zh-Hans */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -292,9 +295,19 @@
 			children = (
 				45A571A5179DE90D00D91EEE /* en */,
 				45A571AB179DEB3B00D91EEE /* es */,
+				71AE313919947EB20045D53D /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		71AE31401994853E0045D53D /* AboutWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71AE313F1994853E0045D53D /* en */,
+				71AE3141199485440045D53D /* zh-Hans */,
+			);
+			name = AboutWindowController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -304,7 +317,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -337,7 +349,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

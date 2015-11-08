@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>76BD8141-64F8-4508-89B2-BDE9E86237DD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Turbo Boost Switcher</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C772C9B3-7004-47C3-82A1-0B9BE3F7A70B</key>
+		<string>ssh://github.com/wr1241/Turbo-Boost-Switcher.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Turbo Boost Switcher.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C772C9B3-7004-47C3-82A1-0B9BE3F7A70B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/wr1241/Turbo-Boost-Switcher.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C772C9B3-7004-47C3-82A1-0B9BE3F7A70B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C772C9B3-7004-47C3-82A1-0B9BE3F7A70B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Turbo-Boost-Switcher</string>
+		</dict>
+	</array>
+</dict>
+</plist>
