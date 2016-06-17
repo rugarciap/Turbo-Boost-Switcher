@@ -35,6 +35,11 @@ Once downloaded/compiled, just unzip and double click on your “Turbo Boost Swi
 
 If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
 
+Depending on your user configuration, OSX may ask for root password when enabling / disabling Turbo Boost. That's because kernel extensions must be installed as root and the user privileges are stored on a system cache. To avoid this behaviour, you can follow two approaches:
+
+ - Buy the PRO version that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app.
+ - Just run the app as root doing something like 'sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher'
+
 Motivation:
 ====================
 
