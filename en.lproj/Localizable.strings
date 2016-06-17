@@ -3,7 +3,7 @@
   Turbo Boost Switcher
 
   Created by Rubén García Pérez on 23/07/13.
-  Copyright (c) 2013 Rubén García Pérez. 
+  Copyright (c) 2016 Rubén García Pérez. 
 */
 "cpu_temp" = "CPU Temp:";
 "fan_speed" = "Fan Speed:";
@@ -30,7 +30,7 @@
 "btn_download" = "Download";
 "btn_close" = "Close";
 
-"author" = "by Copyright (c) 2013 Rubén García Pérez";
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
 "donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
 "license" = "License:";
