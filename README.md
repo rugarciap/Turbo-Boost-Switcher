@@ -37,7 +37,7 @@ If you see a message saying the app “can’t be opened because it is from an i
 
 Depending on your user configuration, OSX may ask for root password when enabling / disabling Turbo Boost. That's because kernel extensions must be installed as root and the user privileges are stored on a system cache. To avoid this behaviour, you can follow two approaches:
 
- - Buy the PRO version that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app.
+ - [Buy the PRO version] (https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app.
  - Just run the app as root doing something like 'sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher'
 
 Motivation:
