@@ -1,4 +1,4 @@
-Turbo Boost Switcher
+Turbo Boost Switcher 2.0.0
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
