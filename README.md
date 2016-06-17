@@ -35,6 +35,8 @@ Once downloaded/compiled, just unzip and double click on your “Turbo Boost Swi
 
 If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
 
+Turbo Boost may ask for your administrator password each time you wake your Mac from sleep. To avoid this, launch the app as root by running the following command in Terminal: `sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher`
+
 Motivation:
 ====================
 
