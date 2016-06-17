@@ -24,7 +24,7 @@
 
 #import "CheckUpdatesWindowController.h"
 
-#define CURRENT_VERSION 2
+#define CURRENT_VERSION 200
 
 @interface CheckUpdatesWindowController ()
 
@@ -66,7 +66,7 @@
     [btnOk setTitle:NSLocalizedString(@"btn_cancel", nil)];
     
     // Download the version descriptor
-    NSURL *url = [NSURL URLWithString:@"http://www.rugarciap.com/tbs_version"];
+    NSURL *url = [NSURL URLWithString:@"https://api.rugarciap.com/tbs_version_free"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }

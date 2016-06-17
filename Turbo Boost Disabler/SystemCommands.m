@@ -45,6 +45,7 @@ struct {
 int g_keyInfoCacheCount = 0;
 OSSpinLock g_keyInfoSpinLock = 0;
 static NSArray *allSensors = nil;
+static NSString *currentSensor = nil;
 
 kern_return_t SMCCall2(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure, io_connect_t conn);
 
@@ -214,15 +215,25 @@ double SMCGetTemperature()
         allSensors = [[NSArray alloc] initWithObjects:@"TC0D",@"TCAH",@"TC0F",@"TC0H",@"TCBH",@"TC0P",nil];
     }
     
-    SMCVal_t      val;
+    SMCVal_t val;
+    
+    if (currentSensor != nil) {
+        SMCReadKey2((char*)[currentSensor UTF8String], &val,conn);
+        c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
+        if (c_temp>0) {
+            return c_temp;
+        }
+    }
     
     for (NSString *sensor in allSensors) {
         SMCReadKey2((char*)[sensor UTF8String], &val,conn);
         c_temp= ((val.bytes[0] * 256 + val.bytes[1]) >> 2)/64;
         if (c_temp>0) {
+            currentSensor = sensor;
             break;
         }
     }
+
     
 	return c_temp;
 }
@@ -408,7 +419,8 @@ int SMCGetFanSpeed(char *key)
     NSString * processErrorDescription = nil;
     
     // sudo chown -R root:wheel %pathToModule; sudo kextutil -v %pathToModule
-    [self runTaskAsAdmin:@"/usr/sbin/chown" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-R", @"root:wheel", [NSString stringWithFormat:@"%@", pathToModule], nil]];
+    
+    [self runTaskAsAdmin:@"/usr/sbin/chown" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-R", @"root:wheel",[NSString stringWithFormat:@"%@", pathToModule], nil]];
     
     [self runTaskAsAdmin:@"/usr/bin/kextutil" withAuthRef:authRef andArgs:[NSArray arrayWithObjects:@"-v", [NSString stringWithFormat:@"%@", pathToModule], nil]];
     

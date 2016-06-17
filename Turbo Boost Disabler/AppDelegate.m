@@ -85,6 +85,7 @@
     
     NSBundle *bundle = [NSBundle mainBundle];
     statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+    [statusImage setTemplate:YES];
     
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
@@ -134,6 +135,9 @@
     
     // Suscribe to sleep and wake up notifications
     [self fileNotifications];
+    
+    // Refresh the status item
+    [self updateStatus];
     
 }
 
@@ -204,7 +208,7 @@
         [self enableTurboBoost];
     }
     
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
     
 }
 
