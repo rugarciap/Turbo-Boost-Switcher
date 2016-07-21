@@ -28,7 +28,7 @@
                     <textField verticalHuggingPriority="750" id="22">
                         <rect key="frame" x="204" y="355" width="258" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.0.0" id="23">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.1.0" id="23">
                             <font key="font" metaFont="systemBold" size="17"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -79,10 +79,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="438" height="214"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="438" height="214"/>
+                                    <size key="minSize" width="423" height="214"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="438" height="214"/>
+                                    <size key="minSize" width="423" height="214"/>
                                     <size key="maxSize" width="463" height="10000000"/>
                                 </textView>
                             </subviews>
@@ -93,7 +93,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="267">
-                            <rect key="frame" x="423" y="1" width="16" height="214"/>
+                            <rect key="frame" x="424" y="1" width="15" height="214"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -107,6 +107,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
+            <point key="canvasLocation" x="185" y="187.5"/>
         </window>
         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qZs-S2-OHg">
             <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>

@@ -24,7 +24,7 @@
 
 #import "CheckUpdatesWindowController.h"
 
-#define CURRENT_VERSION 200
+#define CURRENT_VERSION 210
 
 @interface CheckUpdatesWindowController ()
 

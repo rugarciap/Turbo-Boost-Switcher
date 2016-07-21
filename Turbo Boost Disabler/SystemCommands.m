@@ -337,48 +337,54 @@ int SMCGetFanSpeed(char *key)
     }
 }
 
+
 // Check if is 32 bits or not
 + (BOOL) is32bits {
-
-    NSString * output = nil;
-    NSString * processErrorDescription = nil;
     
-    // kextstat |grep com.rugarciap.DisableTurboBoost
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = pipe.fileHandleForReading;
     
-    [self runProcess:@"uname -m"
-                                     withArguments:[NSArray arrayWithObjects:@"", nil]
-                                            output:&output
-                                  errorDescription:&processErrorDescription asAdministrator:NO];
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/bin/sh";
+    task.arguments = @[@"-c", @"uname -m"];
+    task.standardOutput = pipe;
     
-    if ([output isEqualToString:@"x86_64"]) {
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    [file closeFile];
+    
+    NSString *output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    if ([output containsString:@"x86_64"]) {
         return NO;
     }
-
-    return YES;
     
+    return YES;
 }
 
 // Check if the module is loaded (TBS disabled) or not (TBS Enabled)
 + (BOOL) isModuleLoaded  {
     
-    NSString * output = nil;
-    NSString * processErrorDescription = nil;
-
-    // kextstat |grep com.rugarciap.DisableTurboBoost
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = pipe.fileHandleForReading;
     
-    [self runProcess:@"kextstat | grep com.rugarciap.DisableTurboBoost"
-                                     withArguments:[NSArray arrayWithObjects:@"", nil]
-                                            output:&output
-                                  errorDescription:&processErrorDescription asAdministrator:NO];
-
-    NSLog(@"kextstat output: %@", output);
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/bin/sh";
+    task.arguments = @[@"-c", @"kextstat | grep com.rugarciap.DisableTurboBoost"];
+    task.standardOutput = pipe;
     
-    if (output == nil) {
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    [file closeFile];
+    
+    NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    if ((grepOutput == nil) || ([grepOutput length] == 0)){
         return NO;
-    } else {
-        return YES;
     }
-
+    return YES;
 }
 
 // Get the module path depending on arch
