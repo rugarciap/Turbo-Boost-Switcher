@@ -83,8 +83,7 @@
     // Item to show up on the status bar
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
-    NSBundle *bundle = [NSBundle mainBundle];
-    statusImage = [[NSImage alloc] initWithContentsOfFile:[bundle pathForResource:@"icon" ofType:@"png"]];
+    statusImage = [NSImage imageNamed:@"icon"];
     [statusImage setTemplate:YES];
     
     //[statusItem setMenu:statusMenu];
