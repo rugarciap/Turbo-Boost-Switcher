@@ -34,7 +34,7 @@ How to install:
 
 You can download the binary application or the source code to compile it with XCode.
 
-Once downloaded/compiled, just unzip and double click on your “Turbo Boost Switcher.app”.
+Once downloaded/compiled, just unzip and double click on your “Turbo Boost Switcher.app”. If using macOS Sierra, before running move the decompressed app to other folder or it won't run.
 
 If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
 
