@@ -14,6 +14,8 @@
 		4529C41B19A7F0D800A48A85 /* icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */; };
 		4529C41C19A7F0D800A48A85 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41A19A7F0D800A48A85 /* icon_256x256.png */; };
 		4529C41E19A7F14300A48A85 /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */; };
+		45336EA61D3F9952005CE8FB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EA51D3F9952005CE8FB /* icon.png */; };
+		45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EAB1D3F9A7B005CE8FB /* icon@2x.png */; };
 		4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560CC51179D2397003F3D19 /* AboutWindowController.m */; };
 		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
 		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
@@ -26,7 +28,6 @@
 		458EDAC41799499E00940503 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAC21799499E00940503 /* MainMenu.xib */; };
 		45A51DAE179B4E7000EEF333 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A51DAD179B4E7000EEF333 /* IOKit.framework */; };
 		45A5718F179D533900D91EEE /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718E179D533900D91EEE /* paypal.gif */; };
-		45A57193179DC58500D91EEE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 45A57192179DC58500D91EEE /* icon.png */; };
 		45A5719B179DDF0F00D91EEE /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 45A5719A179DDF0F00D91EEE /* License.rtf */; };
 		45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A571A6179DE90D00D91EEE /* Localizable.strings */; };
 		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
@@ -43,6 +44,8 @@
 		4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_256x256@2x.png"; sourceTree = "<group>"; };
 		4529C41A19A7F0D800A48A85 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
 		4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
+		45336EA51D3F9952005CE8FB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		45336EAB1D3F9A7B005CE8FB /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		4560CC50179D2397003F3D19 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4560CC51179D2397003F3D19 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
@@ -65,7 +68,6 @@
 		45A51DAC179B4E0600EEF333 /* smc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = smc.h; sourceTree = "<group>"; };
 		45A51DAD179B4E7000EEF333 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		45A5718E179D533900D91EEE /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
-		45A57192179DC58500D91EEE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		45A5719A179DDF0F00D91EEE /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		45A571A5179DE90D00D91EEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A571AB179DEB3B00D91EEE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -168,12 +170,13 @@
 		45FC71C8179ACAC300A16AEC /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				45336EA51D3F9952005CE8FB /* icon.png */,
+				45336EAB1D3F9A7B005CE8FB /* icon@2x.png */,
 				4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */,
 				4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */,
 				4529C41A19A7F0D800A48A85 /* icon_256x256.png */,
 				452252C8192D6801002BACF4 /* icon_cancel.png */,
 				452252C9192D6801002BACF4 /* icon_ok.png */,
-				45A57192179DC58500D91EEE /* icon.png */,
 				45A5718E179D533900D91EEE /* paypal.gif */,
 				45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */,
 				45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */,
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
+				45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */,
 				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
 				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
 				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
@@ -245,8 +249,8 @@
 				4529C41C19A7F0D800A48A85 /* icon_256x256.png in Resources */,
 				4529C41E19A7F14300A48A85 /* TurboBoostSwitcher.icns in Resources */,
 				4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */,
+				45336EA61D3F9952005CE8FB /* icon.png in Resources */,
 				45A5718F179D533900D91EEE /* paypal.gif in Resources */,
-				45A57193179DC58500D91EEE /* icon.png in Resources */,
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
 				45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */,
 			);

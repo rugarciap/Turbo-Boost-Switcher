@@ -39,9 +39,19 @@
 
 + (BOOL) unLoadModuleWithAuthRef:(AuthorizationRef) authRef;
 
++ (BOOL) is32bits;
+
 + (BOOL) isModuleLoaded;
 
-+ (BOOL) is32bits;
++ (BOOL) isModuleLoadedNewOS;
+
++ (BOOL) isModuleLoadedOldOS;
+
++ (BOOL) is32bitsNewOS;
+
++ (BOOL) is32bitsOldOS;
+
++ (NSString *) getOSVersion;
 
 + (float) readCurrentCpuTemp;
 
