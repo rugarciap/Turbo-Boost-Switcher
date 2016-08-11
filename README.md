@@ -1,13 +1,15 @@
-Turbo Boost Switcher 2.1.0
+Turbo Boost Switcher 2.2.0
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.1.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+You can [download the binary v2.2.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
-OSX El Capitan Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
+From 2.2.0 support for macOS Sierra beta (tested on beta 3 and 4). To run the app on sierra, just unzip and move the app to other folder. [Read more here.] (http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+
+OSX El Capitan and above Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
 
 
 Features:
