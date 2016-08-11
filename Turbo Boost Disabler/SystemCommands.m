@@ -337,9 +337,46 @@ int SMCGetFanSpeed(char *key)
     }
 }
 
++ (BOOL) is32bits {
+    
+    NSString *osVersion = [SystemCommands getOSVersion];
+    if ([osVersion rangeOfString:@"10.10"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.11"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.12"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else {
+        return [SystemCommands is32bitsOldOS];
+    }
+}
+
++ (BOOL) isModuleLoaded {
+    
+    NSString *osVersion = [SystemCommands getOSVersion];
+    if ([osVersion rangeOfString:@"10.10"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.11"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.12"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else {
+        return [SystemCommands isModuleLoadedOldOS];
+    }
+}
+
+
+// Gets OSX Version
++ (NSString *) getOSVersion {
+    
+    NSProcessInfo *pInfo = [NSProcessInfo processInfo];
+    NSString *version = [pInfo operatingSystemVersionString];
+    return version;
+    
+}
 
 // Check if is 32 bits or not
-+ (BOOL) is32bits {
++ (BOOL) is32bitsNewOS {
     
     NSPipe *pipe = [NSPipe pipe];
     NSFileHandle *file = pipe.fileHandleForReading;
@@ -356,7 +393,29 @@ int SMCGetFanSpeed(char *key)
     
     NSString *output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    if ([output containsString:@"x86_64"]) {
+    if ([output rangeOfString:@"x86_64"].location != NSNotFound) {
+        return NO;
+    }
+    
+    return YES;
+    
+}
+
+
+// Check if is 32 bits or not
++ (BOOL) is32bitsOldOS {
+    
+    NSString * output = nil;
+    NSString * processErrorDescription = nil;
+    
+    // kextstat |grep com.rugarciap.DisableTurboBoost
+    
+    [self runProcess:@"uname -m"
+       withArguments:[NSArray arrayWithObjects:@"", nil]
+              output:&output
+    errorDescription:&processErrorDescription asAdministrator:NO];
+    
+    if ([output isEqualToString:@"x86_64"]) {
         return NO;
     }
     
@@ -364,7 +423,7 @@ int SMCGetFanSpeed(char *key)
 }
 
 // Check if the module is loaded (TBS disabled) or not (TBS Enabled)
-+ (BOOL) isModuleLoaded  {
++ (BOOL) isModuleLoadedNewOS  {
     
     NSPipe *pipe = [NSPipe pipe];
     NSFileHandle *file = pipe.fileHandleForReading;
@@ -385,6 +444,29 @@ int SMCGetFanSpeed(char *key)
         return NO;
     }
     return YES;
+}
+
+// Check if the module is loaded (TBS disabled) or not (TBS Enabled)
++ (BOOL) isModuleLoadedOldOS  {
+    
+    NSString * output = nil;
+    NSString * processErrorDescription = nil;
+    
+    // kextstat |grep com.rugarciap.DisableTurboBoost
+    
+    [self runProcess:@"kextstat | grep com.rugarciap.DisableTurboBoost"
+       withArguments:[NSArray arrayWithObjects:@"", nil]
+              output:&output
+    errorDescription:&processErrorDescription asAdministrator:NO];
+    
+    NSLog(@"kextstat output: %@", output);
+    
+    if (output == nil) {
+        return NO;
+    } else {
+        return YES;
+    }
+    
 }
 
 // Get the module path depending on arch
