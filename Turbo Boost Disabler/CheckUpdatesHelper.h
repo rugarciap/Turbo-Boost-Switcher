@@ -2,10 +2,11 @@
 //  CheckUpdatesWindowController.h
 //  Turbo Boost Switcher
 //
-//  Created by Rubén García Pérez on 21/05/14.
-//  Copyright (c) 2013 Rubén García Pérez.
+//  Created by Rubén García Pérez on 18/09/16.
+//  Copyright © 2016 Rubén García Pérez. All rights reserved.
 //  rugarciap.com
 //
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,35 +22,9 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-#import <Cocoa/Cocoa.h>
-#import "CheckUpdatesHelper.h"
+#import <Foundation/Foundation.h>
 
-@interface CheckUpdatesWindowController : NSWindowController <CheckUpdatesHelperDelegate> {
-    
-    IBOutlet NSTextField *txtStatus;
-    
-    IBOutlet NSProgressIndicator *progressIndicator;
-    IBOutlet NSButton *btnCancel;
-    IBOutlet NSButton *btnOk;
-    
-    BOOL fileDownloaded;
-    BOOL updatesAvailable;
-    
-    NSMutableData *contents;
-    IBOutlet NSImageView *imgStatus;
-    
-    IBOutlet NSButton *checkUpdates;
-    
-    CheckUpdatesHelper *checkUpdatesHelper;
-}
-
-- (IBAction) btnOkPressed:(id)sender;
-- (IBAction) btnCancelPressed:(id)sender;
-
-- (IBAction) checkUpdatesPressed:(id)sender;
-
-// Check if there is a new version available
-- (void) checkVersion;
+@protocol CheckUpdatesHelperDelegate <NSObject>
 
 // Error
 - (void) errorCheckingUpdate;
@@ -59,5 +34,16 @@
 
 // Update not available
 - (void) updateNotAvailable;
+
+@end
+
+@interface CheckUpdatesHelper : NSObject <NSURLConnectionDelegate, NSURLConnectionDataDelegate> {
+    
+    id <CheckUpdatesHelperDelegate> delegate;
+    NSMutableData *contents;
+}
+
+// Check for updates
+- (void) checkUpdatesWithDelegate:(id <CheckUpdatesHelperDelegate>) _delegate;
 
 @end

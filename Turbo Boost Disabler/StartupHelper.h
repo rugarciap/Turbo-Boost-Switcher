@@ -36,5 +36,22 @@
 
 + (BOOL) isDisableAtLaunch;
 
+// Check for updates on start
++ (BOOL) isCheckUpdatesOnStart;
+
+// Store check for updates on start
++ (void) storeCheckUpdatesOnStart:(BOOL) value;
+
+// Get the run count
++ (NSInteger) runCount;
+
+// Store the run count
++ (void) storeRunCount:(NSInteger) value;
+
+// Never show pro message again
++ (BOOL) neverShowProMessage;
+
+// Store never show going pro message
++ (void) storeNeverShowProMessage:(BOOL) value;
 
 @end

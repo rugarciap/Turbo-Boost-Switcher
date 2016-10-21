@@ -30,6 +30,7 @@
 		45A5718F179D533900D91EEE /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718E179D533900D91EEE /* paypal.gif */; };
 		45A5719B179DDF0F00D91EEE /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 45A5719A179DDF0F00D91EEE /* License.rtf */; };
 		45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A571A6179DE90D00D91EEE /* Localizable.strings */; };
+		45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */; };
 		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
 		45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */; };
 		45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC71CE179ACD7000A16AEC /* SystemCommands.m */; };
@@ -71,6 +72,8 @@
 		45A5719A179DDF0F00D91EEE /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		45A571A5179DE90D00D91EEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45A571AB179DEB3B00D91EEE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45C5794B1D9B216500DAC1C9 /* CheckUpdatesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckUpdatesHelper.h; sourceTree = "<group>"; };
+		45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckUpdatesHelper.m; sourceTree = "<group>"; };
 		45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.32bits.kext; sourceTree = "<group>"; };
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
 			isa = PBXGroup;
 			children = (
+				45C5794A1D9B213500DAC1C9 /* updates */,
 				45FC71C8179ACAC300A16AEC /* resources */,
 				458EDABF1799499D00940503 /* AppDelegate.h */,
 				458EDAC01799499D00940503 /* AppDelegate.m */,
@@ -149,9 +153,6 @@
 				4560CC52179D2397003F3D19 /* AboutWindowController.xib */,
 				45A571A6179DE90D00D91EEE /* Localizable.strings */,
 				45A5719A179DDF0F00D91EEE /* License.rtf */,
-				4516CCF4192C12B4008A29A3 /* CheckUpdatesWindowController.h */,
-				4516CCF5192C12B4008A29A3 /* CheckUpdatesWindowController.m */,
-				4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */,
 			);
 			path = "Turbo Boost Disabler";
 			sourceTree = "<group>";
@@ -165,6 +166,18 @@
 				458EDABB1799499D00940503 /* Turbo Boost Switcher-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45C5794A1D9B213500DAC1C9 /* updates */ = {
+			isa = PBXGroup;
+			children = (
+				4516CCF4192C12B4008A29A3 /* CheckUpdatesWindowController.h */,
+				4516CCF5192C12B4008A29A3 /* CheckUpdatesWindowController.m */,
+				4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */,
+				45C5794B1D9B216500DAC1C9 /* CheckUpdatesHelper.h */,
+				45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */,
+			);
+			name = updates;
 			sourceTree = "<group>";
 		};
 		45FC71C8179ACAC300A16AEC /* resources */ = {
@@ -265,6 +278,7 @@
 			files = (
 				458EDABA1799499D00940503 /* main.m in Sources */,
 				458EDAC11799499D00940503 /* AppDelegate.m in Sources */,
+				45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */,
 				45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */,
 				4516CCF7192C12B4008A29A3 /* CheckUpdatesWindowController.m in Sources */,
 				457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */,

@@ -26,8 +26,9 @@
 #import "SystemCommands.h"
 #import "AboutWindowController.h"
 #import "CheckUpdatesWindowController.h"
+#import "CheckUpdatesHelper.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate> {
     
     // The status menu
     IBOutlet NSMenu *statusMenu;
@@ -55,6 +56,8 @@
     IBOutlet NSTextField *settingsLabel;
     IBOutlet NSButton *checkOpenAtLogin;
     IBOutlet NSButton *checkDisableAtLaunch;
+    
+    CheckUpdatesHelper *checkUpdatesHelper;
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;

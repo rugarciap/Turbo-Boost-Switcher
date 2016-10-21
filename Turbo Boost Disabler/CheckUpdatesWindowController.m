@@ -23,8 +23,7 @@
  */
 
 #import "CheckUpdatesWindowController.h"
-
-#define CURRENT_VERSION 220
+#import "StartupHelper.h"
 
 @interface CheckUpdatesWindowController ()
 
@@ -41,12 +40,19 @@
     return self;
 }
 
+
+
 - (void)windowDidLoad
 {
     [super windowDidLoad];
     
     // Set the title
     [self.window setTitle:NSLocalizedString(@"updates_title", nil)];
+    
+    checkUpdatesHelper = [[CheckUpdatesHelper alloc] init];
+    
+    [checkUpdates setTitle:NSLocalizedString(@"checkUpdates", nil)];
+    [checkUpdates setState:[StartupHelper isCheckUpdatesOnStart]];
     
 }
 
@@ -66,19 +72,21 @@
     [btnOk setTitle:NSLocalizedString(@"btn_cancel", nil)];
     
     // Download the version descriptor
-    NSURL *url = [NSURL URLWithString:@"https://api.rugarciap.com/tbs_version_free"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:10];
-    NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [checkUpdatesHelper checkUpdatesWithDelegate:(id)self];
+
 }
 
+- (IBAction) checkUpdatesPressed:(id)sender {
+    
+    // Store check for updates on startup
+    BOOL checkForUpdatesOnStart = ([checkUpdates state] == NSOnState);
+    [StartupHelper storeCheckUpdatesOnStart:checkForUpdatesOnStart];
 
-// Error downloading file
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self error];
 }
+
 
 // If there was an error
-- (void) error {
+- (void) errorCheckingUpdate {
     
     [progressIndicator setHidden:YES];
     [progressIndicator stopAnimation:self];
@@ -90,24 +98,20 @@
     [imgStatus setHidden:NO];
 }
 
-// Start the download
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    contents = [[NSMutableData alloc]init];
+// Update available
+- (void) updateAvailable {
+    updatesAvailable = YES;
+    [self refreshUpdate];
 }
 
-// Download data
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    [contents appendData:data];
+// Update not available
+- (void) updateNotAvailable {
+    updatesAvailable = NO;
+    [self refreshUpdate];
 }
 
 // Data download finished
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    NSString *versionContent = [[NSString alloc] initWithData:contents encoding:NSUTF8StringEncoding];
-   
-    int latestVersion = [versionContent intValue];
+- (void) refreshUpdate {
     
     fileDownloaded = YES;
     
@@ -117,13 +121,11 @@
     [imgStatus setImage:[NSImage imageNamed:@"icon_ok.png"]];
     [imgStatus setHidden:NO];
     
-    if (latestVersion > CURRENT_VERSION) {
-        
-        updatesAvailable = YES;
+    if (updatesAvailable) {
         
         [txtStatus setStringValue:NSLocalizedString(@"updates_available", nil)];
         [btnOk setTitle:NSLocalizedString(@"btn_download", nil)];
-       
+        
         [btnCancel setTitle:NSLocalizedString(@"btn_cancel", nil)];
         [btnCancel setHidden:NO];
         
@@ -135,7 +137,6 @@
         [txtStatus setStringValue:NSLocalizedString(@"updates_not_available", nil)];
         [btnOk setTitle:NSLocalizedString(@"btn_close", nil)];
         
-       
     }
 }
 
@@ -160,5 +161,8 @@
 - (IBAction) btnCancelPressed:(id)sender {
     [self close];
 }
+
+
+
 
 @end

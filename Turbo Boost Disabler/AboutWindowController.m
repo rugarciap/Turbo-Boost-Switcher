@@ -41,6 +41,12 @@
     return self;
 }
 
+- (IBAction) goProAction:(id)sender {
+
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gumroad.com/l/YeBQUF"]];
+    [self close];
+}
+
 
 - (void)windowDidLoad
 {
@@ -50,6 +56,10 @@
 
     [appCopyRight setStringValue:NSLocalizedString(@"author", nil)];
     [authorLink setStringValue:NSLocalizedString(@"web", nil)];
+    
+    [etqLikeApp setStringValue:NSLocalizedString(@"etq_like_app_pro", nil)];
+    [btnGoPro setStringValue:NSLocalizedString(@"btn_pro", nil)];
+    
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"License" ofType:@"rtf"]];

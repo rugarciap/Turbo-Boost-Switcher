@@ -31,7 +31,11 @@
     IBOutlet NSTextField *appName;
     IBOutlet NSTextField *appCopyRight;
     IBOutlet NSTextField *authorLink;
+    IBOutlet NSTextField *etqLikeApp;
+    IBOutlet NSButton *btnGoPro;
 }
+
+- (IBAction) goProAction:(id)sender;
 
 
 @end

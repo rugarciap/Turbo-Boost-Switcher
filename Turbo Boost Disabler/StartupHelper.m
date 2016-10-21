@@ -52,7 +52,18 @@
     
 }
 
+// Is check updates on start
++ (BOOL) isCheckUpdatesOnStart {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"isCheckUpdatesOnStart"];
+}
 
+// Store check updates on start
++ (void) storeCheckUpdatesOnStart:(BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isCheckUpdatesOnStart"];
+    [userDefaults synchronize];
+}
 
 + (void) setOpenAtLogin:(BOOL) isOpenAtLogin {
     
@@ -107,6 +118,32 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     return [userDefaults boolForKey:@"disableAtLaunch"];
+}
+
+// Get the run count
++ (NSInteger) runCount {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults integerForKey:@"runCount"];
+}
+
+// Store the run count
++ (void) storeRunCount:(NSInteger) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:value forKey:@"runCount"];
+    [userDefaults synchronize];
+}
+
+// Never show pro message again
++ (BOOL) neverShowProMessage {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"neverShowProMessage"];
+}
+
+// Store never show going pro message
++ (void) storeNeverShowProMessage:(BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"neverShowProMessage"];
+    [userDefaults synchronize];
 }
 
 @end

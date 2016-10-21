@@ -79,6 +79,8 @@
 
 - (void) awakeFromNib {
     
+    // Init the check for updates helper
+    checkUpdatesHelper = [[CheckUpdatesHelper alloc] init];
     
     // Item to show up on the status bar
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
@@ -138,6 +140,46 @@
     // Refresh the status item
     [self updateStatus];
     
+    // Check for updates
+    if ([StartupHelper isCheckUpdatesOnStart]) {
+        [checkUpdatesHelper checkUpdatesWithDelegate:(id) self];
+    }
+    
+    // Check run count and if mod 10, suggets going pro if the user don't answered "never shot this again" :).
+    if (![StartupHelper neverShowProMessage]) {
+        if (([StartupHelper runCount] % 10) == 0) {
+            
+            NSAlert *alert = [[NSAlert alloc] init];
+            
+            [alert addButtonWithTitle:NSLocalizedString(@"alert_later", nil)];
+            [alert addButtonWithTitle:NSLocalizedString(@"alert_never_show_again", nil)];
+            [alert addButtonWithTitle:NSLocalizedString(@"btn_pro",nil)];
+            
+            [alert setMessageText:NSLocalizedString(@"alert_text", nil)];
+            [alert setInformativeText:NSLocalizedString(@"alert_informative_text", nil)];
+            
+            [alert setAlertStyle:NSWarningAlertStyle];
+            
+            NSModalResponse modalResponse = [alert runModal];
+            
+            if (modalResponse == NSAlertSecondButtonReturn) {
+                
+                // Never show again clicked
+                [StartupHelper storeNeverShowProMessage:YES];
+                
+            } else if (modalResponse == NSAlertThirdButtonReturn) {
+                
+                // Go pro!
+                [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"https://gumroad.com/l/YeBQUF"]];
+                    
+            }
+        }
+        
+        // Save the current count
+        int currentCount = (int)[StartupHelper runCount];
+        [StartupHelper storeRunCount:(currentCount + 1)];
+    }
+
 }
 
 // Invoked when the user clicks on the satus menu
@@ -315,5 +357,27 @@
     [StartupHelper setDisableAtLaunch:[checkDisableAtLaunch state]];
 }
 
+// Error
+- (void) errorCheckingUpdate {
+    
+}
+
+// Update available
+- (void) updateAvailable {
+    
+    // Download the update opening the CheckUpdates Window Controller
+    if (self.checkUpdatesWindow == nil) {
+        self.checkUpdatesWindow = [[CheckUpdatesWindowController alloc] initWithWindowNibName:@"CheckUpdatesWindowController"];
+    }
+    
+    [self.checkUpdatesWindow.window center];
+    [self.checkUpdatesWindow showWindow:nil];
+    [self.checkUpdatesWindow updateAvailable];
+}
+
+// Update not available
+- (void) updateNotAvailable {
+    
+}
 
 @end
