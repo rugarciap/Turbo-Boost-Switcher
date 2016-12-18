@@ -1,0 +1,48 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "Temperatura procesora:";
+"fan_speed" = "Prędkość wentylatora:";
+"cpu_temp_na" = "Temperatura procesora: Niedostępne";
+"fan_speed_na" = "Prędkość wentylatora: Niedostępne";
+"enable_menu" = "Włącz Turbo Boost";
+"disable_menu" = "Wyłącz Turbo Boost";
+"open_login" = "Otwórz podczas logowania";
+"disable_login" = "Wyłącz przy uruchamianiu";
+
+"settings" = "Ustawienia:";
+"donate" = "Donate...";
+"about" = "o aplikacji...";
+"about_title" = "o aplikacji";
+"quit" = "porzucić";
+"updates" = "Sprawdź aktualizacje...";
+"updates_title" = "Turbo Boost Switcher - Sprawdź aktualizacje";
+
+"updates_progress" = "Sprawdzanie aktualizacji...";
+"updates_available" = "Nowa wersja jest dostępna do pobrania!";
+"updates_not_available" = "Najnowsza wersja została już zainstalowana";
+"updates_error" = "Błąd podczas sprawdzania aktualizacji";
+
+"btn_cancel" = "Anuluj";
+"btn_download" = "Pobieranie";
+"btn_close" = "Blisko";
+
+"author" = "Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "Licencja:";
+
+"checkUpdates" = "Sprawdź podczas uruchamiania";
+
+"etq_like_app_pro" = "Czy podoba Ci się aplikacji? Rozważmy pomagając dostając wersji PRO! Dzięki!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Później";
+"alert_never_show_again" = "Nigdy więcej tego nie pokazuj";
+"alert_text" = "Czy podoba Ci się aplikacji? Rozważmy pomagając dostając wersji PRO! :)";
+"alert_informative_text" = "Pierwsze PRO pozwoli kilka świetnych funkcji automatycznych, ogłoszeń, bezpłatne aktualizacje zawsze i wiele więcej!";
+

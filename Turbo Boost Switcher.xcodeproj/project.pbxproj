@@ -42,6 +42,11 @@
 		4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckUpdatesWindowController.xib; sourceTree = "<group>"; };
 		452252C8192D6801002BACF4 /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
 		452252C9192D6801002BACF4 /* icon_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ok.png; sourceTree = "<group>"; };
+		4526C6321E04A1BA007C4394 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4526C6331E04A1C7007C4394 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4526C6341E04A1D0007C4394 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		4526C6351E04A1DE007C4394 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4526C6361E04A1EE007C4394 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4529C41919A7F0D800A48A85 /* icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_256x256@2x.png"; sourceTree = "<group>"; };
 		4529C41A19A7F0D800A48A85 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
 		4529C41D19A7F14300A48A85 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
@@ -234,6 +239,11 @@
 				en,
 				es,
 				"es-ES",
+				fr,
+				de,
+				"zh-Hans",
+				pl,
+				ru,
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -310,6 +320,11 @@
 			children = (
 				45A571A5179DE90D00D91EEE /* en */,
 				45A571AB179DEB3B00D91EEE /* es */,
+				4526C6321E04A1BA007C4394 /* fr */,
+				4526C6331E04A1C7007C4394 /* de */,
+				4526C6341E04A1D0007C4394 /* zh-Hans */,
+				4526C6351E04A1DE007C4394 /* pl */,
+				4526C6361E04A1EE007C4394 /* ru */,
 			);
 			name = Localizable.strings;
 			path = ..;

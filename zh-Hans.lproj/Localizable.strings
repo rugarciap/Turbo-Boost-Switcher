@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU温度:";
+"fan_speed" = "风扇转速:";
+"cpu_temp_na" = "CPU温度: 不可用";
+"fan_speed_na" = "风扇转速: 不可用";
+"enable_menu" = "启用Turbo Boost";
+"disable_menu" = "禁用Turbo Boost";
+"open_login" = "在登录时打开";
+"disable_login" = "在启动时禁用";
+"settings" = "设置:";
+"donate" = "Donate...";
+"about" = "关于应用程序...";
+"about_title" = "关于应用程序";
+"quit" = "放弃";
+"updates" = "检查更新...";
+"updates_title" = "Turbo Boost Switcher - 检查更新";
+
+"updates_progress" = "更新检测...";
+"updates_available" = "一个新版本可供下载！";
+"updates_not_available" = "您已拥有最新版本";
+"updates_error" = "错误检测更新";
+
+"btn_cancel" = "取消";
+"btn_download" = "下载";
+"btn_close" = "关";
+
+"author" = "Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "执照：";
+
+"checkUpdates" = "启动时检查";
+
+"etq_like_app_pro" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "后来";
+"alert_never_show_again" = "不再显示此信息";
+"alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
+"alert_informative_text" = "获取PRO将启用一些伟大的自动功能，通知，免费更新永远和更多！";
+
