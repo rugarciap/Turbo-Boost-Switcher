@@ -27,6 +27,7 @@ It’s installed on your Mac status bar and allows you to:
 - Restore Turbo Boost on Exit
 - Check your CPU temp and fan speed.
 - Set it to open at login.
+- Translated to English & Spanish. Other languages in beta (Russina, Chinese, German, French, Polish).
 - More features detailed on http://www.rugarciap.com
 
 How to install:
