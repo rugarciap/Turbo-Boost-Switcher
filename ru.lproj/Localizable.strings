@@ -5,22 +5,22 @@
   Created by Rubén García Pérez on 23/07/13.
   Copyright (c) 2016 Rubén García Pérez. 
 */
-"cpu_temp" = "температура процессора:";
+"cpu_temp" = "Температура процессора:";
 "fan_speed" = "Скорость вентилятора:";
-"cpu_temp_na" = "температура процессора: Недоступно";
+"cpu_temp_na" = "Температура процессора: Недоступно";
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
 "enable_menu" = "Активировать Turbo Boost";
 "disable_menu" = "Отключение Turbo Boost";
-"open_login" = "Открыть при входе в систему";
+"open_login" = "Запускать при входе в систему";
 "disable_login" = "Отключение при запуске";
-"settings" = "настройки:";
+"settings" = "Настройки:";
 
-"donate" = "Donate...";
-"about" = "относительно...";
-"about_title" = "относительно";
-"quit" = "уволиться";
+"donate" = "Пожертвовать...";
+"about" = "О Turbo Boost Switcher...";
+"about_title" = "О Turbo Boost Switcher";
+"quit" = "Завершить";
 "updates" = "Проверить наличие обновлений...";
-"updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
+"updates_title" = "Обновление Turbo Boost Switcher";
 
 "updates_progress" = "Проверяем наличие обновлений...";
 "updates_available" = "Новая версия доступна к загрузке!";
@@ -28,21 +28,21 @@
 "updates_error" = "Ошибка при проверке наличия обновлений";
 
 "btn_cancel" = "Отмена";
-"btn_download" = "скачать";
+"btn_download" = "Скачать";
 "btn_close" = "Закрыть";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
-"license" = "License:";
+"donate_msg" = "Если Вам понравилось приложение, подумайте о поддержке автора. Спасибо!";
+"license" = "Лицензионное соглашение:";
 
 "checkUpdates" = "Проверять при запуске";
 
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
-"btn_pro" = "Go Pro!";
+"etq_like_app_pro" = "Если Вам понравилось приложение, подумайте о поддержке автора покупкой PRO-версии. Спасибо!";
+"btn_pro" = "Перейти на PRO-версию!";
 
 "alert_later" = "Позже";
-"alert_never_show_again" = "Не показывать это снова";
-"alert_text" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! :)";
-"alert_informative_text" = "Получение PRO позволит некоторые большие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
+"alert_never_show_again" = "Больше не показывать";
+"alert_text" = "Понравилось приложение? Подумайте о поддержке автора покупкой PRO-версии! :)";
+"alert_informative_text" = " Установка PRO-версии позволит получить доступ к большему числу функций, уведомлений и дальнейшим обновлениям расширенной версии программы!";
 
