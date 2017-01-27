@@ -1,47 +1,99 @@
-/* 
-  Localizable.strings
-  Turbo Boost Switcher
-
-  Created by Rubén García Pérez on 23/07/13.
-  Copyright (c) 2016 Rubén García Pérez. 
-*/
-"cpu_temp" = "CPU-Temperatur:";
-"fan_speed" = "Ventilatorgeschwindigkeit:";
-"cpu_temp_na" = "CPU-Temperatur: Nicht verfügbar";
-"fan_speed_na" = "Ventilatorgeschwindigkeit: Nicht verfügbar";
-"enable_menu" = "Aktivieren Sie Turbo Boost";
-"disable_menu" = "Deaktivieren Sie Turbo Boost";
-"open_login" = "Beim Einloggen öffnen";
-"disable_login" = "Beim Start deaktivieren";
-"settings" = "Einstellungen:";
-"donate" = "Donate...";
+/* No comment provided by engineer. */
 "about" = "Über...";
+
+/* No comment provided by engineer. */
 "about_title" = "Über";
-"quit" = "Ausfahrt";
-"updates" = "Auf Updates prüfen...";
-"updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
 
-"updates_progress" = "Es wird auf Updates geprüft...";
-"updates_available" = "Eine neue Version ist bereit zum Download!";
-"updates_not_available" = "Sie besitzen bereits die neueste version.";
-"updates_error" = "Fehler beim Prüfen auf Updates";
+/* No comment provided by engineer. */
+"alert_informative_text" = "In der PRO Version enthalten: coole automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
 
-"btn_cancel" = "Stornieren";
-"btn_download" = "Herunterladen";
+/* No comment provided by engineer. */
+"alert_later" = "Später";
+
+/* No comment provided by engineer. */
+"alert_never_show_again" = "Nicht mehr zeigen";
+
+/* No comment provided by engineer. */
+"alert_text" = "Gefällt dir die App? Unterstütze mich durch den Kauf der PRO Version! :)";
+
+/* No comment provided by engineer. */
+"author" = "Copyright (c) 2016 Rubén García Pérez";
+
+/* No comment provided by engineer. */
+"btn_cancel" = "Abbrechen";
+
+/* No comment provided by engineer. */
 "btn_close" = "Schließen";
 
-"author" = "Copyright (c) 2016 Rubén García Pérez";
-"web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+/* No comment provided by engineer. */
+"btn_download" = "Herunterladen";
+
+/* No comment provided by engineer. */
+"btn_pro" = "PRO kaufen!";
+
+/* No comment provided by engineer. */
+"checkUpdates" = "Beim Start auf Updates prüfen";
+
+/* cpu_temp */
+"cpu_temp" = "CPU-Temperatur:";
+
+/* No comment provided by engineer. */
+"cpu_temp_na" = "CPU-Temperatur: Nicht verfügbar";
+
+/* No comment provided by engineer. */
+"disable_login" = "Turbo Boost autom. deaktivieren";
+
+/* No comment provided by engineer. */
+"disable_menu" = "Turbo Boost deaktivieren";
+
+/* (No Commment) */
+"donate" = "Spenden…";
+
+/* (No Commment) */
+"donate_msg" = "Unterstütze mich durch eine Spende, wenn du die App magst. Danke!";
+
+/* No comment provided by engineer. */
+"enable_menu" = "Turbo Boost aktivieren";
+
+/* No comment provided by engineer. */
+"etq_like_app_pro" = "Gefällt dir die App? Unterstütze mich durch den Kauf der PRO Version! :)";
+
+/* cpu_temp */
+"fan_speed" = "Lüftergeschwindigkeit:";
+
+/* No comment provided by engineer. */
+"fan_speed_na" = "Lüftergeschwindigkeit: Nicht verfügbar";
+
+/* (No Commment) */
 "license" = "Lizenz:";
 
-"checkUpdates" = "Beim Hochfahren prüfen";
+/* No comment provided by engineer. */
+"open_login" = "Beim Anmelden starten";
 
-"etq_like_app_pro" = "Gefällt Ihnen die App? Betrachten Sie helfen, indem Sie die PRO-Version! Vielen Dank!";
-"btn_pro" = "Go Pro!";
+/* No comment provided by engineer. */
+"quit" = "Beenden";
 
-"alert_later" = "Später";
-"alert_never_show_again" = "Zeige das nie wieder";
-"alert_text" = "Gefällt Ihnen die App? Betrachten Sie helfen, indem Sie die PRO-Version! :)";
-"alert_informative_text" = "Getting PRO ermöglicht einige große automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
+/* No comment provided by engineer. */
+"settings" = "Einstellungen:";
+
+/* No comment provided by engineer. */
+"updates" = "Auf Updates prüfen...";
+
+/* No comment provided by engineer. */
+"updates_available" = "Eine neue Version ist bereit zum Download!";
+
+/* No comment provided by engineer. */
+"updates_error" = "Fehler beim Prüfen auf Updates";
+
+/* No comment provided by engineer. */
+"updates_not_available" = "Diese Turbo Boost Switcher Version ist aktuell.";
+
+/* No comment provided by engineer. */
+"updates_progress" = "Es wird auf Updates geprüft...";
+
+/* No comment provided by engineer. */
+"updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
+
+/* No comment provided by engineer. */
+"web" = "rugarciap.com";
 
