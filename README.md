@@ -74,7 +74,7 @@ To see the differences between having Turbo Boost enabled or not, you can do the
 
 Thanks to:
 ===========
-- Icons by rugaciap 
-- Other icons provided by fatcow (http://www.fatcow.com/free-icons)
+
+- Some icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
