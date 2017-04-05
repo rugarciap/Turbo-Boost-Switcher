@@ -17,7 +17,7 @@
 "donate" = "Donate...";
 "about" = "关于应用程序...";
 "about_title" = "关于应用程序";
-"quit" = "放弃";
+"quit" = "退出";
 "updates" = "检查更新...";
 "updates_title" = "Turbo Boost Switcher - 检查更新";
 
@@ -45,3 +45,16 @@
 "alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
 "alert_informative_text" = "获取PRO将启用一些伟大的自动功能，通知，免费更新永远和更多！";
 
+// Language
+"language"="语言";
+"language_en"="英语";
+"language_es"="西班牙语";
+"language_pl"="波兰语（测试版）";
+"language_de"="德语（测试版）";
+"language_fr"="法语（测试版）";
+"language_ru"="俄语（测试版）";
+"language_zh"="中文（测试版）";
+"language_sv"="瑞典语（测试版）";
+
+"language_change_confirmation" = "你确定？";
+"language_change_informative_text" = "您需要重新启动应用程序以应用更改。";

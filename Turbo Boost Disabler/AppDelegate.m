@@ -32,10 +32,23 @@
 
 @synthesize aboutWindow, refreshTimer, checkUpdatesWindow;
 
+// Struct to take the cpu samples
+struct cpusample {
+    uint64_t totalSystemTime;
+    uint64_t totalUserTime;
+    uint64_t totalIdleTime;
+    
+};
+
+// The two samples
+struct cpusample sample_one;
+struct cpusample sample_two;
+
 
 // On wake up reinstall the module if needed
 - (void) receiveWakeNote: (NSNotification*) note
 {
+    
     
     // Reload the module if the current status is on, since OSX enables turbo boost after an
     // undetermined time on sleep / hibernation
@@ -79,6 +92,25 @@
 
 - (void) awakeFromNib {
     
+    // Init the cpu load samples
+    sample_one.totalIdleTime = 0;
+    sample_two.totalIdleTime = 0;
+    
+    // Locale init
+    if ([StartupHelper currentLocale] == nil) {
+        
+        // Get the current language
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+        NSString *currentLanguage = [languages objectAtIndex:0];
+        
+        // Save it
+        [StartupHelper storeCurrentLocale:currentLanguage];
+    }
+    
+    // Update languages menú
+    [self updateLanguageMenu];
+    
     // Init the check for updates helper
     checkUpdatesHelper = [[CheckUpdatesHelper alloc] init];
     
@@ -93,17 +125,13 @@
 
     [statusItem setHighlightMode:YES];
     [statusItem setImage:statusImage];
-
-    // Set separators
-    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:[statusMenu indexOfItem:enableDisableItem]];
-    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:([statusMenu indexOfItem:checkUpdatesItem] + 1)];
-    [statusMenu insertItem:[NSMenuItem separatorItem] atIndex:[statusMenu indexOfItem:aboutItem]];
-    
+ 
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
     
     // Update open at login status
     [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
+    
     [checkOpenAtLogin setTitle:NSLocalizedString(@"open_login", nil)];
     
     // Update disable at login status
@@ -188,6 +216,22 @@
     [self updateStatus];
 }
 
+// Method to refresh the temperature image sensor depending on temperture
+- (void) updateImageForTemperature:(int) temp {
+    
+    if (temp <= 60) {
+        [temperatureImage setImage:[NSImage imageNamed:@"temperature_1.png"]];
+    } else if (temp < 70) {
+        [temperatureImage setImage:[NSImage imageNamed:@"temperature_2.png"]];
+    } else if (temp < 80) {
+        [temperatureImage setImage:[NSImage imageNamed:@"temperature_3.png"]];
+    } else if (temp < 90) {
+        [temperatureImage setImage:[NSImage imageNamed:@"temperature_4.png"]];
+    } else {
+        [temperatureImage setImage:[NSImage imageNamed:@"temperature_5.png"]];
+    }
+    
+}
 
 // Refresh the GUI general status, including enable/disable options, on-off status, cpu & fan reads
 - (void) updateStatus {
@@ -204,11 +248,14 @@
             NSFontAttributeName : labelFont,
             }];
         [enableDisableItem setTitle:NSLocalizedString(@"disable_menu", nil)];
+        [enableDisableItem setImage:[NSImage imageNamed:@"cross.png"]];
+        
     } else {
         titleString = [[NSAttributedString alloc] initWithString:@"Off " attributes:@{
                                             NSFontAttributeName : labelFont,
                        }];
         [enableDisableItem setTitle:NSLocalizedString(@"enable_menu", nil)];
+        [enableDisableItem setImage:[NSImage imageNamed:@"tick.png"]];
     }
     
     // Refresh the title
@@ -224,17 +271,173 @@
     int fanSpeed = [SystemCommands readCurrentFanSpeed];
     float cpuTemp = [SystemCommands readCurrentCpuTemp];
     
-    
+    // Set the CPU Temp
     if (cpuTemp > 0) {
-        [[statusMenu itemAtIndex:0] setTitle:[NSString stringWithFormat:@"%@ %.02f ºC", NSLocalizedString(@"cpu_temp",@"cpu_temp"), cpuTemp]];
+        [txtCpuTemp setStringValue:[NSString stringWithFormat:@"%.00f ºC", cpuTemp]];
+        
+        // Update temperature image
+        [self updateImageForTemperature:cpuTemp];
+        
     } else {
-        [[statusMenu itemAtIndex:0] setTitle:[NSString stringWithFormat:NSLocalizedString(@"cpu_temp_na",nil)]];
+        [txtCpuTemp setStringValue:[NSString stringWithFormat:NSLocalizedString(@"cpu_temp_na",nil)]];
     }
     
+    // Set the Fan Speed
     if (fanSpeed > 0) {
-        [[statusMenu itemAtIndex:1] setTitle:[NSString stringWithFormat:@"%@ %d rpm", NSLocalizedString(@"fan_speed",@"cpu_temp"), fanSpeed]];
+        [txtCpuFan setStringValue:[NSString stringWithFormat:@"%d rpm", fanSpeed]];
     } else {
-        [[statusMenu itemAtIndex:1] setTitle:[NSString stringWithFormat:NSLocalizedString(@"fan_speed_na",nil)]];
+        [txtCpuFan setStringValue:[NSString stringWithFormat:NSLocalizedString(@"fan_speed_na",nil)]];
+    }
+    
+    // Get the CPU Load
+    if (sample_one.totalIdleTime == 0) {
+        sample(&sample_one);
+    } else {
+        sample(&sample_two);
+        
+        struct cpusample delta;
+        delta.totalSystemTime = sample_two.totalSystemTime - sample_one.totalSystemTime;
+        delta.totalUserTime = sample_two.totalUserTime - sample_one.totalUserTime;
+        delta.totalIdleTime = sample_two.totalIdleTime - sample_one.totalIdleTime;
+        
+        sample_one.totalSystemTime = sample_two.totalSystemTime;
+        sample_one.totalUserTime = sample_two.totalUserTime;
+        sample_one.totalIdleTime = sample_two.totalIdleTime;
+        
+        uint64_t total = delta.totalSystemTime + delta.totalUserTime + delta.totalIdleTime;
+        
+        double onePercent = total/100.0f;
+        
+        double cpuIdleValue = (double)delta.totalIdleTime/(double)onePercent;
+        double cpuLoadValue = 100.0 - cpuIdleValue;
+        
+        [txtCpuLoad setStringValue:[NSString stringWithFormat:@"CPU Load: %.01f%%", cpuLoadValue]];
+        
+    }
+}
+
+
+// Take one cpu sample
+void sample(struct cpusample *sample)
+{
+    processor_cpu_load_info_t cpuLoad;
+    mach_msg_type_number_t processorMsgCount;
+    natural_t processorCount;
+    
+    uint64_t totalSystemTime = 0, totalUserTime = 0, totalIdleTime = 0;
+    
+    kern_return_t err = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &processorCount, (processor_info_array_t *)&cpuLoad, &processorMsgCount);
+    
+    for (natural_t i = 0; i < processorCount; i++) {
+        
+        // Calc load types and totals, with guards against 32-bit overflow
+        // (values are natural_t)
+        uint64_t system = 0, user = 0, idle = 0;
+        
+        system = cpuLoad[i].cpu_ticks[CPU_STATE_SYSTEM];
+        user = cpuLoad[i].cpu_ticks[CPU_STATE_USER] + cpuLoad[i].cpu_ticks[CPU_STATE_NICE];
+        idle = cpuLoad[i].cpu_ticks[CPU_STATE_IDLE];
+        
+        totalSystemTime += system;
+        totalUserTime += user;
+        totalIdleTime += idle;
+    }
+    sample->totalSystemTime = totalSystemTime;
+    sample->totalUserTime = totalUserTime;
+    sample->totalIdleTime = totalIdleTime;
+}
+
+// Update language menu
+- (void) updateLanguageMenu {
+    
+    NSString *currentLocale = [StartupHelper currentLocale];
+    
+    [spanishMenu setState:NSOffState];
+    [englishMenu setState:NSOffState];
+    [frenchMenu setState:NSOffState];
+    [chineseMenu setState:NSOffState];
+    [germanMenu setState:NSOffState];
+    [polishMenu setState:NSOffState];
+    [russianMenu setState:NSOffState];
+    [swedishMenu setState:NSOffState];
+    
+    // TODO: Change this to a nsmutabledict
+    if ([currentLocale rangeOfString:@"es"].location != NSNotFound) {
+        [spanishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"en"].location != NSNotFound) {
+        [englishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"fr"].location != NSNotFound) {
+        [frenchMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"cn"].location != NSNotFound) {
+        [chineseMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"de"].location != NSNotFound) {
+        [germanMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"pl"].location != NSNotFound) {
+        [polishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"ru"].location != NSNotFound) {
+        [russianMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"sv"].location != NSNotFound) {
+        [swedishMenu setState:NSOnState];
+    }
+    
+    // Update language translations
+    [languageMenu setTitle:NSLocalizedString(@"language", nil)];
+    [spanishMenu setTitle:NSLocalizedString(@"language_es", nil)];
+    [englishMenu setTitle:NSLocalizedString(@"language_en", nil)];
+    [frenchMenu setTitle:NSLocalizedString(@"language_fr", nil)];
+    [chineseMenu setTitle:NSLocalizedString(@"language_zh", nil)];
+    [germanMenu setTitle:NSLocalizedString(@"language_de", nil)];
+    [polishMenu setTitle:NSLocalizedString(@"language_pl", nil)];
+    [russianMenu setTitle:NSLocalizedString(@"language_ru", nil)];
+    [swedishMenu setTitle:NSLocalizedString(@"language_sv", nil)];
+    
+}
+
+// Change language to
+- (void) changeLanguageTo:(NSString *) value {
+    
+    [StartupHelper storeCurrentLocale:value];
+    
+    // AppleLanguages
+    [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:value, nil] forKey:@"AppleLanguages"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
+
+// Language changed
+- (IBAction) languageChanged:(id)sender {
+    
+    // Asks for user confirmation
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:NSLocalizedString(@"btn_close", nil)];
+    [alert setMessageText:NSLocalizedString(@"language_change_confirmation", nil)];
+    [alert setInformativeText:NSLocalizedString(@"language_change_informative_text", nil)];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        
+        // OK clicked... TODO: Change this to a nsmutabledict
+        if ([sender isEqualTo:spanishMenu]) {
+            [self changeLanguageTo:@"es"];
+        } else if ([sender isEqualTo:englishMenu]) {
+            [self changeLanguageTo:@"en"];
+        } else if ([sender isEqualTo:frenchMenu]) {
+            [self changeLanguageTo:@"fr"];
+        } else if ([sender isEqualTo:chineseMenu]) {
+            [self changeLanguageTo:@"zh"];
+        } else if ([sender isEqualTo:germanMenu]) {
+            [self changeLanguageTo:@"de"];
+        } else if ([sender isEqualTo:polishMenu]) {
+            [self changeLanguageTo:@"pl"];
+        } else if ([sender isEqualTo:russianMenu]) {
+            [self changeLanguageTo:@"ru"];
+        } else if ([sender isEqualTo:swedishMenu]) {
+            [self changeLanguageTo:@"sv"];
+        }
+        
+        [self updateLanguageMenu];
+        
     }
 }
 

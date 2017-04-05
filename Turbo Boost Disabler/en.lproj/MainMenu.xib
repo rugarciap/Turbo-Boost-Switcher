@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15A284" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
@@ -653,25 +653,108 @@
                 <outlet property="checkDisableAtLaunch" destination="588" id="607"/>
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
                 <outlet property="checkUpdatesItem" destination="564" id="601"/>
+                <outlet property="chineseMenu" destination="FNR-nU-o96" id="Lfr-Dt-oMa"/>
                 <outlet property="enableDisableItem" destination="537" id="599"/>
+                <outlet property="englishMenu" destination="oVw-Tz-krd" id="iB8-UC-rhk"/>
                 <outlet property="exitItem" destination="562" id="603"/>
+                <outlet property="frenchMenu" destination="7pm-dC-N4m" id="vuG-Mf-8x8"/>
+                <outlet property="germanMenu" destination="897-TB-g2a" id="9mc-8d-XYX"/>
+                <outlet property="languageMenu" destination="NzB-Fh-xOX" id="QrZ-Qa-kFR"/>
+                <outlet property="polishMenu" destination="aNR-Nk-YzI" id="2Wf-OG-YBr"/>
+                <outlet property="russianMenu" destination="MNJ-MC-Tz5" id="46I-y0-t7f"/>
                 <outlet property="settingsLabel" destination="573" id="595"/>
+                <outlet property="spanishMenu" destination="qdP-PK-KXG" id="8Mi-0m-xJW"/>
                 <outlet property="statusMenu" destination="536" id="550"/>
+                <outlet property="swedishMenu" destination="4Gl-3T-SvN" id="TS1-wH-qSh"/>
+                <outlet property="temperatureImage" destination="mUD-bZ-LqC" id="ud4-dr-Wjr"/>
+                <outlet property="txtCpuFan" destination="5pK-fj-7Rw" id="49l-HA-Le0"/>
+                <outlet property="txtCpuLoad" destination="eUr-fG-tSt" id="Cf4-34-XPC"/>
+                <outlet property="txtCpuTemp" destination="PZt-MQ-VYY" id="XVe-OM-oxF"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
         <menu id="536">
             <items>
-                <menuItem title="CPU Temp:" id="558">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Fan Speed:" id="559">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
-                <menuItem title="Enable Turbo Boost" id="537">
+                <menuItem title="Enable Turbo Boost" image="cross" id="537">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="enableTurboBoost:" target="494" id="554"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="gYO-mG-taB"/>
+                <menuItem title="Item" id="L57-Oh-ely">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="YNw-n5-v8Y" id="nDW-PV-yso"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="MeR-dB-52w"/>
+                <menuItem title="Settings..." id="593">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="572" id="594"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Language" id="NzB-Fh-xOX">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Language" id="DeH-uF-pBd">
+                        <items>
+                            <menuItem title="English" id="oVw-Tz-krd">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="7Bm-AW-DnW"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Spanish" id="qdP-PK-KXG">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="YJ9-6u-DiP"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Polish (beta)" id="aNR-Nk-YzI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="Fdm-4G-gHu"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="German (beta)" id="897-TB-g2a">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="va8-EA-flh"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="French (beta)" id="7pm-dC-N4m">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="S3R-Gg-N4o"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Russian (beta)" id="MNJ-MC-Tz5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="gBP-Te-Hqj"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Chinese (beta)" id="FNR-nU-o96">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="0gY-KT-j62"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Swedish (beta)" id="4Gl-3T-SvN">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="EwL-OQ-f3f"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="hVV-Mt-Dnk"/>
+                <menuItem title="About..." id="556">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="about:" target="494" id="565"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Check Updates..." id="564">
@@ -680,18 +763,7 @@
                         <action selector="checkForUpdates:" target="494" id="570"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Settings..." id="593">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <outlet property="view" destination="572" id="594"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="About..." id="556">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="about:" target="494" id="565"/>
-                    </connections>
-                </menuItem>
+                <menuItem isSeparatorItem="YES" id="LXX-oe-Hxb"/>
                 <menuItem title="Quit" id="562">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -699,6 +771,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="-10" y="-298.5"/>
         </menu>
         <customView id="572">
             <rect key="frame" x="0.0" y="0.0" width="273" height="77"/>
@@ -736,7 +809,62 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="351.5" y="-69.5"/>
+            <point key="canvasLocation" x="48.5" y="-102.5"/>
+        </customView>
+        <customView id="YNw-n5-v8Y">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ULv-Qm-uXJ">
+                    <rect key="frame" x="20" y="6" width="32" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="processor" id="3DQ-ly-BuF"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oqR-TH-a8m">
+                    <rect key="frame" x="161" y="-4" width="36" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cooler" id="9k5-Jt-YVN"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mUD-bZ-LqC">
+                    <rect key="frame" x="254" y="-2" width="32" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="temperature_1" id="FWC-ck-Sss"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5pK-fj-7Rw">
+                    <rect key="frame" x="195" y="14" width="68" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="mti-n0-m5Q">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PZt-MQ-VYY">
+                    <rect key="frame" x="278" y="13" width="44" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="1Sm-bv-fqE">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eUr-fG-tSt">
+                    <rect key="frame" x="51" y="14" width="110" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="WJh-Gc-xwm">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <point key="canvasLocation" x="65.5" y="39"/>
         </customView>
     </objects>
+    <resources>
+        <image name="cooler" width="32" height="32"/>
+        <image name="cross" width="16" height="16"/>
+        <image name="processor" width="32" height="32"/>
+        <image name="temperature_1" width="32" height="32"/>
+    </resources>
 </document>

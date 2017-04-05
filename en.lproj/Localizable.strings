@@ -17,7 +17,7 @@
 "donate" = "Donate...";
 "about" = "About...";
 "about_title" = "About";
-"quit" = "Quit";
+"quit" = "Quit Turbo Boost Switcher";
 "updates" = "Check Updates...";
 "updates_title" = "Updates";
 
@@ -43,4 +43,18 @@
 "alert_never_show_again" = "Never show this again";
 "alert_text" = "Like the app? Support it Going Pro! :)";
 "alert_informative_text" = "Going PRO will enable some cool auto features, notifications, free updates forever and more!";
+
+// Language menú
+"language" = "Language";
+"language_en" = "English";
+"language_es" = "Spanish";
+"language_pl" = "Polish (beta)";
+"language_de" = "German (beta)";
+"language_fr" = "French (beta)";
+"language_ru" = "Russian (beta)";
+"language_zh" = "Chinese (beta)";
+"language_sv" = "Swedish (beta)";
+
+"language_change_confirmation" = "Are you sure?";
+"language_change_informative_text" = "You'll need to restart the application to apply the changes.";
 

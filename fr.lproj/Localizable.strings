@@ -15,9 +15,9 @@
 "disable_login" = "Désactiver au lancement";
 "settings" = "Paramètres:";
 "donate" = "Donate...";
-"about" = "Sur...";
-"about_title" = "Sur";
-"quit" = "Sortir";
+"about" = "À propos de...";
+"about_title" = "À propos de";
+"quit" = "Quitter Turbo Boost Switcher";
 "updates" = "Rechercher les mises à jour...";
 "updates_title" = "Turbo Boost Switcher - Rechercher les mises à jour";
 
@@ -35,7 +35,7 @@
 "donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
 "license" = "Licence:";
 
-"checkUpdates" = "Vérifier le démarrage";
+"checkUpdates" = "Vérifier au lancement";
 
 "etq_like_app_pro" = "Aimez-vous l'application? Pensez à vous aider en obtenant la version PRO! Merci!";
 "btn_pro" = "Go Pro!";
@@ -45,3 +45,16 @@
 "alert_text" = "Aimez-vous l'application? Pensez à vous aider en obtenant la version PRO! :)";
 "alert_informative_text" = "Obtenir PRO permettra quelques fonctionnalités automatiques grand, notifications, mises à jour gratuites pour toujours et plus!";
 
+// Language menú
+"language" = "Langue";
+"language_en" = "Anglais";
+"language_es" = "Espagnol";
+"language_pl" = "Polonais (beta)";
+"language_de" = "Allemand (beta)";
+"language_fr" = "Français (beta)";
+"language_ru" = "Russe (beta)";
+"language_zh" = "Chinois (beta)";
+"language_sv" = "Suédois (beta)";
+
+"language_change_confirmation" = "Êtes-vous sûr?";
+"language_change_informative_text" = "Vous devrez redémarrer l'application pour appliquer les modifications.";

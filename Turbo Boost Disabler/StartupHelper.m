@@ -146,4 +146,17 @@
     [userDefaults synchronize];
 }
 
+// Get selected locale
++ (NSString *) currentLocale {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:@"currentLocale"];
+}
+
+// Set selected locale
++ (void) storeCurrentLocale:(NSString *) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:value forKey:@"currentLocale"];
+    [userDefaults synchronize];
+}
+
 @end

@@ -54,4 +54,10 @@
 // Store never show going pro message
 + (void) storeNeverShowProMessage:(BOOL) value;
 
+// Get selected locale
++ (NSString *) currentLocale;
+
+// Set selected locale
++ (void) storeCurrentLocale:(NSString *) value;
+
 @end

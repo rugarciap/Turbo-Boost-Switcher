@@ -18,7 +18,7 @@
 "donate" = "Donate...";
 "about" = "o aplikacji...";
 "about_title" = "o aplikacji";
-"quit" = "porzucić";
+"quit" = "porzucić Turbo Boost Switcher";
 "updates" = "Sprawdź aktualizacje...";
 "updates_title" = "Turbo Boost Switcher - Sprawdź aktualizacje";
 
@@ -29,7 +29,7 @@
 
 "btn_cancel" = "Anuluj";
 "btn_download" = "Pobieranie";
-"btn_close" = "Blisko";
+"btn_close" = "Zamknij";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
@@ -46,3 +46,16 @@
 "alert_text" = "Czy podoba Ci się aplikacji? Rozważmy pomagając dostając wersji PRO! :)";
 "alert_informative_text" = "Pierwsze PRO pozwoli kilka świetnych funkcji automatycznych, ogłoszeń, bezpłatne aktualizacje zawsze i wiele więcej!";
 
+// Languages
+"language" = "Język";
+"language_en" = "English";
+"language_es" = "Spanish";
+"language_pl" = "Polski (beta)";
+"language_de" = "German (beta)";
+"language_fr" = "Francuski (beta)";
+"language_ru" = "rosyjski (beta)";
+"language_zh" = "Chiński (beta)";
+"language_sv" = "szwedzki (beta)";
+
+"language_change_confirmation" = "Jesteś pewny?";
+"language_change_informative_text" = "YMusisz ponownie uruchomić aplikację, aby zastosować zmiany.";

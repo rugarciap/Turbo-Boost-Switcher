@@ -27,15 +27,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="559" height="422"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" id="22">
-                        <rect key="frame" x="204" y="374" width="258" height="28"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.4.0" id="23">
-                            <font key="font" metaFont="systemBold" size="17"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <textField verticalHuggingPriority="750" id="31">
                         <rect key="frame" x="204" y="349" width="258" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -124,6 +115,15 @@
                             <action selector="goProAction:" target="-2" id="cmj-bm-b4h"/>
                         </connections>
                     </button>
+                    <textField verticalHuggingPriority="750" id="22">
+                        <rect key="frame" x="204" y="374" width="258" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.5.0" id="23">
+                            <font key="font" metaFont="systemBold" size="17"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
             </view>
             <connections>
@@ -138,6 +138,6 @@
         </imageView>
     </objects>
     <resources>
-        <image name="icon_256x256" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="icon_256x256" width="61.439998626708984" height="61.439998626708984"/>
     </resources>
 </document>

@@ -17,7 +17,7 @@
 "donate" = "Donate...";
 "about" = "Über...";
 "about_title" = "Über";
-"quit" = "Ausfahrt";
+"quit" = "Ausfahrt Turbo Boost Switcher";
 "updates" = "Auf Updates prüfen...";
 "updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
 
@@ -45,3 +45,16 @@
 "alert_text" = "Gefällt Ihnen die App? Betrachten Sie helfen, indem Sie die PRO-Version! :)";
 "alert_informative_text" = "Getting PRO ermöglicht einige große automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
 
+// Language menú
+"language" = "Sprache";
+"language_en" = "Englisch";
+"language_es" = "Spanisch";
+"language_pl" = "Polnisch (beta)";
+"language_de" = "Deutsch (beta)";
+"language_fr" = "Französisch (beta)";
+"language_ru" = "Russisch (beta)";
+"language_zh" = "Chinesisch (beta)";
+"language_sv" = "Schwedisch (beta)";
+
+"language_change_confirmation" = "Bist du sicher?";
+"language_change_informative_text" = "Sie müssen die Anwendung neu starten, um die Änderungen zu übernehmen.";

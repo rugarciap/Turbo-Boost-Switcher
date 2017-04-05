@@ -58,6 +58,25 @@
     IBOutlet NSButton *checkDisableAtLaunch;
     
     CheckUpdatesHelper *checkUpdatesHelper;
+    
+    // Languages Menu
+    IBOutlet NSMenuItem *languageMenu;
+    IBOutlet NSMenuItem *englishMenu;
+    IBOutlet NSMenuItem *spanishMenu;
+    IBOutlet NSMenuItem *frenchMenu;
+    IBOutlet NSMenuItem *germanMenu;
+    IBOutlet NSMenuItem *russianMenu;
+    IBOutlet NSMenuItem *polishMenu;
+    IBOutlet NSMenuItem *chineseMenu;
+    IBOutlet NSMenuItem *swedishMenu;
+    
+    // CPU Info labels
+    IBOutlet NSTextField *txtCpuLoad;
+    IBOutlet NSTextField *txtCpuFan;
+    IBOutlet NSTextField *txtCpuTemp;
+    
+    IBOutlet NSImageView *temperatureImage;
+
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;
@@ -71,6 +90,8 @@
 - (IBAction) disableAtLogin:(id)sender;
 - (IBAction) checkForUpdates:(id)sender;
 - (IBAction) exitItemEvent:(id)sender;
+
+- (IBAction) languageChanged:(id)sender;
 
 @property (assign) IBOutlet NSWindow *window;
 
