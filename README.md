@@ -1,9 +1,9 @@
-Turbo Boost Switcher 2.4.0
+Turbo Boost Switcher 2.5.0
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.4.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+You can [download the binary v2.5.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/) . More info about this update on the blog: [http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/] (http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/)
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
@@ -74,6 +74,7 @@ To see the differences between having Turbo Boost enabled or not, you can do the
 
 Thanks to:
 ===========
-
+- Icons by rugaciap 
+- Other icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
