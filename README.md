@@ -9,7 +9,7 @@ Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-f
 
 Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
-OSX El Capitan and above Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
+OSX El Capitan and above Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
 
 
 Features:
