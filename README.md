@@ -3,13 +3,13 @@ Turbo Boost Switcher 2.5.0
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.5.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/) . More info about this update on the blog: [http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/] (http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/)
+You can [download the binary v2.5.0 version](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/) . More info about this update on the blog: [http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/](http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/)
 
-Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
-Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.] (http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
-OSX El Capitan and above Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
+OSX El Capitan and above Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
 
 
 Features:
@@ -41,7 +41,7 @@ If you see a message saying the app “can’t be opened because it is from an i
 
 Depending on your user configuration, OSX may ask for root password when enabling / disabling Turbo Boost. That's because kernel extensions must be installed as root and the user privileges are stored on a system cache. To avoid this behaviour, you can follow two approaches:
 
- - [Buy the PRO version] (https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
+ - [Buy the PRO version](https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
  - Just run the app as root doing something like 'sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher'
 
 Motivation:
