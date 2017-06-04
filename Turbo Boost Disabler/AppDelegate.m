@@ -120,6 +120,9 @@ struct cpusample sample_two;
     statusImage = [NSImage imageNamed:@"icon"];
     [statusImage setTemplate:YES];
     
+    // Change to keep status icon visible in Dark mode.
+    [statusImage setTemplate:YES];
+    
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
