@@ -7,7 +7,7 @@ You can [download the binary v2.5.0 version](http://www.rugarciap.com/turbo-boos
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
-Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Support for macOS Sierra and High Sierra. To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
 OSX El Capitan and above Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
 
