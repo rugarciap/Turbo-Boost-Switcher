@@ -1,15 +1,17 @@
-Turbo Boost Switcher 2.4.0
+Turbo Boost Switcher 2.5.0
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.4.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+You can [download the binary v2.5.0 version](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/) . More info about this update on the blog: [http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/](http://www.rugarciap.com/2017/04/tbs-new-version-2-5-0/)
 
-Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
-Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.] (http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Support for macOS Sierra and High Sierra. To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
-OSX El Capitan and above Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
+Apple now (since macOS High Sierra) forces the user to manually allow kernel extensions to be used so, if you're running for the first time on macOS High Sierra and never granted permissions, you need to manually allow it to be used. [More details here.](https://www.rugarciap.com/2017/09/an-update-after-macos-high-sierra-release/)
+
+OSX El Capitan Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
 
 
 Features:
@@ -39,9 +41,11 @@ Once downloaded/compiled, just unzip and double click on your “Turbo Boost Swi
 
 If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
 
+Also, and just if you're running on macOS High Sierra for the first time, you'll need to allow the kernel extension to be used the first time you try to disable Turbo Boost. Just go to System Preferences -> Security and Privacy and click "allow" after trying to disable Turbo Boost for first time. [You can read more about this here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+
 Depending on your user configuration, OSX may ask for root password when enabling / disabling Turbo Boost. That's because kernel extensions must be installed as root and the user privileges are stored on a system cache. To avoid this behaviour, you can follow two approaches:
 
- - [Buy the PRO version] (https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
+ - [Buy the PRO version](https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
  - Just run the app as root doing something like 'sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher'
 
 Motivation:
@@ -75,5 +79,6 @@ To see the differences between having Turbo Boost enabled or not, you can do the
 Thanks to:
 ===========
 
+- Some icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
