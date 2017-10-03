@@ -279,6 +279,7 @@ int SMCGetFanSpeed(char *key)
     OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
                                                    [path UTF8String], kAuthorizationFlagDefaults, myArguments,
                                                    &myCommunicationsPipe);
+    
     if (resultStatus != errAuthorizationSuccess)
         NSLog(@"Error: %d", resultStatus);
     

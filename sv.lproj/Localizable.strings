@@ -56,4 +56,7 @@
 "language_sv" = "Svenska (beta)";
 
 "language_change_confirmation" = "Är du säker?";
-"language_change_informative_text" = "Du måste starta om programmet för att verkställa ändringarna.";
+"language_change_informative_text" = "Ansökan kommer att startas för att tillämpa de markerade förändringar.";
+
+// Status Menú
+"onOffMenu" = "Text statusfältet On / Off";

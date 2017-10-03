@@ -58,4 +58,7 @@
 "language_sv" = "Swedish (бета)";
 
 "language_change_confirmation" = "Ты уверен?";
-"language_change_informative_text" = "Вам необходимо перезапустить приложение, чтобы применить изменения.";
+"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+
+// Status Menú
+"onOffMenu" = "Текст Строка состояния ON / OFF";

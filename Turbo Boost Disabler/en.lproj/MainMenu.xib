@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
@@ -651,6 +651,7 @@
             <connections>
                 <outlet property="aboutItem" destination="556" id="602"/>
                 <outlet property="checkDisableAtLaunch" destination="588" id="607"/>
+                <outlet property="checkOnOffText" destination="Fpy-u5-yf5" id="v0R-Dn-aiq"/>
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
                 <outlet property="checkUpdatesItem" destination="564" id="601"/>
                 <outlet property="chineseMenu" destination="FNR-nU-o96" id="Lfr-Dt-oMa"/>
@@ -675,7 +676,7 @@
         <customObject id="420" customClass="NSFontManager"/>
         <menu id="536">
             <items>
-                <menuItem title="Enable Turbo Boost" image="cross" id="537">
+                <menuItem title="Enable Turbo Boost" id="537">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="enableTurboBoost:" target="494" id="554"/>
@@ -689,12 +690,6 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="MeR-dB-52w"/>
-                <menuItem title="Settings..." id="593">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <outlet property="view" destination="572" id="594"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="Language" id="NzB-Fh-xOX">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Language" id="DeH-uF-pBd">
@@ -750,6 +745,13 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="zu8-bG-enk"/>
+                <menuItem title="Settings..." id="593">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="572" id="594"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="hVV-Mt-Dnk"/>
                 <menuItem title="About..." id="556">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -771,14 +773,14 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-10" y="-298.5"/>
+            <point key="canvasLocation" x="-159" y="-406.5"/>
         </menu>
         <customView id="572">
-            <rect key="frame" x="0.0" y="0.0" width="273" height="77"/>
+            <rect key="frame" x="0.0" y="0.0" width="273" height="99"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="573">
-                    <rect key="frame" x="18" y="51" width="225" height="24"/>
+                    <rect key="frame" x="18" y="73" width="225" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings:" id="574">
                         <font key="font" metaFont="system"/>
@@ -787,7 +789,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="582">
-                    <rect key="frame" x="20" y="33" width="213" height="18"/>
+                    <rect key="frame" x="20" y="55" width="213" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Open at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="583">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -798,7 +800,7 @@
                     </connections>
                 </button>
                 <button id="588">
-                    <rect key="frame" x="20" y="9" width="235" height="18"/>
+                    <rect key="frame" x="20" y="31" width="235" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Disable Turbo Boost at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="589">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -808,8 +810,19 @@
                         <action selector="disableAtLogin:" target="494" id="606"/>
                     </connections>
                 </button>
+                <button id="Fpy-u5-yf5">
+                    <rect key="frame" x="20" y="6" width="249" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="On / Off text" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Xsn-Mn-jcg">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onOffClick:" target="494" id="Ilt-Fi-KUu"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="48.5" y="-102.5"/>
+            <point key="canvasLocation" x="-194.5" y="-171.5"/>
         </customView>
         <customView id="YNw-n5-v8Y">
             <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
@@ -858,12 +871,11 @@
                     </textFieldCell>
                 </textField>
             </subviews>
-            <point key="canvasLocation" x="65.5" y="39"/>
+            <point key="canvasLocation" x="-158.5" y="-26"/>
         </customView>
     </objects>
     <resources>
         <image name="cooler" width="32" height="32"/>
-        <image name="cross" width="16" height="16"/>
         <image name="processor" width="32" height="32"/>
         <image name="temperature_1" width="32" height="32"/>
     </resources>

@@ -159,4 +159,16 @@
     [userDefaults synchronize];
 }
 
++ (BOOL) isStatusOnOffEnabled {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"isStatusOnOffEnabled"];
+}
+
++ (void) storeStatusOnOffEnabled:(BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isStatusOnOffEnabled"];
+    [userDefaults synchronize];
+}
+
+
 @end

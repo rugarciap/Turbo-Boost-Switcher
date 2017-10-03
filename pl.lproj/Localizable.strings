@@ -58,4 +58,7 @@
 "language_sv" = "szwedzki (beta)";
 
 "language_change_confirmation" = "Jesteś pewny?";
-"language_change_informative_text" = "YMusisz ponownie uruchomić aplikację, aby zastosować zmiany.";
+"language_change_informative_text" = "Aplikacja zostanie ponownie uruchomiony, aby zastosować wybrane zmiany.";
+
+// Status Menú
+"onOffMenu" = "Tekst Pasek stanu On / Off";

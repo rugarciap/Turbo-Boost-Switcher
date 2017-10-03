@@ -56,5 +56,8 @@
 "language_sv" = "Swedish (beta)";
 
 "language_change_confirmation" = "Are you sure?";
-"language_change_informative_text" = "You'll need to restart the application to apply the changes.";
+"language_change_informative_text" = "The app will be restarted to apply the changes.";
+
+// Status Bar text
+"onOffMenu" = "On / Off Status Bar Text";
 

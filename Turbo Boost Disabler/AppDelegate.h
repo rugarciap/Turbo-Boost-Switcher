@@ -35,7 +35,9 @@
     
     // The status item to display on bar
     NSStatusItem *statusItem;
-    NSImage *statusImage;
+    
+    NSImage *statusImageOn;
+    NSImage *statusImageOff;
     
     // About and check for updates window
     AboutWindowController *aboutWindow;
@@ -56,6 +58,7 @@
     IBOutlet NSTextField *settingsLabel;
     IBOutlet NSButton *checkOpenAtLogin;
     IBOutlet NSButton *checkDisableAtLaunch;
+    IBOutlet NSButton *checkOnOffText;
     
     CheckUpdatesHelper *checkUpdatesHelper;
     
@@ -76,6 +79,10 @@
     IBOutlet NSTextField *txtCpuTemp;
     
     IBOutlet NSImageView *temperatureImage;
+    
+    // Status strings
+    NSMutableString *statusOnOff;
+    
 
 }
 
@@ -92,6 +99,18 @@
 - (IBAction) exitItemEvent:(id)sender;
 
 - (IBAction) languageChanged:(id)sender;
+
+
+// Method to refresh the status bar title string
+- (void) refreshTitleString;
+
+// Clicks on, off, cpu load, temp and sepeed status bar
+- (IBAction) onOffClick:(id)sender;
+
+- (void) terminate;
+
+// Relaunch after delay
+- (void)relaunchAfterDelay:(float)seconds;
 
 @property (assign) IBOutlet NSWindow *window;
 

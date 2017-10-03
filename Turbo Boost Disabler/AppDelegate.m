@@ -117,14 +117,17 @@ struct cpusample sample_two;
     // Item to show up on the status bar
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     
-    statusImage = [NSImage imageNamed:@"icon"];
-    [statusImage setTemplate:YES];
+    statusImageOn = [NSImage imageNamed:@"icon"];
+    statusImageOff = [NSImage imageNamed:@"icon_off"];
+    
+    [statusImageOn setTemplate:YES];
+    [statusImageOff setTemplate:YES];
     
     //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
     [statusItem setHighlightMode:YES];
-    [statusItem setImage:statusImage];
+    [statusItem setImage:statusImageOn];
  
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
@@ -144,6 +147,13 @@ struct cpusample sample_two;
     [aboutItem setTitle:NSLocalizedString(@"about", nil)];
     [exitItem setTitle:NSLocalizedString(@"quit", nil)];
     
+    // Status strings init
+    statusOnOff = [[NSMutableString alloc] initWithString:@""];
+    
+    [checkOnOffText setState:[StartupHelper isStatusOnOffEnabled]];
+    [checkOnOffText setTitle:NSLocalizedString(@"onOffMenu", nil)];
+    [checkOnOffText setFont:[statusMenu font]];
+       
     // Update fonts
     [settingsLabel setFont:[statusMenu font]];
     [checkDisableAtLaunch setFont:[statusMenu font]];
@@ -155,10 +165,16 @@ struct cpusample sample_two;
     }
     
     // Refresh the status
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1];
+    
+    // Initially refresh the sensor values
+    [self updateSensorValues];
+    [NSThread sleepForTimeInterval:0.1];
+    [self updateSensorValues];
+
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    self.refreshTimer = [NSTimer timerWithTimeInterval:0.3 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
@@ -236,33 +252,35 @@ struct cpusample sample_two;
 // Refresh the GUI general status, including enable/disable options, on-off status, cpu & fan reads
 - (void) updateStatus {
     
+    // Check other status
     BOOL isOn = ![SystemCommands isModuleLoaded];
-
-    NSAttributedString *titleString;
-
-    // Attributes for title string
-    NSFont *labelFont = [NSFont fontWithName:@"Helvetica" size:11];
     
     if (isOn) {
-        titleString = [[NSAttributedString alloc] initWithString:@"On " attributes:@{
-            NSFontAttributeName : labelFont,
-            }];
+        
+        if ([StartupHelper isStatusOnOffEnabled]) {
+            [statusOnOff setString:@"On"];
+        } else {
+            [statusOnOff setString:@""];
+        }
+        
         [enableDisableItem setTitle:NSLocalizedString(@"disable_menu", nil)];
-        [enableDisableItem setImage:[NSImage imageNamed:@"cross.png"]];
+        [statusItem setImage:statusImageOn];
         
     } else {
-        titleString = [[NSAttributedString alloc] initWithString:@"Off " attributes:@{
-                                            NSFontAttributeName : labelFont,
-                       }];
+        
+        if ([StartupHelper isStatusOnOffEnabled]) {
+            [statusOnOff setString:@"Off"];
+        } else {
+            [statusOnOff setString:@""];
+        }
+        
         [enableDisableItem setTitle:NSLocalizedString(@"enable_menu", nil)];
-        [enableDisableItem setImage:[NSImage imageNamed:@"tick.png"]];
+        [statusItem setImage:statusImageOff];
     }
     
     // Refresh the title
-    [statusItem setAttributedTitle:titleString];
-        
-    // Updates the sensor readings
-    [self updateSensorValues];
+    [self refreshTitleString];
+    
 }
 
 // Update the CPU Temp & Fan speed
@@ -271,29 +289,35 @@ struct cpusample sample_two;
     int fanSpeed = [SystemCommands readCurrentFanSpeed];
     float cpuTemp = [SystemCommands readCurrentCpuTemp];
     
-    // Set the CPU Temp
+    // Read the CPU temp
     if (cpuTemp > 0) {
-        [txtCpuTemp setStringValue:[NSString stringWithFormat:@"%.00f ºC", cpuTemp]];
+        NSString *tempString = [NSString stringWithFormat:@"%.00f ºC", cpuTemp];
+        
+        [txtCpuTemp setStringValue:tempString];
         
         // Update temperature image
         [self updateImageForTemperature:cpuTemp];
         
     } else {
-        [txtCpuTemp setStringValue:[NSString stringWithFormat:NSLocalizedString(@"cpu_temp_na",nil)]];
+        [txtCpuTemp setStringValue:@"N/A"];
     }
+
     
-    // Set the Fan Speed
+    // Read the fan speed
+    NSString *rpmData = nil;
     if (fanSpeed > 0) {
-        [txtCpuFan setStringValue:[NSString stringWithFormat:@"%d rpm", fanSpeed]];
+        rpmData = [NSString stringWithFormat:@"%d rpm", fanSpeed];
+        [txtCpuFan setStringValue:rpmData];
     } else {
-        [txtCpuFan setStringValue:[NSString stringWithFormat:NSLocalizedString(@"fan_speed_na",nil)]];
+        rpmData = @"N/A";
+        [txtCpuFan setStringValue:rpmData];
     }
     
     // Get the CPU Load
     if (sample_one.totalIdleTime == 0) {
-        sample(&sample_one);
+        sample(true);
     } else {
-        sample(&sample_two);
+        sample(false);
         
         struct cpusample delta;
         delta.totalSystemTime = sample_two.totalSystemTime - sample_one.totalSystemTime;
@@ -314,37 +338,36 @@ struct cpusample sample_two;
         [txtCpuLoad setStringValue:[NSString stringWithFormat:@"CPU Load: %.01f%%", cpuLoadValue]];
         
     }
+    
+    // Refresh the title string
+    [self refreshTitleString];
 }
 
 
 // Take one cpu sample
-void sample(struct cpusample *sample)
-{
-    processor_cpu_load_info_t cpuLoad;
-    mach_msg_type_number_t processorMsgCount;
-    natural_t processorCount;
+void sample(bool isOne) {
     
-    uint64_t totalSystemTime = 0, totalUserTime = 0, totalIdleTime = 0;
+    kern_return_t kernelReturn;
+    mach_msg_type_number_t msgType;
+    host_cpu_load_info_data_t loadInfoData;
     
-    kern_return_t err = host_processor_info(mach_host_self(), PROCESSOR_CPU_LOAD_INFO, &processorCount, (processor_info_array_t *)&cpuLoad, &processorMsgCount);
-    
-    for (natural_t i = 0; i < processorCount; i++) {
-        
-        // Calc load types and totals, with guards against 32-bit overflow
-        // (values are natural_t)
-        uint64_t system = 0, user = 0, idle = 0;
-        
-        system = cpuLoad[i].cpu_ticks[CPU_STATE_SYSTEM];
-        user = cpuLoad[i].cpu_ticks[CPU_STATE_USER] + cpuLoad[i].cpu_ticks[CPU_STATE_NICE];
-        idle = cpuLoad[i].cpu_ticks[CPU_STATE_IDLE];
-        
-        totalSystemTime += system;
-        totalUserTime += user;
-        totalIdleTime += idle;
+    msgType = HOST_CPU_LOAD_INFO_COUNT;
+    kernelReturn = host_statistics(mach_host_self(), HOST_CPU_LOAD_INFO, (int *)&loadInfoData, &msgType);
+    if (kernelReturn != KERN_SUCCESS) {
+        printf("oops: %s\n", mach_error_string(kernelReturn));
+        return;
     }
-    sample->totalSystemTime = totalSystemTime;
-    sample->totalUserTime = totalUserTime;
-    sample->totalIdleTime = totalIdleTime;
+    
+    if (isOne) {
+        sample_one.totalSystemTime = loadInfoData.cpu_ticks[CPU_STATE_SYSTEM];
+        sample_one.totalUserTime = loadInfoData.cpu_ticks[CPU_STATE_USER] + loadInfoData.cpu_ticks[CPU_STATE_NICE];
+        sample_one.totalIdleTime = loadInfoData.cpu_ticks[CPU_STATE_IDLE];
+    } else {
+        sample_two.totalSystemTime = loadInfoData.cpu_ticks[CPU_STATE_SYSTEM];
+        sample_two.totalUserTime = loadInfoData.cpu_ticks[CPU_STATE_USER] + loadInfoData.cpu_ticks[CPU_STATE_NICE];
+        sample_two.totalIdleTime = loadInfoData.cpu_ticks[CPU_STATE_IDLE];
+    }
+    
 }
 
 // Update language menu
@@ -437,6 +460,9 @@ void sample(struct cpusample *sample)
         }
         
         [self updateLanguageMenu];
+        
+        // Relaunch the app
+        [self relaunchAfterDelay:1];
         
     }
 }
@@ -582,5 +608,51 @@ void sample(struct cpusample *sample)
 - (void) updateNotAvailable {
     
 }
+
+// Method to refresh the status bar title string
+- (void) refreshTitleString {
+    
+    // Attributes for title string
+    NSFont *labelFont = [NSFont fontWithName:@"Helvetica" size:11];
+    
+    // Final title string
+    NSMutableString *finalString = [[NSMutableString alloc] initWithString:@""];
+    
+    [finalString appendString:statusOnOff];
+    
+    // Refresh the title
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:finalString attributes:@{NSFontAttributeName : labelFont}];
+    [statusItem setAttributedTitle:attributedTitle];
+}
+
+// On / Off check click
+- (IBAction) onOffClick:(id)sender {
+    
+    [StartupHelper storeStatusOnOffEnabled:[checkOnOffText state] == NSOnState];
+    
+    // Refresh the title string
+    [self updateSensorValues];
+    
+}
+
+
+- (void) terminate {
+    [[NSApplication sharedApplication] terminate:self];
+}
+
+// Relaunch after delay
+- (void)relaunchAfterDelay:(float)seconds
+{
+    NSTask *task = [[NSTask alloc] init];
+    NSMutableArray *args = [NSMutableArray array];
+    [args addObject:@"-c"];
+    [args addObject:[NSString stringWithFormat:@"sleep %f; open \"%@\"", seconds, [[NSBundle mainBundle] bundlePath]]];
+    [task setLaunchPath:@"/bin/sh"];
+    [task setArguments:args];
+    [task launch];
+    
+    [self terminate];
+}
+
 
 @end

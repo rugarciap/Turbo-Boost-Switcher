@@ -57,4 +57,7 @@
 "language_sv"="瑞典语（测试版）";
 
 "language_change_confirmation" = "你确定？";
-"language_change_informative_text" = "您需要重新启动应用程序以应用更改。";
+"language_change_informative_text" = "该应用程序将重新启动以应用选定的变化";
+
+// Status Menú
+"onOffMenu" = "文本状态栏开/关";

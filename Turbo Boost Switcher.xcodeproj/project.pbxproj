@@ -40,6 +40,8 @@
 		45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */; };
 		45CC34CC1E6CC4770086C319 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34CA1E6CC4770086C319 /* icon_256x256.png */; };
 		45CC34CD1E6CC4770086C319 /* icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34CB1E6CC4770086C319 /* icon_256x256@2x.png */; };
+		45D6F3991EFDD57F0080D33B /* icon_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3971EFDD57F0080D33B /* icon_off.png */; };
+		45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3981EFDD57F0080D33B /* icon_off@2x.png */; };
 		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
 		45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */; };
 		45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC71CE179ACD7000A16AEC /* SystemCommands.m */; };
@@ -98,6 +100,8 @@
 		45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
 		45CC34CA1E6CC4770086C319 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
 		45CC34CB1E6CC4770086C319 /* icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_256x256@2x.png"; sourceTree = "<group>"; };
+		45D6F3971EFDD57F0080D33B /* icon_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_off.png; sourceTree = "<group>"; };
+		45D6F3981EFDD57F0080D33B /* icon_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_off@2x.png"; sourceTree = "<group>"; };
 		45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.32bits.kext; sourceTree = "<group>"; };
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				45719EC21E6F6C7600524084 /* cross.png */,
 				45719EB21E6F6C4900524084 /* cpuinfo */,
 				45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */,
+				45D6F3971EFDD57F0080D33B /* icon_off.png */,
+				45D6F3981EFDD57F0080D33B /* icon_off@2x.png */,
 				45336EA51D3F9952005CE8FB /* icon.png */,
 				45CC34CA1E6CC4770086C319 /* icon_256x256.png */,
 				45CC34CB1E6CC4770086C319 /* icon_256x256@2x.png */,
@@ -266,6 +272,12 @@
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Rubén García Pérez";
+				TargetAttributes = {
+					458EDAA91799499D00940503 = {
+						DevelopmentTeam = A7JE7SS8Z7;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 458EDAA51799499D00940503 /* Build configuration list for PBXProject "Turbo Boost Switcher" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -304,6 +316,7 @@
 				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
 				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
 				45719EB91E6F6C5E00524084 /* temperature_4.png in Resources */,
+				45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */,
 				452252CB192D6801002BACF4 /* icon_ok.png in Resources */,
 				45719EC01E6F6C6900524084 /* processor.png in Resources */,
 				45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */,
@@ -320,6 +333,7 @@
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
 				45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */,
 				45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */,
+				45D6F3991EFDD57F0080D33B /* icon_off.png in Resources */,
 				45719EBC1E6F6C5E00524084 /* temperature_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,7 +455,9 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A7JE7SS8Z7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -453,6 +469,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "Turbo Boost Switcher";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -462,7 +479,9 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = A7JE7SS8Z7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -474,6 +493,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "Turbo Boost Switcher";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

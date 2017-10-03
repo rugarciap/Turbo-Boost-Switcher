@@ -60,4 +60,11 @@
 // Set selected locale
 + (void) storeCurrentLocale:(NSString *) value;
 
+// Get Status bar on off
++ (BOOL) isStatusOnOffEnabled;
+
+// Store status bar on off value
++ (void) storeStatusOnOffEnabled:(BOOL) value;
+
+
 @end

@@ -57,4 +57,7 @@
 "language_sv" = "Suédois (beta)";
 
 "language_change_confirmation" = "Êtes-vous sûr?";
-"language_change_informative_text" = "Vous devrez redémarrer l'application pour appliquer les modifications.";
+"language_change_informative_text" = "L'application sera redémarré pour appliquer les modifications.";
+
+// Status Menú
+"onOffMenu" = "Texte Barre d'état On / Off";
