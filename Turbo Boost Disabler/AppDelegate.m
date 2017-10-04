@@ -174,7 +174,7 @@ struct cpusample sample_two;
 
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:0.3 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
