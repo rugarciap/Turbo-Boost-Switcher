@@ -5,7 +5,7 @@
   Created by Rubén García Pérez on 23/07/13.
   Copyright (c) 2016 Rubén García Pérez. 
 */
-"cpu_temp" = "температура процессора:";
+"cpu_temp" = "Температура процессора:";
 "fan_speed" = "Скорость вентилятора:";
 "cpu_temp_na" = "температура процессора: Недоступно";
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
@@ -13,12 +13,12 @@
 "disable_menu" = "Отключение Turbo Boost";
 "open_login" = "Открыть при входе в систему";
 "disable_login" = "Отключение при запуске";
-"settings" = "настройки:";
+"settings" = "Настройки:";
 
-"donate" = "Donate...";
-"about" = "относительно...";
-"about_title" = "относительно";
-"quit" = "уволиться Turbo Boost Switcher";
+"donate" = "Пожертвование";
+"about" = "О Программе";
+"about_title" = "О Программе";
+"quit" = "Закрыть Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
 
@@ -37,8 +37,7 @@
 "license" = "License:";
 
 "checkUpdates" = "Проверять при запуске";
-
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
+"etq_like_app_pro" = "Если вам нравится приложение, пожалуйста пожертвуйте и получите Pro версию.";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Позже";
@@ -57,8 +56,8 @@
 "language_zh" = "китайский (бета)";
 "language_sv" = "Swedish (бета)";
 
-"language_change_confirmation" = "Ты уверен?";
-"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+"language_change_confirmation" = "Вы уверены?";
+"language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
 "onOffMenu" = "Текст Строка состояния ON / OFF";
