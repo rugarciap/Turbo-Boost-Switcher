@@ -5,7 +5,7 @@ Turbo Boost disabler / enabler app for Mac OS X
 
 You can [download the binary v2.7.0 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.7.0.zip) . More info about this update [on the blog](http://www.rugarciap.com/2018/05/tbs-new-version-2-7-0/).
 
-Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
 Support for macOS Sierra and High Sierra. To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
