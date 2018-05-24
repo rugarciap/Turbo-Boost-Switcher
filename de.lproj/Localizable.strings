@@ -62,3 +62,13 @@
 // Status Menú
 "onOffMenu" = "Text Statusleiste Ein / Aus";
 
+// Charting
+"lblTemperature" = "Temperatur";
+"lblFanSpeed" = "Lüftergeschwindigkeit";
+"lblTbEnabled" = "TB Eingeschaltet";
+"lblTbDisabled" = "TB Abgeschaltet";
+"menuCharting" = "Grafiken...";
+"titCharting" = "Grafiken";
+
+"sliderRefreshTimeLabel" = "Aktualisierungsrate: %lds";
+

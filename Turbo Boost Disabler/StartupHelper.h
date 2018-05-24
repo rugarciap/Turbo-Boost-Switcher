@@ -66,5 +66,9 @@
 // Store status bar on off value
 + (void) storeStatusOnOffEnabled:(BOOL) value;
 
+// Get / Store refersh time
++ (NSInteger) sensorRefreshTime;
++ (void) storeSensorRefreshTime:(NSInteger) value;
+
 
 @end

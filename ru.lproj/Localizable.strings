@@ -62,3 +62,13 @@
 
 // Status Menú
 "onOffMenu" = "Текст Строка состояния ON / OFF";
+
+// Charting
+"lblTemperature" = "Температура";
+"lblFanSpeed" = "Скорость вентилятора";
+"lblTbEnabled" = "TB Включено";
+"lblTbDisabled" = "TB Отключено";
+"menuCharting" = "Диаграммы...";
+"titCharting" = "Диаграммы";
+
+"sliderRefreshTimeLabel" = "Частота обновления: %lds";

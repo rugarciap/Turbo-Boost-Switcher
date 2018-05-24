@@ -61,3 +61,13 @@
 
 // Status Menú
 "onOffMenu" = "Texte Barre d'état On / Off";
+
+// Charting
+"lblTemperature" = "Température";
+"lblFanSpeed" = "Vitesse des fans";
+"lblTbEnabled" = "TB Activé";
+"lblTbDisabled" = "TB Désactivé";
+"menuCharting" = "Graphiques...";
+"titCharting" = "Graphiques";
+
+"sliderRefreshTimeLabel" = "Fréquence: %lds";

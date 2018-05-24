@@ -60,3 +60,13 @@
 
 // Status Menú
 "onOffMenu" = "Text statusfältet On / Off";
+
+// Charting
+"lblTemperature" = "Temperatur";
+"lblFanSpeed" = "Fläkthastighet";
+"lblTbEnabled" = "TB Aktiverad";
+"lblTbDisabled" = "TB Inaktiverad";
+"menuCharting" = "Diagram...";
+"titCharting" = "Diagram";
+
+"sliderRefreshTimeLabel" = "Frekvens: %lds";

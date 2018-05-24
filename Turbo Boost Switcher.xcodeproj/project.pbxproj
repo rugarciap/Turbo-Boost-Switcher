@@ -40,6 +40,10 @@
 		45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */; };
 		45CC34CC1E6CC4770086C319 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34CA1E6CC4770086C319 /* icon_256x256.png */; };
 		45CC34CD1E6CC4770086C319 /* icon_256x256@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34CB1E6CC4770086C319 /* icon_256x256@2x.png */; };
+		45D32D4520A7AFB300EFB1F7 /* ChartDataEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D32D3F20A7AFB300EFB1F7 /* ChartDataEntry.m */; };
+		45D32D4620A7AFB300EFB1F7 /* ChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D32D4120A7AFB300EFB1F7 /* ChartView.m */; };
+		45D32D4720A7AFB300EFB1F7 /* ChartWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D32D4320A7AFB300EFB1F7 /* ChartWindowController.m */; };
+		45D32D4820A7AFB300EFB1F7 /* ChartWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D32D4420A7AFB300EFB1F7 /* ChartWindowController.xib */; };
 		45D6F3991EFDD57F0080D33B /* icon_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3971EFDD57F0080D33B /* icon_off.png */; };
 		45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3981EFDD57F0080D33B /* icon_off@2x.png */; };
 		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
@@ -100,6 +104,14 @@
 		45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
 		45CC34CA1E6CC4770086C319 /* icon_256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_256x256.png; sourceTree = "<group>"; };
 		45CC34CB1E6CC4770086C319 /* icon_256x256@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_256x256@2x.png"; sourceTree = "<group>"; };
+		45D32D3D20A7AFB300EFB1F7 /* ChartDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDataDelegate.h; sourceTree = "<group>"; };
+		45D32D3E20A7AFB300EFB1F7 /* ChartDataEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartDataEntry.h; sourceTree = "<group>"; };
+		45D32D3F20A7AFB300EFB1F7 /* ChartDataEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartDataEntry.m; sourceTree = "<group>"; };
+		45D32D4020A7AFB300EFB1F7 /* ChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartView.h; sourceTree = "<group>"; };
+		45D32D4120A7AFB300EFB1F7 /* ChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartView.m; sourceTree = "<group>"; };
+		45D32D4220A7AFB300EFB1F7 /* ChartWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartWindowController.h; sourceTree = "<group>"; };
+		45D32D4320A7AFB300EFB1F7 /* ChartWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartWindowController.m; sourceTree = "<group>"; };
+		45D32D4420A7AFB300EFB1F7 /* ChartWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChartWindowController.xib; sourceTree = "<group>"; };
 		45D6F3971EFDD57F0080D33B /* icon_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_off.png; sourceTree = "<group>"; };
 		45D6F3981EFDD57F0080D33B /* icon_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_off@2x.png"; sourceTree = "<group>"; };
 		45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.32bits.kext; sourceTree = "<group>"; };
@@ -179,6 +191,7 @@
 		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
 			isa = PBXGroup;
 			children = (
+				45D32D3C20A7AF8F00EFB1F7 /* charting */,
 				45C5794A1D9B213500DAC1C9 /* updates */,
 				45FC71C8179ACAC300A16AEC /* resources */,
 				458EDABF1799499D00940503 /* AppDelegate.h */,
@@ -220,6 +233,21 @@
 				45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */,
 			);
 			name = updates;
+			sourceTree = "<group>";
+		};
+		45D32D3C20A7AF8F00EFB1F7 /* charting */ = {
+			isa = PBXGroup;
+			children = (
+				45D32D3D20A7AFB300EFB1F7 /* ChartDataDelegate.h */,
+				45D32D3E20A7AFB300EFB1F7 /* ChartDataEntry.h */,
+				45D32D3F20A7AFB300EFB1F7 /* ChartDataEntry.m */,
+				45D32D4020A7AFB300EFB1F7 /* ChartView.h */,
+				45D32D4120A7AFB300EFB1F7 /* ChartView.m */,
+				45D32D4220A7AFB300EFB1F7 /* ChartWindowController.h */,
+				45D32D4320A7AFB300EFB1F7 /* ChartWindowController.m */,
+				45D32D4420A7AFB300EFB1F7 /* ChartWindowController.xib */,
+			);
+			name = charting;
 			sourceTree = "<group>";
 		};
 		45FC71C8179ACAC300A16AEC /* resources */ = {
@@ -308,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D32D4820A7AFB300EFB1F7 /* ChartWindowController.xib in Resources */,
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
 				45719EBF1E6F6C6900524084 /* cooler.png in Resources */,
 				45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */,
@@ -346,6 +375,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				458EDABA1799499D00940503 /* main.m in Sources */,
+				45D32D4520A7AFB300EFB1F7 /* ChartDataEntry.m in Sources */,
+				45D32D4720A7AFB300EFB1F7 /* ChartWindowController.m in Sources */,
+				45D32D4620A7AFB300EFB1F7 /* ChartView.m in Sources */,
 				458EDAC11799499D00940503 /* AppDelegate.m in Sources */,
 				45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */,
 				45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */,

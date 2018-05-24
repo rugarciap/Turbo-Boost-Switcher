@@ -170,5 +170,18 @@
     [userDefaults synchronize];
 }
 
+// Get refresh time
++ (NSInteger) sensorRefreshTime {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults integerForKey:@"sensorRefreshTime"];
+}
+
+// Store refresh time
++ (void) storeSensorRefreshTime:(NSInteger) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:value forKey:@"sensorRefreshTime"];
+    [userDefaults synchronize];
+}
+
 
 @end

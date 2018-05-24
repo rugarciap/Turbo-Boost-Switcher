@@ -61,3 +61,13 @@
 // Status Bar text
 "onOffMenu" = "On / Off Status Bar Text";
 
+// Charting
+"lblTemperature" = "Temperature";
+"lblFanSpeed" = "Fan Speed";
+"lblTbEnabled" = "TB Enabled";
+"lblTbDisabled" = "TB Disabled";
+"menuCharting" = "Charts...";
+"titCharting" = "Temperature & Fan Charting";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Refresh Rate: %lds";

@@ -27,6 +27,7 @@
 #import "AboutWindowController.h"
 #import "CheckUpdatesWindowController.h"
 #import "CheckUpdatesHelper.h"
+#import "ChartWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate> {
     
@@ -83,12 +84,21 @@
     // Status strings
     NSMutableString *statusOnOff;
     
+    // Refresh time slider and label
+    IBOutlet NSSlider *sliderRefreshTime;
+    IBOutlet NSTextField *sliderRefreshTimeLabel;
+    IBOutlet NSMenuItem *chartsMenuItem;
+    
+    ChartWindowController *chartWindowController;
+    
+    BOOL isTurboBoostEnabled;
 
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;
 @property(nonatomic, strong) CheckUpdatesWindowController *checkUpdatesWindow;
 @property(nonatomic, strong) NSTimer *refreshTimer;
+@property(nonatomic, strong) ChartWindowController *chartWindowController;
 
 - (IBAction) enableTurboBoost:(id)sender;
 
@@ -100,12 +110,17 @@
 
 - (IBAction) languageChanged:(id)sender;
 
-
 // Method to refresh the status bar title string
 - (void) refreshTitleString;
 
 // Clicks on, off, cpu load, temp and sepeed status bar
 - (IBAction) onOffClick:(id)sender;
+
+// Refresh time slider
+- (IBAction) refreshTimeSliderChanged:(id)sender;
+
+// Charts menu click
+- (IBAction) chartsMenuClick:(id) sender;
 
 - (void) terminate;
 

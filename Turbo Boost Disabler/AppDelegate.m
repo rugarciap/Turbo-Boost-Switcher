@@ -30,7 +30,7 @@
 
 @implementation AppDelegate
 
-@synthesize aboutWindow, refreshTimer, checkUpdatesWindow;
+@synthesize aboutWindow, refreshTimer, checkUpdatesWindow, chartWindowController;
 
 // Struct to take the cpu samples
 struct cpusample {
@@ -159,6 +159,12 @@ struct cpusample sample_two;
     [checkDisableAtLaunch setFont:[statusMenu font]];
     [checkOpenAtLogin setFont:[statusMenu font]];
     
+    // Init the chart window controller
+    if (self.chartWindowController == nil) {
+        self.chartWindowController = [[ChartWindowController alloc] initWithWindowNibName:@"ChartWindowController"];
+        [self.chartWindowController initData];
+    }
+    
     // Disable at launch if enabled
     if (([StartupHelper isDisableAtLaunch]) && (![SystemCommands isModuleLoaded])) {
         [self disableTurboBoost];
@@ -223,6 +229,8 @@ struct cpusample sample_two;
         int currentCount = (int)[StartupHelper runCount];
         [StartupHelper storeRunCount:(currentCount + 1)];
     }
+    // Refresh the status item
+    [self updateStatus];
 
 }
 
@@ -253,9 +261,9 @@ struct cpusample sample_two;
 - (void) updateStatus {
     
     // Check other status
-    BOOL isOn = ![SystemCommands isModuleLoaded];
+    isTurboBoostEnabled= ![SystemCommands isModuleLoaded];
     
-    if (isOn) {
+    if (isTurboBoostEnabled) {
         
         if ([StartupHelper isStatusOnOffEnabled]) {
             [statusOnOff setString:@"On"];
@@ -290,9 +298,10 @@ struct cpusample sample_two;
     float cpuTemp = [SystemCommands readCurrentCpuTemp];
     
     // Read the CPU temp
+    NSString *tempString = nil;
     if (cpuTemp > 0) {
-        NSString *tempString = [NSString stringWithFormat:@"%.00f ºC", cpuTemp];
         
+        tempString = [NSString stringWithFormat:@"%.00f ºC", cpuTemp];
         [txtCpuTemp setStringValue:tempString];
         
         // Update temperature image
@@ -301,7 +310,6 @@ struct cpusample sample_two;
     } else {
         [txtCpuTemp setStringValue:@"N/A"];
     }
-
     
     // Read the fan speed
     NSString *rpmData = nil;
@@ -311,6 +319,23 @@ struct cpusample sample_two;
     } else {
         rpmData = @"N/A";
         [txtCpuFan setStringValue:rpmData];
+    }
+    
+    // Refresh the chart view if present
+    
+    ChartDataEntry *fanEntry = [[ChartDataEntry alloc] init];
+    fanEntry.value = fanSpeed;
+    fanEntry.isTbEnabled = isTurboBoostEnabled;
+    
+    ChartDataEntry *tempEntry = [[ChartDataEntry alloc] init];
+    tempEntry.value = cpuTemp;
+    tempEntry.isTbEnabled = isTurboBoostEnabled;
+    
+    if (self.chartWindowController != nil) {
+        
+        [self.chartWindowController addFanEntry:fanEntry withCurrentValue:rpmData];
+        [self.chartWindowController addTempEntry:tempEntry withCurrentValue:tempString];
+        
     }
     
     // Get the CPU Load
@@ -635,7 +660,6 @@ void sample(bool isOne) {
     
 }
 
-
 - (void) terminate {
     [[NSApplication sharedApplication] terminate:self];
 }
@@ -653,6 +677,42 @@ void sample(bool isOne) {
     
     [self terminate];
 }
+
+// Refresh time slider
+- (IBAction) refreshTimeSliderChanged:(id)sender {
+    
+    [sliderRefreshTimeLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
+    
+    [self.refreshTimer invalidate];
+    
+    NSRunLoop * rl = [NSRunLoop mainRunLoop];
+    
+    // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
+    self.refreshTimer = [NSTimer timerWithTimeInterval:sliderRefreshTime.integerValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
+    
+    [StartupHelper storeSensorRefreshTime:sliderRefreshTime.integerValue];
+}
+
+// Charts menu click
+- (IBAction) chartsMenuClick:(id) sender {
+    
+    // Bring window to front
+    [NSApp activateIgnoringOtherApps:YES];
+    
+    if (self.chartWindowController == nil) {
+        self.chartWindowController = [[ChartWindowController alloc] initWithWindowNibName:@"ChartWindowController"];
+        [self.chartWindowController initData];
+    }
+    
+    // Show!
+    [self.chartWindowController.window center];
+    [self.chartWindowController showWindow:nil];
+    
+    self.chartWindowController.isOpen = YES;
+    
+}
+
 
 
 @end

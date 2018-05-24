@@ -62,3 +62,13 @@
 
 // Status Menú
 "onOffMenu" = "Tekst Pasek stanu On / Off";
+
+// Charting
+"lblTemperature" = "Temperatura";
+"lblFanSpeed" = "Prędkość wentylatora";
+"lblTbEnabled" = "TB Włączone";
+"lblTbDisabled" = "TB Niepełnosprawny";
+"menuCharting" = "Wykresy...";
+"titCharting" = "Wykresy";
+
+"sliderRefreshTimeLabel" = "okresowość: %lds";

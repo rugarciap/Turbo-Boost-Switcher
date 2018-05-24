@@ -62,3 +62,13 @@
 
 // Status Menú
 "onOffMenu" = "Texto de estado On / Off";
+
+// Charting
+"lblTemperature" = "Temperatura";
+"lblFanSpeed" = "Velocidad Ventilador";
+"lblTbEnabled" = "TB Habilitado";
+"lblTbDisabled" = "TB Deshabilitado";
+"menuCharting" = "Gráficas...";
+"titCharting" = "Gráficas de Temperatura / Ventilador";
+
+"sliderRefreshTimeLabel" = "Frecuencia Refresco: %lds";

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -650,6 +651,7 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="aboutItem" destination="556" id="602"/>
+                <outlet property="chartsMenuItem" destination="Q6V-Qs-wVa" id="hhT-jv-dWS"/>
                 <outlet property="checkDisableAtLaunch" destination="588" id="607"/>
                 <outlet property="checkOnOffText" destination="Fpy-u5-yf5" id="v0R-Dn-aiq"/>
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
@@ -664,6 +666,8 @@
                 <outlet property="polishMenu" destination="aNR-Nk-YzI" id="2Wf-OG-YBr"/>
                 <outlet property="russianMenu" destination="MNJ-MC-Tz5" id="46I-y0-t7f"/>
                 <outlet property="settingsLabel" destination="573" id="595"/>
+                <outlet property="sliderRefreshTime" destination="dqs-Y9-2zm" id="N5c-xp-wY9"/>
+                <outlet property="sliderRefreshTimeLabel" destination="EyH-Zm-7Lm" id="C90-lD-tYE"/>
                 <outlet property="spanishMenu" destination="qdP-PK-KXG" id="8Mi-0m-xJW"/>
                 <outlet property="statusMenu" destination="536" id="550"/>
                 <outlet property="swedishMenu" destination="4Gl-3T-SvN" id="TS1-wH-qSh"/>
@@ -680,6 +684,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="enableTurboBoost:" target="494" id="554"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Charts..." id="Q6V-Qs-wVa">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="chartsMenuClick:" target="494" id="TAs-Gf-4eF"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="gYO-mG-taB"/>
@@ -773,13 +783,13 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-159" y="-406.5"/>
+            <point key="canvasLocation" x="-412" y="-430"/>
         </menu>
         <customView id="572">
             <rect key="frame" x="0.0" y="0.0" width="273" height="99"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="573">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="573">
                     <rect key="frame" x="18" y="73" width="225" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings:" id="574">
@@ -822,29 +832,29 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="-194.5" y="-171.5"/>
+            <point key="canvasLocation" x="-353" y="-236"/>
         </customView>
-        <customView id="YNw-n5-v8Y">
-            <rect key="frame" x="0.0" y="0.0" width="327" height="44"/>
+        <customView misplaced="YES" id="YNw-n5-v8Y">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ULv-Qm-uXJ">
-                    <rect key="frame" x="20" y="6" width="32" height="32"/>
+                    <rect key="frame" x="20" y="45" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="processor" id="3DQ-ly-BuF"/>
                 </imageView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oqR-TH-a8m">
-                    <rect key="frame" x="161" y="-4" width="36" height="48"/>
+                    <rect key="frame" x="161" y="35" width="36" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cooler" id="9k5-Jt-YVN"/>
                 </imageView>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mUD-bZ-LqC">
-                    <rect key="frame" x="254" y="-2" width="32" height="48"/>
+                    <rect key="frame" x="254" y="37" width="32" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="temperature_1" id="FWC-ck-Sss"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5pK-fj-7Rw">
-                    <rect key="frame" x="195" y="14" width="68" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="5pK-fj-7Rw">
+                    <rect key="frame" x="195" y="53" width="68" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="mti-n0-m5Q">
                         <font key="font" metaFont="system"/>
@@ -852,8 +862,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PZt-MQ-VYY">
-                    <rect key="frame" x="278" y="13" width="44" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="PZt-MQ-VYY">
+                    <rect key="frame" x="278" y="52" width="44" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="1Sm-bv-fqE">
                         <font key="font" metaFont="system"/>
@@ -861,8 +871,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eUr-fG-tSt">
-                    <rect key="frame" x="51" y="14" width="110" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="eUr-fG-tSt">
+                    <rect key="frame" x="51" y="53" width="110" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="WJh-Gc-xwm">
                         <font key="font" metaFont="system"/>
@@ -870,8 +880,25 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="EyH-Zm-7Lm">
+                    <rect key="frame" x="18" y="12" width="163" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh Rate: 4s" id="Ne6-u1-n6s">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <slider verticalHuggingPriority="750" misplaced="YES" id="dqs-Y9-2zm">
+                    <rect key="frame" x="179" y="8" width="143" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="60" doubleValue="4" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="0eW-Xf-XOG"/>
+                    <connections>
+                        <action selector="refreshTimeSliderChanged:" target="494" id="7Td-V3-etH"/>
+                    </connections>
+                </slider>
             </subviews>
-            <point key="canvasLocation" x="-158.5" y="-26"/>
+            <point key="canvasLocation" x="-325.5" y="-85.5"/>
         </customView>
     </objects>
     <resources>
