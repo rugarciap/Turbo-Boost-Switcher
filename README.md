@@ -3,7 +3,7 @@ Turbo Boost Switcher 2.7.0 (24/05/2018)
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.7.0 version](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/) . More info about this update [on the blog](http://www.rugarciap.com/2018/05/tbs-new-version-2-7-0/).
+You can [download the binary v2.7.0 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.7.0.zip) . More info about this update [on the blog](http://www.rugarciap.com/2018/05/tbs-new-version-2-7-0/).
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
 
