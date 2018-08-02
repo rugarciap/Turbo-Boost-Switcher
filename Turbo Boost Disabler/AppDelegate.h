@@ -73,6 +73,7 @@
     IBOutlet NSMenuItem *polishMenu;
     IBOutlet NSMenuItem *chineseMenu;
     IBOutlet NSMenuItem *swedishMenu;
+    IBOutlet NSMenuItem *czechMenu;
     
     // CPU Info labels
     IBOutlet NSTextField *txtCpuLoad;
