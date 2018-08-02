@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Richard Bukovansky on 02.08.2018.
+  Copyright © 2018 Rubén García Pérez. All rights reserved.
+*/
+"cpu_temp" = "Tepl. CPU:";
+"fan_speed" = "Otáč. vent.:";
+"cpu_temp_na" = "Tepl. CPU: Nedostupné";
+"fan_speed_na" = "Otáč. vent.: Nedostupné";
+"enable_menu" = "Zapnout Turbo Boost";
+"disable_menu" = "Vypnout Turbo Boost";
+"open_login" = "Spustit po přihlášení";
+"disable_login" = "Vypnout při spuštění";
+"settings" = "Nastavení:";
+"donate" = "Přispět...";
+"about" = "O aplikaci...";
+"about_title" = "O aplikaci";
+"quit" = "Ukončit Turbo Boost Switcher";
+"updates" = "Zkontrolovat aktualizace...";
+"updates_title" = "Aktualizace";
+
+"updates_progress" = "Kontroluji aktualizace...";
+"updates_available" = "Nová verze je dostupná ke stažení!";
+"updates_not_available" = "Poslední verzi již máte nainstalovánu";
+"updates_error" = "Při kontrole nastala chyba";
+
+"btn_cancel" = "Zrušil";
+"btn_download" = "Stáhnout";
+"btn_close" = "Zavřít";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "Pokud máte tento program rádi, prosím, zvažte, zda-li nepřispějete. Děkuji!";
+"license" = "Licence:";
+
+"checkUpdates" = "Zkontrolovat při startu";
+"etq_like_app_pro" = "Libí se vám aplikace? Zvažte přechod na Pro verzi! Díky!";
+"btn_pro" = "Přejít na Pro verzi!";
+
+"alert_later" = "Později";
+"alert_never_show_again" = "Již nezobrazovat";
+"alert_text" = "Líbí se vám aplikace? Podpořte ji přechodem na Pro verzi! :)";
+"alert_informative_text" = "Přechodem na pro verzi se zám zapnout skvělé funkce, notifikace, aktualizace na celý žito ad.!";
+
+// Language menú
+"language" = "Jazyk";
+"language_en" = "Angličtina";
+"language_es" = "Španělština";
+"language_pl" = "Polština (beta)";
+"language_de" = "Němčina (beta)";
+"language_fr" = "Francouzština (beta)";
+"language_ru" = "Ruština (beta)";
+"language_zh" = "Čínština (beta)";
+"language_sv" = "Švédština (beta)";
+"language_cs" = "Čeština (beta)";
+
+"language_change_confirmation" = "Jste si jist?";
+"language_change_informative_text" = "Pro uplatnění změn bude aplikace restartována.";
+
+// Status Bar text
+"onOffMenu" = "Zap. / Vyp. text ve menubaru";
+
+// Charting
+"lblTemperature" = "Teplota";
+"lblFanSpeed" = "Rychlost ventilátoru";
+"lblTbEnabled" = "TB zapnut";
+"lblTbDisabled" = "TB vypnut";
+"menuCharting" = "Grafy...";
+"titCharting" = "Grafy teploty a otáček";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Frekvence obnovy: %lds";

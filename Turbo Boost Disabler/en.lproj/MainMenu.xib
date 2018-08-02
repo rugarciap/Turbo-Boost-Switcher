@@ -657,6 +657,7 @@
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
                 <outlet property="checkUpdatesItem" destination="564" id="601"/>
                 <outlet property="chineseMenu" destination="FNR-nU-o96" id="Lfr-Dt-oMa"/>
+                <outlet property="czechMenu" destination="c9S-Vw-TU0" id="I3E-QH-btV"/>
                 <outlet property="enableDisableItem" destination="537" id="599"/>
                 <outlet property="englishMenu" destination="oVw-Tz-krd" id="iB8-UC-rhk"/>
                 <outlet property="exitItem" destination="562" id="603"/>
@@ -750,6 +751,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="languageChanged:" target="494" id="EwL-OQ-f3f"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Czech (beta)" id="c9S-Vw-TU0">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="AP6-5N-Gyc"/>
                                 </connections>
                             </menuItem>
                         </items>
