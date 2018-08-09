@@ -252,6 +252,11 @@ int SMCGetFanSpeed(char *key)
                 int intValue = (val.bytes[0] * 256 + val.bytes[1]) >> 2;
                 return intValue;
             }
+            else if (strcmp(val.dataType, DATATYPE_FLT) == 0) {
+                float fVal;
+                memcpy(&fVal,val.bytes,sizeof(float));
+                return (int)fVal;
+            }
         }
     }
     // read failed
