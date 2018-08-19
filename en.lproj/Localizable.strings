@@ -12,7 +12,7 @@
 "enable_menu" = "Enable Turbo Boost";
 "disable_menu" = "Disable Turbo Boost";
 "open_login" = "Open at Login";
-"disable_login" = "Disable at Launch";
+"disable_login" = "Disable Turbo Boost at Launch";
 "settings" = "Settings:";
 "donate" = "Donate...";
 "about" = "About...";
