@@ -24,8 +24,8 @@
     [super drawRect:dirtyRect];
     
     // Init tb on and off colors
-    CGColorRef tbDisabledColor = [[NSColor colorWithRed:0.0f green:0.69f blue:0.95f alpha:1.0f] CGColor];
-    CGColorRef tbEnabledColor = [[NSColor colorWithRed:1.0f green:0.56f blue:0.18f alpha:1.0f] CGColor];
+    CGColorRef tbDisabledColor = [[NSColor colorWithSRGBRed:0.0f green:0.69f blue:0.95f alpha:1.0f] CGColor];
+    CGColorRef tbEnabledColor = [[NSColor colorWithSRGBRed:1.0f green:0.56f blue:0.18f alpha:1.0f] CGColor];
     
     CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
     

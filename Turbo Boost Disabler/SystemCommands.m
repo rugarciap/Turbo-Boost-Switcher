@@ -248,16 +248,19 @@ int SMCGetFanSpeed(char *key)
         // read succeeded - check returned value
         if (val.dataSize > 0) {
             if (strcmp(val.dataType, DATATYPE_FPE2) == 0) {
-
                 int intValue = (val.bytes[0] * 256 + val.bytes[1]) >> 2;
                 return intValue;
+            // New Macbooks 2018 uses float values
+            } else if (strcmp(val.dataType, DATATYPE_FLOAT) == 0) {
+                float floatValue;
+                memcpy(&floatValue, val.bytes, sizeof(float));
+                return (int) floatValue;
             }
         }
     }
     // read failed
     return 0;
 }
-
 
 @implementation SystemCommands
 

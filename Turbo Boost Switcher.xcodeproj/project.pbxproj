@@ -65,6 +65,8 @@
 		4526C6361E04A1EE007C4394 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45336EA51D3F9952005CE8FB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		45336EAB1D3F9A7B005CE8FB /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		4533E8AC2120E5B70049517C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4533E8AD2120E5CF0049517C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4560CC50179D2397003F3D19 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4560CC51179D2397003F3D19 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
@@ -303,7 +305,7 @@
 				TargetAttributes = {
 					458EDAA91799499D00940503 = {
 						DevelopmentTeam = A7JE7SS8Z7;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -320,6 +322,8 @@
 				ru,
 				sv,
 				es,
+				cs,
+				it,
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -417,6 +421,8 @@
 				4526C6361E04A1EE007C4394 /* ru */,
 				45719EC51E6F774700524084 /* sv */,
 				450A1F051E7CB3D700EEFD60 /* es */,
+				4533E8AC2120E5B70049517C /* cs */,
+				4533E8AD2120E5CF0049517C /* it */,
 			);
 			name = Localizable.strings;
 			path = ..;
@@ -487,7 +493,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A7JE7SS8Z7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -511,7 +517,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A7JE7SS8Z7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

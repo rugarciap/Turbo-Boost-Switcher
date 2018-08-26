@@ -38,6 +38,7 @@
 #define SMC_CMD_READ_PLIMIT   11
 #define SMC_CMD_READ_VERS     12
 
+#define DATATYPE_FLOAT        "flt "
 #define DATATYPE_FPE2         "fpe2"
 #define DATATYPE_UINT8        "ui8 "
 #define DATATYPE_UINT16       "ui16"

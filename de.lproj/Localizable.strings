@@ -23,10 +23,10 @@
 
 "updates_progress" = "Es wird auf Updates geprüft...";
 "updates_available" = "Eine neue Version ist bereit zum Download!";
-"updates_not_available" = "Sie besitzen bereits die neueste version.";
+"updates_not_available" = "Sie haben bereits die neueste Version.";
 "updates_error" = "Fehler beim Prüfen auf Updates";
 
-"btn_cancel" = "Stornieren";
+"btn_cancel" = "Abbrechen";
 "btn_download" = "Herunterladen";
 "btn_close" = "Schließen";
 
@@ -42,8 +42,8 @@
 
 "alert_later" = "Später";
 "alert_never_show_again" = "Zeige das nie wieder";
-"alert_text" = "Gefällt Ihnen die App? Betrachten Sie helfen, indem Sie die PRO-Version! :)";
-"alert_informative_text" = "Getting PRO ermöglicht einige große automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
+"alert_text" = "Gefällt ihnen die App? Sie können helfen indem sie die PRO-Version kaufen!";
+"alert_informative_text" = "Die PRO-Version bietet einige hilfreiche automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
 
 // Language menú
 "language" = "Sprache";

@@ -132,6 +132,9 @@ struct cpusample sample_two;
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
     
+    // Charting menu item
+    [chartsMenuItem setTitle:NSLocalizedString(@"menuCharting", nil)];
+    
     // Update open at login status
     [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
     
@@ -177,14 +180,21 @@ struct cpusample sample_two;
     [self updateSensorValues];
     [NSThread sleepForTimeInterval:0.1];
     [self updateSensorValues];
-
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    NSInteger refreshTimeValue = [StartupHelper sensorRefreshTime];
+    if (refreshTimeValue <= 0) {
+        refreshTimeValue = 4;
+    }
+    [sliderRefreshTime setIntegerValue:refreshTimeValue];
+    [sliderRefreshTimeLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
+    
+    
+    self.refreshTimer = [NSTimer timerWithTimeInterval:refreshTimeValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
-    // Suscribe to sleep and wake up notifications
+    // Subscribe to sleep and wake up notifications
     [self fileNotifications];
     
     // Refresh the status item
@@ -504,6 +514,7 @@ void sample(bool isOne) {
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
     
 }
 
