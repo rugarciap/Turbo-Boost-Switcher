@@ -31,7 +31,7 @@ It’s installed on your Mac status bar and allows you to:
 - Customize sensors update time
 - Charts to see how Temp and Fan speed values are affected by Turbo Boost status.
 - Set it to open at login.
-- Translated to English & Spanish. Other languages in beta (Russina, Chinese, German, French, Polish).
+- Translated to English & Spanish. Other languages in beta (Russina, Chinese, German, French, Polish, and Japanese).
 - More features detailed on http://www.rugarciap.com
 
 How to install:

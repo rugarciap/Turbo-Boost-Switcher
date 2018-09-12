@@ -55,6 +55,7 @@
 "language_ru" = "Ruso (beta)";
 "language_zh" = "Chino (beta)";
 "language_sv" = "Sueco (beta)";
+"language_ja" = "Japanese (beta)";
 
 "language_change_confirmation" = "¿Está seguro?";
 "language_change_informative_text" = "Se reiniciará la aplicación para aplicar los cambios selecionados.";

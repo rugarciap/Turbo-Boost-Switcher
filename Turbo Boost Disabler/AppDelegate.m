@@ -418,6 +418,7 @@ void sample(bool isOne) {
     [polishMenu setState:NSOffState];
     [russianMenu setState:NSOffState];
     [swedishMenu setState:NSOffState];
+    [japaneseMenu setState:NSOffState];
     
     // TODO: Change this to a nsmutabledict
     if ([currentLocale rangeOfString:@"es"].location != NSNotFound) {
@@ -436,6 +437,8 @@ void sample(bool isOne) {
         [russianMenu setState:NSOnState];
     } else if ([currentLocale rangeOfString:@"sv"].location != NSNotFound) {
         [swedishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"ja"].location != NSNotFound) {
+        [japaneseMenu setState:NSOnState];
     }
     
     // Update language translations
@@ -448,6 +451,7 @@ void sample(bool isOne) {
     [polishMenu setTitle:NSLocalizedString(@"language_pl", nil)];
     [russianMenu setTitle:NSLocalizedString(@"language_ru", nil)];
     [swedishMenu setTitle:NSLocalizedString(@"language_sv", nil)];
+    [japaneseMenu setTitle:NSLocalizedString(@"language_ja", nil)];
     
 }
 
@@ -492,6 +496,8 @@ void sample(bool isOne) {
             [self changeLanguageTo:@"ru"];
         } else if ([sender isEqualTo:swedishMenu]) {
             [self changeLanguageTo:@"sv"];
+        } else if ([sender isEqualTo:japaneseMenu]) {
+            [self changeLanguageTo:@"ja"];
         }
         
         [self updateLanguageMenu];
