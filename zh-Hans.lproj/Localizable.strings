@@ -12,7 +12,7 @@
 "enable_menu" = "启用Turbo Boost";
 "disable_menu" = "禁用Turbo Boost";
 "open_login" = "在登录时打开";
-"disable_login" = "在启动时禁用";
+"disable_login" = "程序启动时禁用Turbo Boost";
 "settings" = "设置:";
 "donate" = "捐赠";
 "about" = "关于";
