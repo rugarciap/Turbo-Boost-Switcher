@@ -11,8 +11,8 @@
 "fan_speed_na" = "风扇转速: 不可用";
 "enable_menu" = "启用Turbo Boost";
 "disable_menu" = "禁用Turbo Boost";
-"open_login" = "在登录时打开";
-"disable_login" = "程序启动时禁用Turbo Boost";
+"open_login" = "用户登录后启动";
+"disable_login" = "启动时禁用Turbo Boost";
 "settings" = "设置:";
 "donate" = "捐赠";
 "about" = "关于";
@@ -35,7 +35,7 @@
 "donate_msg" = "如果你喜欢这个应用程序,请通过捐赠支持我们！谢谢！";
 "license" = "许可证：";
 
-"checkUpdates" = "启动时检查";
+"checkUpdates" = "启动时检查更新";
 
 "etq_like_app_pro" = "你喜欢的应用程序吗？考虑通过获得PRO版本支持我们！谢谢！";
 "btn_pro" = "获得PRO版";
