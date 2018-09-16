@@ -14,8 +14,8 @@
 "open_login" = "在登录时打开";
 "disable_login" = "在启动时禁用";
 "settings" = "设置:";
-"donate" = "Donate...";
-"about" = "关于应用程序...";
+"donate" = "捐赠";
+"about" = "关于";
 "about_title" = "关于应用程序";
 "quit" = "退出";
 "updates" = "检查更新...";
@@ -28,22 +28,22 @@
 
 "btn_cancel" = "取消";
 "btn_download" = "下载";
-"btn_close" = "关";
+"btn_close" = "关闭";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
-"license" = "执照：";
+"donate_msg" = "如果你喜欢这个应用程序,请通过捐赠支持我们！谢谢！";
+"license" = "许可证：";
 
 "checkUpdates" = "启动时检查";
 
-"etq_like_app_pro" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！";
-"btn_pro" = "Go Pro!";
+"etq_like_app_pro" = "你喜欢的应用程序吗？考虑通过获得PRO版本支持我们！谢谢！";
+"btn_pro" = "获得PRO版";
 
-"alert_later" = "后来";
+"alert_later" = "稍后";
 "alert_never_show_again" = "不再显示此信息";
-"alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
-"alert_informative_text" = "获取PRO将启用一些伟大的自动功能，通知，免费更新永远和更多！";
+"alert_text" = "你喜欢的这个应用程序吗？考虑通过获得PRO版本支持我们！谢谢！ :)";
+"alert_informative_text" = "启用PRO版本，将获得很棒的自动化功能、通知，并且永久免费更新！";
 
 // Language
 "language"="语言";
@@ -66,7 +66,7 @@
 "lblTemperature" = "温度";
 "lblFanSpeed" = "风扇转速";
 "lblTbEnabled" = "TB 启用";
-"lblTbDisabled" = "TB 残, 痡";
+"lblTbDisabled" = "TB 禁用";
 "menuCharting" = "图表...";
 "titCharting" = "图表";
 
