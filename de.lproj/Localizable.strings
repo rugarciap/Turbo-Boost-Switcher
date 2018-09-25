@@ -14,10 +14,10 @@
 "open_login" = "Beim Einloggen öffnen";
 "disable_login" = "Beim Start deaktivieren";
 "settings" = "Einstellungen:";
-"donate" = "Donate...";
+"donate" = "Spenden...";
 "about" = "Über...";
 "about_title" = "Über";
-"quit" = "Ausfahrt Turbo Boost Switcher";
+"quit" = "Turbo Boost Switcher beenden";
 "updates" = "Auf Updates prüfen...";
 "updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
 
@@ -32,7 +32,7 @@
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Wenn Sie dieses Programm mögen, bitten wir Sie um eine Spende. Danke!";
 "license" = "Lizenz:";
 
 "checkUpdates" = "Beim Hochfahren prüfen";
