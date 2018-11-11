@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU温度:";
+"fan_speed" = "ファン速度:";
+"cpu_temp_na" = "CPU温度: 現在使用できません";
+"fan_speed_na" = "ファン速度: 現在使用できません";
+"enable_menu" = "Turbo Boostを有効化";
+"disable_menu" = "Turbo Boostを無効化";
+"open_login" = "ログイン時に自動起動";
+"disable_login" = "起動時にTurbo Boostを無効化";
+"settings" = "設定:";
+"donate" = "寄付...";
+"about" = "Turbo Boost Switcherについて...";
+"about_title" = "About";
+"quit" = "Turbo Boost Switcherを終了";
+"updates" = "アップデートを確認...";
+"updates_title" = "アップデート";
+
+"updates_progress" = "アップデートを確認中...";
+"updates_available" = "新しいバージョンがダウンロードできます！";
+"updates_not_available" = "現在使用中のアプリケーションは最新版です。";
+"updates_error" = "アップデートの確認中にエラーが発生しました。";
+
+"btn_cancel" = "キャンセル";
+"btn_download" = "ダウンロード";
+"btn_close" = "閉じる";
+
+"author" = "by Copyright (c) 2016-2018 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "このアプリにご満足いただけましたら、是非寄付をご検討ください。よろしく！";
+"license" = "ライセンス:";
+
+"checkUpdates" = "起動時に確認";
+"etq_like_app_pro" = "このアプリにご満足いただけましたら、是非Pro版をご検討ください！";
+"btn_pro" = "Proを確認!";
+
+"alert_later" = "あとで";
+"alert_never_show_again" = "以降確認しない";
+"alert_text" = "気に入りましたか？Pro版を使用してサポートしてください :)";
+"alert_informative_text" = "Pro版では便利な機能、通知、無料のアップデートがあります！";
+
+// Language menú
+"language" = "Language (言語)";
+"language_en" = "English";
+"language_es" = "Spanish";
+"language_pl" = "Polish (beta)";
+"language_de" = "German (beta)";
+"language_fr" = "French (beta)";
+"language_ru" = "Russian (beta)";
+"language_zh" = "Chinese (beta)";
+"language_sv" = "Swedish (beta)";
+"language_ja" = "Japanese (beta)";
+
+"language_change_confirmation" = "Are you sure? 言語を変更してもよろしいですか？";
+"language_change_informative_text" = "The app will be restarted to apply the changes. 言語の変更のため、アプリケーションを起動し直します。";
+
+// Status Bar text
+"onOffMenu" = "ステータスバーテキストの切り替え";
+
+// Charting
+"lblTemperature" = "温度";
+"lblFanSpeed" = "Fan速度";
+"lblTbEnabled" = "TB有効";
+"lblTbDisabled" = "TB無効";
+"menuCharting" = "グラフ...";
+"titCharting" = "温度とファンのグラフ";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "更新頻度: %lds";

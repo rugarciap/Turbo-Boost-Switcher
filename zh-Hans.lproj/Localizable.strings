@@ -55,6 +55,7 @@
 "language_ru"="俄语（测试版）";
 "language_zh"="中文（测试版）";
 "language_sv"="瑞典语（测试版）";
+"language_ja" = "日语 (beta)";
 
 "language_change_confirmation" = "你确定？";
 "language_change_informative_text" = "该应用程序将重新启动以应用选定的变化";
