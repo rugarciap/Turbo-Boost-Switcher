@@ -92,7 +92,7 @@ Before opening issues, make sure you read the project faqs (https://www.rugarcia
 
 A lot (if not all) of usual questions about enabling / disabling Turbo Boost are answered there, like how to allow the kext to run, installing first time, etc. Issues on Github are not ment to offer support to particular questions when installing, they're ment to register reproducible issues on all installations (like a bad translation, a feature request, etc). 
 
-The app and kext extensions are compatible will all macOS versions released so far (Intel CPUs with Turbo Boost, of course). The app is tested against all betas before final versions are released, so if any incompatiblity is found in the future, will be reported here and on the blog, like when El Capitan was released.
+The app and kext extensions are compatible will all macOS versions released so far (Intel CPUs with Turbo Boost, of course). The app is tested against all betas before final versions are released, so if any incompatiblity is found in the future will be reported here and on the blog, like when El Capitan was released.
 
 If you still think you found an issue and it's not a support question, please attach all info needed to reproduce (steps you follow, app configuration, screenshots, etc) so I'm able to debug and fix the bug if any. 
 
