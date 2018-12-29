@@ -84,3 +84,11 @@ Thanks to:
 - Some icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
+
+Reporting Issues:
+===========
+
+Before opening issues, make sure you read the project faqs (https://www.rugarciap.com/faqs/), other issues openend and answered, etc.
+
+A lot (if not all) of usual questions about enabling / disabling Turbo Boost are answered there, like how to allow the kext to run, installing first time, etc. Issues on Github are not ment to offer support to particular questions when installing, they're ment to register reproducible issues on all installations (like a bad translation, a feature request, etc). 
+
