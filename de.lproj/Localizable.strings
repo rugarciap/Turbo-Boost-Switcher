@@ -12,12 +12,12 @@
 "enable_menu" = "Aktivieren Sie Turbo Boost";
 "disable_menu" = "Deaktivieren Sie Turbo Boost";
 "open_login" = "Beim Einloggen öffnen";
-"disable_login" = "Beim Start deaktivieren";
+"disable_login" = "Beim Start TB deaktivieren";
 "settings" = "Einstellungen:";
 "donate" = "Donate...";
 "about" = "Über...";
 "about_title" = "Über";
-"quit" = "Ausfahrt Turbo Boost Switcher";
+"quit" = "Turbo Boost Switcher beenden";
 "updates" = "Auf Updates prüfen...";
 "updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
 
@@ -55,6 +55,8 @@
 "language_ru" = "Russisch (beta)";
 "language_zh" = "Chinesisch (beta)";
 "language_sv" = "Schwedisch (beta)";
+"language_cs" = "Tschechisch (beta)";
+"language_it" = "Italienisch (beta)";
 
 "language_change_confirmation" = "Bist du sicher?";
 "language_change_informative_text" = "Die Anwendung wird neu gestartet, um die ausgewählten Änderungen zu übernehmen.";

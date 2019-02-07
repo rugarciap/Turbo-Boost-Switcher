@@ -12,7 +12,7 @@
 "enable_menu" = "Enable Turbo Boost";
 "disable_menu" = "Disable Turbo Boost";
 "open_login" = "Open at Login";
-"disable_login" = "Disable at Launch";
+"disable_login" = "Disable TB at Launch";
 "settings" = "Settings:";
 "donate" = "Donate...";
 "about" = "About...";
@@ -54,6 +54,8 @@
 "language_ru" = "Russian (beta)";
 "language_zh" = "Chinese (beta)";
 "language_sv" = "Swedish (beta)";
+"language_cs" = "Czech (beta)";
+"language_it" = "Italian (beta)";
 
 "language_change_confirmation" = "Are you sure?";
 "language_change_informative_text" = "The app will be restarted to apply the changes.";

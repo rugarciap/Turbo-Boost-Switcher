@@ -13,6 +13,7 @@
 		452252CB192D6801002BACF4 /* icon_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C9192D6801002BACF4 /* icon_ok.png */; };
 		45336EA61D3F9952005CE8FB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EA51D3F9952005CE8FB /* icon.png */; };
 		45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EAB1D3F9A7B005CE8FB /* icon@2x.png */; };
+		454F73582187D4BB000CEC4D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F73572187D4BB000CEC4D /* battery.png */; };
 		4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4560CC51179D2397003F3D19 /* AboutWindowController.m */; };
 		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
 		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
@@ -67,6 +68,7 @@
 		45336EAB1D3F9A7B005CE8FB /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		4533E8AC2120E5B70049517C /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4533E8AD2120E5CF0049517C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		454F73572187D4BB000CEC4D /* battery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = battery.png; sourceTree = "<group>"; };
 		4560CC50179D2397003F3D19 /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		4560CC51179D2397003F3D19 /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		45719EB21E6F6C4900524084 /* cpuinfo */ = {
 			isa = PBXGroup;
 			children = (
+				454F73572187D4BB000CEC4D /* battery.png */,
 				45719EBD1E6F6C6900524084 /* cooler.png */,
 				45719EBE1E6F6C6900524084 /* processor.png */,
 				45719EB31E6F6C5E00524084 /* temperature_5.png */,
@@ -343,6 +346,7 @@
 				45D32D4820A7AFB300EFB1F7 /* ChartWindowController.xib in Resources */,
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
 				45719EBF1E6F6C6900524084 /* cooler.png in Resources */,
+				454F73582187D4BB000CEC4D /* battery.png in Resources */,
 				45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */,
 				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
 				45719EBB1E6F6C5E00524084 /* temperature_2.png in Resources */,

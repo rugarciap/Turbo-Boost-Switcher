@@ -27,6 +27,8 @@
 #import "AboutWindowController.h"
 #import "StartupHelper.h"
 #import "CheckUpdatesWindowController.h"
+#import <IOKit/ps/IOPowerSources.h>
+#import <IOKit/ps/IOPSKeys.h>
 
 @implementation AppDelegate
 
@@ -174,7 +176,8 @@ struct cpusample sample_two;
     }
     
     // Refresh the status
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
     
     // Initially refresh the sensor values
     [self updateSensorValues];
@@ -183,7 +186,7 @@ struct cpusample sample_two;
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
     NSInteger refreshTimeValue = [StartupHelper sensorRefreshTime];
-    if (refreshTimeValue <= 0) {
+    if (refreshTimeValue < 4) {
         refreshTimeValue = 4;
     }
     [sliderRefreshTime setIntegerValue:refreshTimeValue];
@@ -239,9 +242,12 @@ struct cpusample sample_two;
         int currentCount = (int)[StartupHelper runCount];
         [StartupHelper storeRunCount:(currentCount + 1)];
     }
+    
     // Refresh the status item
     [self updateStatus];
 
+    // Configure sensors view
+    [self configureSensorsView];
 }
 
 // Invoked when the user clicks on the satus menu
@@ -301,6 +307,17 @@ struct cpusample sample_two;
     
 }
 
+// Method to get the battery charging status
+- (BOOL) isCharging {
+    
+    CFTimeInterval timeInterval = IOPSGetTimeRemainingEstimate();
+    if (timeInterval == -2.0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 // Update the CPU Temp & Fan speed
 - (void) updateSensorValues {
 
@@ -329,6 +346,21 @@ struct cpusample sample_two;
     } else {
         rpmData = @"N/A";
         [txtCpuFan setStringValue:rpmData];
+    }
+    
+    // Read the battery level and update info
+    double batteryLevel = [self currentBatteryLevel];
+    if (batteryLevel >= 0) {
+        
+        // 12 levels graphically
+        int batteryLevelValue = ceil(batteryLevel * 0.12f);
+        [batteryLevelIndicator setIntegerValue:batteryLevelValue];
+        
+        if ([self isCharging]) {
+            [lblBatteryInfo setStringValue:[NSString stringWithFormat:@"%d %% 🔌", (int) batteryLevel]];
+        } else {
+            [lblBatteryInfo setStringValue:[NSString stringWithFormat:@"%d %%", (int) batteryLevel]];
+        }
     }
     
     // Refresh the chart view if present
@@ -418,6 +450,8 @@ void sample(bool isOne) {
     [polishMenu setState:NSOffState];
     [russianMenu setState:NSOffState];
     [swedishMenu setState:NSOffState];
+    [czechMenu setState:NSOffState];
+    [italianMenu setState:NSOffState];
     
     // TODO: Change this to a nsmutabledict
     if ([currentLocale rangeOfString:@"es"].location != NSNotFound) {
@@ -436,6 +470,10 @@ void sample(bool isOne) {
         [russianMenu setState:NSOnState];
     } else if ([currentLocale rangeOfString:@"sv"].location != NSNotFound) {
         [swedishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"cs"].location != NSNotFound) {
+        [czechMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"it"].location != NSNotFound) {
+        [italianMenu setState:NSOnState];
     }
     
     // Update language translations
@@ -448,7 +486,8 @@ void sample(bool isOne) {
     [polishMenu setTitle:NSLocalizedString(@"language_pl", nil)];
     [russianMenu setTitle:NSLocalizedString(@"language_ru", nil)];
     [swedishMenu setTitle:NSLocalizedString(@"language_sv", nil)];
-    
+    [czechMenu setTitle:NSLocalizedString(@"language_cs", nil)];
+    [italianMenu setTitle:NSLocalizedString(@"language_it", nil)];
 }
 
 // Change language to
@@ -492,6 +531,10 @@ void sample(bool isOne) {
             [self changeLanguageTo:@"ru"];
         } else if ([sender isEqualTo:swedishMenu]) {
             [self changeLanguageTo:@"sv"];
+        } else if ([sender isEqualTo:czechMenu]) {
+            [self changeLanguageTo:@"cs"];
+        } else if ([sender isEqualTo:italianMenu]) {
+            [self changeLanguageTo:@"it"];
         }
         
         [self updateLanguageMenu];
@@ -724,6 +767,65 @@ void sample(bool isOne) {
     
 }
 
+// Get the current battery level
+- (double) currentBatteryLevel
+{
+    
+    CFTypeRef blob = IOPSCopyPowerSourcesInfo();
+    CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
+    
+    CFDictionaryRef pSource = NULL;
+    const void *psValue;
+    
+    long numOfSources = CFArrayGetCount(sources);
+    if (numOfSources == 0) {
+        return -1.0f;
+    }
+    
+    for (int i = 0 ; i < numOfSources ; i++)
+    {
+        pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
+        if (!pSource) {
+            return -1.0f;
+        }
+        
+        psValue = (CFStringRef)CFDictionaryGetValue(pSource, CFSTR(kIOPSNameKey));
+        
+        int curCapacity = 0;
+        int maxCapacity = 0;
+        
+        double percent;
+        
+        // Gets the battery capacity
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSCurrentCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &curCapacity);
+        
+        // Gets the max capacity
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSMaxCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &maxCapacity);
+        
+        percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
+        
+        return percent;
+    }
+    return -1.0f;
+}
+
+// Method to configure the sensors view depending on battery available or not
+- (void) configureSensorsView {
+    
+    double batteryLevel = [self currentBatteryLevel];
+    if (batteryLevel < 0) {
+        
+        // Hide battery sensor
+        NSRect f = sensorsView.frame;
+        f.size.height = 43;
+        sensorsView.frame = f;
+        [sensorsView setNeedsLayout:YES];
+        
+    }
+    
+}
 
 
 @end

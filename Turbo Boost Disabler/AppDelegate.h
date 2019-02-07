@@ -73,6 +73,8 @@
     IBOutlet NSMenuItem *polishMenu;
     IBOutlet NSMenuItem *chineseMenu;
     IBOutlet NSMenuItem *swedishMenu;
+    IBOutlet NSMenuItem *czechMenu;
+    IBOutlet NSMenuItem *italianMenu;
     
     // CPU Info labels
     IBOutlet NSTextField *txtCpuLoad;
@@ -92,6 +94,12 @@
     ChartWindowController *chartWindowController;
     
     BOOL isTurboBoostEnabled;
+    
+    // Sensors Status View
+    IBOutlet NSView *sensorsView;
+    
+    IBOutlet NSLevelIndicator *batteryLevelIndicator;
+    IBOutlet NSTextField *lblBatteryInfo;
 
 }
 

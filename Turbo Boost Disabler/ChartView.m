@@ -14,12 +14,23 @@
 
 @implementation ChartView
 
-@synthesize tempMode, delegate;
+@synthesize tempMode, delegate, isDarkMode;
 
 - (void)drawRect:(NSRect)dirtyRect {
     
-    // set any NSColor for filling, say white:
-    [[NSColor whiteColor] setFill];
+    // Depending on Dark mode status and availability, set background color
+    self.isDarkMode = [self checkDarkMode];
+    
+    if (self.isDarkMode) {
+        [[NSColor grayColor] setFill];
+    } else {
+        [[NSColor whiteColor] setFill];
+    }
+    
+    // Set colors depending on dark mode status
+    CGColorRef horizontalLinesColor = self.isDarkMode ? [[NSColor whiteColor] CGColor] : [[NSColor lightGrayColor] CGColor];
+    CGColorRef axisColor = self.isDarkMode ? [[NSColor whiteColor] CGColor] : [[NSColor blackColor] CGColor];
+    
     NSRectFill(dirtyRect);
     [super drawRect:dirtyRect];
     
@@ -31,7 +42,7 @@
     
     // Now add the chart horizontal lines
     CGContextSetLineWidth(context, 0.6);
-    CGContextSetStrokeColorWithColor(context, [[NSColor lightGrayColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, [[NSColor whiteColor] CGColor]);
     
     CGFloat dash[] = {3.0, 4.0};
     CGContextSetLineDash(context, 0.0, dash, 2);
@@ -53,7 +64,7 @@
     for (int i = 0; i < (lines-1); i++)
     {
         CGFloat yPos = dirtyRect.size.height - kOffsetY - i * stepY;
-        CGContextSetStrokeColorWithColor(context, [[NSColor grayColor] CGColor]);
+        CGContextSetStrokeColorWithColor(context, horizontalLinesColor);
         CGContextMoveToPoint(context, kOffsetX*xAdjustment, yPos);
         CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, yPos);
         CGContextStrokePath(context);
@@ -86,7 +97,7 @@
     
     // Y axis
     CGContextSetLineDash(context, 0, NULL, 0);
-    CGContextSetStrokeColorWithColor(context, [[NSColor blackColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, axisColor);
     CGContextSetLineWidth(context, 1.0f);
     CGContextMoveToPoint(context, kOffsetX*xAdjustment, dirtyRect.size.height - kOffsetY * 0.2f );
     CGContextAddLineToPoint(context, kOffsetX*xAdjustment, dirtyRect.size.height - kOffsetY - 0.9f * lines * stepY);
@@ -94,7 +105,7 @@
     
     // X axis
     CGFloat yPos = dirtyRect.size.height - kOffsetY*0.5;
-    CGContextSetStrokeColorWithColor(context, [[NSColor blackColor] CGColor]);
+    CGContextSetStrokeColorWithColor(context, axisColor);
     CGContextSetLineWidth(context, 1.0f);
     CGContextMoveToPoint(context, kOffsetX*xAdjustment*0.93f, yPos);
     CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, yPos);
@@ -162,7 +173,12 @@
 // Draw text method
 - (void) drawText:(char *) text atX:(CGFloat) xPos andY:(CGFloat) yPos withContext:(CGContextRef) context {
     
-    CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+    if (self.isDarkMode)  {
+        CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 1.0);
+    } else {
+        CGContextSetRGBFillColor(context, 0.0, 0.0, 0.0, 1.0);
+    }
+    
     CGContextSetLineWidth(context, 2.0);
     CGContextSelectFont(context, "Helvetica", 10.0, kCGEncodingMacRoman);
     CGContextSetCharacterSpacing(context, 1.7);
@@ -191,5 +207,13 @@
     return returnValue;
 }
 
+- (BOOL) checkDarkMode {
+    NSAppearance *appearance = NSAppearance.currentAppearance;
+    if (@available(*, macOS 10.14)) {
+        return appearance.name == NSAppearanceNameDarkAqua || appearance.name == NSAppearanceNameVibrantDark;
+    }
+    
+    return NO;
+}
 
 @end
