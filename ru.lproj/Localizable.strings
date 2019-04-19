@@ -5,66 +5,66 @@
   Created by Rubén García Pérez on 23/07/13.
   Copyright (c) 2016 Rubén García Pérez. 
 */
-"cpu_temp" = "температура процессора:";
+"cpu_temp" = "Температура процессора:";
 "fan_speed" = "Скорость вентилятора:";
-"cpu_temp_na" = "температура процессора: Недоступно";
+"cpu_temp_na" = "Температура процессора: Недоступно";
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
 "enable_menu" = "Активировать Turbo Boost";
 "disable_menu" = "Отключение Turbo Boost";
-"open_login" = "Открыть при входе в систему";
+"open_login" = "Запускать при входе в систему";
 "disable_login" = "Отключение TB при запуске";
-"settings" = "настройки:";
+"settings" = "Настройки:";
 
-"donate" = "Donate...";
-"about" = "относительно...";
-"about_title" = "относительно";
-"quit" = "уволиться Turbo Boost Switcher";
+"donate" = "Пожертвовать...";
+"about" = "О программе...";
+"about_title" = "О программе";
+"quit" = "Выйти из Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
 
 "updates_progress" = "Проверяем наличие обновлений...";
-"updates_available" = "Новая версия доступна к загрузке!";
+"updates_available" = "Доступна новая версия!";
 "updates_not_available" = "У вас уже установлена самая новая версия";
 "updates_error" = "Ошибка при проверке наличия обновлений";
 
 "btn_cancel" = "Отмена";
-"btn_download" = "скачать";
+"btn_download" = "Скачать";
 "btn_close" = "Закрыть";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
-"license" = "License:";
+"donate_msg" = "Если вам нравится программа, пожалуйста, сделайте пожертвование. Спасибо!";
+"license" = "Лицензия:";
 
 "checkUpdates" = "Проверять при запуске";
 
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
-"btn_pro" = "Go Pro!";
+"etq_like_app_pro" = "Понравилось приложение? Будем рады, если вы подумаете о приобретении PRO версии! Спасибо!";
+"btn_pro" = "Приобрести PRO версию!";
 
 "alert_later" = "Позже";
 "alert_never_show_again" = "Не показывать это снова";
-"alert_text" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! :)";
-"alert_informative_text" = "Получение PRO позволит некоторые большие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
+"alert_text" = "Понравилось приложение? Поддержите нас приобретением Pro версии! :)";
+"alert_informative_text" = "Получение PRO версии добавит крутые автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
 
 // Languages
 "language" = "Язык";
 "language_en" = "Английский";
-"language_es" = "испанский";
-"language_pl" = "польский (бета)";
+"language_es" = "Испанский";
+"language_pl" = "Польский (бета)";
 "language_de" = "Немецкий (бета)";
 "language_fr" = "Французский (бета)";
 "language_ru" = "Русский (бета)";
-"language_zh" = "китайский (бета)";
-"language_sv" = "Swedish (бета)";
-"language_cs" = "чешский (beta)";
-"language_it" = "итальянский (beta)";
+"language_zh" = "Китайский (бета)";
+"language_sv" = "Шведский (бета)";
+"language_cs" = "Чешский (beta)";
+"language_it" = "Итальянский (beta)";
 
 
-"language_change_confirmation" = "Ты уверен?";
-"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+"language_change_confirmation" = "Вы уверены?";
+"language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
-"onOffMenu" = "Текст Строка состояния ON / OFF";
+"onOffMenu" = "Отображать ON / OFF в строке состояния";
 
 // Charting
 "lblTemperature" = "Температура";
