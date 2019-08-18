@@ -11,8 +11,8 @@
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
 "enable_menu" = "Включить Turbo Boost";
 "disable_menu" = "Отключить Turbo Boost";
-"open_login" = "Открывать при входе в систему";
-"disable_login" = "Отключить TB при запуске системы";
+"open_login" = "Автозапуск";
+"disable_login" = "Отключать TB при запуске";
 "settings" = "Настройки:";
 
 "donate" = "Пожертвовать...";
@@ -38,7 +38,7 @@
 
 "checkUpdates" = "Проверять при запуске";
 
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
+"etq_like_app_pro" = "Понравилось приложение? Получи PRO версию сделав пожертвовани. Спасибо!";
 "btn_pro" = "Получить Pro!";
 
 "alert_later" = "Позже";
@@ -64,7 +64,7 @@
 "language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
-"onOffMenu" = "Текст в строке состояния ON / OFF";
+"onOffMenu" = "ON / OFF в строке состояния";
 
 // Charting
 "lblTemperature" = "Температура";
