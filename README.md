@@ -1,18 +1,19 @@
-Turbo Boost Switcher 2.7.1 (26/08/2018)
+Turbo Boost Switcher 2.8.0 (07/02/2019)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.7.1 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.7.1.zip) . More info about this update [on the blog](https://www.rugarciap.com/2018/08/tbs-new-update-2-7-1/).
+You can [download the binary v2.8.0 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.8.0.zip) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2019/02/tbs-new-version-2-8-0/).
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
-Supports 10.6+ up to macOS Sierra, High Sierra and Mojave. To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Supports 10.6+ up to macOS Sierra, High Sierra and Mojave. Also working on macOS Catalina starting from dev beta 6 (public beta 5) after Apple fixing kext loading bugs. 
+
+To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
 Apple now (since macOS High Sierra) forces the user to manually allow kernel extensions to be used so, if you're running for the first time on macOS High Sierra and never granted permissions, you need to manually allow it to be used. [More details here.](https://www.rugarciap.com/2017/09/an-update-after-macos-high-sierra-release/)
 
 OSX El Capitan Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
-
 
 Features:
 ====================
