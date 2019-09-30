@@ -70,7 +70,19 @@
                                                            documentAttributes:NULL];
         [[txtLicense textStorage] setAttributedString: content];
     }
+}
 
+- (void) refreshDarkMode {
+    [txtLicense setTextColor:[self isDarkMode] ? [NSColor whiteColor] : [NSColor blackColor]];
+}
+    
+- (BOOL) isDarkMode {
+    NSAppearance *appearance = NSAppearance.currentAppearance;
+    if (@available(*, macOS 10.14)) {
+        return appearance.name == NSAppearanceNameDarkAqua || appearance.name == NSAppearanceNameVibrantDark;
+    }
+    
+    return NO;
 }
 
 @end

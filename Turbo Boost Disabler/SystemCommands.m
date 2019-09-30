@@ -354,6 +354,8 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
@@ -371,6 +373,8 @@ int SMCGetFanSpeed(char *key)
     } else if ([osVersion rangeOfString:@"10.13"].location != NSNotFound) {
         return [SystemCommands isModuleLoadedNewOS];
     } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
         return [SystemCommands isModuleLoadedNewOS];
     } else {
         return [SystemCommands isModuleLoadedOldOS];

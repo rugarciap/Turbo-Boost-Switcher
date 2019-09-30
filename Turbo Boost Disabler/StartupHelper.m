@@ -183,5 +183,24 @@
     [userDefaults synchronize];
 }
 
+// Check if monitoring has been enabled.
++ (BOOL) isMonitoringEnabled {
+        
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    id tmpResult = [userDefaults objectForKey:@"isMonitoringEnabled"];
+    
+    if (tmpResult == nil)  {
+        [StartupHelper storeMonitoringEnabled:YES];
+    }
+    
+    return [userDefaults boolForKey:@"isMonitoringEnabled"];
+}
+    
+// Store monigoring enabled / disabled value
++ (void) storeMonitoringEnabled: (BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isMonitoringEnabled"];
+    [userDefaults synchronize];
+}
 
 @end

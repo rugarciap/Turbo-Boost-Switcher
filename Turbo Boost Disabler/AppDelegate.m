@@ -81,7 +81,9 @@ struct cpusample sample_two;
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
-   
+    
+    // Add another status bar refresh just to be sure, since depending on mac cpu load it can take a little longer
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.5];
 }
 
 // Suscribe to wake up notifications
@@ -139,8 +141,10 @@ struct cpusample sample_two;
     
     // Update open at login status
     [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
-    
     [checkOpenAtLogin setTitle:NSLocalizedString(@"open_login", nil)];
+    
+    // Update check monitoring
+    [checkMonitoring setState:[StartupHelper isMonitoringEnabled]];
     
     // Update disable at login status
     [checkDisableAtLaunch setState:[StartupHelper isDisableAtLaunch]];
@@ -163,6 +167,7 @@ struct cpusample sample_two;
     [settingsLabel setFont:[statusMenu font]];
     [checkDisableAtLaunch setFont:[statusMenu font]];
     [checkOpenAtLogin setFont:[statusMenu font]];
+    [checkMonitoring setFont:[statusMenu font]];
     
     // Init the chart window controller
     if (self.chartWindowController == nil) {
@@ -190,8 +195,8 @@ struct cpusample sample_two;
         refreshTimeValue = 4;
     }
     [sliderRefreshTime setIntegerValue:refreshTimeValue];
-    [sliderRefreshTimeLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
-    
+   
+    [checkMonitoring setTitle:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
     
     self.refreshTimer = [NSTimer timerWithTimeInterval:refreshTimeValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
@@ -248,6 +253,9 @@ struct cpusample sample_two;
 
     // Configure sensors view
     [self configureSensorsView];
+    
+    // Update monitoring state depending on monitoring enabled / disabled
+    [self updateMonitoringState];
 }
 
 // Invoked when the user clicks on the satus menu
@@ -320,6 +328,11 @@ struct cpusample sample_two;
 
 // Update the CPU Temp & Fan speed
 - (void) updateSensorValues {
+    
+    // If monitoring is disabled, just exit
+    if (![StartupHelper isMonitoringEnabled]) {
+        return;
+    }
 
     int fanSpeed = [SystemCommands readCurrentFanSpeed];
     float cpuTemp = [SystemCommands readCurrentCpuTemp];
@@ -648,6 +661,7 @@ void sample(bool isOne) {
     }
     
     [self.aboutWindow.window center];
+    [self.aboutWindow refreshDarkMode];
     [self.aboutWindow showWindow:nil];
 }
 
@@ -735,7 +749,7 @@ void sample(bool isOne) {
 // Refresh time slider
 - (IBAction) refreshTimeSliderChanged:(id)sender {
     
-    [sliderRefreshTimeLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
+    [checkMonitoring setTitle:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
     
     [self.refreshTimer invalidate];
     
@@ -826,6 +840,60 @@ void sample(bool isOne) {
     }
     
 }
+
+- (IBAction) checkMonitoringClick:(id) sender {
+    [StartupHelper storeMonitoringEnabled:[checkMonitoring state] == NSOnState];
+    [self updateMonitoringState];
+}
+    
+// Update monitoring app state
+- (void) updateMonitoringState {
+    
+    BOOL isMonitoringEnabled = [StartupHelper isMonitoringEnabled];
+    
+    if (isMonitoringEnabled) {
+        
+        // Reenable timer
+        [self refreshTimeSliderChanged:nil];
+        
+        // Refresh title string and status bar
+        [self updateSensorValues];
+        
+        // Disable monitoring menu options
+        [temperatureImage setAlphaValue:1.0];
+        [cpuLoadImage setAlphaValue:1.0];
+        [cpuFanImage setAlphaValue:1.0];
+        [batteryImage setAlphaValue:1.0];
+        
+    } else {
+        
+        // Disable monitoring menu options
+        [temperatureImage setAlphaValue:0.2];
+        [cpuLoadImage setAlphaValue:0.2];
+        [cpuFanImage setAlphaValue:0.2];
+        [batteryImage setAlphaValue:0.2];
+        
+        [txtCpuFan setStringValue:@""];
+        [txtCpuLoad setStringValue:@""];
+        [txtCpuTemp setStringValue:@""];
+        
+        // Set battery level to 0
+        [batteryLevelIndicator setIntegerValue:0];
+        [lblBatteryInfo setStringValue:@""];
+        
+        [self updateStatus];
+        
+        // Invalidate timer
+        [self.refreshTimer invalidate];
+    }
+    
+    // Enable/Disable charts
+    [chartsMenuItem setEnabled:isMonitoringEnabled];
+    
+    // Deshabilitar / ocultar las opciones de monitorización
+    [sliderRefreshTime setEnabled:isMonitoringEnabled];
+    
+ }
 
 
 @end

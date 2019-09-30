@@ -6,9 +6,9 @@
   Copyright (c) 2016 Rubén García Pérez. 
 */
 "cpu_temp" = "CPU-Temperatur:";
-"fan_speed" = "Ventilatorgeschwindigkeit:";
+"fan_speed" = "Lüfterdrehzahl:";
 "cpu_temp_na" = "CPU-Temperatur: Nicht verfügbar";
-"fan_speed_na" = "Ventilatorgeschwindigkeit: Nicht verfügbar";
+"fan_speed_na" = "Lüfterdrehzahl: Nicht verfügbar";
 "enable_menu" = "Aktivieren Sie Turbo Boost";
 "disable_menu" = "Deaktivieren Sie Turbo Boost";
 "open_login" = "Beim Einloggen öffnen";
@@ -21,10 +21,10 @@
 "updates" = "Auf Updates prüfen...";
 "updates_title" = "Turbo Boost Switcher - Auf Updates prüfen";
 
-"updates_progress" = "Es wird auf Updates geprüft...";
+"updates_progress" = "Es wird nach Updates gesucht...";
 "updates_available" = "Eine neue Version ist bereit zum Download!";
 "updates_not_available" = "Sie haben bereits die neueste Version.";
-"updates_error" = "Fehler beim Prüfen auf Updates";
+"updates_error" = "Fehler beim Suchen nach Updates.";
 
 "btn_cancel" = "Abbrechen";
 "btn_download" = "Herunterladen";
