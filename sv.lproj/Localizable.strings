@@ -1,0 +1,75 @@
+/*
+ Localizable.strings
+ Turbo Boost Switcher
+ 
+ Created by Rubén García Pérez on 23/07/13.
+ Copyright (c) 2016 Rubén García Pérez.
+ */
+"cpu_temp" = "CPU Temp:";
+"fan_speed" = "Fläkthastighet:";
+"cpu_temp_na" = "CPU Temp: Inte tillgänglig";
+"fan_speed_na" = "Fläkthastighet: Inte tillgänglig";
+"enable_menu" = "Aktivera Turbo Boost";
+"disable_menu" = "Deaktivera Turbo Boost";
+"open_login" = "Öppna vid inloggning";
+"disable_login" = "Avaktivera TB vid start";
+"settings" = "Inställningar:";
+"donate" = "Donate...";
+"about" = "I fråga om...";
+"about_title" = "I fråga om...";
+"quit" = "Sluta Turbo Boost Switcher";
+"updates" = "Kolla efter uppdateringar...";
+"updates_title" = "Turbo Boost Switcher - Kolla efter uppdateringar";
+
+"updates_progress" = "Kollar efter uppdateringar...";
+"updates_available" = "En ny version finns att ladda ner!";
+"updates_not_available" = "Du har redan den senaste versionen";
+"updates_error" = "Fel vid koll efter uppdateringar";
+
+"btn_cancel" = "Annullera";
+"btn_download" = "Ladda ner";
+"btn_close" = "Stänga";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "Licens:";
+
+"checkUpdates" = "Kolla vid uppstart";
+"etq_like_app_pro" = "Gillar du programvaran? Överväga att hjälpa genom att få PRO version! Tack!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Senare";
+"alert_never_show_again" = "Visa aldrig det här igen";
+"alert_text" = "Gillar du programvaran? Överväga att hjälpa genom att få PRO version! Tack!";
+"alert_informative_text" = "Få PRO-versionen kommer att göra det möjligt för några häftiga funktioner, meddelanden, gratis uppdateringar evigt och mycket mer!";
+
+// Swedish
+"language" = "Språk";
+"language_en" = "Engelsk";
+"language_es" = "Spanska";
+"language_pl" = "Polish (beta)";
+"language_de" = "Tyska (beta)";
+"language_fr" = "French (beta)";
+"language_ru" = "Russian (beta)";
+"language_zh" = "Kinesiska (beta)";
+"language_sv" = "Svenska (beta)";
+"language_cs" = "Czech (beta)";
+"language_it" = "italiensk (beta)";
+
+
+"language_change_confirmation" = "Är du säker?";
+"language_change_informative_text" = "Ansökan kommer att startas för att tillämpa de markerade förändringar.";
+
+// Status Menú
+"onOffMenu" = "Text statusfältet On / Off";
+
+// Charting
+"lblTemperature" = "Temperatur";
+"lblFanSpeed" = "Fläkthastighet";
+"lblTbEnabled" = "TB Aktiverad";
+"lblTbDisabled" = "TB Inaktiverad";
+"menuCharting" = "Diagram...";
+"titCharting" = "Diagram";
+
+"sliderRefreshTimeLabel" = "Frekvens: %lds";

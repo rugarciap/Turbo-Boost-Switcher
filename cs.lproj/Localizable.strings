@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU Teplota:";
+"fan_speed" = "Rychlost ventilátoru :";
+"cpu_temp_na" = "CPU Temp: N/A";
+"fan_speed_na" = "Fan Speed: N/A";
+"enable_menu" = "Povolit Turbo Boost";
+"disable_menu" = "Disable Turbo Boost";
+"open_login" = "Otevřít při přihlášení";
+"disable_login" = "Zakázat TB při spuštění";
+"settings" = "Pokročilé nastavení:";
+"donate" = "Donate...";
+"about" = "O aplikaci...";
+"about_title" = "O aplikaci...";
+"quit" = "Odejít Turbo Boost Switcher";
+"updates" = "Kontrola aktualizací...";
+"updates_title" = "Turbo Boost Switcher - Kontrola aktualizací";
+
+"updates_progress" = "Kontrola aktualizací...";
+"updates_available" = "K dispozici je nová verze ke stažení!";
+"updates_not_available" = "Již máte nejnovější verzi";
+"updates_error" = "Chyba při kontrole aktualizací";
+
+"btn_cancel" = "Zrušit";
+"btn_download" = "Stáhnout";
+"btn_close" = "Zavřít";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "License:";
+
+"checkUpdates" = "Kontrola při spuštění";
+"etq_like_app_pro" = "Stejně jako aplikace? Zvažte pomoc a GO PRO! Dík!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Později";
+"alert_never_show_again" = "Nikdy nezobrazovat více";
+"alert_text" = "Líbí se vám aplikace? Přispějte k verzi Pro! :)";
+"alert_informative_text" = "PRO verze umožňuje některé cool funkce, upozornění, bezplatné aktualizace navždy a další!";
+
+// Language menú
+"language" = "Jazyk";
+"language_en" = "Angličtina";
+"language_es" = "Španělé";
+"language_pl" = "polština (beta)";
+"language_de" = "Němec (beta)";
+"language_fr" = "francouzština (beta)";
+"language_ru" = "ruština (beta)";
+"language_zh" = "čínština (beta)";
+"language_sv" = "švédský (beta)";
+"language_cs" = "Češka (beta)";
+"language_it" = "italština (beta)";
+"language_cs" = "Češka (beta)";
+"language_it" = "italština (beta)";
+
+"language_change_confirmation" = "Jste si jisti?";
+"language_change_informative_text" = "Aplikace bude bude restartována pro použití změn.";
+
+// Status Bar text
+"onOffMenu" = "Zap. / Vyp. text ve menubaru";
+
+// Charting
+"lblTemperature" = "Teplota";
+"lblFanSpeed" = "Rychlost ventilátorů";
+"lblTbEnabled" = "TB Povolil";
+"lblTbDisabled" = "TB Zakázal";
+"menuCharting" = "Grafy...";
+"titCharting" = "Zobrazení teploty a ventilátoru";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Obnovovací frekvence: %lds";

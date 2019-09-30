@@ -1,0 +1,75 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU Temp:";
+"fan_speed" = "Fan Speed:";
+"cpu_temp_na" = "CPU Temp: Not Available";
+"fan_speed_na" = "Fan Speed: Not Available";
+"enable_menu" = "Enable Turbo Boost";
+"disable_menu" = "Disable Turbo Boost";
+"open_login" = "Open at Login";
+"disable_login" = "Disable TB at Launch";
+"settings" = "Settings:";
+"donate" = "Donate...";
+"about" = "About...";
+"about_title" = "About";
+"quit" = "Quit Turbo Boost Switcher";
+"updates" = "Check Updates...";
+"updates_title" = "Updates";
+
+"updates_progress" = "Checking for updates...";
+"updates_available" = "A new version is available for download!";
+"updates_not_available" = "You already have the latest version";
+"updates_error" = "Error checking updates";
+
+"btn_cancel" = "Cancel";
+"btn_download" = "Download";
+"btn_close" = "Close";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "License:";
+
+"checkUpdates" = "Check on Startup";
+"etq_like_app_pro" = "Like the app? Consider helping and GO PRO! Thanks!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Later";
+"alert_never_show_again" = "Never show this again";
+"alert_text" = "Like the app? Support it Going Pro! :)";
+"alert_informative_text" = "Going PRO will enable some cool auto features, notifications, free updates forever and more!";
+
+// Language menú
+"language" = "Language";
+"language_en" = "English";
+"language_es" = "Spanish";
+"language_pl" = "Polish (beta)";
+"language_de" = "German (beta)";
+"language_fr" = "French (beta)";
+"language_ru" = "Russian (beta)";
+"language_zh" = "Chinese (beta)";
+"language_sv" = "Swedish (beta)";
+"language_cs" = "Czech (beta)";
+"language_it" = "Italian (beta)";
+
+"language_change_confirmation" = "Are you sure?";
+"language_change_informative_text" = "The app will be restarted to apply the changes.";
+
+// Status Bar text
+"onOffMenu" = "On / Off Status Bar Text";
+
+// Charting
+"lblTemperature" = "Temperature";
+"lblFanSpeed" = "Fan Speed";
+"lblTbEnabled" = "TB Enabled";
+"lblTbDisabled" = "TB Disabled";
+"menuCharting" = "Charts...";
+"titCharting" = "Temperature & Fan Charting";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Refresh Rate: %lds";
