@@ -127,7 +127,6 @@ struct cpusample sample_two;
     [statusImageOn setTemplate:YES];
     [statusImageOff setTemplate:YES];
     
-    //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
     [statusItem setHighlightMode:YES];
@@ -182,7 +181,7 @@ struct cpusample sample_two;
     
     // Refresh the status
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
     
     // Initially refresh the sensor values
     [self updateSensorValues];
@@ -256,11 +255,14 @@ struct cpusample sample_two;
     
     // Update monitoring state depending on monitoring enabled / disabled
     [self updateMonitoringState];
+    
+    // Assign the menu
+    statusItem.menu = statusMenu;
 }
 
 // Invoked when the user clicks on the satus menu
 - (void)statusItemClicked {
-    [statusItem popUpStatusItemMenu:statusMenu];
+    statusItem.menu = statusMenu;
     [self updateStatus];
 }
 
@@ -570,7 +572,10 @@ void sample(bool isOne) {
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
+    
+    // It seems that on some machines 2 seconds is not enough!
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5.0];
     
 }
 
@@ -724,6 +729,7 @@ void sample(bool isOne) {
     [StartupHelper storeStatusOnOffEnabled:[checkOnOffText state] == NSOnState];
     
     // Refresh the title string
+    [self updateStatus];
     [self updateSensorValues];
     
 }

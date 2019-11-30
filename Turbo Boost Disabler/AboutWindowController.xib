@@ -114,7 +114,7 @@
                     <textField verticalHuggingPriority="750" id="22">
                         <rect key="frame" x="204" y="374" width="258" height="28"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.9.0" id="23">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Turbo Boost Switcher v2.9.1" id="23">
                             <font key="font" metaFont="systemBold" size="17"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -134,6 +134,6 @@
         </imageView>
     </objects>
     <resources>
-        <image name="icon_256x256" width="122.87999725341797" height="122.87999725341797"/>
+        <image name="icon_256x256" width="61.439998626708984" height="61.439998626708984"/>
     </resources>
 </document>
