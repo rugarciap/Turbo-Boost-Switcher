@@ -1,9 +1,9 @@
-Turbo Boost Switcher 2.9.0 (October 1, 2019)
+Turbo Boost Switcher 2.9.1 (November 30, 2019)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.9.0 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.9.0.zip) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2019/09/tbs-new-version-2-9-0/).
+You can [download the binary v2.9.1 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.9.1.zip) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2019/09/tbs-new-version-2-9-0/).
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
