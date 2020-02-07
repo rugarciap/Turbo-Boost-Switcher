@@ -12,7 +12,7 @@
 "enable_menu" = "Aktiviere Turbo Boost";
 "disable_menu" = "Deaktiviere Turbo Boost";
 "open_login" = "Beim Einloggen öffnen";
-"disable_login" = "Beim Einloggen deaktivieren";
+"disable_login" = "Beim Systemstart deaktivieren";
 "settings" = "Einstellungen:";
 "donate" = "Spenden...";
 "about" = "Über...";
@@ -32,25 +32,25 @@
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "Wenn Sie dieses Programm mögen, spenden sie mir einen Café. Danke!";
+"donate_msg" = "Gefällt Ihnen diese App? Unterstützen sie den Entwickler mit einer Spende! Vielen Dank!";
 "license" = "Lizenz:";
 
-"checkUpdates" = "Beim Hochfahren prüfen";
+"checkUpdates" = "Beim Hochfahren überprüfen";
 
 "etq_like_app_pro" = "Gefällt ihnen die App? Sie können helfen indem sie die PRO-Version kaufen! Vielen Dank!";
 "btn_pro" = "Pro Version kaufen";
 
 "alert_later" = "Später";
 "alert_never_show_again" = "Nicht wieder anzeigen";
-"alert_text" = "Gefällt ihnen die App? Sie können helfen indem sie die PRO-Version kaufen!";
-"alert_informative_text" = "Die PRO-Version bietet einige, hilfreiche automatische Funktionen: Benachrichtigungen, kostenlose Updates für immer und mehr!";
+"alert_text" = "Gefällt Ihnen diese App? Überlegen sie zu helfen, indem Sie die Pro-Version kaufen! :)";
+"alert_informative_text" = "Die Pro-Version besitzt weitere automatische Funktionen, wie Benachrichtigungen, kostenlose Updates für immer und mehr!";
 
 // Language menú
 "language" = "Sprache";
 "language_en" = "Englisch";
 "language_es" = "Spanisch";
 "language_pl" = "Polnisch (beta)";
-"language_de" = "Deutsch (beta)";
+"language_de" = "Deutsch";
 "language_fr" = "Französisch (beta)";
 "language_ru" = "Russisch (beta)";
 "language_zh" = "Chinesisch (beta)";
@@ -58,7 +58,7 @@
 "language_cs" = "Tschechisch (beta)";
 "language_it" = "Italienisch (beta)";
 
-"language_change_confirmation" = "Bist du sicher?";
+"language_change_confirmation" = "Die Sprache wird gewechselt. Bist du sicher?";
 "language_change_informative_text" = "Die Anwendung wird neu gestartet, um die ausgewählten Änderungen zu übernehmen.";
 
 // Status Menú
