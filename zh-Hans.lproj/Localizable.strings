@@ -57,6 +57,8 @@
 "language_sv"="瑞典语（测试版）";
 "language_cs" = "捷克 (测试版)";
 "language_it" = "意大利 (测试版)";
+"language_nl" = "荷兰语 (测试版)";
+
 
 "language_change_confirmation" = "你确定？";
 "language_change_informative_text" = "该应用程序将重新启动以应用选定的变化";
