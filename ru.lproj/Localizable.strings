@@ -58,6 +58,7 @@
 "language_sv" = "Swedish (бета)";
 "language_cs" = "чешский (beta)";
 "language_it" = "итальянский (beta)";
+"language_nl" = "голландский (beta)";
 
 
 "language_change_confirmation" = "Ты уверен?";

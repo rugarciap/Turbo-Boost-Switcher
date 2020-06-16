@@ -58,6 +58,7 @@
 "language_it" = "italština (beta)";
 "language_cs" = "Češka (beta)";
 "language_it" = "italština (beta)";
+"language_nl" = "Nizozemský (beta)";
 
 "language_change_confirmation" = "Jste si jisti?";
 "language_change_informative_text" = "Aplikace bude bude restartována pro použití změn.";

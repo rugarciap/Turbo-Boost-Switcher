@@ -58,6 +58,7 @@
 "language_it" = "Italiano (beta)";
 "language_cs" = "Ceco (beta)";
 "language_it" = "Italiano (beta)";
+"language_nl" = "Olandese (beta)";
 
 "language_change_confirmation" = "Sei sicuro?";
 "language_change_informative_text" = "L'app verrà riavviata per applicare le modifiche.";

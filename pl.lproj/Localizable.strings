@@ -58,6 +58,7 @@
 "language_sv" = "szwedzki (beta)";
 "language_cs" = "Czeski (beta)";
 "language_it" = "Włoski (beta)";
+"language_nl" = "Holenderski (beta)";
 
 "language_change_confirmation" = "Jesteś pewny?";
 "language_change_informative_text" = "Aplikacja zostanie ponownie uruchomiony, aby zastosować wybrane zmiany.";

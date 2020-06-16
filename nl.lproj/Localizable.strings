@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU Temp:";
+"fan_speed" = "Ventilatorsnelheid:";
+"cpu_temp_na" = "CPU Temp: Onbeschikbaar";
+"fan_speed_na" = "Ventilatorsnelheid: Onbeschikbaar";
+"enable_menu" = "Turbo Boost inschakelen";
+"disable_menu" = "Turbo Boost uitschakelen";
+"open_login" = "Openen bij het inloggen";
+"disable_login" = "TB uitschakelen bij het inloggen";
+"settings" = "Instellingen:";
+"donate" = "Doneren...";
+"about" = "Over...";
+"about_title" = "Over";
+"quit" = "Turbo Boost Switcher stoppen";
+"updates" = "Controleer op Updates...";
+"updates_title" = "Updates";
+
+"updates_progress" = "Controleren op updates...";
+"updates_available" = "Een nieuwe versie is beschikbaar om te downloaden!";
+"updates_not_available" = "U heeft al de laatste versie";
+"updates_error" = "Fout bij het controleren op updates";
+
+"btn_cancel" = "Annuleren";
+"btn_download" = "Download";
+"btn_close" = "Sluiten";
+
+"author" = "gemaakt door Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "Als dit programma u bevalt, overweeg dan om een donatie te doen. Bedankt!";
+"license" = "Licentie:";
+
+"checkUpdates" = "Controleren bij het opstarten";
+"etq_like_app_pro" = "Vindt u dit programma leuk? Overweeg om te helpen en upgrade naar PRO! Bedankt!";
+"btn_pro" = "Pro gaan!";
+
+"alert_later" = "Later";
+"alert_never_show_again" = "Nooit meer weergeven";
+"alert_text" = "Vindt u dit programma leuk? Overweeg om te helpen en upgrade naar Pro! :)";
+"alert_informative_text" = "PRO gaan zal een aantal coole automatische functies, meldingen, gratis updates voor altijd en nog veel meer mogelijk maken!";
+
+// Language menú
+"language" = "Taal";
+"language_en" = "Engels";
+"language_es" = "Spaans";
+"language_pl" = "Pools (beta)";
+"language_de" = "Duits (beta)";
+"language_fr" = "Frans (beta)";
+"language_ru" = "Russisch (beta)";
+"language_zh" = "Chinees (beta)";
+"language_sv" = "Zweedse (beta)";
+"language_cs" = "Tsjechisch (beta)";
+"language_it" = "Italiaans (beta)";
+"language_nl" = "Nederlands (beta)";
+
+"language_change_confirmation" = "Weet u het zeker?";
+"language_change_informative_text" = "De app zal opnieuw worden opgestart om de wijzigingen toe te passen.";
+
+// Status Bar text
+"onOffMenu" = "Aan / Uit Status Balk Tekst";
+
+// Charting
+"lblTemperature" = "Temperatuur";
+"lblFanSpeed" = "Ventilatorsnelheid";
+"lblTbEnabled" = "TB Ingeschakeld";
+"lblTbDisabled" = "TB Uitgeschakeld";
+"menuCharting" = "Grafieken...";
+"titCharting" = "Grafieken";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Verversingssnelheid: %lds";
