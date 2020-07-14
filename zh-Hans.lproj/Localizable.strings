@@ -67,8 +67,8 @@
 // Charting
 "lblTemperature" = "温度";
 "lblFanSpeed" = "风扇转速";
-"lblTbEnabled" = "TB 启用";
-"lblTbDisabled" = "TB 残, 痡";
+"lblTbEnabled" = "启用Turbo Boost";
+"lblTbDisabled" = "禁用Turbo Boost";
 "menuCharting" = "图表...";
 "titCharting" = "图表";
 
