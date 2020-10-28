@@ -248,16 +248,19 @@ int SMCGetFanSpeed(char *key)
         // read succeeded - check returned value
         if (val.dataSize > 0) {
             if (strcmp(val.dataType, DATATYPE_FPE2) == 0) {
-
                 int intValue = (val.bytes[0] * 256 + val.bytes[1]) >> 2;
                 return intValue;
+            // New Macbooks 2018 uses float values
+            } else if (strcmp(val.dataType, DATATYPE_FLOAT) == 0) {
+                float floatValue;
+                memcpy(&floatValue, val.bytes, sizeof(float));
+                return (int) floatValue;
             }
         }
     }
     // read failed
     return 0;
 }
-
 
 @implementation SystemCommands
 
@@ -351,6 +354,8 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
@@ -368,6 +373,8 @@ int SMCGetFanSpeed(char *key)
     } else if ([osVersion rangeOfString:@"10.13"].location != NSNotFound) {
         return [SystemCommands isModuleLoadedNewOS];
     } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
         return [SystemCommands isModuleLoadedNewOS];
     } else {
         return [SystemCommands isModuleLoadedOldOS];

@@ -37,5 +37,6 @@
 
 - (IBAction) goProAction:(id)sender;
 
+- (void) refreshDarkMode;
 
 @end

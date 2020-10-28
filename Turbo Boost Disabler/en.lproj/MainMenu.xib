@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="17C88" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -651,23 +651,31 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="aboutItem" destination="556" id="602"/>
+                <outlet property="batteryImage" destination="SbW-Ef-A46" id="4uI-Jt-QFo"/>
+                <outlet property="batteryLevelIndicator" destination="BcF-cJ-WKa" id="e5m-ue-sLL"/>
                 <outlet property="chartsMenuItem" destination="Q6V-Qs-wVa" id="hhT-jv-dWS"/>
                 <outlet property="checkDisableAtLaunch" destination="588" id="607"/>
+                <outlet property="checkMonitoring" destination="yYp-L3-AST" id="dKL-Qq-EfA"/>
                 <outlet property="checkOnOffText" destination="Fpy-u5-yf5" id="v0R-Dn-aiq"/>
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
                 <outlet property="checkUpdatesItem" destination="564" id="601"/>
                 <outlet property="chineseMenu" destination="FNR-nU-o96" id="Lfr-Dt-oMa"/>
+                <outlet property="cpuFanImage" destination="oqR-TH-a8m" id="h0K-ur-Hga"/>
+                <outlet property="cpuLoadImage" destination="ULv-Qm-uXJ" id="IGe-mG-0HE"/>
+                <outlet property="czechMenu" destination="D1S-mD-pq7" id="qY7-WP-ZAH"/>
                 <outlet property="enableDisableItem" destination="537" id="599"/>
                 <outlet property="englishMenu" destination="oVw-Tz-krd" id="iB8-UC-rhk"/>
                 <outlet property="exitItem" destination="562" id="603"/>
                 <outlet property="frenchMenu" destination="7pm-dC-N4m" id="vuG-Mf-8x8"/>
                 <outlet property="germanMenu" destination="897-TB-g2a" id="9mc-8d-XYX"/>
+                <outlet property="italianMenu" destination="nTb-KD-Dsg" id="NVy-eC-1hx"/>
                 <outlet property="languageMenu" destination="NzB-Fh-xOX" id="QrZ-Qa-kFR"/>
+                <outlet property="lblBatteryInfo" destination="gFN-Lp-ay5" id="gbG-DC-JJv"/>
                 <outlet property="polishMenu" destination="aNR-Nk-YzI" id="2Wf-OG-YBr"/>
                 <outlet property="russianMenu" destination="MNJ-MC-Tz5" id="46I-y0-t7f"/>
+                <outlet property="sensorsView" destination="YNw-n5-v8Y" id="gTo-9b-wD5"/>
                 <outlet property="settingsLabel" destination="573" id="595"/>
                 <outlet property="sliderRefreshTime" destination="dqs-Y9-2zm" id="N5c-xp-wY9"/>
-                <outlet property="sliderRefreshTimeLabel" destination="EyH-Zm-7Lm" id="C90-lD-tYE"/>
                 <outlet property="spanishMenu" destination="qdP-PK-KXG" id="8Mi-0m-xJW"/>
                 <outlet property="statusMenu" destination="536" id="550"/>
                 <outlet property="swedishMenu" destination="4Gl-3T-SvN" id="TS1-wH-qSh"/>
@@ -700,6 +708,13 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="MeR-dB-52w"/>
+                <menuItem title="Settings..." id="593">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <outlet property="view" destination="572" id="594"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="hVV-Mt-Dnk"/>
                 <menuItem title="Language" id="NzB-Fh-xOX">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Language" id="DeH-uF-pBd">
@@ -752,17 +767,21 @@
                                     <action selector="languageChanged:" target="494" id="EwL-OQ-f3f"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Czech (beta)" id="D1S-mD-pq7">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="QeV-My-gth"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Italian (beta)" id="nTb-KD-Dsg">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="languageChanged:" target="494" id="2Js-nk-TPG"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="zu8-bG-enk"/>
-                <menuItem title="Settings..." id="593">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <outlet property="view" destination="572" id="594"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="hVV-Mt-Dnk"/>
                 <menuItem title="About..." id="556">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -783,14 +802,14 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-412" y="-430"/>
+            <point key="canvasLocation" x="-652" y="-431"/>
         </menu>
         <customView id="572">
-            <rect key="frame" x="0.0" y="0.0" width="273" height="99"/>
+            <rect key="frame" x="0.0" y="0.0" width="328" height="145"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="573">
-                    <rect key="frame" x="18" y="73" width="225" height="24"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="573">
+                    <rect key="frame" x="18" y="115" width="225" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings:" id="574">
                         <font key="font" metaFont="system"/>
@@ -799,7 +818,7 @@
                     </textFieldCell>
                 </textField>
                 <button id="582">
-                    <rect key="frame" x="20" y="55" width="213" height="18"/>
+                    <rect key="frame" x="18" y="58" width="213" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Open at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="583">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -810,7 +829,7 @@
                     </connections>
                 </button>
                 <button id="588">
-                    <rect key="frame" x="20" y="31" width="235" height="18"/>
+                    <rect key="frame" x="18" y="34" width="235" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Disable Turbo Boost at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="589">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -821,7 +840,7 @@
                     </connections>
                 </button>
                 <button id="Fpy-u5-yf5">
-                    <rect key="frame" x="20" y="6" width="249" height="18"/>
+                    <rect key="frame" x="18" y="9" width="249" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="On / Off text" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Xsn-Mn-jcg">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -831,15 +850,38 @@
                         <action selector="onOffClick:" target="494" id="Ilt-Fi-KUu"/>
                     </connections>
                 </button>
+                <slider verticalHuggingPriority="750" id="dqs-Y9-2zm">
+                    <rect key="frame" x="220" y="80" width="98" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <sliderCell key="cell" state="on" alignment="left" minValue="4" maxValue="60" doubleValue="4" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="0eW-Xf-XOG"/>
+                    <connections>
+                        <action selector="refreshTimeSliderChanged:" target="494" id="7Td-V3-etH"/>
+                    </connections>
+                </slider>
+                <box verticalHuggingPriority="750" boxType="separator" id="oiX-5S-3T7">
+                    <rect key="frame" x="20" y="113" width="296" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                </box>
+                <button verticalHuggingPriority="750" id="yYp-L3-AST">
+                    <rect key="frame" x="18" y="82" width="198" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Monitoring (rate 4s)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kGw-0x-wdf">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkMonitoringClick:" target="494" id="AZ5-7F-KSR"/>
+                    </connections>
+                </button>
             </subviews>
-            <point key="canvasLocation" x="-353" y="-236"/>
+            <point key="canvasLocation" x="-263" y="-329.5"/>
         </customView>
-        <customView misplaced="YES" id="YNw-n5-v8Y">
+        <customView id="YNw-n5-v8Y">
             <rect key="frame" x="0.0" y="0.0" width="327" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ULv-Qm-uXJ">
-                    <rect key="frame" x="20" y="45" width="32" height="32"/>
+                    <rect key="frame" x="16" y="45" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="processor" id="3DQ-ly-BuF"/>
                 </imageView>
@@ -853,7 +895,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="temperature_1" id="FWC-ck-Sss"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="5pK-fj-7Rw">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5pK-fj-7Rw">
                     <rect key="frame" x="195" y="53" width="68" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="mti-n0-m5Q">
@@ -862,7 +904,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="PZt-MQ-VYY">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PZt-MQ-VYY">
                     <rect key="frame" x="278" y="52" width="44" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="1Sm-bv-fqE">
@@ -871,8 +913,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" id="eUr-fG-tSt">
-                    <rect key="frame" x="51" y="53" width="110" height="17"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eUr-fG-tSt">
+                    <rect key="frame" x="47" y="53" width="110" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="WJh-Gc-xwm">
                         <font key="font" metaFont="system"/>
@@ -880,28 +922,31 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="NO" id="EyH-Zm-7Lm">
-                    <rect key="frame" x="18" y="12" width="163" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh Rate: 4s" id="Ne6-u1-n6s">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gFN-Lp-ay5">
+                    <rect key="frame" x="251" y="10" width="70" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="pVP-MP-p3Z">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <slider verticalHuggingPriority="750" misplaced="YES" id="dqs-Y9-2zm">
-                    <rect key="frame" x="179" y="8" width="143" height="24"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SbW-Ef-A46">
+                    <rect key="frame" x="12" y="0.0" width="41" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <sliderCell key="cell" state="on" alignment="left" minValue="1" maxValue="60" doubleValue="4" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="0eW-Xf-XOG"/>
-                    <connections>
-                        <action selector="refreshTimeSliderChanged:" target="494" id="7Td-V3-etH"/>
-                    </connections>
-                </slider>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="battery" id="xrx-lM-mIQ"/>
+                </imageView>
+                <levelIndicator verticalHuggingPriority="750" id="BcF-cJ-WKa">
+                    <rect key="frame" x="54" y="9" width="190" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <levelIndicatorCell key="cell" alignment="left" doubleValue="6" maxValue="12" warningValue="5" criticalValue="2" id="YfX-On-1AS"/>
+                </levelIndicator>
             </subviews>
-            <point key="canvasLocation" x="-325.5" y="-85.5"/>
+            <point key="canvasLocation" x="-377.5" y="-100.5"/>
         </customView>
     </objects>
     <resources>
+        <image name="battery" width="32" height="32"/>
         <image name="cooler" width="32" height="32"/>
         <image name="processor" width="32" height="32"/>
         <image name="temperature_1" width="32" height="32"/>

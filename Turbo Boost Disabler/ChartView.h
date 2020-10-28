@@ -12,11 +12,13 @@
 @interface ChartView : NSView {
     
     BOOL tempMode; // Temperature mode (true) or not (fan)..., in the future might change due to more charting types.
+    BOOL isDarkMode;
     id <ChartDataDelegate> delegate; // The data delegate
 
 }
 
 @property (nonatomic) id <ChartDataDelegate> delegate;
 @property (nonatomic) BOOL tempMode;
+@property (nonatomic) BOOL isDarkMode;
 
 @end

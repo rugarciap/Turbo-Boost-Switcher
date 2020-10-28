@@ -12,7 +12,7 @@
 "enable_menu" = "Активировать Turbo Boost";
 "disable_menu" = "Отключение Turbo Boost";
 "open_login" = "Открыть при входе в систему";
-"disable_login" = "Отключение при запуске";
+"disable_login" = "Отключение TB при запуске";
 "settings" = "настройки:";
 
 "donate" = "Donate...";
@@ -56,6 +56,9 @@
 "language_ru" = "Русский (бета)";
 "language_zh" = "китайский (бета)";
 "language_sv" = "Swedish (бета)";
+"language_cs" = "чешский (beta)";
+"language_it" = "итальянский (beta)";
+
 
 "language_change_confirmation" = "Ты уверен?";
 "language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";

@@ -27,6 +27,8 @@
 #import "AboutWindowController.h"
 #import "StartupHelper.h"
 #import "CheckUpdatesWindowController.h"
+#import <IOKit/ps/IOPowerSources.h>
+#import <IOKit/ps/IOPSKeys.h>
 
 @implementation AppDelegate
 
@@ -79,7 +81,9 @@ struct cpusample sample_two;
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
-   
+    
+    // Add another status bar refresh just to be sure, since depending on mac cpu load it can take a little longer
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.5];
 }
 
 // Suscribe to wake up notifications
@@ -123,7 +127,6 @@ struct cpusample sample_two;
     [statusImageOn setTemplate:YES];
     [statusImageOff setTemplate:YES];
     
-    //[statusItem setMenu:statusMenu];
     [statusItem setToolTip:@"Turbo Boost Switcher"];
 
     [statusItem setHighlightMode:YES];
@@ -132,10 +135,15 @@ struct cpusample sample_two;
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
     
+    // Charting menu item
+    [chartsMenuItem setTitle:NSLocalizedString(@"menuCharting", nil)];
+    
     // Update open at login status
     [checkOpenAtLogin setState:[StartupHelper isOpenAtLogin]];
-    
     [checkOpenAtLogin setTitle:NSLocalizedString(@"open_login", nil)];
+    
+    // Update check monitoring
+    [checkMonitoring setState:[StartupHelper isMonitoringEnabled]];
     
     // Update disable at login status
     [checkDisableAtLaunch setState:[StartupHelper isDisableAtLaunch]];
@@ -158,6 +166,7 @@ struct cpusample sample_two;
     [settingsLabel setFont:[statusMenu font]];
     [checkDisableAtLaunch setFont:[statusMenu font]];
     [checkOpenAtLogin setFont:[statusMenu font]];
+    [checkMonitoring setFont:[statusMenu font]];
     
     // Init the chart window controller
     if (self.chartWindowController == nil) {
@@ -171,20 +180,28 @@ struct cpusample sample_two;
     }
     
     // Refresh the status
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
     
     // Initially refresh the sensor values
     [self updateSensorValues];
     [NSThread sleepForTimeInterval:0.1];
     [self updateSensorValues];
-
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:4 target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    NSInteger refreshTimeValue = [StartupHelper sensorRefreshTime];
+    if (refreshTimeValue < 4) {
+        refreshTimeValue = 4;
+    }
+    [sliderRefreshTime setIntegerValue:refreshTimeValue];
+   
+    [checkMonitoring setTitle:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
+    
+    self.refreshTimer = [NSTimer timerWithTimeInterval:refreshTimeValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
-    // Suscribe to sleep and wake up notifications
+    // Subscribe to sleep and wake up notifications
     [self fileNotifications];
     
     // Refresh the status item
@@ -229,14 +246,23 @@ struct cpusample sample_two;
         int currentCount = (int)[StartupHelper runCount];
         [StartupHelper storeRunCount:(currentCount + 1)];
     }
+    
     // Refresh the status item
     [self updateStatus];
 
+    // Configure sensors view
+    [self configureSensorsView];
+    
+    // Update monitoring state depending on monitoring enabled / disabled
+    [self updateMonitoringState];
+    
+    // Assign the menu
+    statusItem.menu = statusMenu;
 }
 
 // Invoked when the user clicks on the satus menu
 - (void)statusItemClicked {
-    [statusItem popUpStatusItemMenu:statusMenu];
+    statusItem.menu = statusMenu;
     [self updateStatus];
 }
 
@@ -291,8 +317,24 @@ struct cpusample sample_two;
     
 }
 
+// Method to get the battery charging status
+- (BOOL) isCharging {
+    
+    CFTimeInterval timeInterval = IOPSGetTimeRemainingEstimate();
+    if (timeInterval == -2.0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 // Update the CPU Temp & Fan speed
 - (void) updateSensorValues {
+    
+    // If monitoring is disabled, just exit
+    if (![StartupHelper isMonitoringEnabled]) {
+        return;
+    }
 
     int fanSpeed = [SystemCommands readCurrentFanSpeed];
     float cpuTemp = [SystemCommands readCurrentCpuTemp];
@@ -319,6 +361,21 @@ struct cpusample sample_two;
     } else {
         rpmData = @"N/A";
         [txtCpuFan setStringValue:rpmData];
+    }
+    
+    // Read the battery level and update info
+    double batteryLevel = [self currentBatteryLevel];
+    if (batteryLevel >= 0) {
+        
+        // 12 levels graphically
+        int batteryLevelValue = ceil(batteryLevel * 0.12f);
+        [batteryLevelIndicator setIntegerValue:batteryLevelValue];
+        
+        if ([self isCharging]) {
+            [lblBatteryInfo setStringValue:[NSString stringWithFormat:@"%d %% 🔌", (int) batteryLevel]];
+        } else {
+            [lblBatteryInfo setStringValue:[NSString stringWithFormat:@"%d %%", (int) batteryLevel]];
+        }
     }
     
     // Refresh the chart view if present
@@ -408,6 +465,8 @@ void sample(bool isOne) {
     [polishMenu setState:NSOffState];
     [russianMenu setState:NSOffState];
     [swedishMenu setState:NSOffState];
+    [czechMenu setState:NSOffState];
+    [italianMenu setState:NSOffState];
     
     // TODO: Change this to a nsmutabledict
     if ([currentLocale rangeOfString:@"es"].location != NSNotFound) {
@@ -426,6 +485,10 @@ void sample(bool isOne) {
         [russianMenu setState:NSOnState];
     } else if ([currentLocale rangeOfString:@"sv"].location != NSNotFound) {
         [swedishMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"cs"].location != NSNotFound) {
+        [czechMenu setState:NSOnState];
+    } else if ([currentLocale rangeOfString:@"it"].location != NSNotFound) {
+        [italianMenu setState:NSOnState];
     }
     
     // Update language translations
@@ -438,7 +501,8 @@ void sample(bool isOne) {
     [polishMenu setTitle:NSLocalizedString(@"language_pl", nil)];
     [russianMenu setTitle:NSLocalizedString(@"language_ru", nil)];
     [swedishMenu setTitle:NSLocalizedString(@"language_sv", nil)];
-    
+    [czechMenu setTitle:NSLocalizedString(@"language_cs", nil)];
+    [italianMenu setTitle:NSLocalizedString(@"language_it", nil)];
 }
 
 // Change language to
@@ -482,6 +546,10 @@ void sample(bool isOne) {
             [self changeLanguageTo:@"ru"];
         } else if ([sender isEqualTo:swedishMenu]) {
             [self changeLanguageTo:@"sv"];
+        } else if ([sender isEqualTo:czechMenu]) {
+            [self changeLanguageTo:@"cs"];
+        } else if ([sender isEqualTo:italianMenu]) {
+            [self changeLanguageTo:@"it"];
         }
         
         [self updateLanguageMenu];
@@ -504,6 +572,10 @@ void sample(bool isOne) {
     }
     
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
+    
+    // It seems that on some machines 2 seconds is not enough!
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5.0];
     
 }
 
@@ -594,6 +666,7 @@ void sample(bool isOne) {
     }
     
     [self.aboutWindow.window center];
+    [self.aboutWindow refreshDarkMode];
     [self.aboutWindow showWindow:nil];
 }
 
@@ -656,6 +729,7 @@ void sample(bool isOne) {
     [StartupHelper storeStatusOnOffEnabled:[checkOnOffText state] == NSOnState];
     
     // Refresh the title string
+    [self updateStatus];
     [self updateSensorValues];
     
 }
@@ -681,7 +755,7 @@ void sample(bool isOne) {
 // Refresh time slider
 - (IBAction) refreshTimeSliderChanged:(id)sender {
     
-    [sliderRefreshTimeLabel setStringValue:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
+    [checkMonitoring setTitle:[NSString stringWithFormat:NSLocalizedString(@"sliderRefreshTimeLabel", nil), sliderRefreshTime.integerValue]];
     
     [self.refreshTimer invalidate];
     
@@ -713,6 +787,119 @@ void sample(bool isOne) {
     
 }
 
+// Get the current battery level
+- (double) currentBatteryLevel
+{
+    
+    CFTypeRef blob = IOPSCopyPowerSourcesInfo();
+    CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
+    
+    CFDictionaryRef pSource = NULL;
+    const void *psValue;
+    
+    long numOfSources = CFArrayGetCount(sources);
+    if (numOfSources == 0) {
+        return -1.0f;
+    }
+    
+    for (int i = 0 ; i < numOfSources ; i++)
+    {
+        pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
+        if (!pSource) {
+            return -1.0f;
+        }
+        
+        psValue = (CFStringRef)CFDictionaryGetValue(pSource, CFSTR(kIOPSNameKey));
+        
+        int curCapacity = 0;
+        int maxCapacity = 0;
+        
+        double percent;
+        
+        // Gets the battery capacity
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSCurrentCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &curCapacity);
+        
+        // Gets the max capacity
+        psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSMaxCapacityKey));
+        CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &maxCapacity);
+        
+        percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
+        
+        return percent;
+    }
+    return -1.0f;
+}
+
+// Method to configure the sensors view depending on battery available or not
+- (void) configureSensorsView {
+    
+    double batteryLevel = [self currentBatteryLevel];
+    if (batteryLevel < 0) {
+        
+        // Hide battery sensor
+        NSRect f = sensorsView.frame;
+        f.size.height = 43;
+        sensorsView.frame = f;
+        [sensorsView setNeedsLayout:YES];
+        
+    }
+    
+}
+
+- (IBAction) checkMonitoringClick:(id) sender {
+    [StartupHelper storeMonitoringEnabled:[checkMonitoring state] == NSOnState];
+    [self updateMonitoringState];
+}
+    
+// Update monitoring app state
+- (void) updateMonitoringState {
+    
+    BOOL isMonitoringEnabled = [StartupHelper isMonitoringEnabled];
+    
+    if (isMonitoringEnabled) {
+        
+        // Reenable timer
+        [self refreshTimeSliderChanged:nil];
+        
+        // Refresh title string and status bar
+        [self updateSensorValues];
+        
+        // Disable monitoring menu options
+        [temperatureImage setAlphaValue:1.0];
+        [cpuLoadImage setAlphaValue:1.0];
+        [cpuFanImage setAlphaValue:1.0];
+        [batteryImage setAlphaValue:1.0];
+        
+    } else {
+        
+        // Disable monitoring menu options
+        [temperatureImage setAlphaValue:0.2];
+        [cpuLoadImage setAlphaValue:0.2];
+        [cpuFanImage setAlphaValue:0.2];
+        [batteryImage setAlphaValue:0.2];
+        
+        [txtCpuFan setStringValue:@""];
+        [txtCpuLoad setStringValue:@""];
+        [txtCpuTemp setStringValue:@""];
+        
+        // Set battery level to 0
+        [batteryLevelIndicator setIntegerValue:0];
+        [lblBatteryInfo setStringValue:@""];
+        
+        [self updateStatus];
+        
+        // Invalidate timer
+        [self.refreshTimer invalidate];
+    }
+    
+    // Enable/Disable charts
+    [chartsMenuItem setEnabled:isMonitoringEnabled];
+    
+    // Deshabilitar / ocultar las opciones de monitorización
+    [sliderRefreshTime setEnabled:isMonitoringEnabled];
+    
+ }
 
 
 @end

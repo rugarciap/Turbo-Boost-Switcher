@@ -1,18 +1,19 @@
-Turbo Boost Switcher 2.7.0 (24/05/2018)
+Turbo Boost Switcher 2.9.1 (November 30, 2019)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.7.0 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.7.0.zip) . More info about this update [on the blog](http://www.rugarciap.com/2018/05/tbs-new-version-2-7-0/).
+You can [download the binary v2.9.1 version](https://s3.amazonaws.com/turbo-boost-switcher/Turbo+Boost+Switcher_2.9.1.zip) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2019/09/tbs-new-version-2-9-0/).
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
-Support for macOS Sierra and High Sierra. Working fine too on macOS Mojave Public Beta 3+. To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Supports 10.6+ up to macOS Catalina
+
+To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
 Apple now (since macOS High Sierra) forces the user to manually allow kernel extensions to be used so, if you're running for the first time on macOS High Sierra and never granted permissions, you need to manually allow it to be used. [More details here.](https://www.rugarciap.com/2017/09/an-update-after-macos-high-sierra-release/)
 
 OSX El Capitan Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
-
 
 Features:
 ====================
@@ -84,3 +85,17 @@ Thanks to:
 - Some icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
+
+Reporting Issues:
+===========
+
+Before opening issues, make sure you read the project faqs (https://www.rugarciap.com/faqs/), other issues openend and answered, etc.
+
+A lot (if not all) of usual questions about enabling / disabling Turbo Boost are answered there, like how to allow the kext to run, installing first time, etc. Issues on Github are not ment to offer support to particular questions when installing, they're ment to register reproducible issues on all installations (like a bad translation, a feature request, etc). 
+
+The app and kext extensions are compatible will all macOS versions released so far (Intel CPUs with Turbo Boost, of course). The app is tested against all betas before final versions are released, so if any incompatiblity is found in the future will be reported here and on the blog, like when El Capitan was released.
+
+If you still think you found an issue and it's not a support question, please attach all info needed to reproduce (steps you follow, app configuration, screenshots, etc) so I'm able to debug and fix the bug if any. 
+
+Thanks.
+

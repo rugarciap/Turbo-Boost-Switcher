@@ -1,0 +1,77 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU Temperatura:";
+"fan_speed" = "Velocità ventola:";
+"cpu_temp_na" = "CPU Temperatura: Non disponibile";
+"fan_speed_na" = "Velocità ventola: Non disponibile";
+"enable_menu" = "Abilita Turbo Boost";
+"disable_menu" = "Disabilita Turbo Boost";
+"open_login" = "Apri al login";
+"disable_login" = "Disattiva TB all'avvio";
+"settings" = "Impostazioni:";
+"donate" = "Advanced Settings...";
+"about" = "Informazioni...";
+"about_title" = "Informazioni";
+"quit" = "Esci Turbo Boost Switcher";
+"updates" = "Controlla aggiornamenti...";
+"updates_title" = "Turbo Boost Switcher - Controlla aggiornamenti";
+
+"updates_progress" = "Verifica aggiornamenti...";
+"updates_available" = "Una nuova versione è disponibile per il download!";
+"updates_not_available" = "Hai già l'ultima versione";
+"updates_error" = "Errore durante il controllo degli aggiornamenti";
+
+"btn_cancel" = "Annulla";
+"btn_download" = "Scarica";
+"btn_close" = "Chiudi";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"license" = "License:";
+
+"checkUpdates" = "Controlla all'avvio";
+"etq_like_app_pro" = "Ti piace l'app? Prendi in considerazione l'idea di aiutare e GO PRO! Grazie!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Dopo";
+"alert_never_show_again" = "Non mostrare più";
+"alert_text" = "Ti piace l'applicazione? Aiuta a diventare PRO :)";
+"alert_informative_text" = "Ottenendo la versione PRO, abiliti alcune fantastiche funzioni, notifiche, aggiornamenti a vita e altro ancora.";
+
+// Language menú
+"language" = "Linguaggio";
+"language_en" = "Inglese";
+"language_es" = "Spagnolo";
+"language_pl" = "Polacco (beta)";
+"language_de" = "Tedesco (beta)";
+"language_fr" = "Francese (beta)";
+"language_ru" = "Russo (beta)";
+"language_zh" = "Cinese (beta)";
+"language_sv" = "Svedese (beta)";
+"language_cs" = "Ceco (beta)";
+"language_it" = "Italiano (beta)";
+"language_cs" = "Ceco (beta)";
+"language_it" = "Italiano (beta)";
+
+"language_change_confirmation" = "Sei sicuro?";
+"language_change_informative_text" = "L'app verrà riavviata per applicare le modifiche.";
+
+// Status Bar text
+"onOffMenu" = "Testo della barra di stato On / Off";
+
+// Charting
+"lblTemperature" = "Temperatura";
+"lblFanSpeed" = "Velocità ventola";
+"lblTbEnabled" = "TB Abilitato";
+"lblTbDisabled" = "TB Disabilitato";
+"menuCharting" = "Grafici...";
+"titCharting" = "Grafici di temperatura e ventole";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Freq. Aggiornamento: %lds";

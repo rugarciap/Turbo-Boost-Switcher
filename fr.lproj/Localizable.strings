@@ -12,7 +12,7 @@
 "enable_menu" = "Activer Turbo Boost";
 "disable_menu" = "Désactiver Turbo Boost";
 "open_login" = "Ouvrir à la connexion";
-"disable_login" = "Désactiver au lancement";
+"disable_login" = "Désactiver TB au lancement";
 "settings" = "Paramètres:";
 "donate" = "Donate...";
 "about" = "À propos de...";
@@ -35,15 +35,15 @@
 "donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
 "license" = "Licence:";
 
-"checkUpdates" = "Vérifier au lancement";
+"checkUpdates" = "Vérifier au démarrage";
 
 "etq_like_app_pro" = "Aimez-vous l'application? Pensez à vous aider en obtenant la version PRO! Merci!";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Plus tard";
 "alert_never_show_again" = "Ne plus afficher ce message";
-"alert_text" = "Aimez-vous l'application? Pensez à vous aider en obtenant la version PRO! :)";
-"alert_informative_text" = "Obtenir PRO permettra quelques fonctionnalités automatiques grand, notifications, mises à jour gratuites pour toujours et plus!";
+"alert_text" = "Vous aimez l'application ? Pensez à nous aider en obtenant la version PRO! :)";
+"alert_informative_text" = "Obtenir la version PRO vous apportera les fonctionalités supplémentaires d'automatisation, les notifications système, les mises à jour gratuites et plus encore !";
 
 // Language menú
 "language" = "Langue";
@@ -55,6 +55,8 @@
 "language_ru" = "Russe (beta)";
 "language_zh" = "Chinois (beta)";
 "language_sv" = "Suédois (beta)";
+"language_cs" = "Tchèque (beta)";
+"language_it" = "Italien (beta)";
 
 "language_change_confirmation" = "Êtes-vous sûr?";
 "language_change_informative_text" = "L'application sera redémarré pour appliquer les modifications.";
@@ -64,7 +66,7 @@
 
 // Charting
 "lblTemperature" = "Température";
-"lblFanSpeed" = "Vitesse des fans";
+"lblFanSpeed" = "Vitesse des ventilateurs";
 "lblTbEnabled" = "TB Activé";
 "lblTbDisabled" = "TB Désactivé";
 "menuCharting" = "Graphiques...";

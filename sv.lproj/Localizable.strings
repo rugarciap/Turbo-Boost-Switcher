@@ -12,7 +12,7 @@
 "enable_menu" = "Aktivera Turbo Boost";
 "disable_menu" = "Deaktivera Turbo Boost";
 "open_login" = "Öppna vid inloggning";
-"disable_login" = "Avaktivera vid start";
+"disable_login" = "Avaktivera TB vid start";
 "settings" = "Inställningar:";
 "donate" = "Donate...";
 "about" = "I fråga om...";
@@ -54,6 +54,9 @@
 "language_ru" = "Russian (beta)";
 "language_zh" = "Kinesiska (beta)";
 "language_sv" = "Svenska (beta)";
+"language_cs" = "Czech (beta)";
+"language_it" = "italiensk (beta)";
+
 
 "language_change_confirmation" = "Är du säker?";
 "language_change_informative_text" = "Ansökan kommer att startas för att tillämpa de markerade förändringar.";
