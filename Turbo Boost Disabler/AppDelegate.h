@@ -82,13 +82,16 @@
     IBOutlet NSTextField *txtCpuTemp;
     
     IBOutlet NSImageView *temperatureImage;
+    IBOutlet NSImageView *cpuLoadImage;
+    IBOutlet NSImageView *cpuFanImage;
+    IBOutlet NSImageView *batteryImage;
     
     // Status strings
     NSMutableString *statusOnOff;
     
     // Refresh time slider and label
     IBOutlet NSSlider *sliderRefreshTime;
-    IBOutlet NSTextField *sliderRefreshTimeLabel;
+    IBOutlet NSButton *checkMonitoring;
     IBOutlet NSMenuItem *chartsMenuItem;
     
     ChartWindowController *chartWindowController;
@@ -129,6 +132,12 @@
 
 // Charts menu click
 - (IBAction) chartsMenuClick:(id) sender;
+    
+// Monitoring check click
+- (IBAction) checkMonitoringClick:(id) sender;
+    
+// Refresh state after monitoring configuration change
+- (void) updateMonitoringState;
 
 - (void) terminate;
 

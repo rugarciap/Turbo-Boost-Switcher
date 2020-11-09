@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -651,13 +651,17 @@
         <customObject id="494" customClass="AppDelegate">
             <connections>
                 <outlet property="aboutItem" destination="556" id="602"/>
+                <outlet property="batteryImage" destination="SbW-Ef-A46" id="4uI-Jt-QFo"/>
                 <outlet property="batteryLevelIndicator" destination="BcF-cJ-WKa" id="e5m-ue-sLL"/>
                 <outlet property="chartsMenuItem" destination="Q6V-Qs-wVa" id="hhT-jv-dWS"/>
                 <outlet property="checkDisableAtLaunch" destination="588" id="607"/>
+                <outlet property="checkMonitoring" destination="yYp-L3-AST" id="dKL-Qq-EfA"/>
                 <outlet property="checkOnOffText" destination="Fpy-u5-yf5" id="v0R-Dn-aiq"/>
                 <outlet property="checkOpenAtLogin" destination="582" id="605"/>
                 <outlet property="checkUpdatesItem" destination="564" id="601"/>
                 <outlet property="chineseMenu" destination="FNR-nU-o96" id="Lfr-Dt-oMa"/>
+                <outlet property="cpuFanImage" destination="oqR-TH-a8m" id="h0K-ur-Hga"/>
+                <outlet property="cpuLoadImage" destination="ULv-Qm-uXJ" id="IGe-mG-0HE"/>
                 <outlet property="czechMenu" destination="D1S-mD-pq7" id="qY7-WP-ZAH"/>
                 <outlet property="enableDisableItem" destination="537" id="599"/>
                 <outlet property="englishMenu" destination="oVw-Tz-krd" id="iB8-UC-rhk"/>
@@ -672,7 +676,6 @@
                 <outlet property="sensorsView" destination="YNw-n5-v8Y" id="gTo-9b-wD5"/>
                 <outlet property="settingsLabel" destination="573" id="595"/>
                 <outlet property="sliderRefreshTime" destination="dqs-Y9-2zm" id="N5c-xp-wY9"/>
-                <outlet property="sliderRefreshTimeLabel" destination="EyH-Zm-7Lm" id="C90-lD-tYE"/>
                 <outlet property="spanishMenu" destination="qdP-PK-KXG" id="8Mi-0m-xJW"/>
                 <outlet property="statusMenu" destination="536" id="550"/>
                 <outlet property="swedishMenu" destination="4Gl-3T-SvN" id="TS1-wH-qSh"/>
@@ -847,17 +850,8 @@
                         <action selector="onOffClick:" target="494" id="Ilt-Fi-KUu"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="EyH-Zm-7Lm">
-                    <rect key="frame" x="18" y="86" width="163" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Refresh Rate: 4s" id="Ne6-u1-n6s">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <slider verticalHuggingPriority="750" id="dqs-Y9-2zm">
-                    <rect key="frame" x="179" y="82" width="143" height="24"/>
+                    <rect key="frame" x="220" y="80" width="98" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <sliderCell key="cell" state="on" alignment="left" minValue="4" maxValue="60" doubleValue="4" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="0eW-Xf-XOG"/>
                     <connections>
@@ -868,6 +862,17 @@
                     <rect key="frame" x="20" y="113" width="296" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
+                <button verticalHuggingPriority="750" id="yYp-L3-AST">
+                    <rect key="frame" x="18" y="82" width="198" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" title="Monitoring (rate 4s)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kGw-0x-wdf">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkMonitoringClick:" target="494" id="AZ5-7F-KSR"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="-263" y="-329.5"/>
         </customView>

@@ -70,5 +70,9 @@
 + (NSInteger) sensorRefreshTime;
 + (void) storeSensorRefreshTime:(NSInteger) value;
 
+// Monitoring enabled / disabled
++ (BOOL) isMonitoringEnabled;
++ (void) storeMonitoringEnabled: (BOOL) value;
 
+    
 @end

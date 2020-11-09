@@ -66,7 +66,7 @@
 
 // Charting
 "lblTemperature" = "Température";
-"lblFanSpeed" = "Vitesse des fans";
+"lblFanSpeed" = "Vitesse des ventilateurs";
 "lblTbEnabled" = "TB Activé";
 "lblTbDisabled" = "TB Désactivé";
 "menuCharting" = "Graphiques...";
