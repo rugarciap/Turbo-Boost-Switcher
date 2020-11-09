@@ -59,4 +59,7 @@
 
 + (BOOL) runTaskAsAdmin:(NSString *) path withAuthRef:(AuthorizationRef) authRef andArgs:(NSArray *) args;
 
+// Get the module path depending on arch
++ (NSString *) getModulePath:(BOOL) is32bits;
+
 @end

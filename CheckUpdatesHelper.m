@@ -8,7 +8,7 @@
 
 #import "CheckUpdatesHelper.h"
 
-#define CURRENT_VERSION 2100
+#define CURRENT_VERSION 291
 
 @implementation CheckUpdatesHelper {
     

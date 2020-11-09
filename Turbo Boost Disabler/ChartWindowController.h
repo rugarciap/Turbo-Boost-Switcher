@@ -30,9 +30,11 @@
     NSMutableArray *fanEntries;
     
     BOOL isOpen;
+    BOOL isFahrenheit;
     
 }
 
+@property (nonatomic) BOOL isFahrenheit;
 @property (nonatomic) IBOutlet ChartView *tempChartView;
 @property (nonatomic) IBOutlet ChartView *fanChartView;
 

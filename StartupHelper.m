@@ -203,17 +203,4 @@
     [userDefaults synchronize];
 }
 
-// Get the isCelsius configuration
-+ (BOOL) isFarenheit {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults boolForKey:@"isFarenheit"];
-}
-
-// Store the isCelcius configuration
-+ (void) storeIsFarenheit:(BOOL) value {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setBool:value forKey:@"isFarenheit"];
-    [userDefaults synchronize];
-}
-
 @end

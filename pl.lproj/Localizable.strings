@@ -74,3 +74,8 @@
 "titCharting" = "Wykresy";
 
 "sliderRefreshTimeLabel" = "okresowość: %lds";
+
+"alert_kext_missing_title" = "Uwaga, brakuje istotnego elementu aplikacji!";
+"alert_kext_missing_detail" = "Proszę, otwórz ponownie dmg, a także przeciągnij znajdujący się tam folder tbswitcher_resources do folderu /Applications (lub tego samego, w którym zainstalowałeś aplikację), aby aplikacja mogła się otworzyć.\n\nWięcej informacji w pliku pomocy dołączonym do dystrybucji. Dziękuję Ci!";
+
+"lblHelp" = "Pomoc...";

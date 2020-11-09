@@ -81,8 +81,13 @@
         
         if (tempMode) {
             CGFloat yPos = dirtyRect.size.height - kOffsetY - i * stepY*normalizer - i*0.5f;
-            NSString *text = [NSString stringWithFormat:@"%d", (i*20) + 20];
-            if (i==4) {
+            int value = (i*20) + 20;
+            
+            if ([delegate isFahrenheit]) {
+                value = (int)(((float)value * 1.8) + 32.0);
+            }
+            NSString *text = [NSString stringWithFormat:@"%d", value];
+            if ((i==4) || ([delegate isFahrenheit] && i > 0)) {
                 [self drawText:[text UTF8String] atX:5.0 andY:yPos withContext:context];
             } else {
                 [self drawText:[text UTF8String] atX:12.0 andY:yPos withContext:context];

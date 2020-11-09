@@ -668,13 +668,10 @@
                 <outlet property="exitItem" destination="562" id="603"/>
                 <outlet property="frenchMenu" destination="7pm-dC-N4m" id="vuG-Mf-8x8"/>
                 <outlet property="germanMenu" destination="897-TB-g2a" id="9mc-8d-XYX"/>
-                <outlet property="helpItem" destination="Q8h-hw-kJ7" id="4MN-Gd-6DL"/>
                 <outlet property="italianMenu" destination="nTb-KD-Dsg" id="NVy-eC-1hx"/>
                 <outlet property="languageMenu" destination="NzB-Fh-xOX" id="QrZ-Qa-kFR"/>
                 <outlet property="lblBatteryInfo" destination="gFN-Lp-ay5" id="gbG-DC-JJv"/>
                 <outlet property="polishMenu" destination="aNR-Nk-YzI" id="2Wf-OG-YBr"/>
-                <outlet property="radioCelcius" destination="0FD-Ti-eg3" id="7nq-p5-IfR"/>
-                <outlet property="radioFarenheit" destination="aaZ-2M-oG2" id="PrB-AH-Z63"/>
                 <outlet property="russianMenu" destination="MNJ-MC-Tz5" id="46I-y0-t7f"/>
                 <outlet property="sensorsView" destination="YNw-n5-v8Y" id="gTo-9b-wD5"/>
                 <outlet property="settingsLabel" destination="573" id="595"/>
@@ -691,14 +688,14 @@
         <customObject id="420" customClass="NSFontManager"/>
         <menu id="536">
             <items>
-                <menuItem title="Enable Turbo Boost" keyEquivalent="E" id="537">
-                    <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                <menuItem title="Enable Turbo Boost" id="537">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="enableTurboBoost:" target="494" id="554"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Charts..." keyEquivalent="P" id="Q6V-Qs-wVa">
-                    <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                <menuItem title="Charts..." id="Q6V-Qs-wVa">
+                    <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="chartsMenuClick:" target="494" id="TAs-Gf-4eF"/>
                     </connections>
@@ -791,12 +788,6 @@
                         <action selector="about:" target="494" id="565"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Help..." id="Q8h-hw-kJ7">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="help:" target="494" id="a2f-8l-nrM"/>
-                    </connections>
-                </menuItem>
                 <menuItem title="Check Updates..." id="564">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -818,7 +809,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="573">
-                    <rect key="frame" x="18" y="115" width="213" height="24"/>
+                    <rect key="frame" x="18" y="115" width="225" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings:" id="574">
                         <font key="font" metaFont="system"/>
@@ -882,30 +873,8 @@
                         <action selector="checkMonitoringClick:" target="494" id="AZ5-7F-KSR"/>
                     </connections>
                 </button>
-                <button id="0FD-Ti-eg3">
-                    <rect key="frame" x="232" y="123" width="44" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="ºC" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Uih-sz-o3N">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="changedTempDisplay:" target="494" id="I6f-MR-eBf"/>
-                    </connections>
-                </button>
-                <button id="aaZ-2M-oG2">
-                    <rect key="frame" x="275" y="123" width="43" height="18"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="radio" title="ºF" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="OXB-4G-mhh">
-                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="changedTempDisplay:" target="494" id="Sy8-x8-WmY"/>
-                    </connections>
-                </button>
             </subviews>
-            <point key="canvasLocation" x="-864" y="-150.5"/>
+            <point key="canvasLocation" x="-263" y="-329.5"/>
         </customView>
         <customView id="YNw-n5-v8Y">
             <rect key="frame" x="0.0" y="0.0" width="327" height="83"/>

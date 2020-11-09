@@ -73,3 +73,8 @@
 "titCharting" = "Diagram";
 
 "sliderRefreshTimeLabel" = "Frekvens: %lds";
+
+"alert_kext_missing_title" = "Observera att en viktig del av applikationen saknas!";
+"alert_kext_missing_detail" = "Vänligen öppna dmg igen och dra också mappen tbswitcher_resources som ingår där till / Applications-mappen (eller samma som du installerade applikationen) så att appen kan öppnas.\n\nMer information i hjälpfilen som ingår i distributionen. Tack!";
+
+"lblHelp" = "Hjälp...";

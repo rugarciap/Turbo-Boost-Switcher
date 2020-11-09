@@ -29,7 +29,6 @@
 #include <stdlib.h>
 
 #include <IOKit/IOKitLib.h>
-#include <IOKit/Kext/Kextmanager.h>
 
 #include "smc.h"
 
@@ -47,7 +46,6 @@ int g_keyInfoCacheCount = 0;
 OSSpinLock g_keyInfoSpinLock = 0;
 static NSArray *allSensors = nil;
 static NSString *currentSensor = nil;
-static NSArray *arrayWithBundleId = nil;
 
 kern_return_t SMCCall2(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure, io_connect_t conn);
 
@@ -358,12 +356,6 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
-    } else if ([osVersion rangeOfString:@"10.16"].location != NSNotFound) {
-        return [SystemCommands is32bitsNewOS];
-    } else if ([osVersion rangeOfString:@"10.17"].location != NSNotFound) {
-        return [SystemCommands is32bitsNewOS];
-    } else if ([osVersion rangeOfString:@"11.0"].location != NSNotFound) {
-        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
@@ -371,16 +363,22 @@ int SMCGetFanSpeed(char *key)
 
 + (BOOL) isModuleLoaded {
     
-    // kext bundle id
-    if (arrayWithBundleId == nil) {
-        arrayWithBundleId = [[NSArray alloc] initWithObjects:@"com.rugarciap.DisableTurboBoost",nil];
+    NSString *osVersion = [SystemCommands getOSVersion];
+    if ([osVersion rangeOfString:@"10.10"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.11"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.12"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.13"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
+        return [SystemCommands isModuleLoadedNewOS];
+    } else {
+        return [SystemCommands isModuleLoadedOldOS];
     }
-    
-    CFArrayRef arrayRef = (__bridge CFArrayRef)arrayWithBundleId;
-    
-    CFDictionaryRef kextsFound = KextManagerCopyLoadedKextInfo(arrayRef, NULL);
-    return CFDictionaryGetCount(kextsFound) > 0;
-    
 }
 
 
@@ -458,7 +456,7 @@ int SMCGetFanSpeed(char *key)
     
     NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    if ((grepOutput == nil) || ([grepOutput length] == 0)){
+    if ((grepOutput == nil) || ([grepOutput length] == 0)){
         return NO;
     }
     return YES;
@@ -489,23 +487,24 @@ int SMCGetFanSpeed(char *key)
 
 // Get the module path depending on arch
 + (NSString *) getModulePath:(BOOL) is32bits {
+    NSString *modulePath;
     
-    NSString *bundlePathValue = [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent];
-    
-    // Load path depending on architecture
-    NSString *finalPath = [[bundlePathValue stringByAppendingPathComponent:@"tbswitcher_resources"] stringByAppendingPathComponent:@"DisableTurboBoost.64bits.kext"];
-    
+    // Cargamos el módulo de 32 bits o no dependiendo de la ruta
     if (is32bits) {
-        finalPath = [[bundlePathValue stringByAppendingPathComponent:@"tbswitcher_resources"] stringByAppendingPathComponent:@"DisableTurboBoost.32bits.kext"];
+        modulePath = [[NSBundle mainBundle] pathForResource:@"DisableTurboBoost.32bits" ofType:@"kext"];
+    } else {
+        modulePath = [[NSBundle mainBundle] pathForResource:@"DisableTurboBoost.64bits" ofType:@"kext"];
     }
-    
-    return finalPath;
+    return modulePath;
+    //return [modulePath stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
 }
 
 + (BOOL) loadModuleWithAuthRef:(AuthorizationRef) authRef {
     
     BOOL is32bits = [self is32bits];
+ 
     NSString *modulePath = [self getModulePath:is32bits];
+    
     return [self loadModuleWithPath:modulePath andAuthRef:authRef];
 }
 
@@ -513,7 +512,9 @@ int SMCGetFanSpeed(char *key)
 + (BOOL) unLoadModuleWithAuthRef:(AuthorizationRef) authRef {
     
     BOOL is32bits = [self is32bits];
+    
     NSString *modulePath = [self getModulePath:is32bits];
+    
     return [self unloadModuleWithPath:modulePath andAuthRef:authRef];
 }
 

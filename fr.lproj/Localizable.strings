@@ -73,3 +73,8 @@
 "titCharting" = "Graphiques";
 
 "sliderRefreshTimeLabel" = "Fréquence: %lds";
+
+"alert_kext_missing_title" = "Attention, il manque un composant essentiel de l'application!";
+"alert_kext_missing_detail" = "Veuillez ouvrir à nouveau le dmg et faites également glisser le dossier tbswitcher_resources inclus dans le dossier /Applications (ou celui où vous avez installé l'application) afin que l'application puisse s'ouvrir.\n\nPlus d'informations dans le fichier d'aide inclus avec la distribution. Merci!";
+
+"lblHelp" = "Aide...";

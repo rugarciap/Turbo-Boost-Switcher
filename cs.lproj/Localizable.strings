@@ -75,3 +75,8 @@
 
 // Slider menú
 "sliderRefreshTimeLabel" = "Obnovovací frekvence: %lds";
+
+"alert_kext_missing_title" = "Pozor, chybí základní součást aplikace!";
+"alert_kext_missing_detail" = "Znovu otevřete dmg a také přetáhněte složku tbswitcher_resources, která je tam obsažena, do složky /Applications (nebo stejné složky, kam jste aplikaci nainstalovali), aby se aplikace mohla otevřít.\n\nDalší informace v souboru nápovědy, který je součástí distribuce. Děkuji!";
+
+"lblHelp" = "Nápověda...";

@@ -15,7 +15,7 @@
 
 @implementation ChartWindowController
 
-@synthesize fanChartView, tempChartView, txtFanSpeed, txtTemperature, isOpen;
+@synthesize fanChartView, tempChartView, txtFanSpeed, txtTemperature, isOpen, isFahrenheit;
 
 - (void)windowDidLoad {
     
@@ -90,6 +90,11 @@
 // Method to get the fan data
 - (NSMutableArray *) getFanData {
     return fanEntries;
+}
+
+// Check if is farenheit
+- (BOOL) isFahrenheit {
+    return isFahrenheit;
 }
 
 - (IBAction)showWindow:(nullable id)sender {

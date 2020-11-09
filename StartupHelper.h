@@ -74,11 +74,5 @@
 + (BOOL) isMonitoringEnabled;
 + (void) storeMonitoringEnabled: (BOOL) value;
 
-// Get the isCelsius configuration
-+ (BOOL) isFarenheit;
-
-// Store the isCelcius configuration
-+ (void) storeIsFarenheit:(BOOL) value;
-
     
 @end

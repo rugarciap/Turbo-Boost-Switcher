@@ -16,4 +16,7 @@
 // Method to get the fan data
 - (NSMutableArray *) getFanData;
 
+// Check if is farenheit
+- (BOOL) isFahrenheit;
+
 @end

@@ -75,3 +75,8 @@
 
 // Slider menú
 "sliderRefreshTimeLabel" = "Freq. Aggiornamento: %lds";
+
+"alert_kext_missing_title" = "Attenzione, manca una componente essenziale dell'applicazione!";
+"alert_kext_missing_detail" = "Per favore, apri di nuovo dmg e trascina anche la cartella tbswitcher_resources inclusa nella cartella /Applicazioni (o la stessa in cui hai installato l'applicazione) in modo che l'app possa aprirsi.\n\nMaggiori informazioni all'interno del file della guida incluso nella distribuzione. Grazie!";
+
+"lblHelp" = "Aiuto...";

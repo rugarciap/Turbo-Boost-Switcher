@@ -29,11 +29,10 @@
 #import "CheckUpdatesWindowController.h"
 #import <IOKit/ps/IOPowerSources.h>
 #import <IOKit/ps/IOPSKeys.h>
-#import "Carbon/Carbon.h"
 
 @implementation AppDelegate
 
-@synthesize aboutWindow, refreshTimer, checkUpdatesWindow, chartWindowController, helpWindow;
+@synthesize aboutWindow, refreshTimer, checkUpdatesWindow, chartWindowController;
 
 // Struct to take the cpu samples
 struct cpusample {
@@ -85,18 +84,6 @@ struct cpusample sample_two;
     
     // Add another status bar refresh just to be sure, since depending on mac cpu load it can take a little longer
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.5];
-    
-    // Refresh timers after wake up.., a couple of users reported issues after long sleep period
-    // Restart monitoring timers if enabled
-    if ([checkMonitoring isEnabled]) {
-        [self.refreshTimer invalidate];
-        
-        NSRunLoop * rl = [NSRunLoop mainRunLoop];
-        
-        // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-        self.refreshTimer = [NSTimer timerWithTimeInterval:sliderRefreshTime.integerValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
-        [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
-    }
 }
 
 // Suscribe to wake up notifications
@@ -108,44 +95,6 @@ struct cpusample sample_two;
 }
 
 - (void) awakeFromNib {
-    
-    // First, check for kext. If not preset, display an user message warning to get the app reinstalled.
-    NSString *modulePath = [SystemCommands getModulePath:[SystemCommands is32bits]];
-    
-    if (![[NSFileManager defaultManager] fileExistsAtPath:modulePath]) {
-        
-        // If tbswitcher_resources is not found, alert and exit
-        NSLog(@"TBS: KEXT NOT FOUND AT %@", modulePath);
-        
-        // If private/var is present -> translocation -> app was not dragged manually by the user
-        if ([modulePath rangeOfString:@"/private/var"].location != NSNotFound) {
-            
-            // Translocation!
-            NSAlert *alert = [[NSAlert alloc] init];
-            NSString *msgText = [NSString stringWithFormat:@"%@\n\nPath not found: %@",@"Hi!\n\nIt seems the install process did not finish properly and you're suffering from App Translocation. Please, open the .dmg again and drag the .app file to Applications folder. More info at the HELP included with the .dmg\n\nThanks.", modulePath];
-            
-            [alert setMessageText:NSLocalizedString(@"alert_kext_missing_title", nil)];
-            [alert setInformativeText:msgText];
-            
-            [alert setAlertStyle:NSWarningAlertStyle];
-            [alert runModal];
-            exit(-1);
-        }
-        
-        // Display alert and exit the app
-        NSAlert *alert = [[NSAlert alloc] init];
-        
-        NSString *msgText = [NSString stringWithFormat:@"%@\n\nPath not found: %@",NSLocalizedString(@"alert_kext_missing_detail", nil), modulePath];
-        
-        [alert setMessageText:NSLocalizedString(@"alert_kext_missing_title", nil)];
-        [alert setInformativeText:msgText];
-        
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert runModal];
-        exit(-1);
-    }
-    
-    [self configureHotKeys];
     
     // Init the cpu load samples
     sample_one.totalIdleTime = 0;
@@ -200,17 +149,10 @@ struct cpusample sample_two;
     [checkDisableAtLaunch setState:[StartupHelper isDisableAtLaunch]];
     [checkDisableAtLaunch setTitle:NSLocalizedString(@"disable_login", nil)];
     
-    // Refresh farenheit / celsius configuration
-    [radioFarenheit setState:[StartupHelper isFarenheit]];
-    [radioCelcius setState:![StartupHelper isFarenheit]];
-    [radioCelcius setFont:[statusMenu font]];
-    [radioFarenheit setFont:[statusMenu font]];
-    
     // Update translations
     [settingsLabel setTitleWithMnemonic:NSLocalizedString(@"settings", nil)];
     [checkUpdatesItem setTitle:NSLocalizedString(@"updates", nil)];
     [aboutItem setTitle:NSLocalizedString(@"about", nil)];
-    [helpItem setTitle:NSLocalizedString(@"lblHelp", nil)];
     [exitItem setTitle:NSLocalizedString(@"quit", nil)];
     
     // Status strings init
@@ -386,11 +328,6 @@ struct cpusample sample_two;
     }
 }
 
-// Method to transform celsius value to fahrenheit
-- (float) fahrenheitValue:(float) celsius {
-    return ((celsius*1.8) + 32);
-}
-
 // Update the CPU Temp & Fan speed
 - (void) updateSensorValues {
     
@@ -404,17 +341,10 @@ struct cpusample sample_two;
     
     // Read the CPU temp
     NSString *tempString = nil;
-    
     if (cpuTemp > 0) {
         
-        if ([radioCelcius state]) {
-            tempString = [NSString stringWithFormat:@"%.00f ºC", cpuTemp];
-            [txtCpuTemp setStringValue:tempString];
-        } else {
-            float fCpuTemp = [self fahrenheitValue:cpuTemp];
-            tempString = [NSString stringWithFormat:@"%.00f ºF", fCpuTemp];
-            [txtCpuTemp setStringValue:tempString];
-        }
+        tempString = [NSString stringWithFormat:@"%.00f ºC", cpuTemp];
+        [txtCpuTemp setStringValue:tempString];
         
         // Update temperature image
         [self updateImageForTemperature:cpuTemp];
@@ -630,31 +560,9 @@ void sample(bool isOne) {
     }
 }
 
-// Opens help window
-- (IBAction) help:(id)sender {
-    
-    // Bring window to front
-    [NSApp activateIgnoringOtherApps:YES];
-    
-    if (self.helpWindow == nil) {
-        // Init the help window
-        self.helpWindow = [[HelpWindowController alloc] initWithWindowNibName:@"HelpWindowController"];
-    }
-    
-    [self.helpWindow.window center];
-    [self.helpWindow showWindow:nil];
-    
-}
-
 // Method to switch between enabled and disables states
 - (IBAction) enableTurboBoost:(id)sender {
-    [self enableDisableTurboBoost];
-}
-
-// Enable / Disable turbo boost depending on current status
-- (void) enableDisableTurboBoost {
     
-    // Enable or disable Turbo Boost depending on current status
     BOOL isOn = ![SystemCommands isModuleLoaded];
     
     if (isOn) {
@@ -663,14 +571,12 @@ void sample(bool isOne) {
         [self enableTurboBoost];
     }
     
-    // Refresh status bar icon
-    [self updateStatus];
-    
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
     
     // It seems that on some machines 2 seconds is not enough!
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5.0];
+    
 }
 
 - (IBAction) exitItemEvent:(id)sender {
@@ -864,11 +770,6 @@ void sample(bool isOne) {
 
 // Charts menu click
 - (IBAction) chartsMenuClick:(id) sender {
-    [self openChartWindow];
-}
-
-// Open chart window
-- (void) openChartWindow {
     
     // Bring window to front
     [NSApp activateIgnoringOtherApps:YES];
@@ -877,8 +778,6 @@ void sample(bool isOne) {
         self.chartWindowController = [[ChartWindowController alloc] initWithWindowNibName:@"ChartWindowController"];
         [self.chartWindowController initData];
     }
-    
-    self.chartWindowController.isFahrenheit = [StartupHelper isFarenheit];
     
     // Show!
     [self.chartWindowController.window center];
@@ -1002,61 +901,5 @@ void sample(bool isOne) {
     
  }
 
-// Method to conifgure hot keys
-- (void) configureHotKeys {
-    
-    EventHotKeyRef eventHotKeyRef;
-    EventHotKeyID eventHotKeyId;
-    EventTypeSpec eventTypeSpec;
-    
-    eventTypeSpec.eventKind=kEventHotKeyPressed;
-    eventTypeSpec.eventClass=kEventClassKeyboard;
-    
-    InstallApplicationEventHandler(&hotKeyPressedEvent, 1, &eventTypeSpec, (__bridge void *) self, NULL);
-    
-    // Register Cmd+E for enable / disable Turbo Boost
-    eventHotKeyId.signature='hktb';
-    eventHotKeyId.id=1;
-    RegisterEventHotKey(kVK_ANSI_E, shiftKey + controlKey + cmdKey, eventHotKeyId, GetApplicationEventTarget(), 0, &eventHotKeyRef);
-    
-    // Register Ctrl+Cmd+P for shwowing charting window
-    eventHotKeyId.signature='hkcw';
-    eventHotKeyId.id=2;
-    RegisterEventHotKey(kVK_ANSI_P, shiftKey + controlKey+cmdKey, eventHotKeyId, GetApplicationEventTarget(), 0, &eventHotKeyRef);
-    
-}
-
-// Hotkey handler
-OSStatus hotKeyPressedEvent(EventHandlerCallRef theHandlerRef, EventRef theEventRef, void *userData)
-{
-    
-    // The event hot key
-    EventHotKeyID eventHotKeyId;
-    
-    GetEventParameter(theEventRef, kEventParamDirectObject, typeEventHotKeyID, NULL, sizeof(eventHotKeyId), NULL, &eventHotKeyId);
-    AppDelegate *delegate = (__bridge AppDelegate *) userData;
-    
-    int theId = eventHotKeyId.id;
-    
-    // Check hot key pressed - enable / disable TB
-    if ((theId == 1) && (eventHotKeyId.signature == 'hktb')) {
-        [delegate enableDisableTurboBoost];
-        return noErr;
-    }
-    
-    // Check hot key for show charting
-    if ((theId == 2) && (eventHotKeyId.signature == 'hkcw')) {
-        [delegate openChartWindow];
-        return noErr;
-    }
-    
-    return noErr;
-}
-
-// Method called when the temp settings is changed
-- (IBAction) changedTempDisplay:(id)sender {
-    [StartupHelper storeIsFarenheit:[radioFarenheit state]];
-    [self updateSensorValues];
-}
 
 @end

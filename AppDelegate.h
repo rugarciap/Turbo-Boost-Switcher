@@ -28,7 +28,6 @@
 #import "CheckUpdatesWindowController.h"
 #import "CheckUpdatesHelper.h"
 #import "ChartWindowController.h"
-#import "HelpWindowController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate> {
     
@@ -42,7 +41,6 @@
     NSImage *statusImageOff;
     
     // About and check for updates window
-    HelpWindowController *helpWindow;
     AboutWindowController *aboutWindow;
     CheckUpdatesWindowController *checkUpdatesWindow;
     
@@ -55,7 +53,6 @@
     IBOutlet NSMenuItem *enableDisableItem;
     IBOutlet NSMenuItem *checkUpdatesItem;
     IBOutlet NSMenuItem *aboutItem;
-    IBOutlet NSMenuItem *helpItem;
     IBOutlet NSMenuItem *exitItem;
     
     // Settings Window outlets
@@ -106,26 +103,21 @@
     
     IBOutlet NSLevelIndicator *batteryLevelIndicator;
     IBOutlet NSTextField *lblBatteryInfo;
-    
-    IBOutlet NSButton *radioCelcius;
-    IBOutlet NSButton *radioFarenheit;
 
 }
 
 @property(nonatomic, strong) AboutWindowController *aboutWindow;
-@property(nonatomic, strong) HelpWindowController *helpWindow;
 @property(nonatomic, strong) CheckUpdatesWindowController *checkUpdatesWindow;
 @property(nonatomic, strong) NSTimer *refreshTimer;
 @property(nonatomic, strong) ChartWindowController *chartWindowController;
 
 - (IBAction) enableTurboBoost:(id)sender;
-- (IBAction) help:(id)sender;
+
 - (IBAction) about:(id)sender;
 - (IBAction) openAtLogin:(id)sender;
 - (IBAction) disableAtLogin:(id)sender;
 - (IBAction) checkForUpdates:(id)sender;
 - (IBAction) exitItemEvent:(id)sender;
-- (IBAction) changedTempDisplay:(id)sender;
 
 - (IBAction) languageChanged:(id)sender;
 
@@ -151,12 +143,6 @@
 
 // Relaunch after delay
 - (void)relaunchAfterDelay:(float)seconds;
-
-// Enable / Disable turbo boost depending on current status
-- (void) enableDisableTurboBoost;
-
-// Open chart window
-- (void) openChartWindow;
 
 @property (assign) IBOutlet NSWindow *window;
 

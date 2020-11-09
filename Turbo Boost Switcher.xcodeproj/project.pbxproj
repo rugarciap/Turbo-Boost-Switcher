@@ -28,6 +28,7 @@
 		45719EC31E6F6C7600524084 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC11E6F6C7600524084 /* tick.png */; };
 		45719EC41E6F6C7600524084 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC21E6F6C7600524084 /* cross.png */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
+		458BACC3255767E400B0ED90 /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 458BACC2255767E400B0ED90 /* HELP.rtfd */; };
 		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
 		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
 		458EDABA1799499D00940503 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 458EDAB91799499D00940503 /* main.m */; };
@@ -37,6 +38,9 @@
 		45A5718F179D533900D91EEE /* paypal.gif in Resources */ = {isa = PBXBuildFile; fileRef = 45A5718E179D533900D91EEE /* paypal.gif */; };
 		45A5719B179DDF0F00D91EEE /* License.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 45A5719A179DDF0F00D91EEE /* License.rtf */; };
 		45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45A571A6179DE90D00D91EEE /* Localizable.strings */; };
+		45B5F61E2464BFC500EC8990 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B5F61D2464BFC500EC8990 /* Carbon.framework */; };
+		45C49BB224637B6B00DD1E2D /* DisableTurboBoost.32bits.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
+		45C49BB324637B7500DD1E2D /* DisableTurboBoost.64bits.kext in CopyFiles */ = {isa = PBXBuildFile; fileRef = 45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */; };
 		45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */; };
 		45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */; };
 		45CC34CC1E6CC4770086C319 /* icon_256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CC34CA1E6CC4770086C319 /* icon_256x256.png */; };
@@ -47,10 +51,24 @@
 		45D32D4820A7AFB300EFB1F7 /* ChartWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D32D4420A7AFB300EFB1F7 /* ChartWindowController.xib */; };
 		45D6F3991EFDD57F0080D33B /* icon_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3971EFDD57F0080D33B /* icon_off.png */; };
 		45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45D6F3981EFDD57F0080D33B /* icon_off@2x.png */; };
-		45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71C9179ACD1800A16AEC /* DisableTurboBoost.32bits.kext */; };
-		45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */ = {isa = PBXBuildFile; fileRef = 45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */; };
 		45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC71CE179ACD7000A16AEC /* SystemCommands.m */; };
+		45FD6972253A6361000C3AD4 /* HelpWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD6970253A6361000C3AD4 /* HelpWindowController.m */; };
+		45FD6973253A6361000C3AD4 /* HelpWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45FD6971253A6361000C3AD4 /* HelpWindowController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45C49BB124637B6200DD1E2D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = tbswitcher_resources;
+			dstSubfolderSpec = 16;
+			files = (
+				45C49BB324637B7500DD1E2D /* DisableTurboBoost.64bits.kext in CopyFiles */,
+				45C49BB224637B6B00DD1E2D /* DisableTurboBoost.32bits.kext in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		450A1F051E7CB3D700EEFD60 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -86,6 +104,7 @@
 		45719EC51E6F774700524084 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
+		458BACC2255767E400B0ED90 /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		458EDAAA1799499D00940503 /* Turbo Boost Switcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Switcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		458EDAAD1799499D00940503 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		458EDAB01799499D00940503 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -103,6 +122,7 @@
 		45A5718E179D533900D91EEE /* paypal.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = paypal.gif; sourceTree = "<group>"; };
 		45A5719A179DDF0F00D91EEE /* License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = License.rtf; sourceTree = "<group>"; };
 		45A571A5179DE90D00D91EEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45B5F61D2464BFC500EC8990 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		45C5794B1D9B216500DAC1C9 /* CheckUpdatesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckUpdatesHelper.h; sourceTree = "<group>"; };
 		45C5794C1D9B216500DAC1C9 /* CheckUpdatesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckUpdatesHelper.m; sourceTree = "<group>"; };
 		45CC34C81E6CC4630086C319 /* TurboBoostSwitcher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TurboBoostSwitcher.icns; sourceTree = "<group>"; };
@@ -122,6 +142,9 @@
 		45FC71CA179ACD1800A16AEC /* DisableTurboBoost.64bits.kext */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.kernel-extension"; path = DisableTurboBoost.64bits.kext; sourceTree = "<group>"; };
 		45FC71CD179ACD7000A16AEC /* SystemCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemCommands.h; sourceTree = "<group>"; };
 		45FC71CE179ACD7000A16AEC /* SystemCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemCommands.m; sourceTree = "<group>"; };
+		45FD696F253A6361000C3AD4 /* HelpWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpWindowController.h; sourceTree = "<group>"; };
+		45FD6970253A6361000C3AD4 /* HelpWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpWindowController.m; sourceTree = "<group>"; };
+		45FD6971253A6361000C3AD4 /* HelpWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B5F61E2464BFC500EC8990 /* Carbon.framework in Frameworks */,
 				4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */,
 				4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */,
 				45A51DAE179B4E7000EEF333 /* IOKit.framework in Frameworks */,
@@ -174,6 +198,7 @@
 		458EDAAC1799499D00940503 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45B5F61D2464BFC500EC8990 /* Carbon.framework */,
 				4562AE0718F208EE00117CD8 /* ServiceManagement.framework */,
 				4562AE0518F1A54600117CD8 /* Security.framework */,
 				45A51DAD179B4E7000EEF333 /* IOKit.framework */,
@@ -196,6 +221,7 @@
 		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
 			isa = PBXGroup;
 			children = (
+				458BACC2255767E400B0ED90 /* HELP.rtfd */,
 				45D32D3C20A7AF8F00EFB1F7 /* charting */,
 				45C5794A1D9B213500DAC1C9 /* updates */,
 				45FC71C8179ACAC300A16AEC /* resources */,
@@ -213,6 +239,9 @@
 				4560CC52179D2397003F3D19 /* AboutWindowController.xib */,
 				45A571A6179DE90D00D91EEE /* Localizable.strings */,
 				45A5719A179DDF0F00D91EEE /* License.rtf */,
+				45FD696F253A6361000C3AD4 /* HelpWindowController.h */,
+				45FD6970253A6361000C3AD4 /* HelpWindowController.m */,
+				45FD6971253A6361000C3AD4 /* HelpWindowController.xib */,
 			);
 			path = "Turbo Boost Disabler";
 			sourceTree = "<group>";
@@ -287,6 +316,7 @@
 				458EDAA61799499D00940503 /* Sources */,
 				458EDAA71799499D00940503 /* Frameworks */,
 				458EDAA81799499D00940503 /* Resources */,
+				45C49BB124637B6200DD1E2D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -345,6 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D32D4820A7AFB300EFB1F7 /* ChartWindowController.xib in Resources */,
+				45FD6973253A6361000C3AD4 /* HelpWindowController.xib in Resources */,
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
 				45719EBF1E6F6C6900524084 /* cooler.png in Resources */,
 				454F73582187D4BB000CEC4D /* battery.png in Resources */,
@@ -357,8 +388,6 @@
 				45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */,
 				452252CB192D6801002BACF4 /* icon_ok.png in Resources */,
 				45719EC01E6F6C6900524084 /* processor.png in Resources */,
-				45FC71CB179ACD1800A16AEC /* DisableTurboBoost.32bits.kext in Resources */,
-				45FC71CC179ACD1800A16AEC /* DisableTurboBoost.64bits.kext in Resources */,
 				4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */,
 				45CC34CC1E6CC4770086C319 /* icon_256x256.png in Resources */,
 				45719EC31E6F6C7600524084 /* tick.png in Resources */,
@@ -368,6 +397,7 @@
 				45719EB81E6F6C5E00524084 /* temperature_5.png in Resources */,
 				45719EBA1E6F6C5E00524084 /* temperature_3.png in Resources */,
 				45A5718F179D533900D91EEE /* paypal.gif in Resources */,
+				458BACC3255767E400B0ED90 /* HELP.rtfd in Resources */,
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
 				45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */,
 				45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */,
@@ -391,6 +421,7 @@
 				45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */,
 				45FC71CF179ACD7000A16AEC /* SystemCommands.m in Sources */,
 				4516CCF7192C12B4008A29A3 /* CheckUpdatesWindowController.m in Sources */,
+				45FD6972253A6361000C3AD4 /* HelpWindowController.m in Sources */,
 				457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */,
 				4560CC53179D2397003F3D19 /* AboutWindowController.m in Sources */,
 			);
