@@ -74,3 +74,8 @@
 "titCharting" = "Gráficas de Temperatura / Ventilador";
 
 "sliderRefreshTimeLabel" = "Frecuencia Refresco: %lds";
+
+"alert_kext_missing_title" = "Atención, falta un componente esencial de la aplicación.";
+"alert_kext_missing_detail" = "Por favor, abra de nuevo la imagen .dmg y arrastre también la carpeta tbswitcher_resources a /Aplicaciones o al directorio donde haya incluido la aplicación.\n\nMás información en el documento de ayuda de la distribución. Gracias!";
+
+"lblHelp" = "Ayuda...";
