@@ -87,16 +87,28 @@ struct cpusample sample_two;
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.5];
     
     // Refresh timers after wake up.., a couple of users reported issues after long sleep period
-    // Restart monitoring timers if enabled
-    if ([checkMonitoring isEnabled]) {
+    [self performSelector:@selector(refreshTimerAfterWakeUp) withObject:nil afterDelay:2];
+
+}
+
+// Refersh timers after wakeup
+- (void) refreshTimerAfterWakeUp {
+   
+   if (([StartupHelper isMonitoringEnabled]) && (self.refreshTimer != nil)) {
+        
         [self.refreshTimer invalidate];
         
         NSRunLoop * rl = [NSRunLoop mainRunLoop];
         
         // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-        self.refreshTimer = [NSTimer timerWithTimeInterval:sliderRefreshTime.integerValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+        NSInteger refreshTimeValue = [StartupHelper sensorRefreshTime];
+        if (refreshTimeValue < 4) {
+            refreshTimeValue = 4;
+        }
+        
+        self.refreshTimer = [NSTimer timerWithTimeInterval:refreshTimeValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
         [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
-    }
+   }
 }
 
 // Suscribe to wake up notifications
@@ -856,10 +868,14 @@ void sample(bool isOne) {
     NSRunLoop * rl = [NSRunLoop mainRunLoop];
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
-    self.refreshTimer = [NSTimer timerWithTimeInterval:sliderRefreshTime.integerValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
+    NSInteger timerValue = sliderRefreshTime.integerValue;
+    if (timerValue < 4) {
+        timerValue = 4;
+    }
+    self.refreshTimer = [NSTimer timerWithTimeInterval:timerValue target:self selector:@selector(updateSensorValues) userInfo:nil repeats:YES];
     [rl addTimer:self.refreshTimer forMode:NSRunLoopCommonModes];
     
-    [StartupHelper storeSensorRefreshTime:sliderRefreshTime.integerValue];
+    [StartupHelper storeSensorRefreshTime:timerValue];
 }
 
 // Charts menu click
