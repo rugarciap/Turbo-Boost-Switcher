@@ -1,4 +1,4 @@
-Turbo Boost Switcher 2.10.0 (November 9, 2020)
+Turbo Boost Switcher 2.10.1 (November 13, 2020)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
