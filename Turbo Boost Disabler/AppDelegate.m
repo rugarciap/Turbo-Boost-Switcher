@@ -198,6 +198,10 @@ struct cpusample sample_two;
     [statusItem setAction:@selector(statusItemClicked)];
     [statusItem setTarget:self];
     
+    // Add delegate to status menu to refresh status
+    // when opening
+    [statusMenu setDelegate:self];
+    
     // Charting menu item
     [chartsMenuItem setTitle:NSLocalizedString(@"menuCharting", nil)];
     
@@ -334,6 +338,16 @@ struct cpusample sample_two;
 - (void)statusItemClicked {
     statusItem.menu = statusMenu;
     [self updateStatus];
+}
+
+// Refresh status when the menu is clicked
+- (void)menuWillOpen:(NSMenu *)menu
+{
+    if (menu == statusMenu)
+    {
+        // Refresh status
+        [self updateStatus];
+    }
 }
 
 // Method to refresh the temperature image sensor depending on temperture
@@ -916,6 +930,12 @@ void sample(bool isOne) {
     
     long numOfSources = CFArrayGetCount(sources);
     if (numOfSources == 0) {
+        if (sources) {
+            CFRelease(sources);
+        }
+        if (blob) {
+            CFRelease(blob);
+        }
         return -1.0f;
     }
     
@@ -923,6 +943,12 @@ void sample(bool isOne) {
     {
         pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
         if (!pSource) {
+            if (sources) {
+                CFRelease(sources);
+            }
+            if (blob) {
+                CFRelease(blob);
+            }
             return -1.0f;
         }
         
@@ -943,8 +969,22 @@ void sample(bool isOne) {
         
         percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
         
+        if (sources) {
+            CFRelease(sources);
+        }
+        if (blob) {
+            CFRelease(blob);
+        }
         return percent;
     }
+    
+    if (sources) {
+        CFRelease(sources);
+    }
+    if (blob) {
+        CFRelease(blob);
+    }
+    
     return -1.0f;
 }
 

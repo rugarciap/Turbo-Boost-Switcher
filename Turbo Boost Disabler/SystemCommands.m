@@ -362,7 +362,7 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"10.17"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
-    } else if ([osVersion rangeOfString:@"11.0"].location != NSNotFound) {
+    } else if ([osVersion rangeOfString:@"11"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
@@ -371,15 +371,21 @@ int SMCGetFanSpeed(char *key)
 
 + (BOOL) isModuleLoaded {
     
-    // kext bundle id
-    if (arrayWithBundleId == nil) {
-        arrayWithBundleId = [[NSArray alloc] initWithObjects:@"com.rugarciap.DisableTurboBoost",nil];
+    NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
+    [arrayTmp addObject:@"com.rugarciap.DisableTurboBoost"];
+    
+    CFArrayRef arrayRef = (__bridge CFArrayRef)arrayTmp;
+ 
+    CFDictionaryRef kextsFound = KextManagerCopyLoadedKextInfo(arrayRef, NULL);
+    long count = CFDictionaryGetCount(kextsFound);
+    
+    if (kextsFound) {
+        CFRelease(kextsFound);
     }
     
-    CFArrayRef arrayRef = (__bridge CFArrayRef)arrayWithBundleId;
+    arrayTmp = nil;
     
-    CFDictionaryRef kextsFound = KextManagerCopyLoadedKextInfo(arrayRef, NULL);
-    return CFDictionaryGetCount(kextsFound) > 0;
+    return count > 0;
     
 }
 

@@ -18,7 +18,6 @@
 		4560CC54179D2397003F3D19 /* AboutWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4560CC52179D2397003F3D19 /* AboutWindowController.xib */; };
 		4562AE0618F1A54600117CD8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0518F1A54600117CD8 /* Security.framework */; };
 		4562AE0818F208EE00117CD8 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4562AE0718F208EE00117CD8 /* ServiceManagement.framework */; };
-		45691A17255ECCDF00B2DDCD /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 45691A16255ECCDF00B2DDCD /* HELP.rtfd */; };
 		45719EB81E6F6C5E00524084 /* temperature_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EB31E6F6C5E00524084 /* temperature_5.png */; };
 		45719EB91E6F6C5E00524084 /* temperature_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EB41E6F6C5E00524084 /* temperature_4.png */; };
 		45719EBA1E6F6C5E00524084 /* temperature_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EB51E6F6C5E00524084 /* temperature_3.png */; };
@@ -28,6 +27,7 @@
 		45719EC01E6F6C6900524084 /* processor.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EBE1E6F6C6900524084 /* processor.png */; };
 		45719EC31E6F6C7600524084 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC11E6F6C7600524084 /* tick.png */; };
 		45719EC41E6F6C7600524084 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC21E6F6C7600524084 /* cross.png */; };
+		45749D9A257853FE003F2F46 /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 45749D99257853FD003F2F46 /* HELP.rtfd */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
 		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
 		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
@@ -92,7 +92,6 @@
 		4560CC52179D2397003F3D19 /* AboutWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindowController.xib; sourceTree = "<group>"; };
 		4562AE0518F1A54600117CD8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4562AE0718F208EE00117CD8 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
-		45691A16255ECCDF00B2DDCD /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		45719EB31E6F6C5E00524084 /* temperature_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temperature_5.png; sourceTree = "<group>"; };
 		45719EB41E6F6C5E00524084 /* temperature_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temperature_4.png; sourceTree = "<group>"; };
 		45719EB51E6F6C5E00524084 /* temperature_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temperature_3.png; sourceTree = "<group>"; };
@@ -103,6 +102,7 @@
 		45719EC11E6F6C7600524084 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		45719EC21E6F6C7600524084 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		45719EC51E6F774700524084 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		45749D99257853FD003F2F46 /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
 		458EDAAA1799499D00940503 /* Turbo Boost Switcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Switcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,7 +221,7 @@
 		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
 			isa = PBXGroup;
 			children = (
-				45691A16255ECCDF00B2DDCD /* HELP.rtfd */,
+				45749D99257853FD003F2F46 /* HELP.rtfd */,
 				45D32D3C20A7AF8F00EFB1F7 /* charting */,
 				45C5794A1D9B213500DAC1C9 /* updates */,
 				45FC71C8179ACAC300A16AEC /* resources */,
@@ -397,7 +397,7 @@
 				45719EB81E6F6C5E00524084 /* temperature_5.png in Resources */,
 				45719EBA1E6F6C5E00524084 /* temperature_3.png in Resources */,
 				45A5718F179D533900D91EEE /* paypal.gif in Resources */,
-				45691A17255ECCDF00B2DDCD /* HELP.rtfd in Resources */,
+				45749D9A257853FE003F2F46 /* HELP.rtfd in Resources */,
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
 				45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */,
 				45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */,
@@ -544,7 +544,8 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MARKETING_VERSION = 2.10.2;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -570,7 +571,8 @@
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MARKETING_VERSION = 2.10.2;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -30,7 +30,7 @@
 #import "ChartWindowController.h"
 #import "HelpWindowController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate, NSMenuDelegate> {
     
     // The status menu
     IBOutlet NSMenu *statusMenu;
