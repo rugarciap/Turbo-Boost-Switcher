@@ -1,0 +1,76 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU 온도:";
+"fan_speed" = "팬 속도:";
+"cpu_temp_na" = "CPU 온도: 알수없음";
+"fan_speed_na" = "팬 속도: 알수없음";
+"enable_menu" = "Turbo Boost 활성화";
+"disable_menu" = "Turbo Boost 비활성화";
+"open_login" = "로그인 시 실행";
+"disable_login" = "실행 시 TB 비활성화";
+"settings" = "설정:";
+"donate" = "기부...";
+"about" = "관하여...";
+"about_title" = "관하여";
+"quit" = "Turbo Boost Switcher 종료";
+"updates" = "업데이트 확인...";
+"updates_title" = "업데이트";
+
+"updates_progress" = "업데이트 확인중...";
+"updates_available" = "새 버전을 받을 수 있습니다!";
+"updates_not_available" = "이미 최신 버전입니다.";
+"updates_error" = "업데이트 확인에 오류가 발생하였습니다.";
+
+"btn_cancel" = "취소";
+"btn_download" = "다운로드";
+"btn_close" = "닫기";
+
+"author" = "by Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "만일 이 프로그램이 마음에 드신다면 기부를 고려해주시기 바랍니다. 감사합니다!";
+"license" = "라이선스:";
+
+"checkUpdates" = "부팅할때 확인";
+"etq_like_app_pro" = "이 앱이 마음에 드시나요? 도움을 주고 Pro를 사용하세요! 감사합니다!";
+"btn_pro" = "Pro를 시작하기!";
+
+"alert_later" = "나중에";
+"alert_never_show_again" = "다시는 보지 않기";
+"alert_text" = "이 앱이 마음에 드시나요? 앱을 지원하고 Pro를 얻으세요! :)";
+"alert_informative_text" = "Pro를 사용하시면 멋진 자동 기능, 알림, 영원한 무료 업데이트 등이 제공됩니다!";
+
+// Language menú
+"language" = "언어";
+"language_en" = "영어";
+"language_es" = "스페인어";
+"language_pl" = "폴란드어 (beta)";
+"language_de" = "독일어 (beta)";
+"language_fr" = "프랑스어 (beta)";
+"language_ru" = "러시아어 (beta)";
+"language_zh" = "중국어 (beta)";
+"language_sv" = "스웨덴어 (beta)";
+"language_cs" = "체코어 (beta)";
+"language_it" = "이탈리아어 (beta)";
+"language_ko" = "한국어 (beta)";
+
+"language_change_confirmation" = "확실합니까?";
+"language_change_informative_text" = "이 앱은 설정 적용을 위해 다시 시작됩니다.";
+
+// Status Bar text
+"onOffMenu" = "상태바 문자 켜고 끄기";
+
+// Charting
+"lblTemperature" = "온도";
+"lblFanSpeed" = "팬 속도";
+"lblTbEnabled" = "TB 활성화";
+"lblTbDisabled" = "TB 비활성화";
+"menuCharting" = "차트...";
+"titCharting" = "온도 & 팬 차트";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "새로고침 빈도: %ld초";
