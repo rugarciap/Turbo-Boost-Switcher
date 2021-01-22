@@ -1,0 +1,81 @@
+/*
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez.
+*/
+"cpu_temp" = "CPU Sıcaklığı:";
+"fan_speed" = "Fan Hızı:";
+"cpu_temp_na" = "CPU Temp: Gösterilemiyor";
+"fan_speed_na" = "Fan Hızı: Gösterilemiyor";
+"enable_menu" = "Turbo Boost Aç";
+"disable_menu" = "Turbo Boost Kapat";
+"open_login" = "Girişte Aç";
+"disable_login" = "Açılışta TB Kapat";
+"settings" = "Ayarlar:";
+"donate" = "Bağış...";
+"about" = "Hakkında...";
+"about_title" = "Hakkında";
+"quit" = "Turbo Boost Switcher'dan Çıkış Yap";
+"updates" = "Güncelleştirmeleri Denetle...";
+"updates_title" = "Günceleştirmeler";
+
+"updates_progress" = "Güncelleştirmeler denetleniyor...";
+"updates_available" = "Yeni bir versiyon indirilmeye hazır!";
+"updates_not_available" = "Zaten en son sürüme sahipsiniz";
+"updates_error" = "Güncelleştirmeleri denetlerken bir hata oluştu";
+
+"btn_cancel" = "Vazgeç";
+"btn_download" = "İndir";
+"btn_close" = "Kapat";
+
+"author" = " Copyright (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "Eğer uygulamayı beğendiyseniz, lütfen bağış yapmayı düşününüz, Teşekkürler!";
+"license" = "Lisans:";
+
+"checkUpdates" = "Başlangıçta Denetle";
+"etq_like_app_pro" = "Uygulamayı beğendiniz mi? GO PRO'yu desteklemeyi düşünün! Teşekkürler!";
+"btn_pro" = "Go Pro!";
+
+"alert_later" = "Daha Sonra";
+"alert_never_show_again" = "Bunu bir daha gösterme";
+"alert_text" = "Uygulamayı beğendiniz mi? Pro'ya geçiş yaparak destek olun! :)";
+"alert_informative_text" = "PRO sürümüne yükseltmek, otomatik özellikler, bildirimler, sonsuza dek ücretsiz güncelleştirmeler ve daha fazlası gibi bir çok havalı özelliği aktif hale getirir!";
+
+// Language menú
+"language" = "Dil";
+"language_en" = "İngilizce";
+"language_es" = "İspanyolca";
+"language_pl" = "Lehçe (beta)";
+"language_de" = "Almanca (beta)";
+"language_fr" = "Fransızca (beta)";
+"language_ru" = "Rusça (beta)";
+"language_zh" = "Çince (beta)";
+"language_sv" = "İsveçce (beta)";
+"language_cs" = "Çekce (beta)";
+"language_it" = "İtalyanca (beta)";
+"language_tr" = "Türkçe (beta)";
+
+"language_change_confirmation" = "Emin misiniz?";
+"language_change_informative_text" = "Uygulama değişikleri uygulamak için tekrar başlatılacak.";
+
+// Status Bar text
+"onOffMenu" = "Aç / Kapa Durum Çubuğu Yazısı";
+
+// Charting
+"lblTemperature" = "Sıcaklık";
+"lblFanSpeed" = "Fan Hızı";
+"lblTbEnabled" = "TB Açık";
+"lblTbDisabled" = "TB Kapalı";
+"menuCharting" = "Grafikler...";
+"titCharting" = "Sıcaklık & Fan Grafikleri";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Yenileme Hızı: %lds";
+
+"alert_kext_missing_title" = "Dikkat, uygulamanın önemli bir bileşeni eksik!";
+"alert_kext_missing_detail" = "Lütfen dmg'yi tekrar açın ve orada bulunan tbswitcher_resources klasörünü /Applications klasörüne (veya uygulamayı yüklediğiniz yere) sürükleyin, böylece uygulama çalışabilir. \n\nDağıtımla birlikte verilen yardım dosyasında daha fazla bilgi mevcuttur. Teşekkür ederim!";
+
+"lblHelp" = "Yardım...";
