@@ -56,6 +56,7 @@
 "language_sv" = "Swedish (beta)";
 "language_cs" = "Czech (beta)";
 "language_it" = "Italian (beta)";
+"language_tr" = "Turkish (beta)";
 
 "language_change_confirmation" = "Are you sure?";
 "language_change_informative_text" = "The app will be restarted to apply the changes.";
