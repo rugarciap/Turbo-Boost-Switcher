@@ -9,11 +9,11 @@
 "fan_speed" = "Скорость вентилятора:";
 "cpu_temp_na" = "температура процессора: Недоступно";
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
-"enable_menu" = "Активировать Turbo Boost";
-"disable_menu" = "Отключение Turbo Boost";
+"enable_menu" = "Включить Turbo Boost";
+"disable_menu" = "Отключить Turbo Boost";
 "open_login" = "Открыть при входе в систему";
-"disable_login" = "Отключение TB при запуске";
-"settings" = "настройки:";
+"disable_login" = "Откл. Turbo Boost при запуске";
+"settings" = "Настройки:";
 
 "donate" = "Donate...";
 "about" = "О программе";
@@ -64,13 +64,13 @@
 "language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
-"onOffMenu" = "Текст Строка состояния ON / OFF";
+"onOffMenu" = "Показывать ON / OFF в меню";
 
 // Charting
 "lblTemperature" = "Температура";
 "lblFanSpeed" = "Скорость вентилятора";
-"lblTbEnabled" = "TB Включено";
-"lblTbDisabled" = "TB Отключено";
+"lblTbEnabled" = "Turbo Boost Вкл.";
+"lblTbDisabled" = "Turbo Boos Отк.";
 "menuCharting" = "Диаграммы...";
 "titCharting" = "Диаграммы";
 
