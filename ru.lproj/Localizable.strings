@@ -16,9 +16,9 @@
 "settings" = "настройки:";
 
 "donate" = "Donate...";
-"about" = "относительно...";
+"about" = "О программе";
 "about_title" = "относительно";
-"quit" = "уволиться Turbo Boost Switcher";
+"quit" = "Выйти из Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
 
@@ -61,7 +61,7 @@
 
 
 "language_change_confirmation" = "Ты уверен?";
-"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+"language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
 "onOffMenu" = "Текст Строка состояния ON / OFF";
