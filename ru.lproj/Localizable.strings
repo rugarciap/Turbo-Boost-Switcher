@@ -15,9 +15,9 @@
 "disable_login" = "Отключение TB при запуске";
 "settings" = "настройки:";
 
-"donate" = "Donate...";
-"about" = "О программе";
-"about_title" = "относительно";
+"donate" = "Пожертвование...";
+"about" = "О программе...";
+"about_title" = "О программе";
 "quit" = "Выйти из Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
@@ -28,23 +28,23 @@
 "updates_error" = "Ошибка при проверке наличия обновлений";
 
 "btn_cancel" = "Отмена";
-"btn_download" = "скачать";
+"btn_download" = "Скачать";
 "btn_close" = "Закрыть";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Если вам понравилась данная программа, можете поддержать автора сделав пожертвование";
 "license" = "License:";
 
 "checkUpdates" = "Проверять при запуске";
 
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
+"etq_like_app_pro" = "Понравилось приложение? Поддержите автора купив PRO версию!";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Позже";
 "alert_never_show_again" = "Не показывать это снова";
-"alert_text" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! :)";
-"alert_informative_text" = "Получение PRO позволит некоторые большие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
+"alert_text" = "Понравилось приложение? Поддержите автора купив PRO версию! :)";
+"alert_informative_text" = "В PRO версии доступны потрясающие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
 
 // Languages
 "language" = "Язык";
