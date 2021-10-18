@@ -9,16 +9,16 @@
 "fan_speed" = "Скорость вентилятора:";
 "cpu_temp_na" = "температура процессора: Недоступно";
 "fan_speed_na" = "Скорость вентилятора: Недоступно";
-"enable_menu" = "Активировать Turbo Boost";
-"disable_menu" = "Отключение Turbo Boost";
+"enable_menu" = "Включить Turbo Boost";
+"disable_menu" = "Отключить Turbo Boost";
 "open_login" = "Открыть при входе в систему";
-"disable_login" = "Отключение TB при запуске";
-"settings" = "настройки:";
+"disable_login" = "Откл. Turbo Boost при запуске";
+"settings" = "Настройки:";
 
-"donate" = "Donate...";
-"about" = "относительно...";
-"about_title" = "относительно";
-"quit" = "уволиться Turbo Boost Switcher";
+"donate" = "Пожертвование...";
+"about" = "О программе...";
+"about_title" = "О программе";
+"quit" = "Выйти из Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
 
@@ -28,23 +28,23 @@
 "updates_error" = "Ошибка при проверке наличия обновлений";
 
 "btn_cancel" = "Отмена";
-"btn_download" = "скачать";
+"btn_download" = "Скачать";
 "btn_close" = "Закрыть";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Если вам понравилась данная программа, можете поддержать автора сделав пожертвование";
 "license" = "License:";
 
 "checkUpdates" = "Проверять при запуске";
 
-"etq_like_app_pro" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! Благодаря!";
+"etq_like_app_pro" = "Понравилось приложение? Поддержите автора купив PRO версию!";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Позже";
 "alert_never_show_again" = "Не показывать это снова";
-"alert_text" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! :)";
-"alert_informative_text" = "Получение PRO позволит некоторые большие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
+"alert_text" = "Понравилось приложение? Поддержите автора купив PRO версию! :)";
+"alert_informative_text" = "В PRO версии доступны потрясающие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
 
 // Languages
 "language" = "Язык";
@@ -61,16 +61,16 @@
 
 
 "language_change_confirmation" = "Ты уверен?";
-"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+"language_change_informative_text" = "Приложение будет перезапущено, чтобы применить выбранные изменения";
 
 // Status Menú
-"onOffMenu" = "Текст Строка состояния ON / OFF";
+"onOffMenu" = "Показывать ON / OFF в меню";
 
 // Charting
 "lblTemperature" = "Температура";
 "lblFanSpeed" = "Скорость вентилятора";
-"lblTbEnabled" = "TB Включено";
-"lblTbDisabled" = "TB Отключено";
+"lblTbEnabled" = "Turbo Boost Вкл.";
+"lblTbDisabled" = "Turbo Boos Отк.";
 "menuCharting" = "Диаграммы...";
 "titCharting" = "Диаграммы";
 

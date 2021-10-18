@@ -337,7 +337,7 @@
 				ORGANIZATIONNAME = "Rubén García Pérez";
 				TargetAttributes = {
 					458EDAA91799499D00940503 = {
-						DevelopmentTeam = A7JE7SS8Z7;
+						DevelopmentTeam = 66US7746XD;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -531,10 +531,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JE7SS8Z7;
+				DEVELOPMENT_TEAM = 66US7746XD;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -545,7 +546,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.10.2;
+				MARKETING_VERSION = 2.10.3;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -558,10 +559,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = A7JE7SS8Z7;
+				DEVELOPMENT_TEAM = 66US7746XD;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -572,7 +574,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.10.2;
+				MARKETING_VERSION = 2.10.3;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
