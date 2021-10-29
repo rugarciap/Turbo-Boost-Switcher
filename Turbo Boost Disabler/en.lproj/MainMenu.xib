@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -647,6 +647,7 @@
                     </menu>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="121" y="154"/>
         </menu>
         <customObject id="494" customClass="AppDelegate">
             <connections>
@@ -669,6 +670,7 @@
                 <outlet property="frenchMenu" destination="7pm-dC-N4m" id="vuG-Mf-8x8"/>
                 <outlet property="germanMenu" destination="897-TB-g2a" id="9mc-8d-XYX"/>
                 <outlet property="helpItem" destination="Q8h-hw-kJ7" id="4MN-Gd-6DL"/>
+                <outlet property="hotKeysMenuItem" destination="P0Q-xM-jLa" id="Idd-Ve-Lwj"/>
                 <outlet property="italianMenu" destination="nTb-KD-Dsg" id="NVy-eC-1hx"/>
                 <outlet property="languageMenu" destination="NzB-Fh-xOX" id="QrZ-Qa-kFR"/>
                 <outlet property="lblBatteryInfo" destination="gFN-Lp-ay5" id="gbG-DC-JJv"/>
@@ -785,6 +787,13 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Hotkeys..." id="P0Q-xM-jLa">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="hotKeysPressed:" target="-1" id="FBB-s3-0I1"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="MtI-lp-nhZ"/>
                 <menuItem title="About..." id="556">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -814,11 +823,11 @@
             <point key="canvasLocation" x="-652" y="-431"/>
         </menu>
         <customView id="572">
-            <rect key="frame" x="0.0" y="0.0" width="328" height="145"/>
+            <rect key="frame" x="0.0" y="0.0" width="328" height="149"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="573">
-                    <rect key="frame" x="18" y="115" width="213" height="24"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="573">
+                    <rect key="frame" x="18" y="119" width="213" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Settings:" id="574">
                         <font key="font" metaFont="system"/>
@@ -826,8 +835,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button id="582">
-                    <rect key="frame" x="18" y="58" width="213" height="18"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="582">
+                    <rect key="frame" x="18" y="62" width="213" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Open at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="583">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -837,8 +846,8 @@
                         <action selector="openAtLogin:" target="494" id="604"/>
                     </connections>
                 </button>
-                <button id="588">
-                    <rect key="frame" x="18" y="34" width="235" height="18"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="588">
+                    <rect key="frame" x="18" y="38" width="235" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Disable Turbo Boost at Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="589">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -848,8 +857,8 @@
                         <action selector="disableAtLogin:" target="494" id="606"/>
                     </connections>
                 </button>
-                <button id="Fpy-u5-yf5">
-                    <rect key="frame" x="18" y="9" width="249" height="18"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fpy-u5-yf5">
+                    <rect key="frame" x="18" y="13" width="249" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="On / Off text" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Xsn-Mn-jcg">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -859,20 +868,20 @@
                         <action selector="onOffClick:" target="494" id="Ilt-Fi-KUu"/>
                     </connections>
                 </button>
-                <slider verticalHuggingPriority="750" id="dqs-Y9-2zm">
-                    <rect key="frame" x="220" y="80" width="98" height="24"/>
+                <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqs-Y9-2zm">
+                    <rect key="frame" x="220" y="84" width="98" height="24"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <sliderCell key="cell" state="on" alignment="left" minValue="4" maxValue="60" doubleValue="4" tickMarkPosition="above" numberOfTickMarks="7" sliderType="linear" id="0eW-Xf-XOG"/>
                     <connections>
                         <action selector="refreshTimeSliderChanged:" target="494" id="7Td-V3-etH"/>
                     </connections>
                 </slider>
-                <box verticalHuggingPriority="750" boxType="separator" id="oiX-5S-3T7">
-                    <rect key="frame" x="20" y="113" width="296" height="5"/>
+                <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="oiX-5S-3T7">
+                    <rect key="frame" x="20" y="117" width="296" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
-                <button verticalHuggingPriority="750" id="yYp-L3-AST">
-                    <rect key="frame" x="18" y="82" width="198" height="18"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYp-L3-AST">
+                    <rect key="frame" x="18" y="86" width="198" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Monitoring (rate 4s)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="kGw-0x-wdf">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -882,8 +891,8 @@
                         <action selector="checkMonitoringClick:" target="494" id="AZ5-7F-KSR"/>
                     </connections>
                 </button>
-                <button id="0FD-Ti-eg3">
-                    <rect key="frame" x="232" y="123" width="44" height="18"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0FD-Ti-eg3">
+                    <rect key="frame" x="232" y="127" width="44" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="ºC" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Uih-sz-o3N">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -893,8 +902,8 @@
                         <action selector="changedTempDisplay:" target="494" id="I6f-MR-eBf"/>
                     </connections>
                 </button>
-                <button id="aaZ-2M-oG2">
-                    <rect key="frame" x="275" y="123" width="43" height="18"/>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-2M-oG2">
+                    <rect key="frame" x="275" y="127" width="43" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="radio" title="ºF" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="OXB-4G-mhh">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -905,28 +914,28 @@
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="-864" y="-150.5"/>
+            <point key="canvasLocation" x="-864" y="-148.5"/>
         </customView>
         <customView id="YNw-n5-v8Y">
             <rect key="frame" x="0.0" y="0.0" width="327" height="83"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ULv-Qm-uXJ">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULv-Qm-uXJ">
                     <rect key="frame" x="16" y="45" width="32" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="processor" id="3DQ-ly-BuF"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oqR-TH-a8m">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oqR-TH-a8m">
                     <rect key="frame" x="161" y="35" width="36" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cooler" id="9k5-Jt-YVN"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mUD-bZ-LqC">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mUD-bZ-LqC">
                     <rect key="frame" x="254" y="37" width="32" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="temperature_1" id="FWC-ck-Sss"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5pK-fj-7Rw">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5pK-fj-7Rw">
                     <rect key="frame" x="195" y="53" width="68" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="mti-n0-m5Q">
@@ -935,7 +944,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="PZt-MQ-VYY">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZt-MQ-VYY">
                     <rect key="frame" x="278" y="52" width="44" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="1Sm-bv-fqE">
@@ -944,7 +953,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eUr-fG-tSt">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eUr-fG-tSt">
                     <rect key="frame" x="47" y="53" width="110" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=" " id="WJh-Gc-xwm">
@@ -953,7 +962,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="gFN-Lp-ay5">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gFN-Lp-ay5">
                     <rect key="frame" x="251" y="10" width="70" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" id="pVP-MP-p3Z">
@@ -962,12 +971,12 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="SbW-Ef-A46">
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SbW-Ef-A46">
                     <rect key="frame" x="12" y="0.0" width="41" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="battery" id="xrx-lM-mIQ"/>
                 </imageView>
-                <levelIndicator verticalHuggingPriority="750" id="BcF-cJ-WKa">
+                <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BcF-cJ-WKa">
                     <rect key="frame" x="54" y="9" width="190" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <levelIndicatorCell key="cell" alignment="left" doubleValue="6" maxValue="12" warningValue="5" criticalValue="2" id="YfX-On-1AS"/>

@@ -29,8 +29,10 @@
 #import "CheckUpdatesHelper.h"
 #import "ChartWindowController.h"
 #import "HelpWindowController.h"
+#import "HotKeysWindowController.h"
+#import "Carbon/Carbon.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate, NSMenuDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, CheckUpdatesHelperDelegate, NSMenuDelegate, HotKeysConfigDelegate> {
     
     // The status menu
     IBOutlet NSMenu *statusMenu;
@@ -98,6 +100,7 @@
     IBOutlet NSMenuItem *chartsMenuItem;
     
     ChartWindowController *chartWindowController;
+    HotKeysWindowController *hotKeysWindowController;
     
     BOOL isTurboBoostEnabled;
     
@@ -109,6 +112,12 @@
     
     IBOutlet NSButton *radioCelcius;
     IBOutlet NSButton *radioFarenheit;
+   
+    IBOutlet NSMenuItem *hotKeysMenuItem;
+    
+    EventHotKeyRef turboBoostHotKeyRef;
+    EventHotKeyRef chartHotKeyRef;
+    NSMutableDictionary *hotKeysDict;
 
 }
 
@@ -117,6 +126,7 @@
 @property(nonatomic, strong) CheckUpdatesWindowController *checkUpdatesWindow;
 @property(nonatomic, strong) NSTimer *refreshTimer;
 @property(nonatomic, strong) ChartWindowController *chartWindowController;
+@property(nonatomic, strong) HotKeysWindowController *hotKeysWindowController;
 
 - (IBAction) enableTurboBoost:(id)sender;
 - (IBAction) help:(id)sender;
@@ -143,7 +153,7 @@
     
 // Monitoring check click
 - (IBAction) checkMonitoringClick:(id) sender;
-    
+
 // Refresh state after monitoring configuration change
 - (void) updateMonitoringState;
 
@@ -157,6 +167,7 @@
 
 // Open chart window
 - (void) openChartWindow;
+
 
 @property (assign) IBOutlet NSWindow *window;
 

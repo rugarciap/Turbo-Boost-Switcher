@@ -78,3 +78,8 @@
 "alert_kext_missing_detail" = "Vänligen öppna dmg igen och dra också mappen tbswitcher_resources som ingår där till / Applications-mappen (eller samma som du installerade applikationen) så att appen kan öppnas.\n\nMer information i hjälpfilen som ingår i distributionen. Tack!";
 
 "lblHelp" = "Hjälp...";
+
+"lblTB" = "Aktivera / Deaktivera Turbo Boost hotkey";
+"lblChart" = "Diagram hotkey";
+"checkEnableHotkeys" = "Hotkeys Aktiverad";
+"hotKeyValidateKo" = "HotKeys måste ha minst en modifierare (ctrl, shift och/eller cmd) och en primär nyckel.";

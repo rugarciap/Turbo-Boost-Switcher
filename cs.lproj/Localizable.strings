@@ -80,3 +80,8 @@
 "alert_kext_missing_detail" = "Znovu otevřete dmg a také přetáhněte složku tbswitcher_resources, která je tam obsažena, do složky /Applications (nebo stejné složky, kam jste aplikaci nainstalovali), aby se aplikace mohla otevřít.\n\nDalší informace v souboru nápovědy, který je součástí distribuce. Děkuji!";
 
 "lblHelp" = "Nápověda...";
+
+"lblTB" = "Povolit / Zakázat Turbo Boost hotkey";
+"lblChart" = "Grafy hotkey";
+"checkEnableHotkeys" = "Hotkeys Povolil";
+"hotKeyValidateKo" = "Klávesové zkratky musí mít alespoň jeden modifikátor (ctrl, shift a/nebo cmd) a primární klíč.";

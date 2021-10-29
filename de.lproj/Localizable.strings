@@ -78,3 +78,8 @@
 "alert_kext_missing_detail" = "Öffnen Sie das dmg erneut und ziehen Sie den dort enthaltenen Ordner tbswitcher_resources in den Ordner /Applications (oder denselben, in dem Sie die Anwendung installiert haben), damit die App geöffnet werden kann.\n\nWeitere Informationen in der Hilfedatei, die in der Distribution enthalten ist. Vielen Dank!";
 
 "lblHelp" = "Hilfe...";
+
+"lblTB" = "Aktivieren / Deaktivieren Turbo Boost hotkey";
+"lblChart" = "Grafiken hotkey";
+"checkEnableHotkeys" = "Hotkeys Eingeschaltet";
+"hotKeyValidateKo" = "HotKeys müssen mindestens einen Modifikator (Strg, Umschalt und/oder cmd) und einen Primärschlüssel haben.";

@@ -80,3 +80,8 @@
 "alert_kext_missing_detail" = "Per favore, apri di nuovo dmg e trascina anche la cartella tbswitcher_resources inclusa nella cartella /Applicazioni (o la stessa in cui hai installato l'applicazione) in modo che l'app possa aprirsi.\n\nMaggiori informazioni all'interno del file della guida incluso nella distribuzione. Grazie!";
 
 "lblHelp" = "Aiuto...";
+
+"lblTB" = "Enable / Disable Turbo Boost hotkey";
+"lblChart" = "Grafici hotkey";
+"checkEnableHotkeys" = "Hotkeys Abilitato";
+"hotKeyValidateKo" = "I tasti di scelta rapida devono avere almeno un modificatore (ctrl, shift e/o cmd) e un tasto primario.";

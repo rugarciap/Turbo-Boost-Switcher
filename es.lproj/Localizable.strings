@@ -79,3 +79,8 @@
 "alert_kext_missing_detail" = "Por favor, abra de nuevo la imagen .dmg y arrastre también la carpeta tbswitcher_resources a /Aplicaciones o al directorio donde haya incluido la aplicación.\n\nMás información en el documento de ayuda de la distribución. Gracias!";
 
 "lblHelp" = "Ayuda...";
+
+"lblTB" = "Habilitar / Deshabilitar Turbo Boost";
+"lblChart" = "Gráficas";
+"checkEnableHotkeys" = "Hotkeys habilitadas";
+"hotKeyValidateKo" = "Las combinaciones de acceso rápido deben conteneder al menos un modificador (ctrl, shift y/o command) y una tecla principal.";

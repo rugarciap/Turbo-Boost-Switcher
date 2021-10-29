@@ -77,3 +77,8 @@
 "alert_kext_missing_title" = "注意，缺少该应用程序的必要组件！";
 "alert_kext_missing_detail" = "请再次打开dmg，然后将其中包含的tbswitcher_resources文件夹拖到/Applications文件夹（或安装该应用程序的文件夹）中，以便该应用可以打开。\n\n该发行版随附的帮助文件中的更多信息。 谢谢！";
 "lblHelp" = "帮帮我...";
+
+"lblTB" = "启用/禁用 Turbo Boost hotkey";
+"lblChart" = "图表 hotkey";
+"checkEnableHotkeys" = "Hotkeys 启用";
+"hotKeyValidateKo" = "热键必须至少有一个修饰符（ctrl、shift 和/或 cmd）和一个主键。";

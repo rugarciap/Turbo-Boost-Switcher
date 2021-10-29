@@ -29,6 +29,8 @@
 		45719EC41E6F6C7600524084 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC21E6F6C7600524084 /* cross.png */; };
 		45749D9A257853FE003F2F46 /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 45749D99257853FD003F2F46 /* HELP.rtfd */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
+		458BD10C27027354004CF8C5 /* HotKeysWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458BD10A27027354004CF8C5 /* HotKeysWindowController.xib */; };
+		458BD10D27027354004CF8C5 /* HotKeysWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458BD10B27027354004CF8C5 /* HotKeysWindowController.m */; };
 		458EDAAE1799499D00940503 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458EDAAD1799499D00940503 /* Cocoa.framework */; };
 		458EDAB81799499D00940503 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 458EDAB61799499D00940503 /* InfoPlist.strings */; };
 		458EDABA1799499D00940503 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 458EDAB91799499D00940503 /* main.m */; };
@@ -105,6 +107,9 @@
 		45749D99257853FD003F2F46 /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
+		458BD10927027354004CF8C5 /* HotKeysWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotKeysWindowController.h; sourceTree = "<group>"; };
+		458BD10A27027354004CF8C5 /* HotKeysWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotKeysWindowController.xib; sourceTree = "<group>"; };
+		458BD10B27027354004CF8C5 /* HotKeysWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotKeysWindowController.m; sourceTree = "<group>"; };
 		458EDAAA1799499D00940503 /* Turbo Boost Switcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Turbo Boost Switcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		458EDAAD1799499D00940503 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		458EDAB01799499D00940503 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -242,6 +247,9 @@
 				45FD696F253A6361000C3AD4 /* HelpWindowController.h */,
 				45FD6970253A6361000C3AD4 /* HelpWindowController.m */,
 				45FD6971253A6361000C3AD4 /* HelpWindowController.xib */,
+				458BD10927027354004CF8C5 /* HotKeysWindowController.h */,
+				458BD10B27027354004CF8C5 /* HotKeysWindowController.m */,
+				458BD10A27027354004CF8C5 /* HotKeysWindowController.xib */,
 			);
 			path = "Turbo Boost Disabler";
 			sourceTree = "<group>";
@@ -383,6 +391,7 @@
 				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
 				45719EBB1E6F6C5E00524084 /* temperature_2.png in Resources */,
 				458EDAC41799499E00940503 /* MainMenu.xib in Resources */,
+				458BD10C27027354004CF8C5 /* HotKeysWindowController.xib in Resources */,
 				4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */,
 				45719EB91E6F6C5E00524084 /* temperature_4.png in Resources */,
 				45D6F39A1EFDD57F0080D33B /* icon_off@2x.png in Resources */,
@@ -416,6 +425,7 @@
 				458EDABA1799499D00940503 /* main.m in Sources */,
 				45D32D4520A7AFB300EFB1F7 /* ChartDataEntry.m in Sources */,
 				45D32D4720A7AFB300EFB1F7 /* ChartWindowController.m in Sources */,
+				458BD10D27027354004CF8C5 /* HotKeysWindowController.m in Sources */,
 				45D32D4620A7AFB300EFB1F7 /* ChartView.m in Sources */,
 				458EDAC11799499D00940503 /* AppDelegate.m in Sources */,
 				45C5794D1D9B216500DAC1C9 /* CheckUpdatesHelper.m in Sources */,
@@ -545,7 +555,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.10.2;
+				MARKETING_VERSION = 2.11.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -572,7 +582,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.10.2;
+				MARKETING_VERSION = 2.11.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";

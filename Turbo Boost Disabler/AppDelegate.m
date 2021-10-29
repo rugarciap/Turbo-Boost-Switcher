@@ -33,7 +33,7 @@
 
 @implementation AppDelegate
 
-@synthesize aboutWindow, refreshTimer, checkUpdatesWindow, chartWindowController, helpWindow;
+@synthesize aboutWindow, refreshTimer, checkUpdatesWindow, chartWindowController, helpWindow, hotKeysWindowController;
 
 // Struct to take the cpu samples
 struct cpusample {
@@ -81,10 +81,10 @@ struct cpusample sample_two;
         [SystemCommands loadModuleWithAuthRef:authorizationRef];
     }
     
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:0.5];
-    
     // Add another status bar refresh just to be sure, since depending on mac cpu load it can take a little longer
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.5];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:10];
     
     // Refresh timers after wake up.., a couple of users reported issues after long sleep period
     [self performSelector:@selector(refreshTimerAfterWakeUp) withObject:nil afterDelay:2];
@@ -254,8 +254,9 @@ struct cpusample sample_two;
     }
     
     // Refresh the status
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:1.0];
-    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.5];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(updateStatus) withObject:nil afterDelay:10.0];
     
     // Initially refresh the sensor values
     [self updateSensorValues];
@@ -277,9 +278,6 @@ struct cpusample sample_two;
     
     // Subscribe to sleep and wake up notifications
     [self fileNotifications];
-    
-    // Refresh the status item
-    [self updateStatus];
     
     // Check for updates
     if ([StartupHelper isCheckUpdatesOnStart]) {
@@ -320,9 +318,6 @@ struct cpusample sample_two;
         int currentCount = (int)[StartupHelper runCount];
         [StartupHelper storeRunCount:(currentCount + 1)];
     }
-    
-    // Refresh the status item
-    [self updateStatus];
 
     // Configure sensors view
     [self configureSensorsView];
@@ -332,6 +327,7 @@ struct cpusample sample_two;
     
     // Assign the menu
     statusItem.menu = statusMenu;
+    [self updateStatus];
 }
 
 // Invoked when the user clicks on the satus menu
@@ -667,6 +663,7 @@ void sample(bool isOne) {
         self.helpWindow = [[HelpWindowController alloc] initWithWindowNibName:@"HelpWindowController"];
     }
     
+    [self.helpWindow.window setLevel:NSStatusWindowLevel];
     [self.helpWindow.window center];
     [self.helpWindow showWindow:nil];
     
@@ -772,6 +769,7 @@ void sample(bool isOne) {
         self.checkUpdatesWindow = [[CheckUpdatesWindowController alloc] initWithWindowNibName:@"CheckUpdatesWindowController"];
     }
     
+    [self.checkUpdatesWindow.window setLevel:NSStatusWindowLevel];
     [self.checkUpdatesWindow.window center];
     [self.checkUpdatesWindow showWindow:nil];
     [self.checkUpdatesWindow checkVersion];
@@ -785,6 +783,7 @@ void sample(bool isOne) {
         self.aboutWindow = [[AboutWindowController alloc] initWithWindowNibName:@"AboutWindowController"];
     }
     
+    [self.aboutWindow.window setLevel:NSStatusWindowLevel];
     [self.aboutWindow.window center];
     [self.aboutWindow refreshDarkMode];
     [self.aboutWindow showWindow:nil];
@@ -817,6 +816,7 @@ void sample(bool isOne) {
         self.checkUpdatesWindow = [[CheckUpdatesWindowController alloc] initWithWindowNibName:@"CheckUpdatesWindowController"];
     }
     
+    [self.checkUpdatesWindow.window setLevel:NSStatusWindowLevel];
     [self.checkUpdatesWindow.window center];
     [self.checkUpdatesWindow showWindow:nil];
     [self.checkUpdatesWindow updateAvailable];
@@ -911,6 +911,7 @@ void sample(bool isOne) {
     self.chartWindowController.isFahrenheit = [StartupHelper isFarenheit];
     
     // Show!
+    [self.chartWindowController.window setLevel:NSStatusWindowLevel];
     [self.chartWindowController.window center];
     [self.chartWindowController showWindow:nil];
     
@@ -1061,8 +1062,34 @@ void sample(bool isOne) {
 // Method to conifgure hot keys
 - (void) configureHotKeys {
     
-    EventHotKeyRef eventHotKeyRef;
-    EventHotKeyID eventHotKeyId;
+    hotKeysDict = [[NSMutableDictionary alloc] initWithCapacity:10];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_A] forKey:@"A"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_B] forKey:@"B"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_C] forKey:@"C"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_D] forKey:@"D"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_E] forKey:@"E"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_F] forKey:@"F"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_G] forKey:@"G"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_H] forKey:@"H"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_I] forKey:@"I"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_J] forKey:@"J"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_K] forKey:@"K"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_L] forKey:@"L"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_M] forKey:@"M"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_N] forKey:@"N"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_O] forKey:@"O"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_P] forKey:@"P"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_Q] forKey:@"Q"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_R] forKey:@"R"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_S] forKey:@"S"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_T] forKey:@"T"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_U] forKey:@"U"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_V] forKey:@"V"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_W] forKey:@"W"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_X] forKey:@"X"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_Y] forKey:@"Y"];
+    [hotKeysDict setObject:[NSNumber numberWithInt:kVK_ANSI_Z] forKey:@"Z"];
+    
     EventTypeSpec eventTypeSpec;
     
     eventTypeSpec.eventKind=kEventHotKeyPressed;
@@ -1070,15 +1097,7 @@ void sample(bool isOne) {
     
     InstallApplicationEventHandler(&hotKeyPressedEvent, 1, &eventTypeSpec, (__bridge void *) self, NULL);
     
-    // Register Cmd+E for enable / disable Turbo Boost
-    eventHotKeyId.signature='hktb';
-    eventHotKeyId.id=1;
-    RegisterEventHotKey(kVK_ANSI_E, shiftKey + controlKey + cmdKey, eventHotKeyId, GetApplicationEventTarget(), 0, &eventHotKeyRef);
-    
-    // Register Ctrl+Cmd+P for shwowing charting window
-    eventHotKeyId.signature='hkcw';
-    eventHotKeyId.id=2;
-    RegisterEventHotKey(kVK_ANSI_P, shiftKey + controlKey+cmdKey, eventHotKeyId, GetApplicationEventTarget(), 0, &eventHotKeyRef);
+    [self enableDisableHotKey];
     
 }
 
@@ -1113,6 +1132,127 @@ OSStatus hotKeyPressedEvent(EventHandlerCallRef theHandlerRef, EventRef theEvent
 - (IBAction) changedTempDisplay:(id)sender {
     [StartupHelper storeIsFarenheit:[radioFarenheit state]];
     [self updateSensorValues];
+}
+
+- (IBAction)hotKeysPressed:(id)sender {
+    
+    // Bring window to front
+    [NSApp activateIgnoringOtherApps:YES];
+    if (self.hotKeysWindowController == nil) {
+        // Init the about window
+        self.hotKeysWindowController = [[HotKeysWindowController alloc] initWithWindowNibName:@"HotKeysWindowController"];
+    }
+    
+    [self.hotKeysWindowController.window center];
+    self.hotKeysWindowController.delegate = self;
+    [self.hotKeysWindowController.window setLevel:NSStatusWindowLevel];
+    [self.hotKeysWindowController showWindow:nil];
+}
+
+// Enable - Disable hotkey
+- (void) enableDisableHotKey {
+    
+    BOOL hotKeysEnabled = [StartupHelper isHotKeysEnabled];
+    
+    if (!hotKeysEnabled) {
+        
+        [chartsMenuItem setKeyEquivalent:@""];
+        [chartsMenuItem setKeyEquivalentModifierMask:0];
+        
+        [enableDisableItem setKeyEquivalent:@""];
+        [enableDisableItem setKeyEquivalentModifierMask:0];
+        
+        if (turboBoostHotKeyRef != nil) {
+            UnregisterEventHotKey(turboBoostHotKeyRef);
+        }
+        
+        if (chartHotKeyRef != nil) {
+            UnregisterEventHotKey(chartHotKeyRef);
+        }
+    } else {
+        
+        NSMutableArray *tbConfig = [StartupHelper turboBoostHotKey];
+        NSMutableArray *chartConfig = [StartupHelper chartHotKey];
+        
+        BOOL ctrl = [[tbConfig objectAtIndex:0] isEqualToString:@"1"];
+        BOOL shift = [[tbConfig objectAtIndex:1] isEqualToString:@"1"];
+        BOOL cmd = [[tbConfig objectAtIndex:2] isEqualToString:@"1"];
+        NSString *key = [tbConfig objectAtIndex:3];
+        
+        [self refreshTurboHotKey:ctrl withShift:shift andCmd:cmd forKey:key];
+        
+        ctrl = [[chartConfig objectAtIndex:0] isEqualToString:@"1"];
+        shift = [[chartConfig objectAtIndex:1] isEqualToString:@"1"];
+        cmd = [[chartConfig objectAtIndex:2] isEqualToString:@"1"];
+        key = [chartConfig objectAtIndex:3];
+        
+        [self refreshChartingHotKey:ctrl withShift:shift andCmd:cmd forKey:key];
+        
+    }
+}
+
+// Refresh turbo boost hotkey
+- (void) refreshTurboHotKey:(BOOL) ctrl withShift:(BOOL) shift andCmd:(BOOL) cmd forKey:(NSString *) key {
+    
+    if (turboBoostHotKeyRef != nil) {
+        UnregisterEventHotKey(turboBoostHotKeyRef);
+    }
+    
+    // Register Cmd+E for enable / disable Turbo Boost
+    EventHotKeyID eventHotKeyId;
+    eventHotKeyId.signature='hktb';
+    eventHotKeyId.id=1;
+    UInt32 keys = 0;
+    UInt32 modifierKeyMask = 0;
+    if (shift) {
+        keys += shiftKey;
+        modifierKeyMask += NSShiftKeyMask;
+    }
+    if (cmd) {
+        keys += cmdKey;
+        modifierKeyMask +=  NSCommandKeyMask;
+    }
+    if (ctrl) {
+        keys += controlKey;
+        modifierKeyMask += NSControlKeyMask;
+    }
+    
+    RegisterEventHotKey([[hotKeysDict objectForKey:key] unsignedIntValue], keys, eventHotKeyId, GetApplicationEventTarget(), 0, &turboBoostHotKeyRef);
+    
+    [enableDisableItem setKeyEquivalent:[key lowercaseString]];
+    [enableDisableItem setKeyEquivalentModifierMask:modifierKeyMask];
+}
+
+// Refresh charting hotkey
+- (void) refreshChartingHotKey:(BOOL) ctrl withShift:(BOOL) shift andCmd:(BOOL) cmd forKey:(NSString *) key {
+    
+    if (chartHotKeyRef != nil) {
+        UnregisterEventHotKey(chartHotKeyRef);
+    }
+    
+    // Register Ctrl+Cmd+P for shwowing charting window
+    EventHotKeyID eventHotKeyId;
+    eventHotKeyId.signature='hkcw';
+    eventHotKeyId.id=2;
+    UInt32 modifierKeyMask = 0;
+    UInt32 keys = 0;
+    if (shift) {
+        keys += shiftKey;
+        modifierKeyMask += NSShiftKeyMask;
+    }
+    if (cmd) {
+        keys += cmdKey;
+        modifierKeyMask +=  NSCommandKeyMask;
+    }
+    if (ctrl) {
+        keys += controlKey;
+        modifierKeyMask += NSControlKeyMask;
+    }
+    
+    RegisterEventHotKey([[hotKeysDict objectForKey:key] unsignedIntValue] , keys, eventHotKeyId, GetApplicationEventTarget(), 0, &chartHotKeyRef);
+    
+    [chartsMenuItem setKeyEquivalent:[key lowercaseString]];
+    [chartsMenuItem setKeyEquivalentModifierMask:modifierKeyMask];
 }
 
 @end

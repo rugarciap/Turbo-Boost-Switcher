@@ -78,3 +78,8 @@
 "alert_kext_missing_detail" = "Veuillez ouvrir à nouveau le dmg et faites également glisser le dossier tbswitcher_resources inclus dans le dossier /Applications (ou celui où vous avez installé l'application) afin que l'application puisse s'ouvrir.\n\nPlus d'informations dans le fichier d'aide inclus avec la distribution. Merci!";
 
 "lblHelp" = "Aide...";
+
+"lblTB" = "Activer / Désactiver Turbo Boost hotkey";
+"lblChart" = "Graphiques hotkey";
+"checkEnableHotkeys" = "Hotkeys activé";
+"hotKeyValidateKo" = "Les raccourcis clavier doivent avoir au moins un modificateur (ctrl, shift et/ou cmd) et une clé primaire.";

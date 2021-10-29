@@ -69,7 +69,7 @@
 "lblTemperature" = "Temperatura";
 "lblFanSpeed" = "Prędkość wentylatora";
 "lblTbEnabled" = "TB Włączone";
-"lblTbDisabled" = "TB Niepełnosprawny";
+"lblTbDisabled" = "TB wyłączone";
 "menuCharting" = "Wykresy...";
 "titCharting" = "Wykresy";
 
@@ -79,3 +79,8 @@
 "alert_kext_missing_detail" = "Proszę, otwórz ponownie dmg, a także przeciągnij znajdujący się tam folder tbswitcher_resources do folderu /Applications (lub tego samego, w którym zainstalowałeś aplikację), aby aplikacja mogła się otworzyć.\n\nWięcej informacji w pliku pomocy dołączonym do dystrybucji. Dziękuję Ci!";
 
 "lblHelp" = "Pomoc...";
+
+"lblTB" = "Włączyć / Wyłączyć Turbo Boost hotkey";
+"lblChart" = "Wykresy hotkey";
+"checkEnableHotkeys" = "Hotkeys Włączone";
+"hotKeyValidateKo" = "Skróty klawiszowe muszą mieć co najmniej jeden modyfikator (ctrl, shift i/lub cmd) oraz klucz podstawowy.";

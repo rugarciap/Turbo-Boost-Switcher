@@ -78,3 +78,9 @@
 "alert_kext_missing_detail" = "Please, open the dmg again and also drag the tbswitcher_resources folder included there to /Applications folder (or the same one where you installed the application) so the app can run.\n\nMore info within the help file included with the distribution. Thank you!";
 
 "lblHelp" = "Help...";
+
+// 2.11 new labels
+"lblTB" = "Enable / Disable Turbo Boost";
+"lblChart" = "Charts";
+"checkEnableHotkeys" = "Hotkeys enabled";
+"hotKeyValidateKo" = "HotKeys must have at least one modifier (ctrl, shift and/or cmd) and one character.";

@@ -81,7 +81,7 @@
     if (@available(*, macOS 10.14)) {
         return appearance.name == NSAppearanceNameDarkAqua || appearance.name == NSAppearanceNameVibrantDark;
     }
-    
+     
     return NO;
 }
 

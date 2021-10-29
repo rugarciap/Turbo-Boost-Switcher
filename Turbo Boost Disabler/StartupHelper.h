@@ -80,5 +80,14 @@
 // Store the isCelcius configuration
 + (void) storeIsFarenheit:(BOOL) value;
 
-    
+// 2.11 changes - hotkeys configuration
++ (BOOL) isHotKeysEnabled;
++ (void) storeHotKeysEnabled: (BOOL) value;
+
++ (NSMutableArray *) turboBoostHotKey;
++ (void) storeTurboBoostHotKey: (NSMutableArray *) value;
+
++ (NSMutableArray *) chartHotKey;
++ (void) storeChartHotKey: (NSMutableArray *) value;
+
 @end

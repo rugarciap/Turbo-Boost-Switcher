@@ -364,6 +364,8 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"11"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"12"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
