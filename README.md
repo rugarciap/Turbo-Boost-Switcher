@@ -7,7 +7,7 @@ You can [download the binary v2.11.0 version](https://turbo-boost-switcher.s3.am
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
-Supports 10.6+ up to macOS Monterey (12.x)
+Supports 10.6+ up to macOS Monterey (12.x), including macOS Ventura beta
 
 To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
