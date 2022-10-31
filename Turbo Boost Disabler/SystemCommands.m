@@ -366,6 +366,8 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"12"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"13"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
@@ -583,6 +585,82 @@ int SMCGetFanSpeed(char *key)
     
     SMCClose(conn);
     return fanSpeed;
+}
+
+// 2.12.0 - Reac CPU Frequency
++ (float) readCurrentCpuFreqWithAuthRef:(AuthorizationRef) authRef {
+    
+    // sudo powermetrics -n 1 -i 10 | grep "System Average"
+    NSArray *args = [NSArray arrayWithObjects:@"-c", @"powermetrics -n 1 -i 10 |grep 'System Average'", nil];
+    
+    FILE *myCommunicationsPipe = NULL;
+    
+    int count = (int)[args count];
+    
+    char *myArguments[count+1];
+    
+    for (int i=0; i<[args count]; i++) {
+        myArguments[i] = (char *)[(NSString *)[args objectAtIndex:i] UTF8String];
+    }
+    myArguments[count] = NULL;
+    
+    OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
+                                                   [@"/bin/sh" UTF8String], kAuthorizationFlagDefaults, myArguments,
+                                                   &myCommunicationsPipe);
+    
+    if (resultStatus != errAuthorizationSuccess) {
+        NSLog(@"Error: %d", resultStatus);
+        return -1.0f;
+        
+    } else {
+        
+        NSFileHandle *fHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(myCommunicationsPipe)];
+        
+        NSData *data = [fHandle readDataToEndOfFile];
+        NSString *dataAsStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+        NSRange startRange = [dataAsStr rangeOfString:@"("];
+        NSRange endRange = [dataAsStr rangeOfString:@")"];
+        
+        if (startRange.location != NSNotFound && endRange.location != NSNotFound) {
+            
+            NSRange finalRange = NSMakeRange(startRange.location+1, endRange.location - startRange.location);
+            
+            NSString *substr = [dataAsStr substringWithRange:finalRange];
+
+            NSString *finalValueStr = [substr componentsSeparatedByString:@" "][0];
+            return [finalValueStr floatValue] / 1000.0f;
+        }
+        return 0.0f;
+    }
+    
+}
+
+// Get base frequency as GHz
++ (float) getBaseFreq {
+    
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = pipe.fileHandleForReading;
+    
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/bin/sh";
+    task.arguments = @[@"-c", @"sysctl hw.cpufrequency"];
+    task.standardOutput = pipe;
+    
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    [file closeFile];
+    
+    NSString *output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    if ([output rangeOfString:@"hw.cpufrequency:"].location != NSNotFound) {
+        NSString *freqHzAsString = [[output componentsSeparatedByString:@": "] objectAtIndex:1];
+        float freqGHz = [freqHzAsString floatValue] / 1000000000.0f;
+        return freqGHz;
+    }
+    
+    return 0.0f;
 }
 
 

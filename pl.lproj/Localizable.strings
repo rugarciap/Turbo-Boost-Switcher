@@ -44,7 +44,7 @@
 "alert_later" = "Później";
 "alert_never_show_again" = "Nigdy więcej tego nie pokazuj";
 "alert_text" = "Czy podoba Ci się aplikacji? Rozważmy pomagając dostając wersji PRO! :)";
-"alert_informative_text" = "Pierwsze PRO pozwoli kilka świetnych funkcji automatycznych, ogłoszeń, bezpłatne aktualizacje zawsze i wiele więcej!";
+"alert_informative_text" = "Przejście na PRO umożliwi kilka fajnych funkcji automatycznych, wprowadzenie hasła root tylko raz, powiadomienia, bezpłatne aktualizacje na zawsze i wiele więcej!";
 
 // Languages
 "language" = "Język";
@@ -84,3 +84,10 @@
 "lblChart" = "Wykresy hotkey";
 "checkEnableHotkeys" = "Hotkeys Włączone";
 "hotKeyValidateKo" = "Skróty klawiszowe muszą mieć co najmniej jeden modyfikator (ctrl, shift i/lub cmd) oraz klucz podstawowy.";
+
+"lblCpuLoad" = "obciążenie procesora";
+"lblCpuFreq" = "Średnia częstotliwość procesora";
+
+"helpCharting" = "Wykresy są odświeżane zgodnie ze skonfigurowaną częstotliwością odświeżania.\n\nZe względu na ograniczenia systemu macOS średnia częstotliwość procesora jest uzyskiwana tylko wtedy, gdy otwarte jest okno wykresów.";
+
+"lblNoData" = "Brak dostępnych danych";

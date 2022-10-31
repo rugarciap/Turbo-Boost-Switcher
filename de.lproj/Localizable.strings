@@ -43,7 +43,7 @@
 "alert_later" = "Später";
 "alert_never_show_again" = "Zeige das nie wieder";
 "alert_text" = "Gefällt ihnen die App? Sie können helfen indem sie die PRO-Version kaufen!";
-"alert_informative_text" = "Die PRO-Version bietet einige hilfreiche automatische Funktionen, Benachrichtigungen, kostenlose Updates für immer und mehr!";
+"alert_informative_text" = "Die PRO-Version bietet einige hilfreiche automatische Funktionen, Benachrichtigungen, Root-Passwort nur einmal, kostenlose Updates für immer und mehr!";
 
 // Language menú
 "language" = "Sprache";
@@ -83,3 +83,10 @@
 "lblChart" = "Grafiken hotkey";
 "checkEnableHotkeys" = "Hotkeys Eingeschaltet";
 "hotKeyValidateKo" = "HotKeys müssen mindestens einen Modifikator (Strg, Umschalt und/oder cmd) und einen Primärschlüssel haben.";
+
+"lblCpuLoad" = "CPU-Last";
+"lblCpuFreq" = "Durchschnittliche CPU-Frequenz";
+
+"helpCharting" = "Diagramme werden gemäß der konfigurierten Aktualisierungsrate aktualisiert.\n\nAufgrund von macOS-Einschränkungen wird die durchschnittliche CPU-Frequenz nur erhalten, wenn das Diagrammfenster geöffnet ist.";
+
+"lblNoData" = "Keine Daten verfügbar";

@@ -16,7 +16,13 @@
 // Method to get the fan data
 - (NSMutableArray *) getFanData;
 
-// Check if is farenheit
+// Method to get the cpu load data
+- (NSMutableArray *) getCpuLoadData;
+
+// Method to get the cpu freq data
+- (NSMutableArray *) getCpuFreqData;
+
+// Check if is fahrenheit
 - (BOOL) isFahrenheit;
 
 @end

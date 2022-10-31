@@ -43,7 +43,7 @@
 "alert_later" = "后来";
 "alert_never_show_again" = "不再显示此信息";
 "alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
-"alert_informative_text" = "获取PRO将启用一些伟大的自动功能，通知，免费更新永远和更多！";
+"alert_informative_text" = "Going PRO 将启用一些很酷的自动功能，只需输入一次 root 密码、通知、永久免费更新等等！";
 
 // Language
 "language"="语言";
@@ -82,3 +82,10 @@
 "lblChart" = "图表 hotkey";
 "checkEnableHotkeys" = "Hotkeys 启用";
 "hotKeyValidateKo" = "热键必须至少有一个修饰符（ctrl、shift 和/或 cmd）和一个主键。";
+
+"lblCpuLoad" = "CPU负载";
+"lblCpuFreq" = "CPU平均频率";
+
+"helpCharting" = "图表根据配置的刷新率进行刷新。\n\n由于 macOS 的限制，只有在图表窗口打开时才能获得 CPU 平均频率。";
+
+"lblNoData" = "没有可用数据";

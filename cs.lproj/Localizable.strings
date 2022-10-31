@@ -42,7 +42,7 @@
 "alert_later" = "Později";
 "alert_never_show_again" = "Nikdy nezobrazovat více";
 "alert_text" = "Líbí se vám aplikace? Přispějte k verzi Pro! :)";
-"alert_informative_text" = "PRO verze umožňuje některé cool funkce, upozornění, bezplatné aktualizace navždy a další!";
+"alert_informative_text" = "Going PRO umožní některé skvělé automatické funkce, zadejte root passwd pouze jednou, upozornění, bezplatné aktualizace navždy a další!";
 
 // Language menú
 "language" = "Jazyk";
@@ -85,3 +85,10 @@
 "lblChart" = "Grafy hotkey";
 "checkEnableHotkeys" = "Hotkeys Povolil";
 "hotKeyValidateKo" = "Klávesové zkratky musí mít alespoň jeden modifikátor (ctrl, shift a/nebo cmd) a primární klíč.";
+
+"lblCpuLoad" = "Zatížení CPU";
+"lblCpuFreq" = "Průměrná frekvence CPU";
+
+"helpCharting" = "Grafy se obnovují podle nakonfigurované obnovovací frekvence.\n\nKvůli omezením macOS se průměrná frekvence CPU získá pouze při otevřeném okně grafu.";
+
+"lblNoData" = "Nejsou k dispozici žádné údaje";

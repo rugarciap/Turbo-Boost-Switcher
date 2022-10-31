@@ -14,7 +14,7 @@
 
 @implementation ChartView
 
-@synthesize tempMode, delegate, isDarkMode;
+@synthesize chartMode, delegate, isDarkMode, minValue,maxValue, lines, step, marker;
 
 - (void)drawRect:(NSRect)dirtyRect {
     
@@ -46,56 +46,53 @@
     
     CGFloat dash[] = {3.0, 4.0};
     CGContextSetLineDash(context, 0.0, dash, 2);
-    
-    // Number of lines depending on mode
-    int lines = 10;
-    if (!tempMode) {
-        lines = 14;
-    }
-    
+       
     // Draw vertical line at the beginning
-    float xAdjustment = 1.1f;
-    if (!tempMode) {
+    float xAdjustment = 1.0f;
+    if (chartMode == kFanMode) {
         xAdjustment = 1.2f;
     }
     
-    float stepY = dirtyRect.size.height / lines;
-    
-    for (int i = 0; i < (lines-1); i++)
-    {
-        CGFloat yPos = dirtyRect.size.height - kOffsetY - i * stepY;
-        CGContextSetStrokeColorWithColor(context, horizontalLinesColor);
-        CGContextMoveToPoint(context, kOffsetX*xAdjustment, yPos);
-        CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, yPos);
-        CGContextStrokePath(context);
-        
-    }
+    float stepY = (dirtyRect.size.height - 1.3f*kOffsetY) / lines;
     
     // Ajustamos las coordenadas
     CGRect viewBounds = self.bounds;
     CGContextTranslateCTM(context, 0, viewBounds.size.height);
     CGContextScaleCTM(context, 1, -1);
     
-    float normalizer = 2;
-    for (int i=0; i< (lines/normalizer) ; i++) {
+    // Draw horizontal dashed lines
+    for (int i = 1; i <= (lines); i++)
+    {
+        CGFloat yPos = dirtyRect.size.height - kOffsetY*0.5f - i * stepY;
+        CGContextSetStrokeColorWithColor(context, horizontalLinesColor);
+        CGContextMoveToPoint(context, kOffsetX*xAdjustment, yPos);
+        CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, yPos);
+        CGContextStrokePath(context);
+    }
         
-        if (tempMode) {
-            CGFloat yPos = dirtyRect.size.height - kOffsetY - i * stepY*normalizer - i*0.5f;
-            int value = (i*20) + 20;
-            
-            if ([delegate isFahrenheit]) {
-                value = (int)(((float)value * 1.8) + 32.0);
-            }
-            NSString *text = [NSString stringWithFormat:@"%d", value];
-            if ((i==4) || ([delegate isFahrenheit] && i > 0)) {
+    // Draw Y axis labels
+    for (int i=0; i < 0.5*lines ; i++) {
+        
+        CGFloat yPos = dirtyRect.size.height - kOffsetY*0.25f - (i+1)*stepY*2 ;
+        int value = (i*self.step) + self.step;
+                  
+        NSString *text = nil;
+    
+        if (chartMode == kFanMode) {
+            text = [NSString stringWithFormat:@"%.00f", (i*self.step) + self.step];
+        } else if (chartMode == kCpuFreqMode) {
+            text = [NSString stringWithFormat:@"%.01f", (i*self.step) + self.step];
+        } else {
+            text = [NSString stringWithFormat:@"%d", value];
+        }
+    
+        if ((chartMode == kCpuLoadMode) || (chartMode == kTempMode)) {
+            if (i==4) {
                 [self drawText:[text UTF8String] atX:5.0 andY:yPos withContext:context];
             } else {
                 [self drawText:[text UTF8String] atX:12.0 andY:yPos withContext:context];
             }
         } else {
-            
-            CGFloat yPos = dirtyRect.size.height - kOffsetY - i * stepY*normalizer + i*0.5f;
-            NSString *text = [NSString stringWithFormat:@"%d", (i*1000) + 1000];
             [self drawText:[text UTF8String] atX:5.0 andY:yPos withContext:context];
         }
     }
@@ -105,7 +102,7 @@
     CGContextSetStrokeColorWithColor(context, axisColor);
     CGContextSetLineWidth(context, 1.0f);
     CGContextMoveToPoint(context, kOffsetX*xAdjustment, dirtyRect.size.height - kOffsetY * 0.2f );
-    CGContextAddLineToPoint(context, kOffsetX*xAdjustment, dirtyRect.size.height - kOffsetY - 0.9f * lines * stepY);
+    CGContextAddLineToPoint(context, kOffsetX*xAdjustment, kOffsetY*0.5f);
     CGContextStrokePath(context);
     
     // X axis
@@ -116,18 +113,32 @@
     CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, yPos);
     CGContextStrokePath(context);
     
+    // Marker
+    if (self.marker > 0) {
+        CGFloat newYPos = [self heightWithRect:dirtyRect andValue:self.marker];
+        CGContextSetStrokeColorWithColor(context, axisColor);
+        CGContextSetLineWidth(context, 0.6f);
+        CGContextMoveToPoint(context, kOffsetX*xAdjustment*0.97f, newYPos);
+        CGContextAddLineToPoint(context, dirtyRect.size.width*0.97f, newYPos);
+        CGContextStrokePath(context);
+    }
+    
     // Calc tick depending on width
     int tickSize = dirtyRect.size.width / maxTicks;
     
     // Recover the data depending on the current mode
     NSMutableArray *data = nil;
-    if (tempMode) {
+    if (chartMode == kTempMode) {
         data = [delegate getTempData];
+    } else if (chartMode == kCpuLoadMode){
+        data = [delegate getCpuLoadData];
+    } else if (chartMode == kCpuFreqMode){
+        data = [delegate getCpuFreqData];
     } else {
         data = [delegate getFanData];
     }
     
-    if ((data == nil)||([data count] == 0)) {
+    if ((data == nil) || ([data count] == 0)) {
         return;
     }
     
@@ -145,31 +156,35 @@
         ChartDataEntry *entry = [data objectAtIndex:i];
         ChartDataEntry *previousEntry = [data objectAtIndex:(i-1)];
         
-        CGContextSetLineWidth(context, 2.0f);
-        CGContextBeginPath(context);
-        
-        if (tempMode) {
+        if (entry.value >= 0) {
+            
+            float previousValue = previousEntry.value >= 0.0f ? previousEntry.value : entry.value;
+            
+            CGContextSetLineWidth(context, 2.0f);
+            CGContextBeginPath(context);
+            
             CGContextMoveToPoint(context, kOffsetX*xAdjustment + (i-1)*tickSize,
-                             dirtyRect.size.height - [self heightWithRect:dirtyRect andTemp:previousEntry.value]);
-        } else {
-            CGContextMoveToPoint(context, kOffsetX*xAdjustment + (i-1)*tickSize,
-                                 dirtyRect.size.height - [self heightWithRect:dirtyRect andFanSpeed:previousEntry.value]);
-        }
-        if (entry.isTbEnabled) {
-            CGContextSetStrokeColorWithColor(context, tbEnabledColor);
-        } else {
-            CGContextSetStrokeColorWithColor(context, tbDisabledColor);
-        }
+                              [self heightWithRect:dirtyRect andValue:previousValue]);
+         
+            if (entry.isTbEnabled) {
+                CGContextSetStrokeColorWithColor(context, tbEnabledColor);
+            } else {
+                CGContextSetStrokeColorWithColor(context, tbDisabledColor);
+            }
+            
+            float height = [self heightWithRect:dirtyRect andValue:entry.value];
+            
+            CGContextAddLineToPoint(context, kOffsetX*xAdjustment + i*tickSize, height);
+            CGContextStrokePath(context);
         
-        float height = 0;
-        if (tempMode) {
-            height = dirtyRect.size.height - [self heightWithRect:dirtyRect andTemp:entry.value];
         } else {
-            height = dirtyRect.size.height - [self heightWithRect:dirtyRect andFanSpeed:entry.value];
-        }
-        CGContextAddLineToPoint(context, kOffsetX*xAdjustment + i*tickSize, height);
         
-        CGContextStrokePath(context);
+            // Draw grey box (no data available)
+            CGRect rectangle = CGRectMake(kOffsetX*xAdjustment + (i-1)*tickSize, kOffsetY*0.5f, tickSize, dirtyRect.size.height - kOffsetY);
+            CGContextSetRGBFillColor(context, 0.4, 0.4, 0.4, 0.3);
+            CGContextSetRGBStrokeColor(context, 0.4, 0.4, 0.4, 0.3);
+            CGContextFillRect(context, rectangle);
+        }
     }
     
     CGContextFlush(context);
@@ -198,18 +213,9 @@
     
 }
 
-
-// Height depending on temperature value (max 100)
-- (float) heightWithRect:(CGRect) rect andTemp:(float) temp {
-
-    float returnValue = (temp / 100) * rect.size.height - 2*kOffsetY;
-    return returnValue;
-}
-
-// Height depending on fan value (max 7000)
-- (float) heightWithRect:(CGRect) rect andFanSpeed:(float) fanSpeed {
-    float returnValue = (fanSpeed / 7000) * rect.size.height - kOffsetY;
-    return returnValue;
+// Height depending on max value
+- (float) heightWithRect:(CGRect) rect andValue:(float) value {
+    return rect.size.height - 0.5f*kOffsetY - (value/maxValue)*(rect.size.height - 1.3f*kOffsetY);
 }
 
 - (BOOL) checkDarkMode {
@@ -220,5 +226,6 @@
     
     return NO;
 }
+
 
 @end

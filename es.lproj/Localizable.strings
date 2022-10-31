@@ -42,7 +42,7 @@
 "alert_later" = "Más tarde";
 "alert_never_show_again" = "No mostrar de nuevo";
 "alert_text" = "¿Te gusta la aplicación? Ayuda actualizando a la versión Pro! :)";
-"alert_informative_text" = "Actualizando a la versión PRO permitirá utilizar algunas funcionalides como modo automático, notificaciones, actualizaciones gratuitas para siempre y más!";
+"alert_informative_text" = "Actualizando a la versión PRO permitirá utilizar algunas funcionalides como modo automático, root passwd sólo una vez, notificaciones, actualizaciones gratuitas para siempre y más!";
 
 
 // Language menú
@@ -84,3 +84,10 @@
 "lblChart" = "Gráficas";
 "checkEnableHotkeys" = "Hotkeys habilitadas";
 "hotKeyValidateKo" = "Las combinaciones de acceso rápido deben conteneder al menos un modificador (ctrl, shift y/o command) y una tecla principal.";
+
+"lblCpuLoad" = "Carga de CPU";
+"lblCpuFreq" = "Frecuecia media de CPU";
+
+"helpCharting" = "Las gráficas se actualizan conforme a la frecuencia de refresco configurada.\n\nDebido a restricciones de macOS, la frecuencia promedio de la CPU solo se obtiene cuando la ventana de gráficos está abierta.";
+
+"lblNoData" = "Sin datos disponibles";

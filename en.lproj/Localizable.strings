@@ -42,7 +42,7 @@
 "alert_later" = "Later";
 "alert_never_show_again" = "Never show this again";
 "alert_text" = "Like the app? Support it Going Pro! :)";
-"alert_informative_text" = "Going PRO will enable some cool auto features, notifications, free updates forever and more!";
+"alert_informative_text" = "Going PRO will enable some cool auto features, enter root passwd only once, notifications, free updates forever and more!";
 
 // Language menú
 "language" = "Language";
@@ -84,3 +84,10 @@
 "lblChart" = "Charts";
 "checkEnableHotkeys" = "Hotkeys enabled";
 "hotKeyValidateKo" = "HotKeys must have at least one modifier (ctrl, shift and/or cmd) and one character.";
+
+"lblCpuLoad" = "CPU Load";
+"lblCpuFreq" = "CPU Frequency (avg)";
+
+"helpCharting" = "Charts are refreshed according to the configured refresh rate.\n\nDue to macOS restrictions, CPU average frequency is only obtained when charting window is open.";
+
+"lblNoData" = "No data available";

@@ -42,7 +42,7 @@
 "alert_later" = "Dopo";
 "alert_never_show_again" = "Non mostrare più";
 "alert_text" = "Ti piace l'applicazione? Aiuta a diventare PRO :)";
-"alert_informative_text" = "Ottenendo la versione PRO, abiliti alcune fantastiche funzioni, notifiche, aggiornamenti a vita e altro ancora.";
+"alert_informative_text" = "Ottenendo la versione PRO, abiliti alcune fantastiche funzioni, inserire la password di root solo una volta, notifiche, aggiornamenti a vita e altro ancora.";
 
 // Language menú
 "language" = "Linguaggio";
@@ -85,3 +85,10 @@
 "lblChart" = "Grafici hotkey";
 "checkEnableHotkeys" = "Hotkeys Abilitato";
 "hotKeyValidateKo" = "I tasti di scelta rapida devono avere almeno un modificatore (ctrl, shift e/o cmd) e un tasto primario.";
+
+"lblCpuLoad" = "Carico della CPU";
+"lblCpuFreq" = "Frequenza media CPU";
+
+"helpCharting" = "I grafici vengono aggiornati in base alla frequenza di aggiornamento configurata.\n\nA causa delle restrizioni di macOS, la frequenza media della CPU si ottiene solo quando la finestra dei grafici è aperta.";
+
+"lblNoData" = "Nessun dato disponibile";
