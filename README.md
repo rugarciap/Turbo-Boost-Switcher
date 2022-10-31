@@ -1,15 +1,15 @@
-Turbo Boost Switcher 2.11.0 (October 26, 2021)
+Turbo Boost Switcher 2.12.0 (October 29, 2022)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.11.0 version](https://turbo-boost-switcher.s3.amazonaws.com/Turbo_Boost_Switcher_v2.11.0.dmg) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2021/10/tbs-new-version-2-11-0/).
+You can [download the binary v2.12.0 version](https://turbo-boost-switcher.s3.amazonaws.com/Turbo_Boost_Switcher_v2.12.0.dmg) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2022/10/tbs-new-version-2-12-0/).
 
 Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
-Supports 10.6+ up to macOS Monterey (12.x), including macOS Ventura beta
+Supports 10.6+ up to macOS Ventura (13.x).
 
-To run the app on macOS Sierra (and above), due to Translocation feature introduced on macOS Sierra, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Starting on macOS Sierra, due to Translocation feature introduced on that version, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
 Apple now (since macOS High Sierra) forces the user to manually allow kernel extensions to be used so, if you're running for the first time on macOS High Sierra and never granted permissions, you need to manually allow it to be used. [More details here.](https://www.rugarciap.com/2017/09/an-update-after-macos-high-sierra-release/)
 
