@@ -58,7 +58,7 @@ Turbo Boost is enabled by default on all Macs that support it, but why anyone sh
 
 Ok, here are some reasons:
 
-- CPU Overheat: When Turbo Boost is activated, prepare to experiment high temperatures on your CPU, since it pushes till it reaches almost the Junction Tº, usually 100 ºC. This is controlled by hardware, but if you want your computer to live long, better keep it as low as possible. With Turbo Boost disabled I’ve been able to get up to 20 ºC degrees less!!!, that’s a value worth considering.
+- CPU Overheat: When Turbo Boost is activated, prepare to experience high temperatures on your CPU, since it pushes till it reaches almost the Junction Tº, usually 100 ºC. This is controlled by hardware, but if you want your computer to live long, better keep it as low as possible. With Turbo Boost disabled I’ve been able to get up to 20 ºC degrees less!!!, that’s a value worth considering.
 
 - Parallel Processing: Turbo Boost is enabled when one of the CPU cores reaches 100%, increasing the core Mhz, but It won’t do it if all or your cores are 100%, since that will create a lot of overheat. This will reduce your parallel processing performance so, in some situations, you better disable it.
 If you are like me, you probably do some high cpu demanding tasks from time to time, like photoshop editing, video transcoding, casual gaming, etc. and your fans go to max speeds while your CPU keeps crazy ranges like 93 – 98 ºC.
