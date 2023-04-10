@@ -58,24 +58,7 @@ struct cpusample sample_two;
     
     if ([SystemCommands isModuleLoaded]) {
         
-        if (authorizationRef == NULL) {
-            OSStatus status = AuthorizationCreate(NULL,
-                                                  kAuthorizationEmptyEnvironment,
-                                                  kAuthorizationFlagDefaults,
-                                                  &authorizationRef);
-            
-            AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-            AuthorizationRights rights = {1, &right};
-            AuthorizationFlags flags = kAuthorizationFlagDefaults |
-            kAuthorizationFlagInteractionAllowed |
-            kAuthorizationFlagPreAuthorize |
-            kAuthorizationFlagExtendRights;
-            
-            status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
-            if (status != errAuthorizationSuccess)
-                NSLog(@"Copy Rights Unsuccessful: %d", status);
-            
-        }
+        [self refreshAuthRef];
         
         [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
         [SystemCommands loadModuleWithAuthRef:authorizationRef];
@@ -257,11 +240,6 @@ struct cpusample sample_two;
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:2.0];
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:5.0];
     [self performSelector:@selector(updateStatus) withObject:nil afterDelay:10.0];
-    
-    // Initially refresh the sensor values
-    [self updateSensorValues];
-    [NSThread sleepForTimeInterval:0.1];
-    [self updateSensorValues];
     
     // Timer to update the sensor readings (cpu & fan rpm) each 4 seconds
     NSInteger refreshTimeValue = [StartupHelper sensorRefreshTime];
@@ -487,6 +465,7 @@ struct cpusample sample_two;
         
     }
     
+    double cpuLoadValue = -1;
     // Get the CPU Load
     if (sample_one.totalIdleTime == 0) {
         sample(true);
@@ -507,10 +486,37 @@ struct cpusample sample_two;
         double onePercent = total/100.0f;
         
         double cpuIdleValue = (double)delta.totalIdleTime/(double)onePercent;
-        double cpuLoadValue = 100.0 - cpuIdleValue;
+        cpuLoadValue = 100.0 - cpuIdleValue;
         
         [txtCpuLoad setStringValue:[NSString stringWithFormat:@"CPU Load: %.01f%%", cpuLoadValue]];
         
+    }
+    
+    // 2.12.0 - Cpu load entry
+    ChartDataEntry *cpuLoadEntry = [[ChartDataEntry alloc] init];
+    double finalCpuLoadValue = cpuLoadValue > 0 ? cpuLoadValue : 0;
+    cpuLoadEntry.value = finalCpuLoadValue;
+    cpuLoadEntry.isTbEnabled = isTurboBoostEnabled;
+        
+    if (self.chartWindowController != nil) {
+    
+        [self.chartWindowController addFanEntry:fanEntry withCurrentValue:rpmData];
+        [self.chartWindowController addTempEntry:tempEntry withCurrentValue:tempString];
+        if (finalCpuLoadValue > 0) {
+            [self.chartWindowController addCpuLoadEntry:cpuLoadEntry withCurrentValue:[NSString stringWithFormat:@"%.01f%%", finalCpuLoadValue]];
+        }
+        
+        // Read CPU Freq
+        ChartDataEntry *cpuFreqEntry = [[ChartDataEntry alloc] init];
+        cpuFreqEntry.isTbEnabled = isTurboBoostEnabled;
+        
+        if (self.chartWindowController.isOpen) {
+            cpuFreqEntry.value = [self readCpuFrequency];
+            [self.chartWindowController addCpuFreqEntry:cpuFreqEntry withCurrentValue:[NSString stringWithFormat:@"%.01f Ghz", cpuFreqEntry.value]];
+        } else {
+            cpuFreqEntry.value = -1.0f;
+            [self.chartWindowController addCpuFreqEntry:cpuFreqEntry withCurrentValue:@"N/A"];
+        }
     }
     
     // Refresh the title string
@@ -710,25 +716,7 @@ void sample(bool isOne) {
 // Loads the kernel module disabling turbo boost feature
 - (void) disableTurboBoost {
     
-    if (authorizationRef == NULL) {
-        
-        OSStatus status = AuthorizationCreate(NULL,
-                                              kAuthorizationEmptyEnvironment,
-                                              kAuthorizationFlagDefaults,
-                                              &authorizationRef);
-        
-        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-        AuthorizationRights rights = {1, &right};
-        AuthorizationFlags flags = kAuthorizationFlagDefaults |
-        kAuthorizationFlagInteractionAllowed |
-        kAuthorizationFlagPreAuthorize |
-        kAuthorizationFlagExtendRights;
-        
-        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
-        if (status != errAuthorizationSuccess)
-            NSLog(@"Copy Rights Unsuccessful: %d", status);
-        
-    }
+    [self refreshAuthRef];
     
     [SystemCommands loadModuleWithAuthRef:authorizationRef];
     
@@ -737,25 +725,7 @@ void sample(bool isOne) {
 // Unloads the kernel module enabling turbo boost feature
 - (void) enableTurboBoost {
     
-    if (authorizationRef == NULL) {
-        
-        OSStatus status = AuthorizationCreate(NULL,
-                                              kAuthorizationEmptyEnvironment,
-                                              kAuthorizationFlagDefaults,
-                                              &authorizationRef);
-        
-        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
-        AuthorizationRights rights = {1, &right};
-        AuthorizationFlags flags = kAuthorizationFlagDefaults |
-        kAuthorizationFlagInteractionAllowed |
-        kAuthorizationFlagPreAuthorize |
-        kAuthorizationFlagExtendRights;
-        
-        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
-        if (status != errAuthorizationSuccess)
-            NSLog(@"Copy Rights Unsuccessful: %d", status);
-        
-    }
+    [self refreshAuthRef];
     
     [SystemCommands unLoadModuleWithAuthRef:authorizationRef];
     
@@ -1254,5 +1224,37 @@ OSStatus hotKeyPressedEvent(EventHandlerCallRef theHandlerRef, EventRef theEvent
     [chartsMenuItem setKeyEquivalent:[key lowercaseString]];
     [chartsMenuItem setKeyEquivalentModifierMask:modifierKeyMask];
 }
+
+// 2.12.0 - Refresh auth ref
+- (void) refreshAuthRef {
+    
+    if (authorizationRef == NULL) {
+        
+        OSStatus status = AuthorizationCreate(NULL,
+                                              kAuthorizationEmptyEnvironment,
+                                              kAuthorizationFlagDefaults,
+                                              &authorizationRef);
+        
+        AuthorizationItem right = {kAuthorizationRightExecute, 0, NULL, 0};
+        AuthorizationRights rights = {1, &right};
+        AuthorizationFlags flags = kAuthorizationFlagDefaults |
+        kAuthorizationFlagInteractionAllowed |
+        kAuthorizationFlagPreAuthorize |
+        kAuthorizationFlagExtendRights;
+        
+        status = AuthorizationCopyRights(authorizationRef, &rights, NULL, flags, NULL);
+        if (status != errAuthorizationSuccess)
+            NSLog(@"Copy Rights Unsuccessful: %d", status);
+        
+    }
+}
+
+- (float) readCpuFrequency {
+        
+    [self refreshAuthRef];
+    
+    return [SystemCommands readCurrentCpuFreqWithAuthRef:authorizationRef];
+}
+
 
 @end

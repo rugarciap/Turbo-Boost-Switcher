@@ -42,7 +42,7 @@
 "alert_later" = "Senare";
 "alert_never_show_again" = "Visa aldrig det här igen";
 "alert_text" = "Gillar du programvaran? Överväga att hjälpa genom att få PRO version! Tack!";
-"alert_informative_text" = "Få PRO-versionen kommer att göra det möjligt för några häftiga funktioner, meddelanden, gratis uppdateringar evigt och mycket mer!";
+"alert_informative_text" = "Att gå PRO kommer att aktivera några coola automatiska funktioner, ange root-passwd endast en gång, aviseringar, gratis uppdateringar för alltid och mer!";
 
 // Swedish
 "language" = "Språk";
@@ -83,3 +83,10 @@
 "lblChart" = "Diagram hotkey";
 "checkEnableHotkeys" = "Hotkeys Aktiverad";
 "hotKeyValidateKo" = "HotKeys måste ha minst en modifierare (ctrl, shift och/eller cmd) och en primär nyckel.";
+
+"lblCpuLoad" = "CPU belastning";
+"lblCpuFreq" = "CPU-genomsnittlig frekvens";
+
+"helpCharting" = "Diagrammen uppdateras enligt den konfigurerade uppdateringsfrekvensen.\n\nPå grund av macOS-begränsningar erhålls CPU-genomsnittlig frekvens endast när diagramfönstret är öppet.";
+
+"lblNoData" = "Ingen data tillgänglig";

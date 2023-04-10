@@ -11,6 +11,7 @@
 		4516CCF8192C12B4008A29A3 /* CheckUpdatesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */; };
 		452252CA192D6801002BACF4 /* icon_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C8192D6801002BACF4 /* icon_cancel.png */; };
 		452252CB192D6801002BACF4 /* icon_ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 452252C9192D6801002BACF4 /* icon_ok.png */; };
+		452261B02909DAFC002CF0F9 /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 452261AF2909DAFC002CF0F9 /* HELP.rtfd */; };
 		45336EA61D3F9952005CE8FB /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EA51D3F9952005CE8FB /* icon.png */; };
 		45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45336EAB1D3F9A7B005CE8FB /* icon@2x.png */; };
 		454F73582187D4BB000CEC4D /* battery.png in Resources */ = {isa = PBXBuildFile; fileRef = 454F73572187D4BB000CEC4D /* battery.png */; };
@@ -27,7 +28,6 @@
 		45719EC01E6F6C6900524084 /* processor.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EBE1E6F6C6900524084 /* processor.png */; };
 		45719EC31E6F6C7600524084 /* tick.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC11E6F6C7600524084 /* tick.png */; };
 		45719EC41E6F6C7600524084 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = 45719EC21E6F6C7600524084 /* cross.png */; };
-		45749D9A257853FE003F2F46 /* HELP.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 45749D99257853FD003F2F46 /* HELP.rtfd */; };
 		457FF242179C31EA0029AA66 /* StartupHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 457FF241179C31EA0029AA66 /* StartupHelper.m */; };
 		458BD10C27027354004CF8C5 /* HotKeysWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 458BD10A27027354004CF8C5 /* HotKeysWindowController.xib */; };
 		458BD10D27027354004CF8C5 /* HotKeysWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458BD10B27027354004CF8C5 /* HotKeysWindowController.m */; };
@@ -79,6 +79,7 @@
 		4516CCF6192C12B4008A29A3 /* CheckUpdatesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckUpdatesWindowController.xib; sourceTree = "<group>"; };
 		452252C8192D6801002BACF4 /* icon_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_cancel.png; sourceTree = "<group>"; };
 		452252C9192D6801002BACF4 /* icon_ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ok.png; sourceTree = "<group>"; };
+		452261AF2909DAFC002CF0F9 /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		4526C6321E04A1BA007C4394 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4526C6331E04A1C7007C4394 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4526C6341E04A1D0007C4394 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		45719EC11E6F6C7600524084 /* tick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tick.png; sourceTree = "<group>"; };
 		45719EC21E6F6C7600524084 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
 		45719EC51E6F774700524084 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
-		45749D99257853FD003F2F46 /* HELP.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = HELP.rtfd; sourceTree = "<group>"; };
 		457FF240179C31EA0029AA66 /* StartupHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupHelper.h; sourceTree = "<group>"; };
 		457FF241179C31EA0029AA66 /* StartupHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupHelper.m; sourceTree = "<group>"; };
 		458BD10927027354004CF8C5 /* HotKeysWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotKeysWindowController.h; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		458EDAB31799499D00940503 /* Turbo Boost Disabler */ = {
 			isa = PBXGroup;
 			children = (
-				45749D99257853FD003F2F46 /* HELP.rtfd */,
+				452261AF2909DAFC002CF0F9 /* HELP.rtfd */,
 				45D32D3C20A7AF8F00EFB1F7 /* charting */,
 				45C5794A1D9B213500DAC1C9 /* updates */,
 				45FC71C8179ACAC300A16AEC /* resources */,
@@ -386,6 +386,7 @@
 				45FD6973253A6361000C3AD4 /* HelpWindowController.xib in Resources */,
 				458EDAB81799499D00940503 /* InfoPlist.strings in Resources */,
 				45719EBF1E6F6C6900524084 /* cooler.png in Resources */,
+				452261B02909DAFC002CF0F9 /* HELP.rtfd in Resources */,
 				454F73582187D4BB000CEC4D /* battery.png in Resources */,
 				45336EAC1D3F9A7B005CE8FB /* icon@2x.png in Resources */,
 				452252CA192D6801002BACF4 /* icon_cancel.png in Resources */,
@@ -406,7 +407,6 @@
 				45719EB81E6F6C5E00524084 /* temperature_5.png in Resources */,
 				45719EBA1E6F6C5E00524084 /* temperature_3.png in Resources */,
 				45A5718F179D533900D91EEE /* paypal.gif in Resources */,
-				45749D9A257853FE003F2F46 /* HELP.rtfd in Resources */,
 				45A5719B179DDF0F00D91EEE /* License.rtf in Resources */,
 				45CC34C91E6CC4630086C319 /* TurboBoostSwitcher.icns in Resources */,
 				45A571A4179DE90D00D91EEE /* Localizable.strings in Resources */,
@@ -491,6 +491,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -525,6 +526,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -545,6 +547,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A7JE7SS8Z7;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -555,7 +558,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.11.0;
+				MARKETING_VERSION = 2.12.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -572,6 +575,7 @@
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = A7JE7SS8Z7;
+				ENABLE_HARDENED_RUNTIME = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Turbo Boost Disabler/Turbo Boost Switcher-Prefix.pch";
@@ -582,7 +586,7 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				MARKETING_VERSION = 2.11.0;
+				MARKETING_VERSION = 2.12.0;
 				OTHER_CODE_SIGN_FLAGS = "--timestamp --options=runtime";
 				PRODUCT_NAME = "Turbo Boost Switcher";
 				PROVISIONING_PROFILE_SPECIFIER = "";
