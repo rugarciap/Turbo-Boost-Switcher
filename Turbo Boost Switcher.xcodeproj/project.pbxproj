@@ -150,6 +150,7 @@
 		45FD696F253A6361000C3AD4 /* HelpWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelpWindowController.h; sourceTree = "<group>"; };
 		45FD6970253A6361000C3AD4 /* HelpWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelpWindowController.m; sourceTree = "<group>"; };
 		45FD6971253A6361000C3AD4 /* HelpWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpWindowController.xib; sourceTree = "<group>"; };
+		ADD68CFE2A4BD4DC0073C7C9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +367,7 @@
 				es,
 				cs,
 				it,
+				ko,
 			);
 			mainGroup = 458EDAA11799499D00940503;
 			productRefGroup = 458EDAAB1799499D00940503 /* Products */;
@@ -469,6 +471,7 @@
 				450A1F051E7CB3D700EEFD60 /* es */,
 				4533E8AC2120E5B70049517C /* cs */,
 				4533E8AD2120E5CF0049517C /* it */,
+				ADD68CFE2A4BD4DC0073C7C9 /* ko */,
 			);
 			name = Localizable.strings;
 			path = ..;
