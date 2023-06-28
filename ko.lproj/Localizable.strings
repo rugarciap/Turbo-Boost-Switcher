@@ -1,0 +1,92 @@
+/* 
+  Localizable.strings
+  Turbo Boost Switcher
+
+  Created by Rubén García Pérez on 23/07/13.
+  Copyright (c) 2016 Rubén García Pérez. 
+*/
+"cpu_temp" = "CPU 온도:";
+"fan_speed" = "팬 속도:";
+"cpu_temp_na" = "CPU 온도: 확인할 수 없음";
+"fan_speed_na" = "팬 속도: 확인할 수 없음";
+"enable_menu" = "터보 부스트 켜기";
+"disable_menu" = "터보 부스트 끄기";
+"open_login" = "로그인 시 열기";
+"disable_login" = "실행 시 터보 부스트 끄기";
+"settings" = "설정:";
+"donate" = "후원...";
+"about" = "앱 정보...";
+"about_title" = "앱 정보";
+"quit" = "Turbo Booster Switcher 닫기";
+"updates" = "업데이트 확인...";
+"updates_title" = "업데이트";
+"updates_progress" = "업데이트를 확인하는 중...";
+"updates_available" = "다운로드할 수 있는 새 버전이 있습니다.";
+"updates_not_available" = "이미 최신 버전을 사용중입니다.";
+"updates_error" = "업데이트 확인 중 오류가 발생했습니다.";
+
+"btn_cancel" = "취소";
+"btn_download" = "다운로드";
+"btn_close" = "닫기";
+
+"author" = "저작권 (c) 2016 Rubén García Pérez";
+"web" = "rugarciap.com";
+"donate_msg" = "이 프로그램이 마음에 드신다면 후원을 고려해주세요!";
+"license" = "라이센스:";
+
+"checkUpdates" = "시작 시 업데이트 확인";
+"etq_like_app_pro" = "이 앱이 좋으신가요? 도움 또는 PRO버전을 고려해 보십시오! 감사합니다!";
+"btn_pro" = "Pro로 전환";
+
+"alert_later" = "나중에";
+"alert_never_show_again" = "다음에 다시 보지 않기";
+"alert_text" = "이 앱이 좋으신가요? Pro버전 쓰고 지원해주세요!";
+"alert_informative_text" = "Pro 버전을 사용하면 멋진 자동화 기능이 활성화될 것입니다. 단 한번의 페스워드 입력으로 평생 무료 업데이트와 알림을 받아보세요!";
+
+// Language menú
+"language" = "언어";
+"language_en" = "영어 - English";
+"language_es" = "스페인어 - Español";
+"language_pl" = "폴란드어 - polski (beta)";
+"language_de" = "독일어 - Deutsch (beta)";
+"language_fr" = "프랑스어 - Français (beta)";
+"language_ru" = "러시아어 - Русский (beta)";
+"language_zh" = "중국어 - 中文 (beta)";
+"language_sv" = "스웨덴어 - svenska (beta)";
+"language_cs" = "체코어 - čeština (beta)";
+"language_it" = "이탈리아어 - Italiano (beta)";
+"language_ko" = "한국어 (beta)";
+"language_change_confirmation" = "정말로 변경하시겠습니까?";
+"language_change_informative_text" = "변경사항을 적용하기 위해 앱을 다시 시작합니다.";
+
+// Status Bar text
+"onOffMenu" = "상태표시줄 텍스트 켬/끔";
+
+// Charting
+"lblTemperature" = "온도";
+"lblFanSpeed" = "팬 속도";
+"lblTbEnabled" = "터보 부스트 켜짐";
+"lblTbDisabled" = "터보 부스트 꺼짐";
+"menuCharting" = "차트...";
+"titCharting" = "온도 & 팬 속도 차트";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "새로고침(초): %lds";
+
+"alert_kext_missing_title" = "주의, 응용프로그램의 필수 컴포넌트가 누락되었습니다!";
+"alert_kext_missing_detail" = "다시 dmg 파일을 열고, 응용프로그램 폴더(또는 앱이 설치딘 폴더)에 tbswitcher_resources 폴더를 드래그하세요. 그러면 앱을 사용할 수 있습니다.\n\n 더 자세한 정보는 dmg파일에 같이 배포된 help 파일을 참고하세요. 감사합니다!";
+
+"lblHelp" = "도움말...";
+
+// 2.11 new labels
+"lblTB" = "터보 부스트 켬/끔 토글";
+"lblChart" = "차트";
+"checkEnableHotkeys" = "단축키 활성화됨";
+"hotKeyValidateKo" = "단축키는 최소한 한 개 이상의 특수키(ctrl, shift and/or cmd)와 한 개의 문자 키로 지정해야 합니다.";
+
+"lblCpuLoad" = "CPU 로드율";
+"lblCpuFreq" = "CPU 주파수(avg)";
+
+"helpCharting" = "차트는 설정한 새로고침 빈도에 따라 새로고쳐집니다.\n\nmacOS 제한으로 인해 CPU 평균 주파수는 차트 작성 창이 열려 있을 때만 얻습니다.";
+
+"lblNoData" = "열람할 자료가 없습니다.";
