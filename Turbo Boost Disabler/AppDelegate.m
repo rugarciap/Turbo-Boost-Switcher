@@ -801,7 +801,12 @@ void sample(bool isOne) {
 - (void) refreshTitleString {
     
     // Attributes for title string
-    NSFont *labelFont = [NSFont fontWithName:@"Helvetica" size:11];
+    NSFont *labelFont = nil;
+    if (@available(*, macOS 10.11)) {
+        labelFont = [NSFont monospacedDigitSystemFontOfSize:11 weight:NSFontWeightRegular];
+    } else {
+        labelFont = [NSFont fontWithName:@"Helvetica" size:11];
+    }
     
     // Final title string
     NSMutableString *finalString = [[NSMutableString alloc] initWithString:@""];

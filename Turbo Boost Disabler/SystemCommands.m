@@ -284,6 +284,8 @@ int SMCGetFanSpeed(char *key)
     OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
                                                    [path UTF8String], kAuthorizationFlagDefaults, myArguments,
                                                    &myCommunicationsPipe);
+    int status;
+    wait(&status);
     
     if (resultStatus != errAuthorizationSuccess)
         NSLog(@"Error: %d", resultStatus);
@@ -607,6 +609,8 @@ int SMCGetFanSpeed(char *key)
     OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
                                                    [@"/bin/sh" UTF8String], kAuthorizationFlagDefaults, myArguments,
                                                    &myCommunicationsPipe);
+    int status;
+    wait(&status);
     
     if (resultStatus != errAuthorizationSuccess) {
         NSLog(@"Error: %d", resultStatus);
@@ -617,6 +621,9 @@ int SMCGetFanSpeed(char *key)
         NSFileHandle *fHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(myCommunicationsPipe)];
         
         NSData *data = [fHandle readDataToEndOfFile];
+        
+        [fHandle closeFile];
+        
         NSString *dataAsStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 
         NSRange startRange = [dataAsStr rangeOfString:@"("];
@@ -629,6 +636,7 @@ int SMCGetFanSpeed(char *key)
             NSString *substr = [dataAsStr substringWithRange:finalRange];
 
             NSString *finalValueStr = [substr componentsSeparatedByString:@" "][0];
+            
             return [finalValueStr floatValue] / 1000.0f;
         }
         return 0.0f;
