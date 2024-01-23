@@ -1,4 +1,4 @@
-Turbo Boost Switcher 2.13.0 (November 13, 2023)
+Turbo Boost Switcher 2.13.0 (December 17, 2023)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
