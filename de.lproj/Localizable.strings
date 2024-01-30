@@ -32,12 +32,12 @@
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Wenn sie dieses Programm mögen, denken sie bitte über eine Spende nach. Danke!";
 "license" = "Lizenz:";
 
 "checkUpdates" = "Beim Hochfahren prüfen";
 
-"etq_like_app_pro" = "Gefällt Ihnen die App? Betrachten Sie helfen, indem Sie die PRO-Version! Vielen Dank!";
+"etq_like_app_pro" = "Gefällt ihnen die App? Sie können helfen indem sie die PRO-Version kaufen! Vielen Dank!";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Später";
