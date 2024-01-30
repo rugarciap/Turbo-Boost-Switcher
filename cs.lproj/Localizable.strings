@@ -7,17 +7,17 @@
 */
 "cpu_temp" = "CPU Teplota:";
 "fan_speed" = "Rychlost ventilátoru :";
-"cpu_temp_na" = "CPU Temp: N/A";
-"fan_speed_na" = "Fan Speed: N/A";
+"cpu_temp_na" = "CPU Teplota: N/A";
+"fan_speed_na" = "Rychlost Ventilátoru: N/A";
 "enable_menu" = "Povolit Turbo Boost";
-"disable_menu" = "Disable Turbo Boost";
+"disable_menu" = "Zakázat Turbo Boost";
 "open_login" = "Otevřít při přihlášení";
 "disable_login" = "Zakázat TB při spuštění";
 "settings" = "Nastavení:";
-"donate" = "Donate...";
+"donate" = "Podpořte ně";
 "about" = "O aplikaci...";
 "about_title" = "O aplikaci...";
-"quit" = "Odejít Turbo Boost Switcher";
+"quit" = "Odejít z Turbo Boost Switcher";
 "updates" = "Kontrola aktualizací...";
 "updates_title" = "Turbo Boost Switcher - Kontrola aktualizací";
 
@@ -32,7 +32,7 @@
 
 "author" = "by Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Jestli tento program máte rádí, prosím, zvažte mě podpořit";
 "license" = "License:";
 
 "checkUpdates" = "Kontrola při spuštění";
@@ -47,17 +47,17 @@
 // Language menú
 "language" = "Jazyk";
 "language_en" = "Angličtina";
-"language_es" = "Španělé";
-"language_pl" = "polština (beta)";
-"language_de" = "Němec (beta)";
-"language_fr" = "francouzština (beta)";
-"language_ru" = "ruština (beta)";
-"language_zh" = "čínština (beta)";
-"language_sv" = "švédský (beta)";
-"language_cs" = "Češka (beta)";
-"language_it" = "italština (beta)";
-"language_cs" = "Češka (beta)";
-"language_it" = "italština (beta)";
+"language_es" = "Španělština";
+"language_pl" = "Polština (beta)";
+"language_de" = "Němčina (beta)";
+"language_fr" = "Francouzština (beta)";
+"language_ru" = "Ruština (beta)";
+"language_zh" = "Čínština (beta)";
+"language_sv" = "Švédština (beta)";
+"language_cs" = "Česky (beta)";
+"language_it" = "Italština (beta)";
+"language_cs" = "Česky (beta)";
+"language_it" = "Italština (beta)";
 
 "language_change_confirmation" = "Jste si jisti?";
 "language_change_informative_text" = "Aplikace bude bude restartována pro použití změn.";
