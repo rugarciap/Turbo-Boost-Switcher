@@ -1,16 +1,19 @@
-Turbo Boost Switcher 2.4.0
+Turbo Boost Switcher 2.12.0 (October 29, 2022)
 ====================
 
 Turbo Boost disabler / enabler app for Mac OS X
 
-You can [download the binary v2.4.0 version] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+You can [download the binary v2.12.0 version](https://turbo-boost-switcher.s3.amazonaws.com/Turbo_Boost_Switcher_v2.12.0.dmg) or get the [pro version here](https://gumroad.com/l/YeBQUF) . More info about this update [on the blog](https://www.rugarciap.com/2022/10/tbs-new-version-2-12-0/).
 
-Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/] (http://www.rugarciap.com/turbo-boost-switcher-for-os-x/)
+Please, find additional info on [http://www.rugarciap.com/turbo-boost-switcher-for-os-x/](http://www.rugarciap.com/turbo-boost-switcher-for-os-x/). 
 
-Support for macOS Sierra (and of course new Macbooks since the architecture has not changed)!. To run the app on sierra, just unzip and move the app to other folder. [Read more here.] (http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+Supports 10.6+ up to macOS Ventura (13.x).
 
-OSX El Capitan and above Users: [Please read this] (http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this] (http://www.rugarciap.com/faqs/)
+Starting on macOS Sierra, due to Translocation feature introduced on that version, just unzip and move the app to other folder before running. [Read more here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
 
+Apple now (since macOS High Sierra) forces the user to manually allow kernel extensions to be used so, if you're running for the first time on macOS High Sierra and never granted permissions, you need to manually allow it to be used. [More details here.](https://www.rugarciap.com/2017/09/an-update-after-macos-high-sierra-release/)
+
+OSX El Capitan Users: [Please read this](http://www.rugarciap.com/2015/11/osx-el-capitan-tbs/) and [this](http://www.rugarciap.com/faqs/)
 
 Features:
 ====================
@@ -25,7 +28,9 @@ It’s installed on your Mac status bar and allows you to:
 - Enable / Disable Turbo Boost.
 - Auto Disable on launch
 - Restore Turbo Boost on Exit
-- Check your CPU temp and fan speed.
+- Check your CPU temp, load and fan speed.
+- Customize sensors update time
+- Charts to see how Temp and Fan speed values are affected by Turbo Boost status.
 - Set it to open at login.
 - Translated to English & Spanish. Other languages in beta (Russina, Chinese, German, French, Polish).
 - More features detailed on http://www.rugarciap.com
@@ -39,9 +44,11 @@ Once downloaded/compiled, just unzip and double click on your “Turbo Boost Swi
 
 If you see a message saying the app “can’t be opened because it is from an identified developer”, then you need to change your settings to allow not-signed apps to be installed. Go to your System Preferences->Security and Privacy and mark the option “Anyhwere”. Try again, it should work.
 
+Also, and just if you're running on macOS High Sierra for the first time, you'll need to allow the kernel extension to be used the first time you try to disable Turbo Boost. Just go to System Preferences -> Security and Privacy and click "allow" after trying to disable Turbo Boost for first time. [You can read more about this here.](http://www.rugarciap.com/2016/08/how-to-run-turbo-boost-switcher-on-macos-sierra/)
+
 Depending on your user configuration, OSX may ask for root password when enabling / disabling Turbo Boost. That's because kernel extensions must be installed as root and the user privileges are stored on a system cache. To avoid this behaviour, you can follow two approaches:
 
- - [Buy the PRO version] (https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
+ - [Buy the PRO version](https://gumroad.com/l/YeBQUF) that installs a daemon and doesn't need to as for root since it uses IPC to communicate with the main app. It also offer another features so you can get cool things in exchange for supporting the app :).
  - Just run the app as root doing something like 'sudo /Applications/Turbo\ Boost\ Switcher.app/Contents/MacOS/Turbo\ Boost\ Switcher'
 
 Motivation:
@@ -75,5 +82,19 @@ To see the differences between having Turbo Boost enabled or not, you can do the
 Thanks to:
 ===========
 
+- Some icons provided by fatcow (http://www.fatcow.com/free-icons)
 - lavoiesl (https://github.com/lavoiesl/osx-cpu-temp)
 - nanoant (https://github.com/nanoant/DisableTurboBoost.kext)
+
+Reporting Issues:
+===========
+
+Before opening issues, make sure you read the project faqs (https://www.rugarciap.com/faqs/), other issues openend and answered, etc.
+
+A lot (if not all) of usual questions about enabling / disabling Turbo Boost are answered there, like how to allow the kext to run, installing first time, etc. Issues on Github are not ment to offer support to particular questions when installing, they're ment to register reproducible issues on all installations (like a bad translation, a feature request, etc). 
+
+The app and kext extensions are compatible will all macOS versions released so far (Intel CPUs with Turbo Boost, of course). The app is tested against all betas before final versions are released, so if any incompatiblity is found in the future will be reported here and on the blog, like when El Capitan was released.
+
+If you still think you found an issue and it's not a support question, please attach all info needed to reproduce (steps you follow, app configuration, screenshots, etc) so I'm able to debug and fix the bug if any. 
+
+Thanks.

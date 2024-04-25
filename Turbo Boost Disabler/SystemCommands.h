@@ -59,4 +59,13 @@
 
 + (BOOL) runTaskAsAdmin:(NSString *) path withAuthRef:(AuthorizationRef) authRef andArgs:(NSArray *) args;
 
+// Get the module path depending on arch
++ (NSString *) getModulePath:(BOOL) is32bits;
+
+// 2.12.0 - Read CPU Frequency with auth ref
++ (float) readCurrentCpuFreqWithAuthRef:(AuthorizationRef) authRef;
+
+// Get base frequency as GHz
++ (float) getBaseFreq;
+
 @end

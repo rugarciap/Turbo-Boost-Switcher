@@ -17,7 +17,7 @@
 "donate" = "Donate...";
 "about" = "关于应用程序...";
 "about_title" = "关于应用程序";
-"quit" = "放弃";
+"quit" = "退出";
 "updates" = "检查更新...";
 "updates_title" = "Turbo Boost Switcher - 检查更新";
 
@@ -43,5 +43,49 @@
 "alert_later" = "后来";
 "alert_never_show_again" = "不再显示此信息";
 "alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
-"alert_informative_text" = "获取PRO将启用一些伟大的自动功能，通知，免费更新永远和更多！";
+"alert_informative_text" = "Going PRO 将启用一些很酷的自动功能，只需输入一次 root 密码、通知、永久免费更新等等！";
 
+// Language
+"language"="语言";
+"language_en"="英语";
+"language_es"="西班牙语";
+"language_pl"="波兰语（测试版）";
+"language_de"="德语（测试版）";
+"language_fr"="法语（测试版）";
+"language_ru"="俄语（测试版）";
+"language_zh"="中文（测试版）";
+"language_sv"="瑞典语（测试版）";
+"language_cs" = "捷克 (测试版)";
+"language_it" = "意大利 (测试版)";
+
+"language_change_confirmation" = "你确定？";
+"language_change_informative_text" = "该应用程序将重新启动以应用选定的变化";
+
+// Status Menú
+"onOffMenu" = "文本状态栏开/关";
+
+// Charting
+"lblTemperature" = "温度";
+"lblFanSpeed" = "风扇转速";
+"lblTbEnabled" = "TB 启用";
+"lblTbDisabled" = "TB 残, 痡";
+"menuCharting" = "图表...";
+"titCharting" = "图表";
+
+"sliderRefreshTimeLabel" = "刷新率: %lds";
+
+"alert_kext_missing_title" = "注意，缺少该应用程序的必要组件！";
+"alert_kext_missing_detail" = "请再次打开dmg，然后将其中包含的tbswitcher_resources文件夹拖到/Applications文件夹（或安装该应用程序的文件夹）中，以便该应用可以打开。\n\n该发行版随附的帮助文件中的更多信息。 谢谢！";
+"lblHelp" = "帮帮我...";
+
+"lblTB" = "启用/禁用 Turbo Boost hotkey";
+"lblChart" = "图表 hotkey";
+"checkEnableHotkeys" = "Hotkeys 启用";
+"hotKeyValidateKo" = "热键必须至少有一个修饰符（ctrl、shift 和/或 cmd）和一个主键。";
+
+"lblCpuLoad" = "CPU负载";
+"lblCpuFreq" = "CPU平均频率";
+
+"helpCharting" = "图表根据配置的刷新率进行刷新。\n\n由于 macOS 的限制，只有在图表窗口打开时才能获得 CPU 平均频率。";
+
+"lblNoData" = "没有可用数据";

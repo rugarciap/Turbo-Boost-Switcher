@@ -12,13 +12,13 @@
 "enable_menu" = "Активировать Turbo Boost";
 "disable_menu" = "Отключение Turbo Boost";
 "open_login" = "Открыть при входе в систему";
-"disable_login" = "Отключение при запуске";
+"disable_login" = "Отключение TB при запуске";
 "settings" = "настройки:";
 
 "donate" = "Donate...";
 "about" = "относительно...";
 "about_title" = "относительно";
-"quit" = "уволиться";
+"quit" = "уволиться Turbo Boost Switcher";
 "updates" = "Проверить наличие обновлений...";
 "updates_title" = "Turbo Boost Switcher - Проверить наличие обновлений";
 
@@ -44,5 +44,51 @@
 "alert_later" = "Позже";
 "alert_never_show_again" = "Не показывать это снова";
 "alert_text" = "как приложение ли вы? Рассмотрим помогать, получая PRO версия! :)";
-"alert_informative_text" = "Получение PRO позволит некоторые большие автоматические функции, уведомления, бесплатные обновления навсегда и многое другое!";
+"alert_informative_text" = "Получение PRO позволяет использовать большие автоматические функции, льготу, бесплатную подписку навсегда и многое другое!";
 
+// Languages
+"language" = "Язык";
+"language_en" = "Английский";
+"language_es" = "испанский";
+"language_pl" = "польский (бета)";
+"language_de" = "Немецкий (бета)";
+"language_fr" = "Французский (бета)";
+"language_ru" = "Русский (бета)";
+"language_zh" = "китайский (бета)";
+"language_sv" = "Swedish (бета)";
+"language_cs" = "чешский (beta)";
+"language_it" = "итальянский (beta)";
+
+
+"language_change_confirmation" = "Ты уверен?";
+"language_change_informative_text" = "Приложение будет перезапущен, чтобы применить выбранные изменения";
+
+// Status Menú
+"onOffMenu" = "Текст Строка состояния ON / OFF";
+
+// Charting
+"lblTemperature" = "Температура";
+"lblFanSpeed" = "Скорость вентилятора";
+"lblTbEnabled" = "TB Включено";
+"lblTbDisabled" = "TB Отключено";
+"menuCharting" = "Диаграммы...";
+"titCharting" = "Диаграммы";
+
+"sliderRefreshTimeLabel" = "Частота обновления: %lds";
+
+"alert_kext_missing_title" = "Внимание, в приложении отсутствует существенный компонент!";
+"alert_kext_missing_detail" = "Пожалуйста, откройте dmg еще раз, а также перетащите папку tbswitcher_resources, включенную в нее, в папку /Applications (или ту, в которую вы установили приложение), чтобы приложение могло открыться.\n\nПодробнее в файле справки, включенном в дистрибутив. Спасибо!";
+
+"lblHelp" = "Cправка...";
+
+"lblTB" = "разрешать / дезактивировать Turbo Boost hotkey";
+"lblChart" = "Диаграммы hotkey";
+"checkEnableHotkeys" = "Hotkeys Включено";
+"hotKeyValidateKo" = "HotKeys должен иметь как минимум один модификатор (ctrl, shift и / или cmd) и первичный ключ.";
+
+"lblCpuLoad" = "загрузка процессора";
+"lblCpuFreq" = "Средняя частота процессора";
+
+"helpCharting" = "Диаграммы обновляются в соответствии с настроенной частотой обновления.\n\nИз-за ограничений macOS средняя частота ЦП получается только при открытом окне графика.";
+
+"lblNoData" = "Данные недоступны";

@@ -54,4 +54,40 @@
 // Store never show going pro message
 + (void) storeNeverShowProMessage:(BOOL) value;
 
+// Get selected locale
++ (NSString *) currentLocale;
+
+// Set selected locale
++ (void) storeCurrentLocale:(NSString *) value;
+
+// Get Status bar on off
++ (BOOL) isStatusOnOffEnabled;
+
+// Store status bar on off value
++ (void) storeStatusOnOffEnabled:(BOOL) value;
+
+// Get / Store refersh time
++ (NSInteger) sensorRefreshTime;
++ (void) storeSensorRefreshTime:(NSInteger) value;
+
+// Monitoring enabled / disabled
++ (BOOL) isMonitoringEnabled;
++ (void) storeMonitoringEnabled: (BOOL) value;
+
+// Get the isCelsius configuration
++ (BOOL) isFarenheit;
+
+// Store the isCelcius configuration
++ (void) storeIsFarenheit:(BOOL) value;
+
+// 2.11 changes - hotkeys configuration
++ (BOOL) isHotKeysEnabled;
++ (void) storeHotKeysEnabled: (BOOL) value;
+
++ (NSMutableArray *) turboBoostHotKey;
++ (void) storeTurboBoostHotKey: (NSMutableArray *) value;
+
++ (NSMutableArray *) chartHotKey;
++ (void) storeChartHotKey: (NSMutableArray *) value;
+
 @end

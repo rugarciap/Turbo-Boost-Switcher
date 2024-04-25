@@ -150,7 +150,7 @@
     
     // If there are updates, navigate to the download page
     if (updatesAvailable) {
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.rugarciap.com/turbo-boost-switcher-for-os-x"]];
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://www.rugarciap.com/tbs-update-page"]];
         [self close];
         return;
     }
@@ -161,8 +161,5 @@
 - (IBAction) btnCancelPressed:(id)sender {
     [self close];
 }
-
-
-
 
 @end

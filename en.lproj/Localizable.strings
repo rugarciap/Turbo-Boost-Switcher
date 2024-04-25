@@ -12,12 +12,12 @@
 "enable_menu" = "Enable Turbo Boost";
 "disable_menu" = "Disable Turbo Boost";
 "open_login" = "Open at Login";
-"disable_login" = "Disable at Launch";
+"disable_login" = "Disable TB at Launch";
 "settings" = "Settings:";
 "donate" = "Donate...";
 "about" = "About...";
 "about_title" = "About";
-"quit" = "Quit";
+"quit" = "Quit Turbo Boost Switcher";
 "updates" = "Check Updates...";
 "updates_title" = "Updates";
 
@@ -42,5 +42,52 @@
 "alert_later" = "Later";
 "alert_never_show_again" = "Never show this again";
 "alert_text" = "Like the app? Support it Going Pro! :)";
-"alert_informative_text" = "Going PRO will enable some cool auto features, notifications, free updates forever and more!";
+"alert_informative_text" = "Going PRO will enable some cool auto features, enter root passwd only once, notifications, free updates forever and more!";
 
+// Language menú
+"language" = "Language";
+"language_en" = "English";
+"language_es" = "Spanish";
+"language_pl" = "Polish (beta)";
+"language_de" = "German (beta)";
+"language_fr" = "French (beta)";
+"language_ru" = "Russian (beta)";
+"language_zh" = "Chinese (beta)";
+"language_sv" = "Swedish (beta)";
+"language_cs" = "Czech (beta)";
+"language_it" = "Italian (beta)";
+
+"language_change_confirmation" = "Are you sure?";
+"language_change_informative_text" = "The app will be restarted to apply the changes.";
+
+// Status Bar text
+"onOffMenu" = "On / Off Status Bar Text";
+
+// Charting
+"lblTemperature" = "Temperature";
+"lblFanSpeed" = "Fan Speed";
+"lblTbEnabled" = "TB Enabled";
+"lblTbDisabled" = "TB Disabled";
+"menuCharting" = "Charts...";
+"titCharting" = "Temperature & Fan Charting";
+
+// Slider menú
+"sliderRefreshTimeLabel" = "Refresh Rate: %lds";
+
+"alert_kext_missing_title" = "Attention, an essential component of the application is missing!";
+"alert_kext_missing_detail" = "Please, open the dmg again and also drag the tbswitcher_resources folder included there to /Applications folder (or the same one where you installed the application) so the app can run.\n\nMore info within the help file included with the distribution. Thank you!";
+
+"lblHelp" = "Help...";
+
+// 2.11 new labels
+"lblTB" = "Enable / Disable Turbo Boost";
+"lblChart" = "Charts";
+"checkEnableHotkeys" = "Hotkeys enabled";
+"hotKeyValidateKo" = "HotKeys must have at least one modifier (ctrl, shift and/or cmd) and one character.";
+
+"lblCpuLoad" = "CPU Load";
+"lblCpuFreq" = "CPU Frequency (avg)";
+
+"helpCharting" = "Charts are refreshed according to the configured refresh rate.\n\nDue to macOS restrictions, CPU average frequency is only obtained when charting window is open.";
+
+"lblNoData" = "No data available";

@@ -146,4 +146,146 @@
     [userDefaults synchronize];
 }
 
+// Get selected locale
++ (NSString *) currentLocale {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:@"currentLocale"];
+}
+
+// Set selected locale
++ (void) storeCurrentLocale:(NSString *) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setValue:value forKey:@"currentLocale"];
+    [userDefaults synchronize];
+}
+
++ (BOOL) isStatusOnOffEnabled {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"isStatusOnOffEnabled"];
+}
+
++ (void) storeStatusOnOffEnabled:(BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isStatusOnOffEnabled"];
+    [userDefaults synchronize];
+}
+
+// Get refresh time
++ (NSInteger) sensorRefreshTime {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults integerForKey:@"sensorRefreshTime"];
+}
+
+// Store refresh time
++ (void) storeSensorRefreshTime:(NSInteger) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setInteger:value forKey:@"sensorRefreshTime"];
+    [userDefaults synchronize];
+}
+
+// Check if monitoring has been enabled.
++ (BOOL) isMonitoringEnabled {
+        
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    id tmpResult = [userDefaults objectForKey:@"isMonitoringEnabled"];
+    
+    if (tmpResult == nil)  {
+        [StartupHelper storeMonitoringEnabled:YES];
+    }
+    
+    return [userDefaults boolForKey:@"isMonitoringEnabled"];
+}
+    
+// Store monigoring enabled / disabled value
++ (void) storeMonitoringEnabled: (BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isMonitoringEnabled"];
+    [userDefaults synchronize];
+}
+
+// Get the isCelsius configuration
++ (BOOL) isFarenheit {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults boolForKey:@"isFarenheit"];
+}
+
+// Store the isCelcius configuration
++ (void) storeIsFarenheit:(BOOL) value {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:value forKey:@"isFarenheit"];
+    [userDefaults synchronize];
+}
+
++ (BOOL) isHotKeysEnabled {
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    id tmpResult = [userDefaults objectForKey:@"isHotKeysEnabled"];
+    
+    if (tmpResult == nil)  {
+        [StartupHelper storeHotKeysEnabled:YES];
+    }
+    
+    return [userDefaults boolForKey:@"isHotKeysEnabled"];
+    
+}
+
++ (void) storeHotKeysEnabled: (BOOL) value {
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    [config setBool:value forKey:@"isHotKeysEnabled"];
+    [config synchronize];
+}
+
++ (NSMutableArray *) turboBoostHotKey {
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *turboBoostHotKeys = [(NSMutableArray *) [config arrayForKey:@"turboBoostHotKeys"] mutableCopy];
+    
+    if ((turboBoostHotKeys == nil) || ([turboBoostHotKeys count] != 4)) {
+        NSMutableArray *tbHotKeys = [[NSMutableArray alloc] init];
+        [tbHotKeys addObject:@"1"]; // Ctrl
+        [tbHotKeys addObject:@"1"]; // Shift
+        [tbHotKeys addObject:@"1"]; // Cmd
+        [tbHotKeys addObject:@"E"]; // E
+        turboBoostHotKeys = [tbHotKeys mutableCopy];
+    }
+    
+    return turboBoostHotKeys;
+    
+}
+
++ (void) storeTurboBoostHotKey: (NSMutableArray *) value {
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    [config setObject:value forKey:@"turboBoostHotKeys"];
+    [config synchronize];
+    
+}
+
++ (NSMutableArray *) chartHotKey {
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *chartHotKeys = [(NSMutableArray *) [config arrayForKey:@"chartHotKey"] mutableCopy];
+    
+    if ((chartHotKeys == nil) || ([chartHotKeys count] != 4)) {
+        
+        NSMutableArray *tmpHotKeys = [[NSMutableArray alloc] init];
+        [tmpHotKeys addObject:@"1"]; // Ctrl
+        [tmpHotKeys addObject:@"1"]; // Shift
+        [tmpHotKeys addObject:@"1"]; // Cmd
+        [tmpHotKeys addObject:@"P"]; // P
+        chartHotKeys = [tmpHotKeys mutableCopy];
+        
+    }
+    
+    return chartHotKeys;
+    
+}
+
++ (void) storeChartHotKey: (NSMutableArray *) value {
+    
+    NSUserDefaults *config = [NSUserDefaults standardUserDefaults];
+    [config setObject:value forKey:@"chartHotKey"];
+    [config synchronize];
+}
+
 @end

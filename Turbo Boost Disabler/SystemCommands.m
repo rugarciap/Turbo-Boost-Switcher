@@ -29,6 +29,7 @@
 #include <stdlib.h>
 
 #include <IOKit/IOKitLib.h>
+#include <IOKit/Kext/Kextmanager.h>
 
 #include "smc.h"
 
@@ -46,6 +47,7 @@ int g_keyInfoCacheCount = 0;
 OSSpinLock g_keyInfoSpinLock = 0;
 static NSArray *allSensors = nil;
 static NSString *currentSensor = nil;
+static NSArray *arrayWithBundleId = nil;
 
 kern_return_t SMCCall2(int index, SMCKeyData_t *inputStructure, SMCKeyData_t *outputStructure, io_connect_t conn);
 
@@ -248,16 +250,19 @@ int SMCGetFanSpeed(char *key)
         // read succeeded - check returned value
         if (val.dataSize > 0) {
             if (strcmp(val.dataType, DATATYPE_FPE2) == 0) {
-
                 int intValue = (val.bytes[0] * 256 + val.bytes[1]) >> 2;
                 return intValue;
+            // New Macbooks 2018 uses float values
+            } else if (strcmp(val.dataType, DATATYPE_FLOAT) == 0) {
+                float floatValue;
+                memcpy(&floatValue, val.bytes, sizeof(float));
+                return (int) floatValue;
             }
         }
     }
     // read failed
     return 0;
 }
-
 
 @implementation SystemCommands
 
@@ -279,6 +284,9 @@ int SMCGetFanSpeed(char *key)
     OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
                                                    [path UTF8String], kAuthorizationFlagDefaults, myArguments,
                                                    &myCommunicationsPipe);
+    int status;
+    wait(&status);
+    
     if (resultStatus != errAuthorizationSuccess)
         NSLog(@"Error: %d", resultStatus);
     
@@ -346,6 +354,22 @@ int SMCGetFanSpeed(char *key)
         return [SystemCommands is32bitsNewOS];
     } else if ([osVersion rangeOfString:@"10.12"].location != NSNotFound) {
         return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.13"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.14"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.15"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.16"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"10.17"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"11"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"12"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
+    } else if ([osVersion rangeOfString:@"13"].location != NSNotFound) {
+        return [SystemCommands is32bitsNewOS];
     } else {
         return [SystemCommands is32bitsOldOS];
     }
@@ -353,16 +377,22 @@ int SMCGetFanSpeed(char *key)
 
 + (BOOL) isModuleLoaded {
     
-    NSString *osVersion = [SystemCommands getOSVersion];
-    if ([osVersion rangeOfString:@"10.10"].location != NSNotFound) {
-        return [SystemCommands isModuleLoadedNewOS];
-    } else if ([osVersion rangeOfString:@"10.11"].location != NSNotFound) {
-        return [SystemCommands isModuleLoadedNewOS];
-    } else if ([osVersion rangeOfString:@"10.12"].location != NSNotFound) {
-        return [SystemCommands isModuleLoadedNewOS];
-    } else {
-        return [SystemCommands isModuleLoadedOldOS];
+    NSMutableArray *arrayTmp = [[NSMutableArray alloc] init];
+    [arrayTmp addObject:@"com.rugarciap.DisableTurboBoost"];
+    
+    CFArrayRef arrayRef = (__bridge CFArrayRef)arrayTmp;
+ 
+    CFDictionaryRef kextsFound = KextManagerCopyLoadedKextInfo(arrayRef, NULL);
+    long count = CFDictionaryGetCount(kextsFound);
+    
+    if (kextsFound) {
+        CFRelease(kextsFound);
     }
+    
+    arrayTmp = nil;
+    
+    return count > 0;
+    
 }
 
 
@@ -440,7 +470,7 @@ int SMCGetFanSpeed(char *key)
     
     NSString *grepOutput = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
     
-    if ((grepOutput == nil) || ([grepOutput length] == 0)){
+    if ((grepOutput == nil) || ([grepOutput length] == 0)){
         return NO;
     }
     return YES;
@@ -471,24 +501,23 @@ int SMCGetFanSpeed(char *key)
 
 // Get the module path depending on arch
 + (NSString *) getModulePath:(BOOL) is32bits {
-    NSString *modulePath;
     
-    // Cargamos el módulo de 32 bits o no dependiendo de la ruta
+    NSString *bundlePathValue = [[[NSBundle mainBundle] bundlePath] stringByDeletingLastPathComponent];
+    
+    // Load path depending on architecture
+    NSString *finalPath = [[bundlePathValue stringByAppendingPathComponent:@"tbswitcher_resources"] stringByAppendingPathComponent:@"DisableTurboBoost.64bits.kext"];
+    
     if (is32bits) {
-        modulePath = [[NSBundle mainBundle] pathForResource:@"DisableTurboBoost.32bits" ofType:@"kext"];
-    } else {
-        modulePath = [[NSBundle mainBundle] pathForResource:@"DisableTurboBoost.64bits" ofType:@"kext"];
+        finalPath = [[bundlePathValue stringByAppendingPathComponent:@"tbswitcher_resources"] stringByAppendingPathComponent:@"DisableTurboBoost.32bits.kext"];
     }
-    return modulePath;
-    //return [modulePath stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+    
+    return finalPath;
 }
 
 + (BOOL) loadModuleWithAuthRef:(AuthorizationRef) authRef {
     
     BOOL is32bits = [self is32bits];
- 
     NSString *modulePath = [self getModulePath:is32bits];
-    
     return [self loadModuleWithPath:modulePath andAuthRef:authRef];
 }
 
@@ -496,9 +525,7 @@ int SMCGetFanSpeed(char *key)
 + (BOOL) unLoadModuleWithAuthRef:(AuthorizationRef) authRef {
     
     BOOL is32bits = [self is32bits];
-    
     NSString *modulePath = [self getModulePath:is32bits];
-    
     return [self unloadModuleWithPath:modulePath andAuthRef:authRef];
 }
 
@@ -560,6 +587,88 @@ int SMCGetFanSpeed(char *key)
     
     SMCClose(conn);
     return fanSpeed;
+}
+
+// 2.12.0 - Reac CPU Frequency
++ (float) readCurrentCpuFreqWithAuthRef:(AuthorizationRef) authRef {
+    
+    // sudo powermetrics -n 1 -i 10 | grep "System Average"
+    NSArray *args = [NSArray arrayWithObjects:@"-c", @"powermetrics -n 1 -i 10 |grep 'System Average'", nil];
+    
+    FILE *myCommunicationsPipe = NULL;
+    
+    int count = (int)[args count];
+    
+    char *myArguments[count+1];
+    
+    for (int i=0; i<[args count]; i++) {
+        myArguments[i] = (char *)[(NSString *)[args objectAtIndex:i] UTF8String];
+    }
+    myArguments[count] = NULL;
+    
+    OSStatus resultStatus = AuthorizationExecuteWithPrivileges (authRef,
+                                                   [@"/bin/sh" UTF8String], kAuthorizationFlagDefaults, myArguments,
+                                                   &myCommunicationsPipe);
+    int status;
+    wait(&status);
+    
+    if (resultStatus != errAuthorizationSuccess) {
+        NSLog(@"Error: %d", resultStatus);
+        return -1.0f;
+        
+    } else {
+        
+        NSFileHandle *fHandle = [[NSFileHandle alloc] initWithFileDescriptor:fileno(myCommunicationsPipe)];
+        
+        NSData *data = [fHandle readDataToEndOfFile];
+        
+        [fHandle closeFile];
+        
+        NSString *dataAsStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+        NSRange startRange = [dataAsStr rangeOfString:@"("];
+        NSRange endRange = [dataAsStr rangeOfString:@")"];
+        
+        if (startRange.location != NSNotFound && endRange.location != NSNotFound) {
+            
+            NSRange finalRange = NSMakeRange(startRange.location+1, endRange.location - startRange.location);
+            
+            NSString *substr = [dataAsStr substringWithRange:finalRange];
+
+            NSString *finalValueStr = [substr componentsSeparatedByString:@" "][0];
+            
+            return [finalValueStr floatValue] / 1000.0f;
+        }
+        return 0.0f;
+    }
+    
+}
+
+// Get base frequency as GHz
++ (float) getBaseFreq {
+    
+    NSPipe *pipe = [NSPipe pipe];
+    NSFileHandle *file = pipe.fileHandleForReading;
+    
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/bin/sh";
+    task.arguments = @[@"-c", @"sysctl hw.cpufrequency"];
+    task.standardOutput = pipe;
+    
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    [file closeFile];
+    
+    NSString *output = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    
+    if ([output rangeOfString:@"hw.cpufrequency:"].location != NSNotFound) {
+        NSString *freqHzAsString = [[output componentsSeparatedByString:@": "] objectAtIndex:1];
+        float freqGHz = [freqHzAsString floatValue] / 1000000000.0f;
+        return freqGHz;
+    }
+    
+    return 0.0f;
 }
 
 
