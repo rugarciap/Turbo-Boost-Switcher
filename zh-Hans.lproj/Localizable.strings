@@ -14,7 +14,7 @@
 "open_login" = "在登录时打开";
 "disable_login" = "在启动时禁用";
 "settings" = "设置:";
-"donate" = "Donate...";
+"donate" = "捐赠...";
 "about" = "关于应用程序...";
 "about_title" = "关于应用程序";
 "quit" = "退出";
@@ -28,21 +28,21 @@
 
 "btn_cancel" = "取消";
 "btn_download" = "下载";
-"btn_close" = "关";
+"btn_close" = "关闭";
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
-"license" = "执照：";
+"donate_msg" = "如果你喜欢这个程序, 请考虑捐赠支持一下, 谢谢!";
+"license" = "授权码：";
 
 "checkUpdates" = "启动时检查";
 
-"etq_like_app_pro" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！";
-"btn_pro" = "Go Pro!";
+"etq_like_app_pro" = "你喜欢这个程序吗？ 可以考虑通过PRO版本获取更多帮助！ 谢谢！";
+"btn_pro" = "获取 Pro!";
 
-"alert_later" = "后来";
+"alert_later" = "以后再说";
 "alert_never_show_again" = "不再显示此信息";
-"alert_text" = "你喜欢的应用程序吗？ 考虑通过获得PRO版本帮助！ 谢谢！ :)";
+"alert_text" = "你喜欢这个程序吗？ 可以考虑通过PRO版本获取更多帮助！ 谢谢！ :)";
 "alert_informative_text" = "Going PRO 将启用一些很酷的自动功能，只需输入一次 root 密码、通知、永久免费更新等等！";
 
 // Language
@@ -68,9 +68,9 @@
 "lblTemperature" = "温度";
 "lblFanSpeed" = "风扇转速";
 "lblTbEnabled" = "TB 启用";
-"lblTbDisabled" = "TB 残, 痡";
+"lblTbDisabled" = "TB 禁用";
 "menuCharting" = "图表...";
-"titCharting" = "图表";
+"titCharting" = "温度 & 转速图表";
 
 "sliderRefreshTimeLabel" = "刷新率: %lds";
 
@@ -78,9 +78,9 @@
 "alert_kext_missing_detail" = "请再次打开dmg，然后将其中包含的tbswitcher_resources文件夹拖到/Applications文件夹（或安装该应用程序的文件夹）中，以便该应用可以打开。\n\n该发行版随附的帮助文件中的更多信息。 谢谢！";
 "lblHelp" = "帮帮我...";
 
-"lblTB" = "启用/禁用 Turbo Boost hotkey";
-"lblChart" = "图表 hotkey";
-"checkEnableHotkeys" = "Hotkeys 启用";
+"lblTB" = "启用/禁用 Turbo Boost";
+"lblChart" = "图表";
+"checkEnableHotkeys" = "快捷键已启用";
 "hotKeyValidateKo" = "热键必须至少有一个修饰符（ctrl、shift 和/或 cmd）和一个主键。";
 
 "lblCpuLoad" = "CPU负载";
