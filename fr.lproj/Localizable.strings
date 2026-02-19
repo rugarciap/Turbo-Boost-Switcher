@@ -14,7 +14,7 @@
 "open_login" = "Ouvrir à la connexion";
 "disable_login" = "Désactiver TB au lancement";
 "settings" = "Paramètres:";
-"donate" = "Donate...";
+"donate" = "Faire un don...";
 "about" = "À propos de...";
 "about_title" = "À propos de";
 "quit" = "Quitter Turbo Boost Switcher";
@@ -32,12 +32,12 @@
 
 "author" = "Copyright (c) 2016 Rubén García Pérez";
 "web" = "rugarciap.com";
-"donate_msg" = "If you like this program, please, consider making a donation. Thanks!";
+"donate_msg" = "Si vous aimez cette application, pensez s'il vous plait à faire un don, merci !";
 "license" = "Licence:";
 
 "checkUpdates" = "Vérifier au démarrage";
 
-"etq_like_app_pro" = "Aimez-vous l'application? Pensez à vous aider en obtenant la version PRO! Merci!";
+"etq_like_app_pro" = "Vous aimez l'application ? Pensez à nous aider en obtenant la version PRO! Merci!";
 "btn_pro" = "Go Pro!";
 
 "alert_later" = "Plus tard";
