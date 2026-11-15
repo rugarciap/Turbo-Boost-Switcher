@@ -88,6 +88,7 @@ Thanks to:
 
 Reporting Issues:
 ===========
+First, thanks for NOT ADDING clones/LLM software and bulls....ads to issues. Any comments promoting AI apps and other AI stuff will be removed. You want to contribute? make a pull request with original and reviewed changes. Thanks :).
 
 Before opening issues, make sure you read the project faqs (https://www.rugarciap.com/faqs/), other issues openend and answered, etc.
 
